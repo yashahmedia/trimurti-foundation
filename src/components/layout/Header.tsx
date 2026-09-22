@@ -35,7 +35,7 @@ export default function Header() {
       {navigation.map((item) => {
         const isCurrent = pathname === item.href;
 
-        if (item.label === "Our Media") {
+        if (item.children && item.children.length > 0) {
           return (
             <div key={item.href} className="nav-dropdown">
               <details className="nav-dropdown-details">
@@ -44,9 +44,9 @@ export default function Header() {
                   <ChevronDown size={12} />
                 </summary>
                 <div className="nav-dropdown-menu">
-                  {item.children?.map((child) => (
+                  {item.children.map((child) => (
                     <Link
-                      key={child.href}
+                      key={`${item.href}-${child.href}-${child.label}`}
                       href={child.href}
                       onClick={mobile ? closeMobileMenu : undefined}
                     >
