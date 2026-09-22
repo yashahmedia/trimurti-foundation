@@ -258,6 +258,7 @@ img {
 }
 .brand-tagline {
   margin-top: 18px;
+  padding-bottom: 30px;
   color: var(--text-dark);
   text-transform: uppercase;
   text-align: center;
