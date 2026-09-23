@@ -5,19 +5,37 @@ import Link from "next/link";
 import { useRef } from "react";
 import { usePathname } from "next/navigation";
 import {
-  ArrowRight,
   BriefcaseBusiness,
+  BookOpenText,
+  Building2,
+  CalendarDays,
   Camera,
   ChevronDown,
+  Compass,
   Globe,
-  Heart,
+  GraduationCap,
+  HandHeart,
+  Handshake,
+  HeartPulse,
   Home,
+  ImageIcon,
+  Landmark,
+  Leaf,
   Mail,
   MapPin,
+  Megaphone,
   Menu,
+  Music4,
   Play,
+  ShieldCheck,
+  Sparkles,
+  UtensilsCrossed,
+  Users,
+  UserPlus,
+  Video,
   X,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { navigation } from "@/data/navigation";
 import { site } from "@/config/site";
 import LuxuryDivider from "@/components/LuxuryDivider";
@@ -25,6 +43,36 @@ import LuxuryDivider from "@/components/LuxuryDivider";
 export default function Header() {
   const dialog = useRef<HTMLDialogElement>(null);
   const pathname = usePathname();
+
+  const dropdownIcons: Record<string, LucideIcon> = {
+    foundation: Building2,
+    founder: Users,
+    journey: Compass,
+    mission: Sparkles,
+    governance: ShieldCheck,
+    team: BriefcaseBusiness,
+    education: GraduationCap,
+    healthcare: HeartPulse,
+    nutrition: UtensilsCrossed,
+    elderly: HandHeart,
+    environment: Leaf,
+    culture: Landmark,
+    temple: Landmark,
+    gurukul: GraduationCap,
+    heritage: Landmark,
+    events: Music4,
+    volunteer: Users,
+    event: CalendarDays,
+    sponsor: GraduationCap,
+    professionals: Handshake,
+    business: BriefcaseBusiness,
+    professional: Users,
+    businessconnect: BriefcaseBusiness,
+    image: ImageIcon,
+    video: Video,
+    campaign: Megaphone,
+    knowledge: BookOpenText,
+  };
 
   const closeMobileMenu = () => {
     dialog.current?.close();
@@ -44,15 +92,23 @@ export default function Header() {
                   <ChevronDown size={12} />
                 </summary>
                 <div className="nav-dropdown-menu">
-                  {item.children.map((child) => (
-                    <Link
-                      key={`${item.href}-${child.href}-${child.label}`}
-                      href={child.href}
-                      onClick={mobile ? closeMobileMenu : undefined}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
+                  {item.children.map((child) => {
+                    const Icon = dropdownIcons[child.icon ?? "foundation"];
+
+                    return (
+                      <Link
+                        key={`${item.href}-${child.href}-${child.label}`}
+                        href={child.href}
+                        onClick={mobile ? closeMobileMenu : undefined}
+                        className="nav-dropdown-item"
+                      >
+                        <span className="nav-dropdown-icon">
+                          <Icon size={16} />
+                        </span>
+                        <span>{child.label}</span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </details>
             </div>
@@ -118,10 +174,8 @@ export default function Header() {
               {renderNavLinks(false)}
             </nav>
             <div className="nav-cta-group">
-              <Link href="/donate" className="nav-donate">
-                <Heart size={15} />
-                <span>Donate</span>
-                <ArrowRight size={15} />
+              <Link href="/register" className="nav-signup-button" aria-label="Sign up" title="Sign up">
+                <UserPlus size={18} />
               </Link>
               <button
                 type="button"
@@ -173,10 +227,8 @@ export default function Header() {
         </div>
         <nav aria-label="Mobile navigation" className="mobile-nav">
           {renderNavLinks(true)}
-          <Link href="/donate" className="nav-donate mobile-nav-donate" onClick={closeMobileMenu}>
-            <Heart size={15} />
-            <span>Donate</span>
-            <ArrowRight size={15} />
+          <Link href="/register" className="nav-signup-button mobile-nav-donate" onClick={closeMobileMenu} aria-label="Sign up" title="Sign up">
+            <UserPlus size={18} />
           </Link>
         </nav>
       </dialog>
