@@ -4511,8 +4511,21 @@ button:disabled {
   .initiative-card-copy strong { font-size: 11px; }
   .initiative-card-copy span { font-size: 9px; }
   .initiative-slider-frame { aspect-ratio: 16 / 9; border-radius: 20px; }
-  .initiative-slide-content { right: 20px; bottom: 76px; left: 20px; }
-  .initiative-slide-content h2 { font-size: 32px; }
-  .initiative-slide-content > span { font-size: 12px; }
-  .initiative-slider-controls { right: 14px; bottom: 14px; left: 14px; justify-content: space-between; }
+  .initiative-slide-content { right: 16px; bottom: 64px; left: 16px; }
+  .initiative-slide-content p { margin-bottom: 2px; }
+  .initiative-slide-content h2 { font-size: 24px; line-height: 1.1; }
+  .initiative-slide-content > span { margin-top: 4px; font-size: 10px; }
+  .initiative-slide-content a { margin-top: 8px; }
+  .initiative-slider-controls {
+    right: auto;
+    bottom: 14px;
+    left: 50%;
+    gap: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    backdrop-filter: none;
+    transform: translateX(-50%);
+  }
+  .initiative-slider-controls > button { display: none; }
 }
