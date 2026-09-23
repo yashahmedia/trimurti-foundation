@@ -583,7 +583,10 @@ img {
   background: transparent;
   border: 0;
   color: var(--navy);
-  font: inherit;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
   letter-spacing: 0;
   transition: color 0.2s ease;
 }
