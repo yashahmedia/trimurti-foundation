@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
-  BriefcaseBusiness,
   BookOpenText,
+  BriefcaseBusiness,
   Building2,
   CalendarDays,
   Camera,
@@ -40,99 +40,264 @@ import { navigation } from "@/data/navigation";
 import { site } from "@/config/site";
 import LuxuryDivider from "@/components/LuxuryDivider";
 
+const dropdownIcons: Record<string, LucideIcon> = {
+  foundation: Building2,
+  founder: Users,
+  journey: Compass,
+  mission: Sparkles,
+  governance: ShieldCheck,
+  team: BriefcaseBusiness,
+  education: GraduationCap,
+  healthcare: HeartPulse,
+  nutrition: UtensilsCrossed,
+  elderly: HandHeart,
+  environment: Leaf,
+  culture: Landmark,
+  temple: Landmark,
+  gurukul: GraduationCap,
+  heritage: Landmark,
+  events: Music4,
+  volunteer: Users,
+  event: CalendarDays,
+  sponsor: GraduationCap,
+  professionals: Handshake,
+  business: BriefcaseBusiness,
+  professional: Users,
+  businessconnect: BriefcaseBusiness,
+  image: ImageIcon,
+  video: Video,
+  campaign: Megaphone,
+  knowledge: BookOpenText,
+};
+
 export default function Header() {
   const dialog = useRef<HTMLDialogElement>(null);
+  const navRef = useRef<HTMLElement | null>(null);
+  const closeTimerRef = useRef<number | null>(null);
   const pathname = usePathname();
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileAccordionOpen, setMobileAccordionOpen] = useState<string | null>(null);
 
-  const dropdownIcons: Record<string, LucideIcon> = {
-    foundation: Building2,
-    founder: Users,
-    journey: Compass,
-    mission: Sparkles,
-    governance: ShieldCheck,
-    team: BriefcaseBusiness,
-    education: GraduationCap,
-    healthcare: HeartPulse,
-    nutrition: UtensilsCrossed,
-    elderly: HandHeart,
-    environment: Leaf,
-    culture: Landmark,
-    temple: Landmark,
-    gurukul: GraduationCap,
-    heritage: Landmark,
-    events: Music4,
-    volunteer: Users,
-    event: CalendarDays,
-    sponsor: GraduationCap,
-    professionals: Handshake,
-    business: BriefcaseBusiness,
-    professional: Users,
-    businessconnect: BriefcaseBusiness,
-    image: ImageIcon,
-    video: Video,
-    campaign: Megaphone,
-    knowledge: BookOpenText,
+  const clearCloseTimer = () => {
+    if (closeTimerRef.current) {
+      window.clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
   };
 
-  const closeMobileMenu = () => {
-    dialog.current?.close();
+  const closeAllMenus = () => {
+    clearCloseTimer();
+    setActiveMenu(null);
+    setMobileAccordionOpen(null);
+    setMobileMenuOpen(false);
   };
 
-  const renderNavLinks = (mobile = false) => (
-    <>
-      {navigation.map((item) => {
-        const isCurrent = pathname === item.href;
+  useEffect(() => {
+    closeAllMenus();
+  }, [pathname]);
 
-        if (item.children && item.children.length > 0) {
-          return (
-            <div key={item.href} className="nav-dropdown">
-              <details className="nav-dropdown-details">
-                <summary>
-                  <span>{item.label}</span>
-                  <ChevronDown size={12} />
-                </summary>
-                <div className="nav-dropdown-menu">
-                  {item.children.map((child) => {
-                    const Icon = dropdownIcons[child.icon ?? "foundation"];
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (navRef.current && !navRef.current.contains(target)) {
+        setActiveMenu(null);
+      }
+    };
 
-                    return (
-                      <Link
-                        key={`${item.href}-${child.href}-${child.label}`}
-                        href={child.href}
-                        onClick={mobile ? closeMobileMenu : undefined}
-                        className="nav-dropdown-item"
-                      >
-                        <span className="nav-dropdown-icon">
-                          <Icon size={16} />
-                        </span>
-                        <span>{child.label}</span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </details>
-            </div>
-          );
-        }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveMenu(null);
+        setMobileAccordionOpen(null);
+        setMobileMenuOpen(false);
+      }
+    };
 
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            onClick={mobile ? closeMobileMenu : undefined}
-            aria-current={isCurrent ? "page" : undefined}
-            className={`nav-item ${isCurrent ? "is-active" : ""}`}
-          >
-            {item.label === "Home" ? <Home size={15} /> : null}
-            {item.label}
-          </Link>
-        );
-      })}
-    </>
-  );
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (dialog.current) {
+      if (mobileMenuOpen) {
+        dialog.current.showModal();
+      } else if (dialog.current.open) {
+        dialog.current.close();
+      }
+    }
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
+  const handleDesktopMenuEnter = (label: string) => {
+    clearCloseTimer();
+    setActiveMenu(label);
+  };
+
+  const handleDesktopMenuLeave = () => {
+    clearCloseTimer();
+    closeTimerRef.current = window.setTimeout(() => {
+      setActiveMenu(null);
+    }, 180);
+  };
+
+  const toggleDesktopMenu = (label: string) => {
+    setActiveMenu((current) => (current === label ? null : label));
+  };
+
+  const closeMenuAndDrawer = () => {
+    setActiveMenu(null);
+    setMobileAccordionOpen(null);
+    setMobileMenuOpen(false);
+    if (dialog.current?.open) {
+      dialog.current.close();
+    }
+  };
+
+  const renderDesktopItem = (item: (typeof navigation)[number]) => {
+    const hasChildren = Boolean(item.children?.length);
+    const isCurrent = pathname === item.href;
+    const isActive = activeMenu === item.label;
+
+    if (!hasChildren) {
+      return (
+        <Link
+          key={item.href}
+          href={item.href}
+          aria-current={isCurrent ? "page" : undefined}
+          className={`nav-item ${isCurrent ? "is-active" : ""}`}
+        >
+          {item.label === "Home" ? <Home size={15} /> : null}
+          <span>{item.label}</span>
+        </Link>
+      );
+    }
+
+    const children = item.children ?? [];
+
+    return (
+      <div
+        key={item.href}
+        className={`nav-dropdown ${isActive ? "is-open" : ""}`}
+        onMouseEnter={() => handleDesktopMenuEnter(item.label)}
+        onMouseLeave={handleDesktopMenuLeave}
+      >
+        <button
+          type="button"
+          className={`nav-item nav-trigger ${isCurrent ? "is-active" : ""}`}
+          onClick={() => toggleDesktopMenu(item.label)}
+          onFocus={() => handleDesktopMenuEnter(item.label)}
+          aria-expanded={isActive}
+          aria-haspopup="menu"
+          aria-controls={`submenu-${item.label}`}
+        >
+          <span>{item.label}</span>
+          <ChevronDown size={12} className={`nav-chevron ${isActive ? "is-open" : ""}`} />
+        </button>
+
+        <div
+          id={`submenu-${item.label}`}
+          className={`nav-dropdown-menu ${isActive ? "is-open" : ""}`}
+          role="menu"
+          aria-label={`${item.label} submenu`}
+          onMouseEnter={() => clearCloseTimer()}
+          onMouseLeave={handleDesktopMenuLeave}
+        >
+          {children.map((child) => {
+            const Icon = dropdownIcons[child.icon ?? "foundation"];
+            return (
+              <Link
+                key={`${item.href}-${child.href}-${child.label}`}
+                href={child.href}
+                className="nav-dropdown-item"
+                role="menuitem"
+                onClick={closeMenuAndDrawer}
+              >
+                <span className="nav-dropdown-icon">
+                  <Icon size={16} />
+                </span>
+                <span className="nav-dropdown-text-wrap">
+                  <span className="nav-dropdown-label">{child.label}</span>
+                  {child.description ? <span className="nav-dropdown-description">{child.description}</span> : null}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
+  const renderMobileItem = (item: (typeof navigation)[number]) => {
+    const hasChildren = Boolean(item.children?.length);
+    const isCurrent = pathname === item.href;
+    const isOpen = mobileAccordionOpen === item.label;
+
+    if (!hasChildren) {
+      return (
+        <Link
+          key={item.href}
+          href={item.href}
+          onClick={closeMenuAndDrawer}
+          aria-current={isCurrent ? "page" : undefined}
+          className={`nav-item mobile-link ${isCurrent ? "is-active" : ""}`}
+        >
+          {item.label === "Home" ? <Home size={15} /> : null}
+          <span>{item.label}</span>
+        </Link>
+      );
+    }
+
+    const children = item.children ?? [];
+
+    return (
+      <div key={item.href} className="mobile-accordion-item">
+        <button
+          type="button"
+          className={`nav-item mobile-accordion-trigger ${isCurrent ? "is-active" : ""}`}
+          aria-expanded={isOpen}
+          onClick={() => setMobileAccordionOpen((current) => (current === item.label ? null : item.label))}
+        >
+          <span>{item.label}</span>
+          <ChevronDown size={12} className={`nav-chevron ${isOpen ? "is-open" : ""}`} />
+        </button>
+
+        <div className={`mobile-submenu ${isOpen ? "is-open" : ""}`}>
+          <div className="mobile-submenu-inner">
+            {children.map((child) => {
+              const Icon = dropdownIcons[child.icon ?? "foundation"];
+              return (
+                <Link
+                  key={`${item.href}-${child.href}-${child.label}`}
+                  href={child.href}
+                  onClick={closeMenuAndDrawer}
+                  className="mobile-submenu-item"
+                >
+                  <span className="nav-dropdown-icon">
+                    <Icon size={16} />
+                  </span>
+                  <span>{child.label}</span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <header className="site-header">
+    <header className="site-header" ref={navRef}>
       <div className="top-utility-bar">
         <div className="container top-utility-inner">
           <div className="utility-meta">
@@ -171,7 +336,7 @@ export default function Header() {
         <div className="container nav-shell-wrapper-inner">
           <div className="nav-shell">
             <nav aria-label="Main navigation" className="desktop-nav">
-              {renderNavLinks(false)}
+              {navigation.map(renderDesktopItem)}
             </nav>
             <div className="nav-cta-group">
               <Link href="/register" className="nav-signup-button" aria-label="Sign up" title="Sign up">
@@ -181,7 +346,7 @@ export default function Header() {
                 type="button"
                 className="mobile-toggle"
                 aria-label="Open navigation menu"
-                onClick={() => dialog.current?.showModal()}
+                onClick={() => setMobileMenuOpen(true)}
               >
                 <Menu size={18} />
                 <span>Menu</span>
@@ -216,18 +381,20 @@ export default function Header() {
         ref={dialog}
         className="mobile-menu"
         onClick={(event) => {
-          if (event.target === event.currentTarget) closeMobileMenu();
+          if (event.target === event.currentTarget) {
+            setMobileMenuOpen(false);
+          }
         }}
       >
         <div className="mobile-menu-header">
           <span>Menu</span>
-          <button type="button" className="icon-button" aria-label="Close navigation" onClick={closeMobileMenu}>
+          <button type="button" className="icon-button" aria-label="Close navigation" onClick={() => setMobileMenuOpen(false)}>
             <X size={18} />
           </button>
         </div>
         <nav aria-label="Mobile navigation" className="mobile-nav">
-          {renderNavLinks(true)}
-          <Link href="/register" className="nav-signup-button mobile-nav-donate" onClick={closeMobileMenu} aria-label="Sign up" title="Sign up">
+          {navigation.map(renderMobileItem)}
+          <Link href="/register" className="nav-signup-button mobile-nav-donate" onClick={closeMenuAndDrawer} aria-label="Sign up" title="Sign up">
             <UserPlus size={18} />
           </Link>
         </nav>
