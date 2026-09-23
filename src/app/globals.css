@@ -992,8 +992,9 @@ img {
   }
 
   .nav-cta-group {
-    width: auto;
-    justify-content: flex-end;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
     gap: 10px;
   }
 
@@ -1026,7 +1027,7 @@ img {
   }
 
   .nav-cta-group {
-    width: auto;
+    width: 100%;
     gap: 8px;
   }
 }

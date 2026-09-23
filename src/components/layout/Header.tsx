@@ -303,12 +303,12 @@ export default function Header() {
           <div className="utility-meta">
             <span className="utility-item">
               <MapPin size={14} />
-              <span>New Delhi, India</span>
+              <span>{site.address}</span>
             </span>
             <span className="utility-divider" aria-hidden="true" />
             <span className="utility-item">
               <Mail size={14} />
-              <span>info@trimurthifoundation.org</span>
+              <span>{site.email}</span>
             </span>
           </div>
 
