@@ -992,8 +992,9 @@ img {
   }
 
   .nav-cta-group {
-    width: 100%;
-    justify-content: space-between;
+    width: auto;
+    justify-content: flex-end;
+    gap: 10px;
   }
 
   .mobile-toggle {
@@ -1022,6 +1023,11 @@ img {
   .mobile-toggle {
     height: 40px;
     padding: 0 12px;
+  }
+
+  .nav-cta-group {
+    width: auto;
+    gap: 8px;
   }
 }
 
@@ -4457,24 +4463,54 @@ button:disabled {
 }
 @media (max-width: 560px) {
   .initiative-hero { padding: 38px 12px 42px; }
-  .initiative-hero-copy h1 { font-size: 34px; }
-  .initiative-hero-intro { font-size: 13px; }
-  .initiative-grid {
+  .initiative-hero-inner {
+    display: flex !important;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .initiative-hero-copy {
     display: flex;
+    flex-direction: column;
+  }
+  .initiative-slider {
+    order: -1 !important;
+    width: 100%;
+  }
+  .initiative-hero-eyebrow {
+    margin-top: 4px;
+  }
+  .initiative-hero-copy h1 {
+    font-size: 34px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .initiative-hero-intro {
+    max-width: 100%;
+    font-size: 13px;
+  }
+  .initiative-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
-    margin-right: -12px;
-    margin-left: -12px;
-    overflow-x: auto;
-    padding: 4px 12px 12px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
-  .initiative-grid::-webkit-scrollbar { display: none; }
   .initiative-card {
-    flex: 0 0 min(82vw, 290px);
-    scroll-snap-align: start;
+    grid-template-columns: 30px minmax(0, 1fr) 14px;
+    gap: 7px;
+    min-height: 112px;
+    padding: 12px 9px;
+    border-radius: 16px;
   }
-  .initiative-slider-frame { aspect-ratio: 4 / 5; border-radius: 20px; }
+  .initiative-card-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .initiative-card-icon svg { width: 18px; height: 18px; }
+  .initiative-card-copy strong { font-size: 11px; }
+  .initiative-card-copy span { font-size: 9px; }
+  .initiative-slider-frame { aspect-ratio: 16 / 9; border-radius: 20px; }
   .initiative-slide-content { right: 20px; bottom: 76px; left: 20px; }
   .initiative-slide-content h2 { font-size: 32px; }
   .initiative-slide-content > span { font-size: 12px; }
