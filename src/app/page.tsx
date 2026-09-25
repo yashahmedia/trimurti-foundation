@@ -39,6 +39,10 @@ export default function Home() {
             <div>
               <p className="eyebrow">What we stand for</p>
               <h2>Programs built around real human needs</h2>
+              <p>
+                We focus on creating lasting change through accessible programs
+                that support individuals, families and communities.
+              </p>
             </div>
             <Link href="/about-us" className="text-link">
               Learn about our mission <ArrowUpRight size={16} />
