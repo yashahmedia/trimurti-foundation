@@ -19,11 +19,17 @@ import TrimurthyPhilosophy from "@/components/home/TrimurthyPhilosophy";
 import TransformALife from "@/components/home/TransformALife";
 import Gallery from "@/components/media/Gallery";
 import EventList from "@/components/events/EventList";
+import EventsCampaigns from "@/components/sections/EventsCampaigns";
+import DonateNow from "@/components/sections/DonateNow";
+import TrimurtiFamily from "@/components/sections/TrimurtiFamily";
+import TrimurtiConnect from "@/components/sections/TrimurtiConnect";
+import TestimonialsSection from "@/components/sections/Testimonials";
+import OurPresence from "@/components/sections/OurPresence";
 import { events, demoEvents } from "@/data/events";
 import { photos } from "@/data/media";
 import { latestUpdates } from "@/data/updates";
 import { seo } from "@/lib/seo";
-export const metadata = seo("Compassion in action. Hope for everyone.", "/");
+export const metadata = seo("Trimurti Foundation", "/");
 export default function Home() {
   return (
     <>
@@ -154,6 +160,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <EventsCampaigns />
+      <DonateNow />
+      <TrimurtiFamily />
+      <TrimurtiConnect />
+      <TestimonialsSection />
+      <OurPresence />
       <section className="section">
         <div className="container">
           <div className="section-heading">
