@@ -372,7 +372,6 @@ export default function Header() {
           <LuxuryDivider animated />
 
           <p className="brand-tagline" aria-label="Foundation tagline">
-            <span className="brand-tagline-lead">Compassion in action</span>
             <span className="brand-tagline-line" aria-hidden="true" />
             <span className="brand-tagline-main">
               <span>Connecting people</span>
