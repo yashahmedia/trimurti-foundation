@@ -16,148 +16,23 @@ import Services from "@/components/home/Services";
 import Testimonials from "@/components/home/Testimonials";
 import LatestUpdates from "@/components/home/LatestUpdates";
 import HeroSlider from "@/components/home/HeroSlider";
+import WhoWeAre from "@/components/home/WhoWeAre";
+import TrimurthyPhilosophy from "@/components/home/TrimurthyPhilosophy";
+import TransformALife from "@/components/home/TransformALife";
 import Gallery from "@/components/media/Gallery";
 import EventList from "@/components/events/EventList";
 import { events, demoEvents } from "@/data/events";
-import { about } from "@/data/about";
 import { photos } from "@/data/media";
 import { latestUpdates } from "@/data/updates";
-import { Reveal } from "@/components/ui/Reveal";
 import { seo } from "@/lib/seo";
 export const metadata = seo("Compassion in action. Hope for everyone.", "/");
 export default function Home() {
   return (
     <>
       <HeroSlider />
-
-      <div className="hero-feature-wrap">
-        <div className="container hero-feature-grid">
-          {[
-            {
-              icon: Users,
-              number: "01",
-              title: "Engage",
-              text: "Build stronger communities through active participation.",
-              href: "/volunteer",
-            },
-            {
-              icon: HandHeart,
-              number: "02",
-              title: "Empower",
-              text: "Create opportunities for individuals to thrive.",
-              href: "/about-us",
-            },
-            {
-              icon: TrendingUp,
-              number: "03",
-              title: "Elevate",
-              text: "Enable access to better education, health and resources.",
-              href: "/services",
-            },
-            {
-              icon: Leaf,
-              number: "04",
-              title: "Evolve",
-              text: "Foster continuous growth for a stronger tomorrow.",
-              href: "/community",
-            },
-            {
-              icon: BookOpen,
-              number: "05",
-              title: "Enlighten",
-              text: "Spread awareness and inspire change with purpose.",
-              href: "/about-us",
-            },
-          ].map((q) => (
-            <Link className="hero-feature-card" href={q.href} key={q.title}>
-              <span className="hero-feature-number">{q.number}</span>
-              <span className="hero-feature-icon">
-                <q.icon size={28} strokeWidth={1.8} />
-              </span>
-              <h3>{q.title}</h3>
-              <p>{q.text}</p>
-              <span className="hero-feature-arrow">
-                <ArrowUpRight size={16} />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </div>
-      <section className="container section split">
-        <Reveal>
-          <div className="about-image">
-            <Image
-              src="/nourish.png"
-              alt="Illustrative scene of volunteers sharing fresh food with a family"
-              width={650}
-              height={560}
-              sizes="(max-width:640px) 90vw, 45vw"
-            />
-            <div className="image-tag">
-              <Heart size={30} strokeWidth={1.3} />
-              <span>
-                With people.
-                <br />
-                For people.
-              </span>
-            </div>
-          </div>
-        </Reveal>
-        <Reveal>
-          <div className="about-copy">
-            <p className="eyebrow">The heart of Trimurti Foundation</p>
-            <h2>
-              Rooted in care.
-              <br />
-              Growing together.
-            </h2>
-            <p>{about.introduction}</p>
-            <p>
-              From a child’s first lesson to an elder’s helping hand, our
-              purpose is simple: bring compassion into everyday life and create
-              opportunities that last.
-            </p>
-            <div className="about-value-grid">
-              {[
-                {
-                  icon: HandHeart,
-                  title: "Compassion First",
-                  text: "Understanding the people and communities we serve.",
-                },
-                {
-                  icon: Users,
-                  title: "Dignity Always",
-                  text: "Support that respects every individual and helps them move forward.",
-                },
-                {
-                  icon: Heart,
-                  title: "Community Together",
-                  text: "Bringing volunteers, families and supporters together.",
-                },
-                {
-                  icon: Leaf,
-                  title: "Lasting Impact",
-                  text: "Creating opportunities that continue to make a difference.",
-                },
-              ].map((value) => (
-                <div className="about-value-card" key={value.title}>
-                  <span className="about-value-icon">
-                    <value.icon size={19} strokeWidth={1.8} />
-                  </span>
-                  <span className="about-value-content">
-                    <strong>{value.title}</strong>
-                    <span>{value.text}</span>
-                  </span>
-                  <ArrowUpRight className="about-value-arrow" size={16} />
-                </div>
-              ))}
-            </div>
-            <Link href="/about-us" className="text-link">
-              Discover our story <ArrowUpRight size={16} />
-            </Link>
-          </div>
-        </Reveal>
-      </section>
+      <WhoWeAre />
+      <TrimurthyPhilosophy />
+      <TransformALife />
       <section className="section">
         <div className="container">
           <div className="section-heading">
