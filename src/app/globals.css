@@ -3641,6 +3641,25 @@ img {
 .campaign-progress { height: 8px; overflow: hidden; border-radius: 999px; background: #ffffff30; }
 .campaign-progress i { display: block; width: 28%; height: 100%; border-radius: inherit; background: var(--light-gold); }
 .button-light { background: white; color: var(--dark-green); white-space: nowrap; }
+.homepage-section.events-campaigns-section {
+  background: #063f3a;
+}
+.events-campaigns-section .homepage-section-heading .eyebrow {
+  color: var(--light-gold);
+}
+.events-campaigns-section .homepage-section-heading h2 {
+  color: #fff9ec;
+}
+.events-campaigns-section .homepage-section-heading p:not(.eyebrow) {
+  color: rgba(255, 249, 236, 0.78);
+}
+.events-campaigns-section .homepage-section-heading > .text-link {
+  color: #fff9ec;
+  border-color: rgba(229, 186, 88, 0.55);
+}
+.events-campaigns-section .campaign-strip {
+  background: #0d5a4f;
+}
 .donate-now-section { background: #f8f2e7; }
 .donate-now-panel {
   display: grid;
@@ -3948,6 +3967,24 @@ img {
 .connect-card-link:hover {
   border-color: var(--green);
   color: var(--green);
+}
+.homepage-section.connect-section {
+  background: #063f3a;
+}
+.connect-section .connect-heading .eyebrow {
+  color: var(--light-gold);
+}
+.connect-section .connect-heading .eyebrow::after {
+  background: rgba(229, 186, 88, 0.55);
+}
+.connect-section .connect-heading h2 {
+  color: #fff9ec;
+}
+.connect-section .connect-heading p:not(.eyebrow) {
+  color: rgba(255, 249, 236, 0.78);
+}
+.connect-section .connect-decoration {
+  color: #b9cdbb;
 }
 .testimonials-home-section { background: #f7faf5; }
 .testimonial-placeholders article { position: relative; }
@@ -5884,7 +5921,7 @@ button:disabled {
   display: grid;
   grid-template-columns: minmax(360px, 0.68fr) minmax(0, 1.32fr);
   gap: clamp(28px, 4vw, 64px);
-  align-items: center;
+  align-items: stretch;
   width: min(1440px, 100%);
   margin: 0 auto;
 }
@@ -5995,6 +6032,7 @@ button:disabled {
 }
 .initiative-slider-frame {
   position: relative;
+  height: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border-radius: 30px;
@@ -6027,7 +6065,7 @@ button:disabled {
 .initiative-slide-content {
   position: absolute;
   right: clamp(24px, 4vw, 58px);
-  bottom: clamp(26px, 4vw, 54px);
+  bottom: clamp(18px, 3vw, 40px);
   left: clamp(24px, 4vw, 58px);
   color: white;
 }
@@ -6176,7 +6214,11 @@ button:disabled {
   .initiative-hero-copy h1,
   .initiative-hero-intro { max-width: 620px; }
   .initiative-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .initiative-slider-frame { border-radius: 24px; }
+  .initiative-slider-frame {
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border-radius: 24px;
+  }
 }
 @media (max-width: 560px) {
   .initiative-hero { padding: 38px 12px 42px; }
@@ -6228,11 +6270,10 @@ button:disabled {
   .initiative-card-copy strong { font-size: 11px; }
   .initiative-card-copy span { font-size: 9px; }
   .initiative-slider-frame { aspect-ratio: 16 / 9; border-radius: 20px; }
-  .initiative-slide-content { right: 16px; bottom: 64px; left: 16px; }
+  .initiative-slide-content { right: 16px; bottom: 48px; left: 16px; }
   .initiative-slide-content p { margin-bottom: 2px; }
   .initiative-slide-content h2 { font-size: 24px; line-height: 1.1; }
   .initiative-slide-content > span { margin-top: 4px; font-size: 10px; }
-  .initiative-slide-content a { margin-top: 8px; }
   .initiative-slider-controls {
     right: auto;
     bottom: 14px;

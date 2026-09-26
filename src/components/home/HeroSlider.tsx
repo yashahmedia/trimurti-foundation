@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import {
   ArrowUpRight,
   BookOpenText,
@@ -22,7 +21,6 @@ type Initiative = {
   description: string;
   image: string;
   alt: string;
-  href: string;
   icon: LucideIcon;
 };
 
@@ -33,7 +31,6 @@ const initiatives: Initiative[] = [
     description: "Opening doors to learning and opportunity.",
     image: "/education-support.png",
     alt: "Children learning together through Trimurti Foundation support",
-    href: "/services/education",
     icon: BookOpenText,
   },
   {
@@ -42,7 +39,6 @@ const initiatives: Initiative[] = [
     description: "Making compassionate care more accessible.",
     image: "/health support.png",
     alt: "Community healthcare support from Trimurti Foundation",
-    href: "/services/healthcare",
     icon: HeartPulse,
   },
   {
@@ -51,7 +47,6 @@ const initiatives: Initiative[] = [
     description: "Nourishment and dignity for every family.",
     image: "/nourish.png",
     alt: "Food and nourishment assistance for a community family",
-    href: "/services/nutrition",
     icon: UtensilsCrossed,
   },
   {
@@ -60,7 +55,6 @@ const initiatives: Initiative[] = [
     description: "Companionship, care and dignity across generations.",
     image: "/elder support.png",
     alt: "Trimurti Foundation elderly support initiative",
-    href: "/services/elderly-care",
     icon: HandHeart,
   },
   {
@@ -69,7 +63,6 @@ const initiatives: Initiative[] = [
     description: "Greener, healthier and connected communities.",
     image: "/protect.png",
     alt: "Trimurti Foundation community and environment welfare initiative",
-    href: "/services/environment",
     icon: Leaf,
   },
   {
@@ -78,7 +71,6 @@ const initiatives: Initiative[] = [
     description: "Keeping shared traditions alive for generations.",
     image: "/heritage.png",
     alt: "Cultural heritage preservation through Trimurti Foundation",
-    href: "/services/culture-heritage",
     icon: Landmark,
   },
 ];
@@ -186,9 +178,6 @@ export default function HeroSlider() {
                   <p>{initiative.shortTitle}</p>
                   <h2>{initiative.title}</h2>
                   <span>{initiative.description}</span>
-                  <Link href={initiative.href} onClick={() => setIsPaused(true)}>
-                    Explore initiative <ArrowUpRight size={15} />
-                  </Link>
                 </div>
               </div>
             ))}
