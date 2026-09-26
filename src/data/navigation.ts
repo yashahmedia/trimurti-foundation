@@ -38,10 +38,10 @@ export const navigation: NavigationItem[] = [
     href: "/culture-heritage",
     description: "Preserve tradition",
     children: [
-      { label: "Temple Support", href: "/culture-heritage/temple-support", icon: "temple", description: "Community temple care" },
-      { label: "Online Gurukul", href: "/culture-heritage/online-gurukul", icon: "gurukul", description: "Vedic and cultural learning" },
-      { label: "Heritage Preservation", href: "/culture-heritage/heritage-preservation", icon: "heritage", description: "Safeguarding history" },
-      { label: "Cultural Events", href: "/culture-heritage/cultural-events", icon: "events", description: "Festivals and gatherings" },
+      { label: "Temple Support", href: "/culture-heritage#temple-support", icon: "temple", description: "Community temple care" },
+      { label: "Online Gurukul", href: "/culture-heritage#online-gurukul", icon: "gurukul", description: "Vedic and cultural learning" },
+      { label: "Heritage Preservation", href: "/culture-heritage#heritage-preservation", icon: "heritage", description: "Safeguarding history" },
+      { label: "Cultural Events", href: "/culture-heritage#cultural-events", icon: "events", description: "Festivals and gatherings" },
     ],
   },
   {
