@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  Megaphone,
   BookOpenCheck,
   Droplets,
   HeartPulse,
   Landmark,
   Leaf,
   Lightbulb,
-  MapPin,
   Recycle,
   Sprout,
   TreePine,
@@ -93,11 +93,31 @@ const programmes = [
   },
 ];
 
-const impactMetrics = [
-  { value: "1,000+", label: "Trees & Plants Supported", icon: TreePine },
-  { value: "50+", label: "Green Initiatives", icon: Sprout },
-  { value: "200+", label: "Community Participants", icon: Users },
-  { value: "15+", label: "Communities Reached", icon: MapPin },
+const environmentFocusItems = [
+  {
+    title: "Greener Spaces",
+    description:
+      "Creating and restoring green spaces that make communities cleaner and healthier.",
+    icon: TreePine,
+  },
+  {
+    title: "Sustainable Living",
+    description:
+      "Encouraging practical everyday choices that reduce waste and protect natural resources.",
+    icon: Recycle,
+  },
+  {
+    title: "Environmental Awareness",
+    description:
+      "Helping communities understand the value of conservation, cleanliness and responsible action.",
+    icon: Megaphone,
+  },
+  {
+    title: "Community Participation",
+    description:
+      "Bringing people together to take meaningful action for healthier surroundings.",
+    icon: Users,
+  },
 ];
 
 const storyPoints = [
@@ -245,8 +265,9 @@ export default function EnvironmentWelfarePage() {
         image="/protect.png"
         imageAlt="Indian children and volunteers planting a young tree together"
         imageCaption="Greener futures begin with shared action"
-        metrics={impactMetrics}
-        impactNote="These illustrative figures are placeholders and should be updated with verified programme data."
+        panelTitle="What We Focus On"
+        focusItems={environmentFocusItems}
+        focusStatement="Small actions today can create a greener, healthier tomorrow."
       >
         <p className="eyebrow">Our Approach</p>
         <h2 id="environment-approach-title">
@@ -262,9 +283,6 @@ export default function EnvironmentWelfarePage() {
           environmental activities, we believe meaningful change begins with
           everyday action.
         </p>
-        <Link className="healthcare-text-link button" href="/about-us">
-          Learn More About Our Work <ArrowRight size={16} />
-        </Link>
       </InitiativeApproachSection>
 
       <section

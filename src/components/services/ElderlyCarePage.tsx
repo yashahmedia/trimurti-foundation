@@ -4,12 +4,10 @@ import {
   Activity,
   ArrowRight,
   BookOpenCheck,
-  CalendarDays,
   HandHeart,
   HeartPulse,
   Landmark,
   Leaf,
-  MapPin,
   MessageCircleHeart,
   ShieldCheck,
   Sprout,
@@ -95,11 +93,31 @@ const programmes = [
   },
 ];
 
-const impactMetrics = [
-  { value: "200+", label: "Seniors Supported", icon: Users },
-  { value: "30+", label: "Community Activities", icon: CalendarDays },
-  { value: "100+", label: "Care & Support Visits", icon: HandHeart },
-  { value: "12+", label: "Communities Reached", icon: MapPin },
+const elderlyFocusItems = [
+  {
+    title: "Companionship",
+    description:
+      "Creating meaningful connections so seniors feel heard, valued and less isolated.",
+    icon: MessageCircleHeart,
+  },
+  {
+    title: "Health & Wellbeing",
+    description:
+      "Supporting older adults with essential health guidance and everyday wellbeing.",
+    icon: HeartPulse,
+  },
+  {
+    title: "Daily Care & Support",
+    description:
+      "Helping with everyday needs while protecting dignity, comfort and independence.",
+    icon: HandHeart,
+  },
+  {
+    title: "Community Connection",
+    description:
+      "Creating opportunities for seniors to stay engaged, active and connected.",
+    icon: Users,
+  },
 ];
 
 const storyPoints = [
@@ -243,8 +261,9 @@ export default function ElderlyCarePage() {
         image="/elder support.png"
         imageAlt="A younger volunteer sharing a warm moment with an older Indian man"
         imageCaption="Companionship that nurtures belonging"
-        metrics={impactMetrics}
-        impactNote="These illustrative figures are placeholders and should be updated with verified programme data."
+        panelTitle="What We Focus On"
+        focusItems={elderlyFocusItems}
+        focusStatement="Every senior deserves care, dignity, connection and a sense of belonging."
       >
         <p className="eyebrow">Our Approach</p>
         <h2 id="elderly-approach-title">
@@ -260,9 +279,6 @@ export default function ElderlyCarePage() {
           Because caring for our elders means more than meeting physical needs —
           it means creating a sense of belonging.
         </p>
-        <Link className="healthcare-text-link button" href="/about-us">
-          Learn More About Our Work <ArrowRight size={16} />
-        </Link>
       </InitiativeApproachSection>
 
       <section

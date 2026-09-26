@@ -10,7 +10,6 @@ import {
   HeartPulse,
   Landmark,
   Leaf,
-  MapPin,
   Music2,
   Palette,
   Sprout,
@@ -98,11 +97,31 @@ const programmes = [
   },
 ];
 
-const impactMetrics = [
-  { value: "500+", label: "People Engaged", icon: Users },
-  { value: "20+", label: "Cultural Activities", icon: Music2 },
-  { value: "100+", label: "Traditions Supported", icon: Landmark },
-  { value: "10+", label: "Communities Reached", icon: MapPin },
+const cultureFocusItems = [
+  {
+    title: "Preserve Traditions",
+    description:
+      "Keeping traditional knowledge, arts and cultural practices alive for future generations.",
+    icon: Landmark,
+  },
+  {
+    title: "Support Artisans",
+    description:
+      "Creating opportunities for traditional artists and craftspeople to sustain their skills.",
+    icon: HandHeart,
+  },
+  {
+    title: "Cultural Education",
+    description:
+      "Helping children and communities learn about their heritage, values and traditions.",
+    icon: BookOpen,
+  },
+  {
+    title: "Community Connection",
+    description:
+      "Bringing people together through cultural experiences, events and shared traditions.",
+    icon: Users,
+  },
 ];
 
 const storyPoints = [
@@ -249,8 +268,9 @@ export default function CultureHeritageInitiativePage() {
         image="/heritage.png"
         imageAlt="A historic Indian temple and cultural gathering place"
         imageCaption="Heritage lives on when it is shared"
-        metrics={impactMetrics}
-        impactNote="These illustrative figures are placeholders and should be updated with verified programme data."
+        panelTitle="What We Focus On"
+        focusItems={cultureFocusItems}
+        focusStatement="When heritage is shared, it continues to inspire future generations."
       >
         <p className="eyebrow">Our Approach</p>
         <h2 id="culture-approach-title">
@@ -265,9 +285,6 @@ export default function CultureHeritageInitiativePage() {
           By keeping traditions alive and creating opportunities for younger
           generations, we help cultural knowledge continue to grow.
         </p>
-        <Link className="healthcare-text-link button" href="/about-us">
-          Learn More About Our Work <ArrowRight size={16} />
-        </Link>
       </InitiativeApproachSection>
 
       <section

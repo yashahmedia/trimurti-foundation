@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowUpRight,
   BookOpen,
   BookOpenCheck,
-  GraduationCap,
   HeartPulse,
   Landmark,
   Laptop,
@@ -103,11 +103,31 @@ const relatedInitiatives = [
   { title: "Culture & Heritage", href: "/services/culture-heritage", icon: Landmark },
 ];
 
-const impactMetrics = [
-  { value: "500+", label: "Learners Supported", icon: BookOpenCheck },
-  { value: "25+", label: "Learning Initiatives", icon: GraduationCap },
-  { value: "100+", label: "Families Reached", icon: Users },
-  { value: "12+", label: "Communities Reached", icon: Lightbulb },
+const educationFocusItems = [
+  {
+    title: "Accessible Learning",
+    description:
+      "Creating better access to quality education and learning resources.",
+    icon: BookOpen,
+  },
+  {
+    title: "Skills & Confidence",
+    description:
+      "Helping learners build practical skills and confidence for the future.",
+    icon: Lightbulb,
+  },
+  {
+    title: "Mentorship & Guidance",
+    description:
+      "Connecting students with guidance, support and meaningful opportunities.",
+    icon: Users,
+  },
+  {
+    title: "Future Opportunities",
+    description:
+      "Preparing young people with knowledge and skills to move forward.",
+    icon: ArrowUpRight,
+  },
 ];
 
 export default function EducationEmpowermentPage() {
@@ -195,8 +215,9 @@ export default function EducationEmpowermentPage() {
         image="/education.png"
         imageAlt="A student with a book, ready to continue learning"
         imageCaption="Helping every learner move forward"
-        metrics={impactMetrics}
-        impactNote="These illustrative figures are placeholders and should be updated with verified programme data."
+        panelTitle="What We Focus On"
+        focusItems={educationFocusItems}
+        focusStatement="Every learner deserves the opportunity to grow, learn and succeed."
       >
         <p className="eyebrow">Our Approach</p>
         <h2 id="education-approach-title">
@@ -210,12 +231,6 @@ export default function EducationEmpowermentPage() {
           By supporting learning, practical skills and personal growth, we work
           to make opportunity more accessible to students and communities.
         </p>
-        <Link
-          className="healthcare-text-link button"
-          href="/volunteer?area=Education%20Support"
-        >
-          Support a learner <ArrowRight size={16} />
-        </Link>
       </InitiativeApproachSection>
 
       <section

@@ -15,8 +15,8 @@ export default function Footer() {
         <div className="footer-brand">
           <Image
             src="/logo3.png"
-            width={230}
-            height={77}
+            width={430}
+            height={190}
             alt="Trimurti Foundation"
             className="footer-logo"
           />

@@ -8,6 +8,7 @@ import {
   Leaf,
   Lightbulb,
   MapPin,
+  ShoppingBasket,
   Sprout,
   Utensils,
   Users,
@@ -91,11 +92,31 @@ const programmes = [
   },
 ];
 
-const impactMetrics = [
-  { value: "500+", label: "Meals Supported", icon: Utensils },
-  { value: "25+", label: "Community Meal Drives", icon: Users },
-  { value: "100+", label: "Families Reached", icon: HeartPulse },
-  { value: "12+", label: "Communities Supported", icon: MapPin },
+const nutritionFocusItems = [
+  {
+    title: "Nutritious Meals",
+    description:
+      "Providing wholesome meals to people and families who need support.",
+    icon: Utensils,
+  },
+  {
+    title: "Food Security",
+    description:
+      "Helping communities access reliable food support during difficult times.",
+    icon: ShoppingBasket,
+  },
+  {
+    title: "Nutrition Awareness",
+    description:
+      "Encouraging healthier food choices, balanced nutrition and wellbeing.",
+    icon: Leaf,
+  },
+  {
+    title: "Community Kitchens",
+    description:
+      "Supporting community-led meal programmes that bring people together.",
+    icon: Users,
+  },
 ];
 
 const storyPoints = [
@@ -233,8 +254,9 @@ export default function AnnadhanNutritionPage() {
         image="/We provide.jpeg"
         imageAlt="A volunteer sharing food support with a family"
         imageCaption="Food support shared with compassion"
-        metrics={impactMetrics}
-        impactNote="Impact figures are illustrative and can be updated as programme reporting becomes available."
+        panelTitle="What We Focus On"
+        focusItems={nutritionFocusItems}
+        focusStatement="Food support is about nourishment, dignity and stronger communities."
       >
         <p className="eyebrow">Our Approach</p>
         <h2 id="annadhan-approach-title">
@@ -249,12 +271,6 @@ export default function AnnadhanNutritionPage() {
           From community meal programmes to nutrition awareness, we work to
           make food security and wellbeing a shared responsibility.
         </p>
-        <Link
-          className="healthcare-text-link button"
-          href="/volunteer?area=Annadhan%20%26%20Nutrition"
-        >
-          Learn More About Annadhan <ArrowRight size={16} />
-        </Link>
       </InitiativeApproachSection>
 
       <section

@@ -14,8 +14,15 @@ type InitiativeApproachSectionProps = {
   image: string;
   imageAlt: string;
   imageCaption: string;
-  metrics: InitiativeImpactMetric[];
-  impactNote: string;
+  metrics?: InitiativeImpactMetric[];
+  impactNote?: string;
+  panelTitle?: string;
+  focusItems?: {
+    title: string;
+    description: string;
+    icon: LucideIcon;
+  }[];
+  focusStatement?: string;
   children: ReactNode;
 };
 
@@ -26,6 +33,9 @@ export default function InitiativeApproachSection({
   imageCaption,
   metrics,
   impactNote,
+  panelTitle = "Our Impact",
+  focusItems,
+  focusStatement,
   children,
 }: InitiativeApproachSectionProps) {
   return (
@@ -54,24 +64,51 @@ export default function InitiativeApproachSection({
         </CultureReveal>
 
         <CultureReveal
-          className="initiative-approach-impact-panel"
+          className={`initiative-approach-impact-panel${focusItems ? " has-focus-items" : ""}`}
           delay={0.16}
         >
-          <h3 id={`${headingId}-impact`}>Our Impact</h3>
-          <div className="initiative-approach-impact-list">
-            {metrics.map(({ value, label, icon: Icon }) => (
-              <div className="initiative-approach-impact-item" key={label}>
-                <span aria-hidden="true">
-                  <Icon size={18} strokeWidth={1.8} />
-                </span>
-                <div>
-                  <strong>{value}</strong>
-                  <p>{label}</p>
-                </div>
+          <h3 id={`${headingId}-impact`}>{panelTitle}</h3>
+          {focusItems ? (
+            <>
+              <div className="initiative-approach-focus-list">
+                {focusItems.map(({ title, description, icon: Icon }) => (
+                  <div className="initiative-approach-focus-item" key={title}>
+                    <span aria-hidden="true">
+                      <Icon size={17} strokeWidth={1.8} />
+                    </span>
+                    <div>
+                      <strong>{title}</strong>
+                      <p>{description}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          <p className="initiative-approach-impact-note">{impactNote}</p>
+              {focusStatement && (
+                <p className="initiative-approach-focus-statement">
+                  {focusStatement}
+                </p>
+              )}
+            </>
+          ) : (
+            <>
+              <div className="initiative-approach-impact-list">
+                {metrics?.map(({ value, label, icon: Icon }) => (
+                  <div className="initiative-approach-impact-item" key={label}>
+                    <span aria-hidden="true">
+                      <Icon size={18} strokeWidth={1.8} />
+                    </span>
+                    <div>
+                      <strong>{value}</strong>
+                      <p>{label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {impactNote && (
+                <p className="initiative-approach-impact-note">{impactNote}</p>
+              )}
+            </>
+          )}
         </CultureReveal>
       </div>
     </section>
