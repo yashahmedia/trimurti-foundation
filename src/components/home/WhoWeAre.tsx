@@ -22,37 +22,37 @@ const cards: WhoWeAreCard[] = [
   {
     title: "About Trimurti Foundation",
     description: "Our mission and purpose",
-    href: "/about-us",
+    href: "/about-us#about-foundation",
     icon: Building2,
   },
   {
     title: "About our founder",
     description: "Leadership and vision",
-    href: "/about-us",
+    href: "/about-us#founder",
     icon: Users,
   },
   {
     title: "Our journey",
     description: "The path we have taken",
-    href: "/about-us",
+    href: "/about-us#journey",
     icon: Leaf,
   },
   {
     title: "Mission & vision",
     description: "What drives us",
-    href: "/about-us",
+    href: "/about-us#mission-vision",
     icon: Target,
   },
   {
     title: "Governance & Transparency",
     description: "Ethics and accountability",
-    href: "/compliance",
+    href: "/about-us#governance",
     icon: ShieldCheck,
   },
   {
     title: "Advisory Board / Team",
     description: "People behind the mission",
-    href: "/about-us",
+    href: "/about-us#team",
     icon: BriefcaseBusiness,
   },
 ];
