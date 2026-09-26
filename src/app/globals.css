@@ -1513,6 +1513,738 @@ img {
   }
 }
 
+.our-initiatives-page {
+  background: linear-gradient(180deg, #fffdf8 0%, #f8f5ec 100%);
+  color: var(--text-dark);
+}
+
+.initiatives-banner {
+  width: 100%;
+  overflow: hidden;
+  background: #063b35;
+}
+
+.initiatives-banner-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2000 / 667;
+}
+
+.initiatives-banner-image > img {
+  object-fit: cover;
+}
+
+.initiatives-banner-hotspots {
+  position: absolute;
+  inset: 0;
+}
+
+.initiatives-banner-hotspot {
+  position: absolute;
+  top: 62%;
+  height: 24%;
+  border-radius: 8px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.initiatives-banner-hotspot:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.initiatives-banner-hotspot:focus-visible {
+  outline: 2px solid #f0c45e;
+  outline-offset: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.initiatives-banner-hotspot-1 {
+  left: 5.8%;
+  width: 8.8%;
+}
+
+.initiatives-banner-hotspot-2 {
+  left: 15.1%;
+  width: 8.6%;
+}
+
+.initiatives-banner-hotspot-3 {
+  left: 24.5%;
+  width: 8.5%;
+}
+
+.initiatives-banner-hotspot-4 {
+  left: 33.8%;
+  width: 8.7%;
+}
+
+.initiatives-banner-hotspot-5 {
+  left: 43.2%;
+  width: 8.7%;
+}
+
+.initiatives-banner-hotspot-6 {
+  left: 52.6%;
+  width: 9.4%;
+}
+
+.initiative-banner-page > .healthcare-hero,
+.our-initiatives-page.initiative-banner-page > .our-initiatives-hero {
+  display: none;
+}
+
+@keyframes initiative-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.our-initiatives-container {
+  width: min(1240px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.our-initiatives-hero {
+  position: relative;
+  padding: clamp(68px, 7vw, 110px) 0 clamp(24px, 4vw, 48px);
+  background:
+    radial-gradient(circle at 10% 18%, rgba(22, 116, 93, 0.08), transparent 24%),
+    linear-gradient(180deg, #fffaf0 0%, #fffdf8 55%, #f6f2e7 100%);
+}
+
+.our-initiatives-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: clamp(24px, 3vw, 42px);
+  align-items: center;
+}
+
+.our-initiatives-copy h1 {
+  max-width: 620px;
+  color: #0d433c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(46px, 4.3vw, 64px);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+.our-initiatives-description {
+  max-width: 600px;
+  margin-top: 22px;
+  color: #536860;
+  font-size: clamp(17px, 1.25vw, 20px);
+  line-height: 1.8;
+}
+
+.our-initiatives-visual {
+  position: relative;
+  min-width: 0;
+  animation: initiative-float 6s ease-in-out infinite;
+}
+
+.our-initiatives-photo-frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 560px;
+  border-radius: 34px 34px 120px 34px;
+  border: 1px solid rgba(18, 59, 56, 0.08);
+  box-shadow: 0 24px 48px rgba(25, 48, 40, 0.14);
+  background: #ddd7c1;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.our-initiatives-photo-frame:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 30px 54px rgba(25, 48, 40, 0.18);
+}
+
+.our-initiatives-photo-frame img {
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.our-initiatives-photo-frame:hover img {
+  transform: scale(1.05);
+}
+
+.our-initiatives-shape {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.our-initiatives-shape-one {
+  left: -32px;
+  bottom: -26px;
+  width: 180px;
+  height: 180px;
+  background: rgba(188, 215, 187, 0.38);
+  filter: blur(2px);
+}
+
+.our-initiatives-shape-two {
+  right: -18px;
+  top: 18px;
+  width: 120px;
+  height: 120px;
+  background: rgba(218, 196, 115, 0.18);
+}
+
+.our-initiatives-strip {
+  padding: 0 0 28px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.our-initiatives-nav-shell {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid rgba(22, 116, 93, 0.12);
+  border-radius: 24px;
+  background: #f7f5ec;
+  box-shadow: 0 12px 28px rgba(18, 59, 56, 0.04);
+}
+
+.our-initiative-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 74px;
+  padding: 12px 10px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.24);
+  border: 1px solid rgba(22, 116, 93, 0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+}
+
+.our-initiative-nav-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(22, 116, 93, 0.14);
+  box-shadow: 0 14px 30px rgba(18, 59, 56, 0.08);
+}
+
+.our-initiative-nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: rgba(22, 116, 93, 0.08);
+  color: #0f705f;
+}
+
+.our-initiative-nav-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.our-initiative-nav-title {
+  color: #123b38;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.our-initiative-nav-subtitle {
+  color: #607269;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.our-initiative-featured {
+  padding: 30px 0 14px;
+}
+
+.featured-initiative-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: clamp(28px, 5vw, 58px);
+  align-items: center;
+  border: 1px solid rgba(18, 59, 56, 0.08);
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(246, 240, 226, 0.9));
+  box-shadow: 0 18px 42px rgba(25, 48, 40, 0.08);
+  padding: clamp(18px, 2.6vw, 28px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.featured-initiative-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 52px rgba(25, 48, 40, 0.12);
+}
+
+.featured-initiative-image {
+  position: relative;
+  overflow: hidden;
+  min-height: 440px;
+  border-radius: 28px;
+  background: #ded5c0;
+}
+
+.featured-initiative-image img {
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.featured-initiative-card:hover .featured-initiative-image img {
+  transform: scale(1.04);
+}
+
+.featured-initiative-copy {
+  padding: 12px 0;
+}
+
+.eyebrow-compact {
+  margin-bottom: 14px;
+}
+
+.featured-initiative-copy h2 {
+  color: #0d433c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 4vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+}
+
+.featured-initiative-copy > p {
+  margin-top: 18px;
+  color: #556c67;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.featured-initiative-copy ul {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.featured-initiative-copy li {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #294a45;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.featured-initiative-copy li span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(22, 116, 93, 0.08);
+  color: #126458;
+}
+
+.initiative-link,
+.showcase-link,
+.initiative-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #0f6658;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.28s ease, color 0.28s ease;
+}
+
+.initiative-link:hover,
+.showcase-link:hover,
+.initiative-card-link:hover {
+  color: #0b4f42;
+}
+
+.initiative-link {
+  margin-top: 26px;
+}
+
+.our-initiative-metrics {
+  padding: 34px 0 14px;
+}
+
+.initiative-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.initiative-metric {
+  display: grid;
+  gap: 8px;
+  padding: 26px 18px 22px;
+  border: 1px solid rgba(18, 59, 56, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.initiative-metric strong {
+  color: #0f5c4c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.initiative-metric span {
+  color: #516a66;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.our-initiative-showcase {
+  padding: 44px 0 30px;
+}
+
+.showcase-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.showcase-header h2 {
+  color: #0d433c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.initiative-showcase-card {
+  overflow: hidden;
+  border: 1px solid rgba(18, 59, 56, 0.08);
+  border-radius: 26px;
+  background: #fffdf8;
+  box-shadow: 0 12px 26px rgba(25, 48, 40, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.initiative-showcase-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(22, 116, 93, 0.12);
+  box-shadow: 0 22px 34px rgba(25, 48, 40, 0.1);
+}
+
+.initiative-showcase-image {
+  position: relative;
+  aspect-ratio: 1.18 / 1;
+  overflow: hidden;
+  background: #e6dbc3;
+}
+
+.initiative-showcase-image img {
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.initiative-showcase-card:hover .initiative-showcase-image img {
+  transform: scale(1.04);
+}
+
+.initiative-showcase-copy {
+  padding: 22px 20px 20px;
+}
+
+.initiative-showcase-copy h3 {
+  color: #123b38;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.initiative-showcase-copy p {
+  margin-top: 12px;
+  color: #5b6d69;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.initiative-card-link {
+  margin-top: 18px;
+}
+
+.our-initiative-quote {
+  padding: 10px 0 30px;
+}
+
+.quote-panel {
+  position: relative;
+  padding: clamp(28px, 4vw, 42px) clamp(20px, 3vw, 46px);
+  border: 1px solid rgba(201, 145, 32, 0.14);
+  border-radius: 26px;
+  background: linear-gradient(135deg, rgba(247, 245, 236, 0.85), rgba(255, 255, 255, 0.7));
+  box-shadow: 0 16px 30px rgba(18, 59, 56, 0.05);
+}
+
+.quote-mark {
+  position: absolute;
+  left: 26px;
+  top: 16px;
+  color: rgba(201, 145, 32, 0.5);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 72px;
+  line-height: 1;
+}
+
+.quote-panel blockquote {
+  margin: 0 0 12px 42px;
+  color: #0d433c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.quote-panel p {
+  margin-left: 42px;
+  color: #57716d;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.our-initiative-cta {
+  padding: 28px 0 86px;
+}
+
+.cta-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.7fr) minmax(0, 0.72fr);
+  gap: 22px;
+  align-items: center;
+  padding: clamp(28px, 4vw, 40px);
+  border-radius: 30px;
+  background: linear-gradient(130deg, #063b35 0%, #084b40 56%, #112f31 100%);
+  color: #f8f6ef;
+  box-shadow: 0 22px 42px rgba(9, 42, 39, 0.2);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cta-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 48px rgba(9, 42, 39, 0.26);
+}
+
+.cta-copy h2 {
+  color: #fffaf0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 4vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+.eyebrow-cta {
+  margin-bottom: 16px;
+  color: #d8b75a;
+}
+
+.cta-panel > p {
+  color: rgba(255, 250, 240, 0.82);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.primary-cta,
+.secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.primary-cta {
+  background: linear-gradient(135deg, #d7a22a, #c4831f);
+  color: #fff;
+  box-shadow: 0 12px 22px rgba(201, 145, 32, 0.26);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, filter 0.28s ease;
+}
+
+.primary-cta:hover,
+.secondary-cta:hover,
+.initiative-link:hover,
+.showcase-link:hover,
+.initiative-card-link:hover {
+  transform: translateY(-2px);
+}
+
+.primary-cta:hover {
+  box-shadow: 0 16px 28px rgba(201, 145, 32, 0.3);
+  filter: brightness(1.04);
+}
+
+.secondary-cta {
+  border: 1px solid rgba(246, 211, 133, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fffaf0;
+  transition: transform 0.28s ease, background 0.28s ease, border-color 0.28s ease;
+}
+
+.secondary-cta:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(246, 211, 133, 0.7);
+}
+
+@media (max-width: 1050px) {
+  .our-initiatives-copy h1 {
+    font-size: clamp(40px, 4.3vw, 46px);
+  }
+
+  .our-initiatives-focus-strip,
+  .our-initiatives-nav-shell {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .featured-initiative-card,
+  .cta-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .initiative-metrics-row,
+  .showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .initiatives-banner-image {
+    height: clamp(330px, 105vw, 430px);
+    aspect-ratio: auto;
+  }
+
+  .initiatives-banner-image > img {
+    object-position: left center;
+  }
+
+  .initiatives-banner-hotspots {
+    display: none;
+  }
+
+  .our-initiatives-container {
+    width: min(100% - 40px, 620px);
+  }
+
+  .our-initiatives-hero-grid,
+  .showcase-header {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .showcase-header {
+    align-items: start;
+  }
+
+  .our-initiatives-photo-frame {
+    min-height: 420px;
+  }
+
+  .our-initiatives-focus-strip,
+  .our-initiatives-nav-shell,
+  .initiative-metrics-row,
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .our-initiative-nav-item {
+    min-height: 58px;
+  }
+
+  .cta-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .initiatives-banner-mobile-nav {
+    width: calc(100% - 34px);
+  }
+
+  .our-initiatives-container {
+    width: calc(100% - 34px);
+  }
+
+  .our-initiatives-copy h1 {
+    font-size: clamp(34px, 10vw, 42px);
+  }
+
+  .our-initiatives-description {
+    font-size: 15px;
+    line-height: 1.72;
+  }
+
+  .our-initiatives-focus-item {
+    padding: 9px 10px;
+    font-size: 11px;
+  }
+
+  .featured-initiative-copy h2,
+  .showcase-header h2,
+  .cta-copy h2 {
+    font-size: clamp(32px, 9vw, 42px);
+  }
+
+  .initiative-showcase-copy h3 {
+    font-size: 22px;
+  }
+
+  .quote-panel blockquote {
+    margin-left: 28px;
+    font-size: 26px;
+  }
+
+  .quote-panel p {
+    margin-left: 28px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .our-initiatives-page *,
+  .our-initiatives-page *::before,
+  .our-initiatives-page *::after {
+    animation: none !important;
+    scroll-behavior: auto;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .culture-hero-image {
     animation: none;
@@ -1523,6 +2255,1153 @@ img {
   .culture-page *::after {
     scroll-behavior: auto;
     transition-duration: 0.01ms !important;
+  }
+}
+
+.healthcare-page {
+  overflow: hidden;
+  background: #fffaf0;
+  color: var(--text-dark);
+}
+
+.healthcare-container {
+  width: min(1240px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.healthcare-page .eyebrow {
+  margin-bottom: 15px;
+  color: #b7831b;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+.healthcare-hero,
+.healthcare-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.healthcare-hero {
+  padding: clamp(60px, 7vw, 100px) 0 48px;
+  background:
+    radial-gradient(ellipse at 7% 32%, rgba(222, 235, 219, 0.54), transparent 32%),
+    linear-gradient(118deg, #fffaf0 0%, #fffdf8 54%, #f5f4eb 100%);
+}
+
+.healthcare-hero-grid,
+.healthcare-two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+  align-items: center;
+  gap: clamp(42px, 6vw, 88px);
+}
+
+.healthcare-hero-copy h1,
+.healthcare-section-copy h2,
+.healthcare-section-heading h2,
+.healthcare-impact-heading h2,
+.healthcare-cta-content h2 {
+  color: #0d433c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+
+.healthcare-hero-copy h1 {
+  max-width: 650px;
+  font-size: clamp(44px, 5vw, 68px);
+  line-height: 1.02;
+}
+
+.healthcare-hero-description {
+  max-width: 580px;
+  margin-top: 21px;
+  color: #536860;
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 1.8;
+}
+
+.healthcare-hero-promise {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 23px;
+  color: #176555;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+.healthcare-hero-promise::before {
+  width: 34px;
+  height: 1px;
+  background: #c99120;
+  content: "";
+}
+
+.healthcare-hero-visual,
+.healthcare-section-visual {
+  position: relative;
+  min-width: 0;
+}
+
+.healthcare-image-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(18, 59, 56, 0.08);
+  background: #e9e2d2;
+  box-shadow: 0 20px 48px rgba(25, 48, 40, 0.12);
+}
+
+.healthcare-image-frame img,
+.healthcare-programme-image img {
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.healthcare-image-frame:hover img,
+.healthcare-programme-card:hover .healthcare-programme-image img {
+  transform: scale(1.03);
+}
+
+.healthcare-hero-image {
+  aspect-ratio: 1.08 / 1;
+  border-radius: 34px 34px 104px 34px;
+  box-shadow: 0 24px 50px rgba(25, 48, 40, 0.16);
+}
+
+.healthcare-hero-note {
+  position: absolute;
+  right: -15px;
+  bottom: 26px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  max-width: 250px;
+  padding: 13px 16px;
+  border: 1px solid rgba(18, 59, 56, 0.08);
+  border-radius: 16px;
+  background: #fffdf7;
+  box-shadow: 0 12px 28px rgba(25, 48, 40, 0.14);
+  color: #244b43;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.healthcare-hero-note-icon {
+  display: grid;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8f0e4;
+  color: #176555;
+}
+
+.healthcare-botanical {
+  position: absolute;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  color: #8eab8a;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.healthcare-botanical svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 0.8;
+}
+
+.healthcare-botanical-hero {
+  top: -28px;
+  right: -45px;
+  width: 115px;
+  height: 145px;
+  color: #b08b43;
+  opacity: 0.24;
+  transform: rotate(20deg);
+}
+
+.healthcare-initiative-strip {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 22px;
+  background: #f6f4eb;
+}
+
+.healthcare-initiative-nav {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  padding: 13px;
+  border: 1px solid rgba(22, 116, 93, 0.13);
+  border-radius: 22px;
+  background: #f7f5ec;
+  box-shadow: 0 10px 28px rgba(18, 59, 56, 0.045);
+}
+
+.healthcare-initiative-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 66px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  color: #234b42;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+}
+
+.healthcare-initiative-item:hover,
+.healthcare-initiative-item:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(22, 116, 93, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 10px 20px rgba(18, 59, 56, 0.08);
+}
+
+.healthcare-initiative-item.is-active {
+  border-color: rgba(22, 116, 93, 0.2);
+  background: #e6efe3;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.healthcare-initiative-icon {
+  display: grid;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 11px;
+  background: rgba(22, 116, 93, 0.09);
+  color: #176555;
+  transition: transform 0.28s ease, background 0.28s ease;
+}
+
+.healthcare-initiative-item:hover .healthcare-initiative-icon,
+.healthcare-initiative-item:focus-visible .healthcare-initiative-icon {
+  transform: scale(1.06);
+  background: rgba(22, 116, 93, 0.15);
+}
+
+.healthcare-initiative-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 3px;
+}
+
+.healthcare-initiative-title {
+  color: #123b38;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.healthcare-initiative-item.is-active .healthcare-initiative-title {
+  color: #0b5b4d;
+  font-weight: 800;
+}
+
+.healthcare-initiative-subtitle {
+  color: #65756d;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.healthcare-section {
+  padding: clamp(72px, 8vw, 112px) 0;
+}
+
+.healthcare-approach {
+  background:
+    radial-gradient(ellipse at 100% 20%, rgba(222, 235, 219, 0.44), transparent 30%),
+    #fffaf0;
+}
+
+.healthcare-two-column {
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+}
+
+.healthcare-image-frame.healthcare-editorial-image {
+  aspect-ratio: 1.22 / 1;
+  border-radius: 28px;
+  box-shadow: 0 17px 42px rgba(25, 48, 40, 0.13);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.healthcare-section-visual:hover .healthcare-editorial-image {
+  transform: translateY(-3px);
+  box-shadow: 0 23px 48px rgba(25, 48, 40, 0.17);
+}
+
+.healthcare-image-caption {
+  display: inline-block;
+  margin: 14px 0 0 6px;
+  color: #607168;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.healthcare-section-copy h2,
+.healthcare-section-heading h2,
+.healthcare-impact-heading h2 {
+  font-size: clamp(38px, 4.2vw, 58px);
+  line-height: 1.04;
+}
+
+.healthcare-section-copy > p:not(.eyebrow) {
+  max-width: 600px;
+  margin-top: 17px;
+  color: #5f6f68;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.healthcare-text-link {
+  margin-top: 24px;
+  border-radius: 5px;
+}
+
+.healthcare-text-link svg,
+.healthcare-programme-copy a svg,
+.healthcare-cta-button svg {
+  transition: transform 0.25s ease;
+}
+
+.healthcare-text-link:hover svg,
+.healthcare-programme-copy a:hover svg,
+.healthcare-cta-button:hover svg {
+  transform: translateX(4px);
+}
+
+.healthcare-programmes {
+  background: #f7f5ec;
+}
+
+.healthcare-section-heading,
+.healthcare-impact-heading {
+  max-width: 760px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.healthcare-section-heading > p:last-child {
+  margin-top: 13px;
+  color: #5f7069;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.healthcare-programme-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.healthcare-programme-reveal {
+  height: 100%;
+}
+
+.healthcare-programme-card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(18, 59, 56, 0.09);
+  border-radius: 20px;
+  background: #fffdf8;
+  box-shadow: 0 10px 26px rgba(25, 48, 40, 0.06);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.healthcare-programme-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(22, 116, 93, 0.19);
+  box-shadow: 0 20px 36px rgba(25, 48, 40, 0.12);
+}
+
+.healthcare-programme-image {
+  position: relative;
+  aspect-ratio: 1.43 / 1;
+  overflow: hidden;
+  background: #e5e2d5;
+}
+
+.healthcare-programme-icon {
+  position: absolute;
+  right: 13px;
+  bottom: 13px;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  background: rgba(239, 246, 235, 0.96);
+  color: #176555;
+  box-shadow: 0 5px 15px rgba(18, 59, 56, 0.14);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.healthcare-programme-card:hover .healthcare-programme-icon {
+  transform: scale(1.08);
+  background: #e4efe0;
+}
+
+.healthcare-programme-copy {
+  padding: 19px 18px 20px;
+}
+
+.healthcare-programme-copy h3 {
+  color: #0d463d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.18;
+}
+
+.healthcare-programme-copy p {
+  min-height: 88px;
+  margin-top: 9px;
+  color: #5b6c65;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.healthcare-programme-copy a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 13px;
+  color: #0c6656;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.healthcare-impact {
+  padding-top: 64px;
+  padding-bottom: 68px;
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(222, 235, 219, 0.5), transparent 30%),
+    #fffaf0;
+}
+
+.healthcare-impact-heading {
+  margin-bottom: 26px;
+}
+
+.healthcare-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.healthcare-impact-reveal {
+  height: 100%;
+}
+
+.healthcare-impact-card {
+  display: flex;
+  height: 100%;
+  min-height: 164px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 21px 22px;
+  border: 1px solid rgba(18, 59, 56, 0.08);
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 10px 26px rgba(25, 48, 40, 0.055);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.healthcare-impact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 17px 32px rgba(25, 48, 40, 0.1);
+}
+
+.healthcare-impact-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 12px;
+  place-items: center;
+  border-radius: 12px;
+  background: #e8f0e4;
+  color: #176555;
+}
+
+.healthcare-impact-card strong {
+  color: #0f5c4c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.healthcare-impact-card > span:last-child {
+  margin-top: 8px;
+  color: #5a6d66;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.healthcare-impact-note {
+  margin: 18px auto 0;
+  color: #66766f;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.healthcare-access {
+  background:
+    radial-gradient(ellipse at 92% 50%, rgba(222, 235, 219, 0.47), transparent 32%),
+    #f7f5ec;
+}
+
+.healthcare-access-grid {
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+}
+
+.healthcare-access-copy blockquote {
+  max-width: 540px;
+  margin: 22px 0 0;
+  padding: 4px 0 4px 18px;
+  border-left: 2px solid #c99120;
+  color: #28544a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(19px, 2vw, 24px);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.healthcare-support-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.healthcare-support-points li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #35574c;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.healthcare-support-points li span {
+  display: grid;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e6eee2;
+  color: #24715e;
+}
+
+.healthcare-access-image {
+  aspect-ratio: 1.24 / 1 !important;
+}
+
+.healthcare-botanical-access {
+  right: -34px;
+  bottom: -38px;
+  width: 126px;
+  height: 150px;
+  color: #b08b43;
+  opacity: 0.24;
+  transform: rotate(17deg);
+}
+
+.healthcare-steps {
+  background: #fffaf0;
+}
+
+.healthcare-steps-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.healthcare-steps-grid::before {
+  position: absolute;
+  top: 36px;
+  right: 16%;
+  left: 16%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 145, 32, 0.45), transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.healthcare-step-reveal {
+  position: relative;
+  z-index: 1;
+}
+
+.healthcare-step-card {
+  min-height: 216px;
+  padding: 23px 23px 25px;
+  border: 1px solid rgba(18, 59, 56, 0.09);
+  border-radius: 22px;
+  background: #fffdf8;
+  box-shadow: 0 12px 28px rgba(25, 48, 40, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.healthcare-step-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(22, 116, 93, 0.16);
+  box-shadow: 0 20px 36px rgba(25, 48, 40, 0.11);
+}
+
+.healthcare-step-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.healthcare-step-number {
+  color: #b7831b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.healthcare-step-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(22, 116, 93, 0.1);
+  border-radius: 14px;
+  background: #eaf1e6;
+  color: #176555;
+}
+
+.healthcare-step-card h3 {
+  margin-top: 19px;
+  color: #0d463d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.healthcare-step-card p {
+  margin-top: 8px;
+  color: #5d6f67;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.healthcare-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  padding: 78px 0;
+  background: #063b35;
+}
+
+.healthcare-cta-background,
+.healthcare-cta-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.healthcare-cta-background {
+  object-fit: cover;
+  object-position: center 45%;
+  opacity: 0.23;
+}
+
+.healthcare-cta-overlay {
+  background:
+    linear-gradient(90deg, rgba(4, 47, 41, 0.96) 0%, rgba(4, 56, 47, 0.88) 58%, rgba(4, 49, 43, 0.77) 100%),
+    radial-gradient(ellipse at 90% 10%, rgba(201, 145, 32, 0.2), transparent 38%);
+}
+
+.healthcare-cta-botanical {
+  position: absolute;
+  z-index: -1;
+  right: 4%;
+  bottom: -35px;
+  width: 220px;
+  height: 250px;
+  color: #e5d29b;
+  opacity: 0.16;
+  transform: rotate(-14deg);
+  pointer-events: none;
+}
+
+.healthcare-cta-botanical svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 0.8;
+}
+
+.healthcare-cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin-inline: auto;
+  color: #fffaf0;
+  text-align: center;
+}
+
+.healthcare-cta-content .eyebrow {
+  color: #e2c372;
+}
+
+.healthcare-cta-content h2 {
+  color: #fffaf0;
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.02;
+}
+
+.healthcare-cta-content > p:not(.eyebrow) {
+  max-width: 660px;
+  margin: 18px auto 0;
+  color: rgba(255, 250, 240, 0.84);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.healthcare-cta-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d7a22a, #c4831f);
+  box-shadow: 0 12px 26px rgba(0, 20, 18, 0.22);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.healthcare-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 17px 30px rgba(0, 20, 18, 0.3);
+}
+
+.elderly-page .healthcare-cta-button {
+  border-color: rgba(255, 250, 240, 0.8);
+  background: #fffaf0;
+  color: #0d433c;
+}
+
+.elderly-page .healthcare-cta-button:hover {
+  background: #e9f0e5;
+}
+
+.environment-page .healthcare-cta-button {
+  border-color: rgba(255, 250, 240, 0.8);
+  background: #fffaf0;
+  color: #0d433c;
+}
+
+.environment-page .healthcare-cta-button:hover {
+  background: #e9f0e5;
+}
+
+.culture-service-page .healthcare-cta-button {
+  border-color: rgba(255, 250, 240, 0.8);
+  background: #fffaf0;
+  color: #0d433c;
+}
+
+.culture-service-page .healthcare-cta-button:hover {
+  background: #e9f0e5;
+}
+
+.culture-service-impact-inline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.culture-service-impact-item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px 10px;
+  border: 1px solid rgba(18, 59, 56, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.culture-service-impact-item strong {
+  color: #0f5c4c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(19px, 2vw, 25px);
+  line-height: 1;
+}
+
+.culture-service-impact-item span {
+  color: #5a6d66;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.culture-service-anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  scroll-margin-top: 120px;
+}
+
+.culture-service-page .healthcare-programme-card {
+  position: relative;
+}
+
+.healthcare-related {
+  padding-top: 80px;
+  padding-bottom: 92px;
+  background:
+    radial-gradient(ellipse at 7% 12%, rgba(222, 235, 219, 0.46), transparent 30%),
+    #fffaf0;
+}
+
+.healthcare-related-heading {
+  margin-bottom: 28px;
+}
+
+.healthcare-related-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.healthcare-related-reveal {
+  min-width: 0;
+}
+
+.healthcare-related-card {
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+  border: 1px solid rgba(18, 59, 56, 0.09);
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 8px 22px rgba(25, 48, 40, 0.05);
+  color: #123b38;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.healthcare-related-card:hover,
+.healthcare-related-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(22, 116, 93, 0.18);
+  box-shadow: 0 15px 28px rgba(25, 48, 40, 0.1);
+}
+
+.healthcare-related-icon {
+  display: grid;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 11px;
+  background: #e8f0e4;
+  color: #176555;
+}
+
+.healthcare-related-arrow {
+  flex-shrink: 0;
+  margin-left: auto;
+  color: #b7831b;
+  transition: transform 0.25s ease;
+}
+
+.healthcare-related-card:hover .healthcare-related-arrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 1100px) {
+  .healthcare-initiative-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .healthcare-programme-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .healthcare-related-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .healthcare-container {
+    width: min(100% - 40px, 620px);
+  }
+
+  .healthcare-hero {
+    padding: 48px 0 30px;
+  }
+
+  .healthcare-hero-grid,
+  .healthcare-two-column {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .healthcare-hero-copy h1 {
+    font-size: clamp(42px, 9vw, 58px);
+  }
+
+  .healthcare-hero-image {
+    aspect-ratio: 1.25 / 1;
+    border-radius: 24px 24px 76px 24px;
+  }
+
+  .healthcare-hero-note {
+    right: 10px;
+    bottom: 16px;
+  }
+
+  .healthcare-botanical-hero {
+    right: -24px;
+    width: 82px;
+    height: 110px;
+  }
+
+  .healthcare-initiative-nav {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .healthcare-initiative-item {
+    flex: 0 0 220px;
+    scroll-snap-align: start;
+  }
+
+  .healthcare-section {
+    padding: 64px 0;
+  }
+
+  .healthcare-section-copy h2,
+  .healthcare-section-heading h2,
+  .healthcare-impact-heading h2 {
+    font-size: clamp(36px, 8vw, 48px);
+  }
+
+  .healthcare-section-copy > p:not(.eyebrow) {
+    font-size: 15px;
+  }
+
+  .healthcare-access-grid .healthcare-section-copy {
+    order: 2;
+  }
+
+  .healthcare-access-grid .healthcare-section-visual {
+    order: 1;
+  }
+
+  .healthcare-impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .healthcare-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .healthcare-steps-grid::before {
+    display: none;
+  }
+
+  .healthcare-step-card {
+    min-height: 0;
+  }
+
+  .healthcare-cta {
+    min-height: 360px;
+    padding: 68px 0;
+  }
+
+  .healthcare-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .culture-service-impact-inline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .healthcare-container {
+    width: calc(100% - 34px);
+  }
+
+  .healthcare-page .eyebrow {
+    margin-bottom: 12px;
+    font-size: 10px;
+    letter-spacing: 0.17em;
+  }
+
+  .healthcare-hero {
+    padding-top: 40px;
+  }
+
+  .healthcare-hero-copy h1 {
+    font-size: clamp(38px, 10vw, 48px);
+    line-height: 1.02;
+  }
+
+  .healthcare-hero-description,
+  .healthcare-section-copy > p:not(.eyebrow) {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .healthcare-hero-promise {
+    font-size: 11px;
+  }
+
+  .healthcare-initiative-item {
+    flex-basis: 205px;
+  }
+
+  .healthcare-programme-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .healthcare-programme-image {
+    aspect-ratio: 1.65 / 1;
+  }
+
+  .healthcare-programme-copy p {
+    min-height: 0;
+  }
+
+  .healthcare-impact-card {
+    min-height: 145px;
+    padding: 17px 15px;
+  }
+
+  .healthcare-impact-card strong {
+    font-size: 30px;
+  }
+
+  .healthcare-support-points {
+    gap: 10px;
+  }
+
+  .healthcare-support-points li {
+    font-size: 11px;
+  }
+
+  .healthcare-cta-content h2 {
+    font-size: clamp(37px, 9.5vw, 48px);
+  }
+
+  .healthcare-cta-content > p:not(.eyebrow) {
+    font-size: 14px;
+  }
+
+  .healthcare-related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .healthcare-page *,
+  .healthcare-page *::before,
+  .healthcare-page *::after {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.education-page .healthcare-hero-copy h1 {
+  font-size: clamp(40px, 3.65vw, 50px);
+}
+
+.education-page .healthcare-approach {
+  background:
+    radial-gradient(ellipse at 100% 20%, rgba(222, 235, 219, 0.44), transparent 30%),
+    #fffaf0;
+}
+
+.education-page .education-growth {
+  background: #f7f5ec;
+}
+
+.education-page .healthcare-text-link {
+  padding: 12px 20px;
+  font-size: 13px;
+}
+
+.annadhan-page .healthcare-hero-copy h1 {
+  font-size: clamp(40px, 4.3vw, 58px);
+}
+
+.annadhan-page .healthcare-approach {
+  background:
+    radial-gradient(ellipse at 100% 20%, rgba(222, 235, 219, 0.44), transparent 30%),
+    #fffaf0;
+}
+
+.annadhan-page .annadhan-story {
+  background: #f7f5ec;
+}
+
+.annadhan-page .healthcare-text-link {
+  padding: 12px 20px;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .education-page .healthcare-hero-copy h1 {
+    font-size: clamp(39px, 8vw, 52px);
+  }
+
+  .annadhan-page .healthcare-hero-copy h1 {
+    font-size: clamp(38px, 8.5vw, 50px);
   }
 }
 
