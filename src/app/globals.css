@@ -2533,7 +2533,7 @@ img {
   grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
 }
 
-.initiative-approach-impact-grid {
+.initiative-approach-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr) minmax(220px, 0.82fr);
   align-items: center;
@@ -2544,142 +2544,174 @@ img {
   min-width: 0;
 }
 
+.initiative-approach-support-wrap {
+  min-width: 0;
+}
+
 .initiative-approach-image {
   aspect-ratio: 1.35 / 1 !important;
 }
 
-.initiative-approach-impact-panel {
+.initiative-approach-support-panel {
   min-width: 0;
-  padding: clamp(16px, 1.7vw, 22px);
+  padding: clamp(16px, 1.8vw, 22px);
   border: 1px solid rgba(22, 116, 93, 0.1);
   border-radius: 22px;
-  background: #edf4e9;
+  background: linear-gradient(145deg, #f3f7ee 0%, #fbf6e9 100%);
   box-shadow: 0 12px 30px rgba(18, 59, 56, 0.06);
 }
 
-.initiative-approach-impact-panel h3 {
-  margin-bottom: 18px;
+.initiative-approach-support-header {
+  margin-bottom: 14px;
+}
+
+.initiative-approach-support-header h3 {
   color: #0d433c;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 24px;
+  font-size: clamp(24px, 2vw, 30px);
   font-weight: 600;
+  line-height: 1.05;
 }
 
-.initiative-approach-impact-list {
-  display: grid;
-  gap: 15px;
-}
-
-.initiative-approach-impact-item {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  gap: 11px;
-}
-
-.initiative-approach-impact-item > span {
-  display: grid;
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
-  place-items: center;
-  border-radius: 12px;
-  background: rgba(22, 116, 93, 0.1);
-  color: #176555;
-}
-
-.initiative-approach-impact-item strong {
-  display: block;
-  color: #0f5c4c;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 19px;
-  line-height: 1.1;
-}
-
-.initiative-approach-impact-item p {
-  margin-top: 3px;
+.initiative-approach-support-header p {
+  margin-top: 6px;
   color: #5a6d66;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.35;
+  font-size: 12px;
+  line-height: 1.45;
 }
 
-.initiative-approach-impact-note {
-  margin-top: 16px;
-  color: #66766f;
-  font-size: 10px;
-  line-height: 1.5;
-}
-
-.initiative-approach-focus-list {
+.initiative-approach-support-list {
   display: grid;
-  gap: 6px;
+  gap: 7px;
 }
 
-.initiative-approach-impact-panel.has-focus-items h3 {
-  margin-bottom: 12px;
-}
-
-.initiative-approach-focus-item {
-  display: flex;
+.initiative-approach-support-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 16px;
   min-width: 0;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 2px 4px;
-  border-radius: 14px;
-  transition: all 250ms ease;
+  min-height: 58px;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 9px;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 4px 12px rgba(18, 59, 56, 0.035);
+  transition:
+    transform 280ms ease,
+    background-color 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease;
 }
 
-.initiative-approach-focus-item:hover {
+.initiative-approach-support-item:hover,
+.initiative-approach-support-item:focus-visible {
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(22, 116, 93, 0.1);
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(18, 59, 56, 0.09);
 }
 
-.initiative-approach-focus-item > span {
+.initiative-approach-support-icon {
   display: grid;
-  flex: 0 0 30px;
-  width: 30px;
-  height: 30px;
+  width: 42px;
+  height: 42px;
   place-items: center;
   border-radius: 50%;
-  background: rgba(22, 116, 93, 0.1);
-  color: #176555;
-  transition: all 250ms ease;
+  transition: transform 280ms ease;
 }
 
-.initiative-approach-focus-item:hover > span {
+.initiative-approach-support-item:hover .initiative-approach-support-icon,
+.initiative-approach-support-item:focus-visible .initiative-approach-support-icon {
   transform: scale(1.06);
-  background: rgba(22, 116, 93, 0.16);
 }
 
-.initiative-approach-focus-item strong {
-  display: block;
+.initiative-approach-support-icon.is-coral {
+  background: #f9e4e2;
+  color: #bd625d;
+}
+
+.initiative-approach-support-icon.is-blue {
+  background: #e4edf8;
+  color: #567eae;
+}
+
+.initiative-approach-support-icon.is-teal {
+  background: #e1f0eb;
+  color: #438477;
+}
+
+.initiative-approach-support-icon.is-orange {
+  background: #f8ead7;
+  color: #b77a39;
+}
+
+.initiative-approach-support-icon.is-purple {
+  background: #eee8f6;
+  color: #795f9c;
+}
+
+.initiative-approach-support-copy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.initiative-approach-support-copy strong {
   color: #123b38;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  line-height: 1.25;
-  transition: all 250ms ease;
+  line-height: 1.2;
 }
 
-.initiative-approach-focus-item:hover strong {
-  color: #0a5849;
-}
-
-.initiative-approach-focus-item p {
-  margin-top: 2px;
-  color: #5a6d66;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 1.35;
-}
-
-.initiative-approach-focus-statement {
-  margin-top: 8px;
-  padding-top: 8px;
-  border-top: 1px solid rgba(22, 116, 93, 0.1);
-  color: #66766f;
+.initiative-approach-support-copy > span {
+  color: #68766f;
   font-size: 10px;
-  line-height: 1.45;
+  line-height: 1.3;
+}
+
+.initiative-approach-support-arrow {
+  color: #a77a33;
+  transition: transform 280ms ease;
+}
+
+.initiative-approach-support-item:hover .initiative-approach-support-arrow,
+.initiative-approach-support-item:focus-visible .initiative-approach-support-arrow {
+  transform: translateX(3px);
+}
+
+.initiative-approach-support-message {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.initiative-approach-support-message p {
+  color: #0d433c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.15;
+}
+
+.initiative-approach-support-message > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #c77c76;
+}
+
+.initiative-approach-support-message i {
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(199, 124, 118, 0.7));
+}
+
+.initiative-approach-support-message i:last-child {
+  transform: scaleX(-1);
 }
 
 .healthcare-image-frame.healthcare-editorial-image {
@@ -3285,17 +3317,13 @@ img {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .initiative-approach-impact-grid {
+  .initiative-approach-grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 28px;
   }
 
-  .initiative-approach-impact-panel {
+  .initiative-approach-support-wrap {
     grid-column: 1 / -1;
-  }
-
-  .initiative-approach-impact-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -3310,18 +3338,13 @@ img {
 
   .healthcare-hero-grid,
   .healthcare-two-column,
-  .initiative-approach-impact-grid {
+  .initiative-approach-grid {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
-  .initiative-approach-impact-panel {
+  .initiative-approach-support-wrap {
     grid-column: auto;
-  }
-
-  .initiative-approach-impact-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px 10px;
   }
 
   .healthcare-hero-copy h1 {

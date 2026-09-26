@@ -94,31 +94,6 @@ const healthProgrammes = [
   },
 ];
 
-const healthcareFocusItems = [
-  {
-    title: "Accessible Care",
-    description: "Making essential healthcare support easier to reach.",
-    icon: HeartPulse,
-  },
-  {
-    title: "Health Awareness",
-    description:
-      "Helping communities understand prevention, hygiene and healthy living.",
-    icon: Lightbulb,
-  },
-  {
-    title: "Preventive Support",
-    description: "Encouraging early awareness and timely care.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Community Wellbeing",
-    description:
-      "Supporting healthier families through compassionate community care.",
-    icon: Users,
-  },
-];
-
 const supportPoints = [
   { label: "Accessible care", icon: HeartPulse },
   { label: "Health awareness", icon: Lightbulb },
@@ -255,9 +230,6 @@ export default function HealthcareSupportPage() {
         image="/elderly_care.png"
         imageAlt="A caregiver offering reassurance and support to an older couple"
         imageCaption="Care rooted in dignity and trust"
-        panelTitle="What We Focus On"
-        focusItems={healthcareFocusItems}
-        focusStatement="Better health begins with access, awareness and compassionate support."
       >
         <p className="eyebrow">Our Approach</p>
         <h2 id="healthcare-approach-title">

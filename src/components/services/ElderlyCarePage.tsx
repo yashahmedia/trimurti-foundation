@@ -93,33 +93,6 @@ const programmes = [
   },
 ];
 
-const elderlyFocusItems = [
-  {
-    title: "Companionship",
-    description:
-      "Creating meaningful connections so seniors feel heard, valued and less isolated.",
-    icon: MessageCircleHeart,
-  },
-  {
-    title: "Health & Wellbeing",
-    description:
-      "Supporting older adults with essential health guidance and everyday wellbeing.",
-    icon: HeartPulse,
-  },
-  {
-    title: "Daily Care & Support",
-    description:
-      "Helping with everyday needs while protecting dignity, comfort and independence.",
-    icon: HandHeart,
-  },
-  {
-    title: "Community Connection",
-    description:
-      "Creating opportunities for seniors to stay engaged, active and connected.",
-    icon: Users,
-  },
-];
-
 const storyPoints = [
   { label: "Companionship", icon: MessageCircleHeart },
   { label: "Health & wellbeing", icon: HeartPulse },
@@ -261,9 +234,6 @@ export default function ElderlyCarePage() {
         image="/elder support.png"
         imageAlt="A younger volunteer sharing a warm moment with an older Indian man"
         imageCaption="Companionship that nurtures belonging"
-        panelTitle="What We Focus On"
-        focusItems={elderlyFocusItems}
-        focusStatement="Every senior deserves care, dignity, connection and a sense of belonging."
       >
         <p className="eyebrow">Our Approach</p>
         <h2 id="elderly-approach-title">

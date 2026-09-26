@@ -97,33 +97,6 @@ const programmes = [
   },
 ];
 
-const cultureFocusItems = [
-  {
-    title: "Preserve Traditions",
-    description:
-      "Keeping traditional knowledge, arts and cultural practices alive for future generations.",
-    icon: Landmark,
-  },
-  {
-    title: "Support Artisans",
-    description:
-      "Creating opportunities for traditional artists and craftspeople to sustain their skills.",
-    icon: HandHeart,
-  },
-  {
-    title: "Cultural Education",
-    description:
-      "Helping children and communities learn about their heritage, values and traditions.",
-    icon: BookOpen,
-  },
-  {
-    title: "Community Connection",
-    description:
-      "Bringing people together through cultural experiences, events and shared traditions.",
-    icon: Users,
-  },
-];
-
 const storyPoints = [
   { label: "Traditional Knowledge", icon: BookOpen },
   { label: "Cultural Learning", icon: GraduationCap },
@@ -268,9 +241,6 @@ export default function CultureHeritageInitiativePage() {
         image="/heritage.png"
         imageAlt="A historic Indian temple and cultural gathering place"
         imageCaption="Heritage lives on when it is shared"
-        panelTitle="What We Focus On"
-        focusItems={cultureFocusItems}
-        focusStatement="When heritage is shared, it continues to inspire future generations."
       >
         <p className="eyebrow">Our Approach</p>
         <h2 id="culture-approach-title">

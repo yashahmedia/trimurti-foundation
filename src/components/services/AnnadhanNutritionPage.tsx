@@ -8,7 +8,6 @@ import {
   Leaf,
   Lightbulb,
   MapPin,
-  ShoppingBasket,
   Sprout,
   Utensils,
   Users,
@@ -89,33 +88,6 @@ const programmes = [
     image: "/education_empowerment.png",
     imageAlt: "Children learning together in a community classroom",
     icon: Lightbulb,
-  },
-];
-
-const nutritionFocusItems = [
-  {
-    title: "Nutritious Meals",
-    description:
-      "Providing wholesome meals to people and families who need support.",
-    icon: Utensils,
-  },
-  {
-    title: "Food Security",
-    description:
-      "Helping communities access reliable food support during difficult times.",
-    icon: ShoppingBasket,
-  },
-  {
-    title: "Nutrition Awareness",
-    description:
-      "Encouraging healthier food choices, balanced nutrition and wellbeing.",
-    icon: Leaf,
-  },
-  {
-    title: "Community Kitchens",
-    description:
-      "Supporting community-led meal programmes that bring people together.",
-    icon: Users,
   },
 ];
 
@@ -254,9 +226,6 @@ export default function AnnadhanNutritionPage() {
         image="/We provide.jpeg"
         imageAlt="A volunteer sharing food support with a family"
         imageCaption="Food support shared with compassion"
-        panelTitle="What We Focus On"
-        focusItems={nutritionFocusItems}
-        focusStatement="Food support is about nourishment, dignity and stronger communities."
       >
         <p className="eyebrow">Our Approach</p>
         <h2 id="annadhan-approach-title">

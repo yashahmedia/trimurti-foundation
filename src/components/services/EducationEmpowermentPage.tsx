@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowUpRight,
   BookOpen,
   BookOpenCheck,
   HeartPulse,
@@ -103,33 +102,6 @@ const relatedInitiatives = [
   { title: "Culture & Heritage", href: "/services/culture-heritage", icon: Landmark },
 ];
 
-const educationFocusItems = [
-  {
-    title: "Accessible Learning",
-    description:
-      "Creating better access to quality education and learning resources.",
-    icon: BookOpen,
-  },
-  {
-    title: "Skills & Confidence",
-    description:
-      "Helping learners build practical skills and confidence for the future.",
-    icon: Lightbulb,
-  },
-  {
-    title: "Mentorship & Guidance",
-    description:
-      "Connecting students with guidance, support and meaningful opportunities.",
-    icon: Users,
-  },
-  {
-    title: "Future Opportunities",
-    description:
-      "Preparing young people with knowledge and skills to move forward.",
-    icon: ArrowUpRight,
-  },
-];
-
 export default function EducationEmpowermentPage() {
   return (
     <div className="healthcare-page education-page initiative-banner-page">
@@ -215,9 +187,6 @@ export default function EducationEmpowermentPage() {
         image="/education.png"
         imageAlt="A student with a book, ready to continue learning"
         imageCaption="Helping every learner move forward"
-        panelTitle="What We Focus On"
-        focusItems={educationFocusItems}
-        focusStatement="Every learner deserves the opportunity to grow, learn and succeed."
       >
         <p className="eyebrow">Our Approach</p>
         <h2 id="education-approach-title">
