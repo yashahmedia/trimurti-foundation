@@ -2533,6 +2533,84 @@ img {
   grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
 }
 
+.initiative-approach-impact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr) minmax(220px, 0.82fr);
+  align-items: center;
+  gap: clamp(20px, 2.4vw, 34px);
+}
+
+.initiative-approach-copy {
+  min-width: 0;
+}
+
+.initiative-approach-image {
+  aspect-ratio: 1.35 / 1 !important;
+}
+
+.initiative-approach-impact-panel {
+  min-width: 0;
+  padding: clamp(16px, 1.7vw, 22px);
+  border: 1px solid rgba(22, 116, 93, 0.1);
+  border-radius: 22px;
+  background: #edf4e9;
+  box-shadow: 0 12px 30px rgba(18, 59, 56, 0.06);
+}
+
+.initiative-approach-impact-panel h3 {
+  margin-bottom: 18px;
+  color: #0d433c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.initiative-approach-impact-list {
+  display: grid;
+  gap: 15px;
+}
+
+.initiative-approach-impact-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 11px;
+}
+
+.initiative-approach-impact-item > span {
+  display: grid;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(22, 116, 93, 0.1);
+  color: #176555;
+}
+
+.initiative-approach-impact-item strong {
+  display: block;
+  color: #0f5c4c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.1;
+}
+
+.initiative-approach-impact-item p {
+  margin-top: 3px;
+  color: #5a6d66;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.initiative-approach-impact-note {
+  margin-top: 16px;
+  color: #66766f;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
 .healthcare-image-frame.healthcare-editorial-image {
   aspect-ratio: 1.22 / 1;
   border-radius: 28px;
@@ -3044,38 +3122,6 @@ img {
   background: #e9f0e5;
 }
 
-.culture-service-impact-inline {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-  margin-top: 24px;
-}
-
-.culture-service-impact-item {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 5px;
-  padding: 12px 10px;
-  border: 1px solid rgba(18, 59, 56, 0.08);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.72);
-}
-
-.culture-service-impact-item strong {
-  color: #0f5c4c;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(19px, 2vw, 25px);
-  line-height: 1;
-}
-
-.culture-service-impact-item span {
-  color: #5a6d66;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
 .culture-service-anchor {
   position: absolute;
   top: 0;
@@ -3167,6 +3213,19 @@ img {
   .healthcare-related-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .initiative-approach-impact-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .initiative-approach-impact-panel {
+    grid-column: 1 / -1;
+  }
+
+  .initiative-approach-impact-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
@@ -3179,9 +3238,19 @@ img {
   }
 
   .healthcare-hero-grid,
-  .healthcare-two-column {
+  .healthcare-two-column,
+  .initiative-approach-impact-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .initiative-approach-impact-panel {
+    grid-column: auto;
+  }
+
+  .initiative-approach-impact-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 10px;
   }
 
   .healthcare-hero-copy h1 {
@@ -3266,9 +3335,6 @@ img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .culture-service-impact-inline {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 520px) {

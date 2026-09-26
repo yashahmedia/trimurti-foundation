@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import CultureReveal from "@/components/culture/CultureReveal";
 import InitiativesBanner from "@/components/services/InitiativesBanner";
+import InitiativeApproachSection from "@/components/services/InitiativeApproachSection";
 
 const initiatives = [
   {
@@ -237,46 +238,32 @@ export default function ElderlyCarePage() {
         </div>
       </section>
 
-      <section
-        className="healthcare-approach healthcare-section"
-        aria-labelledby="elderly-approach-title"
+      <InitiativeApproachSection
+        headingId="elderly-approach-title"
+        image="/elder support.png"
+        imageAlt="A younger volunteer sharing a warm moment with an older Indian man"
+        imageCaption="Companionship that nurtures belonging"
+        metrics={impactMetrics}
+        impactNote="These illustrative figures are placeholders and should be updated with verified programme data."
       >
-        <div className="healthcare-container healthcare-two-column">
-          <CultureReveal className="healthcare-section-visual">
-            <div className="healthcare-image-frame healthcare-editorial-image">
-              <Image
-                src="/elder support.png"
-                alt="A younger volunteer sharing a warm moment with an older Indian man"
-                fill
-                sizes="(max-width: 800px) 100vw, 50vw"
-              />
-            </div>
-            <span className="healthcare-image-caption">
-              Companionship that nurtures belonging
-            </span>
-          </CultureReveal>
-
-          <CultureReveal className="healthcare-section-copy" delay={0.1}>
-            <p className="eyebrow">Our Approach</p>
-            <h2 id="elderly-approach-title">
-              Compassionate Support for Every Senior
-            </h2>
-            <p>
-              Our elderly care initiatives focus on creating spaces where older
-              adults feel respected, supported and connected. We work to make
-              everyday life more dignified through companionship, essential
-              support and community engagement.
-            </p>
-            <p>
-              Because caring for our elders means more than meeting physical
-              needs — it means creating a sense of belonging.
-            </p>
-            <Link className="healthcare-text-link button" href="/about-us">
-              Learn More About Our Work <ArrowRight size={16} />
-            </Link>
-          </CultureReveal>
-        </div>
-      </section>
+        <p className="eyebrow">Our Approach</p>
+        <h2 id="elderly-approach-title">
+          Compassionate Support for Every Senior
+        </h2>
+        <p>
+          Our elderly care initiatives focus on creating spaces where older
+          adults feel respected, supported and connected. We work to make
+          everyday life more dignified through companionship, essential
+          support and community engagement.
+        </p>
+        <p>
+          Because caring for our elders means more than meeting physical needs —
+          it means creating a sense of belonging.
+        </p>
+        <Link className="healthcare-text-link button" href="/about-us">
+          Learn More About Our Work <ArrowRight size={16} />
+        </Link>
+      </InitiativeApproachSection>
 
       <section
         className="healthcare-programmes healthcare-section"
@@ -332,39 +319,6 @@ export default function ElderlyCarePage() {
               ),
             )}
           </div>
-        </div>
-      </section>
-
-      <section
-        className="healthcare-impact healthcare-section"
-        aria-labelledby="elderly-impact-title"
-      >
-        <div className="healthcare-container">
-          <CultureReveal className="healthcare-impact-heading">
-            <p className="eyebrow">Our Impact</p>
-            <h2 id="elderly-impact-title">Care that makes a difference</h2>
-          </CultureReveal>
-          <div className="healthcare-impact-grid">
-            {impactMetrics.map(({ value, label, icon: Icon }, index) => (
-              <CultureReveal
-                className="healthcare-impact-reveal"
-                delay={index * 0.07}
-                key={label}
-              >
-                <div className="healthcare-impact-card">
-                  <span className="healthcare-impact-icon" aria-hidden="true">
-                    <Icon size={19} strokeWidth={1.8} />
-                  </span>
-                  <strong>{value}</strong>
-                  <span>{label}</span>
-                </div>
-              </CultureReveal>
-            ))}
-          </div>
-          <p className="healthcare-impact-note">
-            These illustrative figures are placeholders and should be updated
-            with verified programme data.
-          </p>
         </div>
       </section>
 

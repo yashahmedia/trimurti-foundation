@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import CultureReveal from "@/components/culture/CultureReveal";
 import InitiativesBanner from "@/components/services/InitiativesBanner";
+import InitiativeApproachSection from "@/components/services/InitiativeApproachSection";
 
 const initiatives = [
   {
@@ -231,45 +232,31 @@ export default function HealthcareSupportPage() {
         </div>
       </section>
 
-      <section
-        className="healthcare-approach healthcare-section"
-        aria-labelledby="healthcare-approach-title"
+      <InitiativeApproachSection
+        headingId="healthcare-approach-title"
+        image="/elderly_care.png"
+        imageAlt="A caregiver offering reassurance and support to an older couple"
+        imageCaption="Care rooted in dignity and trust"
+        metrics={impactMetrics}
+        impactNote="Our healthcare impact grows through the continued support of volunteers, partners and local communities."
       >
-        <div className="healthcare-container healthcare-two-column">
-          <CultureReveal className="healthcare-section-visual">
-            <div className="healthcare-image-frame healthcare-editorial-image">
-              <Image
-                src="/elderly_care.png"
-                alt="A caregiver offering reassurance and support to an older couple"
-                fill
-                sizes="(max-width: 800px) 100vw, 50vw"
-              />
-            </div>
-            <span className="healthcare-image-caption">
-              Care rooted in dignity and trust
-            </span>
-          </CultureReveal>
-
-          <CultureReveal className="healthcare-section-copy" delay={0.1}>
-            <p className="eyebrow">Our Approach</p>
-            <h2 id="healthcare-approach-title">
-              Care That Reaches Communities
-            </h2>
-            <p>
-              Our healthcare initiatives focus on bringing essential support
-              closer to communities through awareness programmes, health camps,
-              preventive care and guidance.
-            </p>
-            <p>
-              We believe better health begins with access to the right
-              information, timely support and compassionate care.
-            </p>
-            <Link className="healthcare-text-link" href="/about-us">
-              Learn More About Our Work <ArrowRight size={17} />
-            </Link>
-          </CultureReveal>
-        </div>
-      </section>
+        <p className="eyebrow">Our Approach</p>
+        <h2 id="healthcare-approach-title">
+          Care That Reaches Communities
+        </h2>
+        <p>
+          Our healthcare initiatives focus on bringing essential support closer
+          to communities through awareness programmes, health camps, preventive
+          care and guidance.
+        </p>
+        <p>
+          We believe better health begins with access to the right information,
+          timely support and compassionate care.
+        </p>
+        <Link className="healthcare-text-link" href="/about-us">
+          Learn More About Our Work <ArrowRight size={17} />
+        </Link>
+      </InitiativeApproachSection>
 
       <section
         className="healthcare-programmes healthcare-section"
@@ -325,39 +312,6 @@ export default function HealthcareSupportPage() {
               ),
             )}
           </div>
-        </div>
-      </section>
-
-      <section
-        className="healthcare-impact healthcare-section"
-        aria-labelledby="healthcare-impact-title"
-      >
-        <div className="healthcare-container">
-          <CultureReveal className="healthcare-impact-heading">
-            <p className="eyebrow">Our Impact</p>
-            <h2 id="healthcare-impact-title">Care that makes a difference</h2>
-          </CultureReveal>
-          <div className="healthcare-impact-grid">
-            {impactMetrics.map(({ value, label, icon: Icon }, index) => (
-              <CultureReveal
-                className="healthcare-impact-reveal"
-                delay={index * 0.07}
-                key={label}
-              >
-                <div className="healthcare-impact-card">
-                  <span className="healthcare-impact-icon" aria-hidden="true">
-                    <Icon size={19} strokeWidth={1.8} />
-                  </span>
-                  <strong>{value}</strong>
-                  <span>{label}</span>
-                </div>
-              </CultureReveal>
-            ))}
-          </div>
-          <p className="healthcare-impact-note">
-            Our healthcare impact grows through the continued support of
-            volunteers, partners and local communities.
-          </p>
         </div>
       </section>
 

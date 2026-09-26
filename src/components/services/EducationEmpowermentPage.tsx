@@ -4,6 +4,7 @@ import {
   ArrowRight,
   BookOpen,
   BookOpenCheck,
+  GraduationCap,
   HeartPulse,
   Landmark,
   Laptop,
@@ -13,6 +14,7 @@ import {
 } from "lucide-react";
 import CultureReveal from "@/components/culture/CultureReveal";
 import InitiativesBanner from "@/components/services/InitiativesBanner";
+import InitiativeApproachSection from "@/components/services/InitiativeApproachSection";
 
 const initiatives = [
   {
@@ -101,6 +103,13 @@ const relatedInitiatives = [
   { title: "Culture & Heritage", href: "/services/culture-heritage", icon: Landmark },
 ];
 
+const impactMetrics = [
+  { value: "500+", label: "Learners Supported", icon: BookOpenCheck },
+  { value: "25+", label: "Learning Initiatives", icon: GraduationCap },
+  { value: "100+", label: "Families Reached", icon: Users },
+  { value: "12+", label: "Communities Reached", icon: Lightbulb },
+];
+
 export default function EducationEmpowermentPage() {
   return (
     <div className="healthcare-page education-page initiative-banner-page">
@@ -181,49 +190,33 @@ export default function EducationEmpowermentPage() {
         </div>
       </section>
 
-      <section
-        className="healthcare-approach healthcare-section education-approach"
-        aria-labelledby="education-approach-title"
+      <InitiativeApproachSection
+        headingId="education-approach-title"
+        image="/education.png"
+        imageAlt="A student with a book, ready to continue learning"
+        imageCaption="Helping every learner move forward"
+        metrics={impactMetrics}
+        impactNote="These illustrative figures are placeholders and should be updated with verified programme data."
       >
-        <div className="healthcare-container healthcare-two-column">
-          <CultureReveal className="healthcare-section-visual">
-            <div className="healthcare-image-frame healthcare-editorial-image">
-              <Image
-                src="/education.png"
-                alt="A student with a book, ready to continue learning"
-                fill
-                sizes="(max-width: 800px) 100vw, 50vw"
-              />
-            </div>
-            <span className="healthcare-image-caption">
-              Helping every learner move forward
-            </span>
-          </CultureReveal>
-
-          <CultureReveal className="healthcare-section-copy" delay={0.1}>
-            <p className="eyebrow">Our Approach</p>
-            <h2 id="education-approach-title">
-              Education That Builds Opportunity
-            </h2>
-            <p>
-              We believe education can help people build confidence, discover
-              their strengths and take meaningful steps towards a more secure
-              future.
-            </p>
-            <p>
-              By supporting learning, practical skills and personal growth, we
-              work to make opportunity more accessible to students and
-              communities.
-            </p>
-            <Link
-              className="healthcare-text-link button"
-              href="/volunteer?area=Education%20Support"
-            >
-              Support a learner <ArrowRight size={16} />
-            </Link>
-          </CultureReveal>
-        </div>
-      </section>
+        <p className="eyebrow">Our Approach</p>
+        <h2 id="education-approach-title">
+          Education That Builds Opportunity
+        </h2>
+        <p>
+          We believe education can help people build confidence, discover their
+          strengths and take meaningful steps towards a more secure future.
+        </p>
+        <p>
+          By supporting learning, practical skills and personal growth, we work
+          to make opportunity more accessible to students and communities.
+        </p>
+        <Link
+          className="healthcare-text-link button"
+          href="/volunteer?area=Education%20Support"
+        >
+          Support a learner <ArrowRight size={16} />
+        </Link>
+      </InitiativeApproachSection>
 
       <section
         className="healthcare-programmes healthcare-section"

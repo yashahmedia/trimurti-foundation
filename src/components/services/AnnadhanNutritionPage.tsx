@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import CultureReveal from "@/components/culture/CultureReveal";
 import InitiativesBanner from "@/components/services/InitiativesBanner";
+import InitiativeApproachSection from "@/components/services/InitiativeApproachSection";
 
 const initiatives = [
   {
@@ -227,48 +228,34 @@ export default function AnnadhanNutritionPage() {
         </div>
       </section>
 
-      <section
-        className="healthcare-approach healthcare-section annadhan-approach"
-        aria-labelledby="annadhan-approach-title"
+      <InitiativeApproachSection
+        headingId="annadhan-approach-title"
+        image="/We provide.jpeg"
+        imageAlt="A volunteer sharing food support with a family"
+        imageCaption="Food support shared with compassion"
+        metrics={impactMetrics}
+        impactNote="Impact figures are illustrative and can be updated as programme reporting becomes available."
       >
-        <div className="healthcare-container healthcare-two-column">
-          <CultureReveal className="healthcare-section-visual">
-            <div className="healthcare-image-frame healthcare-editorial-image">
-              <Image
-                src="/We provide.jpeg"
-                alt="A volunteer sharing food support with a family"
-                fill
-                sizes="(max-width: 800px) 100vw, 50vw"
-              />
-            </div>
-            <span className="healthcare-image-caption">
-              Food support shared with compassion
-            </span>
-          </CultureReveal>
-
-          <CultureReveal className="healthcare-section-copy" delay={0.1}>
-            <p className="eyebrow">Our Approach</p>
-            <h2 id="annadhan-approach-title">
-              Food With Dignity, Care With Purpose
-            </h2>
-            <p>
-              Our Annadhan initiatives focus on providing nutritious meals and
-              food support to communities while ensuring that every person is
-              treated with dignity and compassion.
-            </p>
-            <p>
-              From community meal programmes to nutrition awareness, we work to
-              make food security and wellbeing a shared responsibility.
-            </p>
-            <Link
-              className="healthcare-text-link button"
-              href="/volunteer?area=Annadhan%20%26%20Nutrition"
-            >
-              Learn More About Annadhan <ArrowRight size={16} />
-            </Link>
-          </CultureReveal>
-        </div>
-      </section>
+        <p className="eyebrow">Our Approach</p>
+        <h2 id="annadhan-approach-title">
+          Food With Dignity, Care With Purpose
+        </h2>
+        <p>
+          Our Annadhan initiatives focus on providing nutritious meals and food
+          support to communities while ensuring that every person is treated
+          with dignity and compassion.
+        </p>
+        <p>
+          From community meal programmes to nutrition awareness, we work to
+          make food security and wellbeing a shared responsibility.
+        </p>
+        <Link
+          className="healthcare-text-link button"
+          href="/volunteer?area=Annadhan%20%26%20Nutrition"
+        >
+          Learn More About Annadhan <ArrowRight size={16} />
+        </Link>
+      </InitiativeApproachSection>
 
       <section
         className="healthcare-programmes healthcare-section"
@@ -324,39 +311,6 @@ export default function AnnadhanNutritionPage() {
               ),
             )}
           </div>
-        </div>
-      </section>
-
-      <section
-        className="healthcare-impact healthcare-section"
-        aria-labelledby="annadhan-impact-title"
-      >
-        <div className="healthcare-container">
-          <CultureReveal className="healthcare-impact-heading">
-            <p className="eyebrow">Our Impact</p>
-            <h2 id="annadhan-impact-title">Nourishment that brings us together</h2>
-          </CultureReveal>
-          <div className="healthcare-impact-grid">
-            {impactMetrics.map(({ value, label, icon: Icon }, index) => (
-              <CultureReveal
-                className="healthcare-impact-reveal"
-                delay={index * 0.07}
-                key={label}
-              >
-                <div className="healthcare-impact-card">
-                  <span className="healthcare-impact-icon" aria-hidden="true">
-                    <Icon size={19} strokeWidth={1.8} />
-                  </span>
-                  <strong>{value}</strong>
-                  <span>{label}</span>
-                </div>
-              </CultureReveal>
-            ))}
-          </div>
-          <p className="healthcare-impact-note">
-            Impact figures are illustrative and can be updated as programme
-            reporting becomes available.
-          </p>
         </div>
       </section>
 

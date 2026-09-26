@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import CultureReveal from "@/components/culture/CultureReveal";
 import InitiativesBanner from "@/components/services/InitiativesBanner";
+import InitiativeApproachSection from "@/components/services/InitiativeApproachSection";
 
 const initiatives = [
   {
@@ -243,57 +244,31 @@ export default function CultureHeritageInitiativePage() {
         </div>
       </section>
 
-      <section
-        className="healthcare-approach healthcare-section"
-        aria-labelledby="culture-approach-title"
+      <InitiativeApproachSection
+        headingId="culture-approach-title"
+        image="/heritage.png"
+        imageAlt="A historic Indian temple and cultural gathering place"
+        imageCaption="Heritage lives on when it is shared"
+        metrics={impactMetrics}
+        impactNote="These illustrative figures are placeholders and should be updated with verified programme data."
       >
-        <div className="healthcare-container healthcare-two-column">
-          <CultureReveal className="healthcare-section-visual">
-            <div className="healthcare-image-frame healthcare-editorial-image">
-              <Image
-                src="/heritage.png"
-                alt="A historic Indian temple and cultural gathering place"
-                fill
-                sizes="(max-width: 800px) 100vw, 50vw"
-              />
-            </div>
-            <span className="healthcare-image-caption">
-              Heritage lives on when it is shared
-            </span>
-          </CultureReveal>
-
-          <CultureReveal className="healthcare-section-copy" delay={0.1}>
-            <p className="eyebrow">Our Approach</p>
-            <h2 id="culture-approach-title">
-              Preserving Heritage, Empowering Communities
-            </h2>
-            <p>
-              Our work connects communities with their cultural roots by
-              supporting traditional knowledge, heritage spaces, artisans and
-              meaningful cultural experiences.
-            </p>
-            <p>
-              By keeping traditions alive and creating opportunities for
-              younger generations, we help cultural knowledge continue to
-              grow.
-            </p>
-            <Link className="healthcare-text-link button" href="/about-us">
-              Learn More About Our Work <ArrowRight size={16} />
-            </Link>
-            <div
-              className="culture-service-impact-inline"
-              aria-label="Culture and heritage impact at a glance"
-            >
-              {impactMetrics.map(({ value, label }) => (
-                <div className="culture-service-impact-item" key={label}>
-                  <strong>{value}</strong>
-                  <span>{label}</span>
-                </div>
-              ))}
-            </div>
-          </CultureReveal>
-        </div>
-      </section>
+        <p className="eyebrow">Our Approach</p>
+        <h2 id="culture-approach-title">
+          Preserving Heritage, Empowering Communities
+        </h2>
+        <p>
+          Our work connects communities with their cultural roots by supporting
+          traditional knowledge, heritage spaces, artisans and meaningful
+          cultural experiences.
+        </p>
+        <p>
+          By keeping traditions alive and creating opportunities for younger
+          generations, we help cultural knowledge continue to grow.
+        </p>
+        <Link className="healthcare-text-link button" href="/about-us">
+          Learn More About Our Work <ArrowRight size={16} />
+        </Link>
+      </InitiativeApproachSection>
 
       <section
         className="healthcare-programmes healthcare-section"
@@ -361,41 +336,6 @@ export default function CultureHeritageInitiativePage() {
               ),
             )}
           </div>
-        </div>
-      </section>
-
-      <section
-        className="healthcare-impact healthcare-section"
-        aria-labelledby="culture-impact-title"
-      >
-        <div className="healthcare-container">
-          <CultureReveal className="healthcare-impact-heading">
-            <p className="eyebrow">Our Impact</p>
-            <h2 id="culture-impact-title">
-              Keeping our living heritage connected
-            </h2>
-          </CultureReveal>
-          <div className="healthcare-impact-grid">
-            {impactMetrics.map(({ value, label, icon: Icon }, index) => (
-              <CultureReveal
-                className="healthcare-impact-reveal"
-                delay={index * 0.07}
-                key={label}
-              >
-                <div className="healthcare-impact-card">
-                  <span className="healthcare-impact-icon" aria-hidden="true">
-                    <Icon size={19} strokeWidth={1.8} />
-                  </span>
-                  <strong>{value}</strong>
-                  <span>{label}</span>
-                </div>
-              </CultureReveal>
-            ))}
-          </div>
-          <p className="healthcare-impact-note">
-            These illustrative figures are placeholders and should be updated
-            with verified programme data.
-          </p>
         </div>
       </section>
 
