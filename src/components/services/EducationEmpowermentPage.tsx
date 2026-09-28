@@ -105,7 +105,11 @@ const relatedInitiatives = [
 export default function EducationEmpowermentPage() {
   return (
     <div className="healthcare-page education-page initiative-banner-page">
-      <InitiativesBanner pageTitle="Education & Empowerment" />
+      <InitiativesBanner
+        pageTitle="Education & Empowerment"
+        image="/Education%20%26%20Empowerment.png"
+        imageAlt="Education and Empowerment: students reading together, with learning, scholarship and skills programmes."
+      />
       <section
         className="healthcare-hero"
         aria-labelledby="education-hero-title"

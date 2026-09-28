@@ -28,28 +28,45 @@ const initiatives = [
   },
 ];
 
-export default function InitiativesBanner({ pageTitle }: { pageTitle: string }) {
+type InitiativesBannerProps = {
+  pageTitle: string;
+  image?: string;
+  imageAlt?: string;
+};
+
+export default function InitiativesBanner({
+  pageTitle,
+  image = "/Our%20Initiatives.png",
+  imageAlt = "Our Initiatives: Creating change where it matters most, from learning and healthcare to nutrition, elder care, environmental action and cultural preservation.",
+}: InitiativesBannerProps) {
+  const isOverview = pageTitle === "Our Initiatives";
+
   return (
     <section className="initiatives-banner" aria-label="Our initiatives">
       <h1 className="sr-only">{pageTitle}</h1>
       <div className="initiatives-banner-image">
         <Image
-          src="/Our%20Initiatives.png"
-          alt="Our Initiatives: Creating change where it matters most, from learning and healthcare to nutrition, elder care, environmental action and cultural preservation."
+          src={image}
+          alt={imageAlt}
           fill
           loading="eager"
           sizes="100vw"
         />
-        <nav className="initiatives-banner-hotspots" aria-label="Explore initiatives">
-          {initiatives.map(({ title, href }, index) => (
-            <Link
-              className={`initiatives-banner-hotspot initiatives-banner-hotspot-${index + 1}`}
-              href={href}
-              key={title}
-              aria-label={title}
-            />
-          ))}
-        </nav>
+        {isOverview && (
+          <nav
+            className="initiatives-banner-hotspots"
+            aria-label="Explore initiatives"
+          >
+            {initiatives.map(({ title, href }, index) => (
+              <Link
+                className={`initiatives-banner-hotspot initiatives-banner-hotspot-${index + 1}`}
+                href={href}
+                key={title}
+                aria-label={title}
+              />
+            ))}
+          </nav>
+        )}
       </div>
     </section>
   );

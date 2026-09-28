@@ -158,7 +158,11 @@ const relatedInitiatives = [
 export default function CultureHeritageInitiativePage() {
   return (
     <div className="healthcare-page culture-service-page initiative-banner-page">
-      <InitiativesBanner pageTitle="Culture & Heritage" />
+      <InitiativesBanner
+        pageTitle="Culture & Heritage"
+        image="/Culture%20%26%20Heritage.png"
+        imageAlt="Culture and Heritage: a young dancer performing traditional Indian dance."
+      />
       <section
         className="healthcare-hero"
         aria-labelledby="culture-hero-title"

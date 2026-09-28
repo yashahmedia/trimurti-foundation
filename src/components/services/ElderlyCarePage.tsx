@@ -155,7 +155,11 @@ const relatedInitiatives = [
 export default function ElderlyCarePage() {
   return (
     <div className="healthcare-page elderly-page initiative-banner-page">
-      <InitiativesBanner pageTitle="Elderly Care" />
+      <InitiativesBanner
+        pageTitle="Elderly Care"
+        image="/Elderly%20Care.png"
+        imageAlt="Elderly Care: a caregiver offering compassionate support to a senior woman."
+      />
       <section className="healthcare-hero" aria-labelledby="elderly-hero-title">
         <div className="healthcare-container healthcare-hero-grid">
           <CultureReveal className="healthcare-hero-copy">

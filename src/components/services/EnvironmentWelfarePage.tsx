@@ -154,7 +154,11 @@ const relatedInitiatives = [
 export default function EnvironmentWelfarePage() {
   return (
     <div className="healthcare-page environment-page initiative-banner-page">
-      <InitiativesBanner pageTitle="Environment & Welfare" />
+      <InitiativesBanner
+        pageTitle="Environment & Welfare"
+        image="/Environment%20%26%20Welfare.png"
+        imageAlt="Environment and Welfare: a volunteer and child planting a sapling."
+      />
       <section
         className="healthcare-hero"
         aria-labelledby="environment-hero-title"

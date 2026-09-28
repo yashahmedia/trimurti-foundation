@@ -148,7 +148,11 @@ const relatedInitiatives = [
 export default function HealthcareSupportPage() {
   return (
     <div className="healthcare-page initiative-banner-page">
-      <InitiativesBanner pageTitle="Healthcare Support" />
+      <InitiativesBanner
+        pageTitle="Healthcare Support"
+        image="/Healthcare%20Support.png"
+        imageAlt="Healthcare Support: a community doctor caring for an older woman."
+      />
       <section
         className="healthcare-hero"
         aria-labelledby="healthcare-hero-title"

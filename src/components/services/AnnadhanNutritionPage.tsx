@@ -144,7 +144,11 @@ const relatedInitiatives = [
 export default function AnnadhanNutritionPage() {
   return (
     <div className="healthcare-page annadhan-page initiative-banner-page">
-      <InitiativesBanner pageTitle="Annadhan & Nutrition" />
+      <InitiativesBanner
+        pageTitle="Annadhan & Nutrition"
+        image="/Annadhan%20%26%20Nutrition.png"
+        imageAlt="Annadhan and Nutrition: a volunteer serving a nutritious meal to a child."
+      />
       <section
         className="healthcare-hero"
         aria-labelledby="annadhan-hero-title"
