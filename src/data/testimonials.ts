@@ -11,4 +11,10 @@ export const testimonials = [
     name: "The spirit of volunteering",
     label: "Illustrative message — not a volunteer testimonial",
   },
+  {
+    quote:
+      "A stronger community grows when care, dignity and opportunity reach everyone.",
+    name: "A vision for every community",
+    label: "Illustrative message — not a programme participant testimonial",
+  },
 ];
