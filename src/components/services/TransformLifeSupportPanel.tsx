@@ -11,6 +11,7 @@ import {
   LifeBuoy,
   UsersRound,
 } from "lucide-react";
+import DonationTrigger from "@/components/donate/DonationTrigger";
 
 const supportActions = [
   {
@@ -54,6 +55,15 @@ const supportActions = [
 
 export default function TransformLifeSupportPanel() {
   const pathname = usePathname();
+  const initialCause = {
+    "/services/education": "Education & Empowerment",
+    "/services/healthcare": "Healthcare Support",
+    "/services/nutrition": "Annadhan & Nutrition",
+    "/services/elderly-care": "Elderly Care",
+    "/services/environment-welfare": "Environment & Welfare",
+    "/services/culture-heritage": "Culture & Heritage",
+  }[pathname];
+
   return (
     <aside
       className="initiative-approach-support-panel"
@@ -70,13 +80,8 @@ export default function TransformLifeSupportPanel() {
       >
         {supportActions.map(({ title, description, href, activePath, icon: Icon, tone }) => {
           const isActive = pathname === activePath;
-          return (
-            <Link
-              className={`initiative-approach-support-item ${isActive ? "is-active" : ""}`}
-              href={href}
-              key={title}
-              aria-current={isActive ? "page" : undefined}
-            >
+          const content = (
+            <>
               <span
                 className={`initiative-approach-support-icon is-${tone}`}
                 aria-hidden="true"
@@ -92,6 +97,29 @@ export default function TransformLifeSupportPanel() {
                 size={17}
                 aria-hidden="true"
               />
+            </>
+          );
+
+          if (title === "Donate to a Cause") {
+            return (
+              <DonationTrigger
+                className="initiative-approach-support-item donation-trigger"
+                key={title}
+                initialCause={initialCause}
+              >
+                {content}
+              </DonationTrigger>
+            );
+          }
+
+          return (
+            <Link
+              className={`initiative-approach-support-item ${isActive ? "is-active" : ""}`}
+              href={href}
+              key={title}
+              aria-current={isActive ? "page" : undefined}
+            >
+              {content}
             </Link>
           );
         })}

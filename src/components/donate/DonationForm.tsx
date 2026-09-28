@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useId, useState } from "react";
 import { Check, QrCode } from "lucide-react";
 
 const amounts = ["1000", "2500", "5000", "Custom"] as const;
@@ -26,6 +26,7 @@ const bankDetails = [
 type PaymentMethod = "QR" | "Bank Details";
 
 export default function DonationForm() {
+  const messageId = useId();
   const [selectedAmount, setSelectedAmount] = useState<string>("1000");
   const [customAmount, setCustomAmount] = useState("");
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("QR");
@@ -229,11 +230,11 @@ export default function DonationForm() {
 
       <fieldset className="donation-message-fieldset">
         <legend>Message (Optional)</legend>
-        <label className="sr-only" htmlFor="donation-message">
+        <label className="sr-only" htmlFor={messageId}>
           Message (Optional)
         </label>
         <textarea
-          id="donation-message"
+          id={messageId}
           name="message"
           placeholder="Tell us why you chose to support this cause or leave a message of encouragement."
         />
