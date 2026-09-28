@@ -550,6 +550,8 @@
 .missionImage {
   position: relative;
   align-self: stretch;
+  width: 100%;
+  min-width: 0;
   min-height: 330px;
   overflow: hidden;
   border-radius: 44% 20% 28% 18% / 22% 18% 28% 22%;

@@ -3461,8 +3461,31 @@ img {
     font-size: 11px;
   }
 
+  .healthcare-initiative-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
   .healthcare-initiative-item {
-    flex-basis: 205px;
+    min-height: 82px;
+    padding: 8px 4px;
+    gap: 5px;
+  }
+
+  .healthcare-initiative-icon {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .healthcare-initiative-title {
+    font-size: 11px;
+  }
+
+  .healthcare-initiative-subtitle {
+    font-size: 9px;
   }
 
   .healthcare-programme-grid {
@@ -7179,8 +7202,23 @@ img {
   .event-feature-image { min-height: 190px; }
   .campaign-strip,
   .family-grid,
-  .connect-grid,
   .testimonial-marquee-group article { flex-basis: min(82vw, 330px); min-height: 220px; padding: 22px; }
+  .connect-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding: 0 0 10px;
+    scroll-padding-inline: 1px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .connect-card {
+    flex: 0 0 100%;
+    min-height: 0;
+    padding: 0;
+    scroll-snap-align: start;
+  }
   .press-coverage-group .press-coverage-card { flex-basis: min(82vw, 330px); }
   .campaign-strip .button { grid-column: auto; }
   .donate-details { padding: 22px; }
