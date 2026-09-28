@@ -24,7 +24,7 @@ const philosophyItems: PhilosophyItem[] = [
   {
     title: "Engage",
     description: "Build stronger communities through active participation, collaboration and meaningful connection.",
-    image: "/Philosophy1.png",
+    image: "/engage.webp",
     alt: "Trimurti Foundation community engagement initiative",
     href: "/volunteer",
     icon: Users,
@@ -32,7 +32,7 @@ const philosophyItems: PhilosophyItem[] = [
   {
     title: "Empower",
     description: "Create opportunities that give individuals the confidence, support and resources to thrive.",
-    image: "/Philosophy2.png",
+    image: "/empower.jpg",
     alt: "Trimurti Foundation empowerment initiative",
     href: "/about-us",
     icon: HandHeart,
@@ -40,7 +40,7 @@ const philosophyItems: PhilosophyItem[] = [
   {
     title: "Elevate",
     description: "Enable better access to education, healthcare and essential resources for a better quality of life.",
-    image: "/Philosophy3.png",
+    image: "/elevate.webp",
     alt: "Trimurti Foundation elevation initiative",
     href: "/services",
     icon: TrendingUp,
@@ -48,7 +48,7 @@ const philosophyItems: PhilosophyItem[] = [
   {
     title: "Evolve",
     description: "Encourage continuous growth, learning and positive transformation for a stronger tomorrow.",
-    image: "/Philosophy4.png",
+    image: "/evolve.jpg",
     alt: "Trimurti Foundation evolution initiative",
     href: "/community",
     icon: Leaf,
@@ -56,7 +56,7 @@ const philosophyItems: PhilosophyItem[] = [
   {
     title: "Enlighten",
     description: "Spread awareness, inspire positive change and guide communities with knowledge and purpose.",
-    image: "/Philosophy5.png",
+    image: "/enlighten.jpg",
     alt: "Trimurti Foundation enlightenment initiative",
     href: "/about-us",
     icon: BookOpen,
