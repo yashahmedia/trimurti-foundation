@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
-  ArrowUpRight,
   BookOpen,
   HandHeart,
   RefreshCw,
@@ -16,7 +14,6 @@ type PhilosophyItem = {
   description: string;
   image: string;
   alt: string;
-  href: string;
   icon: LucideIcon;
 };
 
@@ -26,7 +23,6 @@ const philosophyItems: PhilosophyItem[] = [
     description: "Build stronger communities through active participation, collaboration and meaningful connection.",
     image: "/Engage.jpg",
     alt: "Community members sharing ideas in a group conversation",
-    href: "/volunteer",
     icon: Users,
   },
   {
@@ -34,7 +30,6 @@ const philosophyItems: PhilosophyItem[] = [
     description: "Create opportunities that give individuals the confidence, support and resources to thrive.",
     image: "/Empower.jpg",
     alt: "A team joining hands to show unity and mutual support",
-    href: "/about-us",
     icon: HandHeart,
   },
   {
@@ -42,7 +37,6 @@ const philosophyItems: PhilosophyItem[] = [
     description: "Enable better access to education, healthcare and essential resources for a better quality of life.",
     image: "/Elevate.avif",
     alt: "Students taking part in a hands-on science learning activity",
-    href: "/services",
     icon: TrendingUp,
   },
   {
@@ -50,7 +44,6 @@ const philosophyItems: PhilosophyItem[] = [
     description: "Encourage continuous growth, learning and positive transformation for a stronger tomorrow.",
     image: "/Evolve.webp",
     alt: "School children learning and experimenting together",
-    href: "/community",
     icon: RefreshCw,
   },
   {
@@ -58,7 +51,6 @@ const philosophyItems: PhilosophyItem[] = [
     description: "Spread awareness, inspire positive change and guide communities with knowledge and purpose.",
     image: "/Enlighten.jpg",
     alt: "A person meditating in a calm, focused posture",
-    href: "/about-us",
     icon: BookOpen,
   },
 ];
@@ -88,7 +80,7 @@ export default function TrimurthyPhilosophy() {
             const Icon = item.icon;
             return (
               <Reveal delay={index * 0.08} key={item.title}>
-                <Link className="philosophy-card" href={item.href}>
+                <div className="philosophy-card">
                   <Image
                     src={item.image}
                     alt={item.alt}
@@ -103,11 +95,8 @@ export default function TrimurthyPhilosophy() {
                     </span>
                     <strong>{item.title}</strong>
                     <span>{item.description}</span>
-                    <span className="philosophy-card-link">
-                      Explore principle <ArrowUpRight size={15} />
-                    </span>
                   </span>
-                </Link>
+                </div>
               </Reveal>
             );
           })}
