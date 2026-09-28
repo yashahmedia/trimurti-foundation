@@ -49,8 +49,8 @@ const philosophyItems: PhilosophyItem[] = [
   {
     title: "Enlighten",
     description: "Spread awareness, inspire positive change and guide communities with knowledge and purpose.",
-    image: "/Enlighten.jpg",
-    alt: "A person meditating in a calm, focused posture",
+    image: "/enlighten.png",
+    alt: "Women learning skills together in a community workshop",
     icon: BookOpen,
   },
 ];
