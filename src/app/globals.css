@@ -6649,7 +6649,8 @@ img {
 }
 .family-container {
   position: relative;
-  max-width: 1200px;
+  width: min(800px, calc(100% - 48px));
+  max-width: 800px;
 }
 .family-section .family-heading {
   margin-bottom: 24px;
@@ -6753,7 +6754,8 @@ img {
 }
 .connect-container {
   position: relative;
-  max-width: 1200px;
+  width: min(800px, calc(100% - 48px));
+  max-width: 800px;
 }
 .connect-heading {
   margin-bottom: 15px;
