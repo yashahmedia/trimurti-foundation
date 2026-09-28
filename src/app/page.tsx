@@ -80,26 +80,35 @@ export default function Home() {
                   icon: "support",
                 },
               ].map((item) => (
-                <article className="support-request-card" key={item.title}>
-                  <div className="support-request-card-image">
-                    <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw" />
-                  </div>
-                  <div className="support-request-card-body">
-                    <div className={`support-request-card-icon support-request-card-icon-${item.icon}`} aria-hidden="true">
+                <Link
+                  className="support-request-card philosophy-card"
+                  href="/volunteer"
+                  key={item.title}
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 22vw"
+                    className="philosophy-card-image"
+                  />
+                  <span className="philosophy-card-overlay" aria-hidden="true" />
+                  <span className="philosophy-card-content">
+                    <span className={`philosophy-icon-badge support-request-card-icon-${item.icon}`} aria-hidden="true">
                       {item.icon === "school" && <BookOpen size={18} strokeWidth={1.8} />}
                       {item.icon === "elder" && <Users size={18} strokeWidth={1.8} />}
                       {item.icon === "health" && <Heart size={18} strokeWidth={1.8} />}
                       {item.icon === "food" && <Leaf size={18} strokeWidth={1.8} />}
                       {item.icon === "women" && <TrendingUp size={18} strokeWidth={1.8} />}
                       {item.icon === "support" && <HandHeart size={18} strokeWidth={1.8} />}
-                    </div>
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                    <Link href="/volunteer" className="support-request-link">
+                    </span>
+                    <strong>{item.title}</strong>
+                    <span>{item.description}</span>
+                    <span className="philosophy-card-link">
                       Learn how we help <ArrowUpRight size={14} />
-                    </Link>
-                  </div>
-                </article>
+                    </span>
+                  </span>
+                </Link>
               ))}
             </div>
 

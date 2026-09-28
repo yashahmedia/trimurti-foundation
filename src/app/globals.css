@@ -4683,7 +4683,7 @@ img {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(72px, 7vw, 108px) 0 clamp(82px, 8vw, 116px);
+  padding: clamp(40px, 4vw, 60px) 0 clamp(44px, 4.5vw, 68px);
   background-color: #07130f;
   background-image: url("/Philosophy_banner.png");
   background-position: center;
@@ -4887,7 +4887,7 @@ img {
 }
 @media (max-width: 767px) {
   .philosophy-section {
-    padding: 58px 0 68px;
+    padding: 40px 0 48px;
     background-attachment: scroll;
   }
   .philosophy-heading h2 {
@@ -4919,59 +4919,23 @@ img {
 .transform-life-section {
   position: relative;
   overflow: hidden;
-  padding: 56px 0 60px;
-  background: linear-gradient(135deg, #ffffff 0%, #faf8f1 42%, #f7f4ef 100%);
   isolation: isolate;
+  width: 100%;
+  padding: clamp(48px, 5vw, 72px) 0;
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(22, 116, 93, 0.16), transparent 34%),
+    radial-gradient(ellipse at 88% 82%, rgba(201, 145, 32, 0.15), transparent 32%),
+    linear-gradient(125deg, #edf4ed 0%, #f8f2e5 52%, #e8f1ed 100%);
 }
 .transform-life-inner {
   position: relative;
   z-index: 1;
 }
-.transform-life-shape {
-  position: absolute;
-  z-index: -1;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.transform-life-shape-green {
-  top: 64px;
-  left: -140px;
-  width: 420px;
-  height: 260px;
-  background: rgba(206, 227, 202, 0.65);
-  transform: rotate(16deg);
-}
-.transform-life-shape-peach {
-  top: -120px;
-  right: -100px;
-  width: 430px;
-  height: 430px;
-  background: rgba(246, 226, 212, 0.7);
-}
-.transform-life-shape-blue {
-  right: -180px;
-  bottom: -70px;
-  width: 460px;
-  height: 300px;
-  background: rgba(220, 235, 238, 0.85);
-  transform: rotate(-14deg);
-}
-.transform-life-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  gap: clamp(24px, 3vw, 48px);
-}
-.transform-life-copy {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
 .transform-life-heading {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
 }
 .transform-life-mark {
   display: inline-flex;
@@ -4991,235 +4955,50 @@ img {
   background: linear-gradient(90deg, #9fbe9a, transparent);
 }
 .transform-life-heading h2 {
-  margin-top: 12px;
+  margin-top: 19px;
   color: #0a312b;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(40px, 4vw, 72px);
-  font-weight: 600;
-  line-height: 0.96;
-  letter-spacing: -0.04em;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 500;
+  line-height: 1.05;
 }
 .transform-life-heading p {
-  max-width: 590px;
-  margin-top: 10px;
+  max-width: 600px;
+  margin-top: 14px;
   color: #4a6470;
-  font-size: clamp(17px, 1.3vw, 19px);
-  line-height: 1.55;
+  font-size: clamp(14px, 1.3vw, 17px);
 }
 .transform-life-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 14px;
-  width: 100%;
-  margin-top: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.5vw, 22px);
+  margin-top: 42px;
   align-items: stretch;
 }
 .transform-life-card {
-  position: relative;
-  width: 100%;
-  height: 164px;
-  min-height: 164px;
-  padding: 20px 18px 16px;
-  border: 1px solid rgba(16, 59, 53, 0.06);
-  border-radius: 24px;
-  overflow: hidden;
-  background-color: #dfe9e0;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 108% 108%;
-  box-shadow: 0 10px 18px rgba(20, 42, 35, 0.08), 0 22px 40px rgba(22, 52, 44, 0.12);
-  color: #fff;
-  text-align: left;
-  cursor: pointer;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
-  transform: perspective(1200px) rotateX(0deg) rotateY(0deg);
+  height: 390px;
 }
-.transform-life-card::before {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background: linear-gradient(180deg, rgba(12, 28, 25, 0.04) 0%, rgba(10, 25, 22, 0.38) 100%);
-}
-.transform-life-card::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0.04) 100%);
-  pointer-events: none;
-}
-.transform-life-card.is-active,
-.transform-life-card:hover,
-.transform-life-card:focus-visible {
-  transform: perspective(1200px) translateY(-4px) rotateX(1.5deg) rotateY(-1.5deg);
-  box-shadow: 0 18px 30px rgba(20, 42, 35, 0.1), 0 30px 56px rgba(22, 52, 44, 0.18);
-  filter: saturate(1.08) brightness(1.02);
-}
-.transform-life-card-overlay,
-.transform-life-card-content,
-.transform-life-card-arrow {
-  position: relative;
-  z-index: 1;
-}
-.transform-life-card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  min-height: 124px;
-  gap: 8px;
-}
-.transform-life-card-content strong {
-  max-width: 210px;
-  color: #fff;
-  font-size: clamp(17px, 1.7vw, 24px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-}
-.transform-life-card-content span {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 12px;
-  line-height: 1.4;
-}
-.transform-life-card-arrow {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-  color: white;
-  backdrop-filter: blur(2px);
-}
-.transform-life-feature-wrap {
-  display: flex;
-  align-items: stretch;
-  height: 100%;
-  min-height: 0;
-}
-.transform-life-feature {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  overflow: hidden;
-  border: 1px solid rgba(14, 49, 45, 0.08);
-  border-radius: 26px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 108% 108%;
-  box-shadow: 0 16px 24px rgba(24, 52, 45, 0.12), 0 32px 70px rgba(24, 52, 45, 0.18);
-  transform: perspective(1200px) rotateX(0deg) rotateY(0deg);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
-}
-.transform-life-feature:hover,
-.transform-life-feature:focus-visible {
-  transform: perspective(1200px) translateY(-6px) rotateX(1.5deg) rotateY(-1.5deg);
-  box-shadow: 0 22px 34px rgba(24, 52, 45, 0.15), 0 40px 80px rgba(24, 52, 45, 0.22);
-  filter: saturate(1.08) brightness(1.02);
-}
-.transform-life-feature::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.04) 100%);
-  pointer-events: none;
-}
-.transform-life-feature-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(11, 42, 35, 0.08) 28%, rgba(10, 39, 32, 0.72) 100%);
-}
-.transform-life-feature-caption {
-  position: absolute;
-  right: 28px;
-  bottom: 46px;
-  left: 28px;
-  z-index: 1;
-  display: grid;
-  gap: 10px;
-  color: #fff;
-}
-.transform-life-feature-caption span {
-  color: #f2d899;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-.transform-life-feature-caption strong {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(32px, 2.8vw, 60px);
-  line-height: 0.96;
-  letter-spacing: -0.04em;
-}
-.transform-life-feature-dots {
-  position: absolute;
-  right: 26px;
-  bottom: 22px;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.transform-life-feature-dots button {
-  width: 12px;
-  height: 12px;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 999px;
-  background: transparent;
-  cursor: pointer;
-  transition: width 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-}
-.transform-life-feature-dots button.is-active {
-  width: 30px;
-  border-color: #f2d899;
-  background: #f2d899;
-}
-@media (max-width: 768px) {
-  .transform-life-layout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  .transform-life-heading {
-    align-items: center;
-    text-align: center;
-  }
+@media (max-width: 1100px) {
   .transform-life-grid {
-    width: min(100%, 660px);
-    margin-inline: auto;
-  }
-  .transform-life-feature {
-    width: min(100%, 720px);
-    height: 520px;
-    min-height: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (max-width: 640px) {
   .transform-life-section {
-    padding: 48px 0 54px;
+    padding: 42px 0 48px;
+  }
+  .transform-life-inner.container {
+    width: calc(100% - 36px);
   }
   .transform-life-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 18px;
+    margin-top: 32px;
   }
   .transform-life-card {
-    height: 180px;
-    min-height: 180px;
-  }
-  .transform-life-feature {
-    height: 440px;
-    min-height: 0;
-    border-radius: 22px;
-  }
-  .transform-life-feature-caption {
-    right: 20px;
-    bottom: 42px;
-    left: 20px;
+    width: min(100%, 430px);
+    height: 380px;
+    margin-inline: auto;
   }
 }
 .swiper {
@@ -6251,83 +6030,11 @@ img {
 }
 .support-request-cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.5vw, 22px);
 }
 .support-request-card {
-  display: flex;
-  flex-direction: row;
-  min-height: 198px;
-  overflow: hidden;
-  border: 1px solid rgba(18, 71, 62, 0.1);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.68);
-  box-shadow: 0 7px 18px rgba(28, 49, 42, 0.06);
-}
-.support-request-card-image {
-  position: relative;
-  flex: 0 0 41%;
-  min-height: 198px;
-  overflow: hidden;
-}
-.support-request-card-image img {
-  object-fit: cover;
-  object-position: center;
-}
-.support-request-card-body {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 18px 20px 14px;
-}
-.support-request-card-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  margin-bottom: 10px;
-  border-radius: 50%;
-  color: #0d5d52;
-  background: rgba(13, 93, 82, 0.08);
-}
-.support-request-card-icon-school,
-.support-request-card-icon-elder,
-.support-request-card-icon-health,
-.support-request-card-icon-food,
-.support-request-card-icon-women,
-.support-request-card-icon-support {
-  background: rgba(13, 93, 82, 0.08);
-}
-.support-request-card-icon-elder { color: #1d7b71; }
-.support-request-card-icon-health { color: #b15953; }
-.support-request-card-icon-food { color: #5c8b64; }
-.support-request-card-icon-women { color: #8b8063; }
-.support-request-card-icon-support { color: #2e7fb0; }
-.support-request-card h3 {
-  margin: 0;
-  color: #0f433d;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(20px, 1.55vw, 27px);
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-}
-.support-request-card p {
-  margin: 8px 0 0;
-  color: #4d6670;
-  font-size: 13px;
-  line-height: 1.45;
-}
-.support-request-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 10px;
-  color: #0f5d55;
-  font-size: 13px;
-  font-weight: 700;
+  height: 390px;
 }
 .support-request-panel {
   position: relative;
@@ -6458,9 +6165,6 @@ img {
   }
   .support-request-cards {
     grid-template-columns: 1fr;
-  }
-  .support-request-card-image {
-    min-height: 170px;
   }
   .support-request-panel h3 {
     font-size: clamp(34px, 9vw, 52px);
@@ -7065,7 +6769,6 @@ img {
 .press-placeholders span { padding: 14px 22px; border: 1px dashed rgba(190, 211, 202, 0.28); border-radius: 8px; color: rgba(236, 243, 236, 0.82); font-size: 12px; font-weight: 700; text-transform: uppercase; }
 .presence-empty { background: rgba(14, 25, 31, 0.7); }
 .presence-empty .text-link { display: inline-flex; margin-top: 18px; }
-.support-request-card,
 .support-request-panel,
 .event-feature-card,
 .upcoming-event,
@@ -7082,7 +6785,6 @@ img {
     box-shadow 0.25s ease,
     border-color 0.25s ease;
 }
-.support-request-card:hover,
 .support-request-panel:hover,
 .event-feature-card:hover,
 .upcoming-event:hover,
@@ -7097,7 +6799,6 @@ img {
   transform: translateY(-4px);
   box-shadow: 0 14px 30px rgba(8, 39, 65, 0.12);
 }
-.support-request-card:hover,
 .support-request-panel:hover,
 .event-feature-card:hover,
 .upcoming-event:hover,
