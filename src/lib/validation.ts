@@ -40,3 +40,26 @@ export const volunteerSchema = z.object({
   event: text(0, 100).optional(),
 });
 export type VolunteerInput = z.infer<typeof volunteerSchema>;
+
+export const contactSchema = z.object({
+  fullName: text(2, 100),
+  email: z.string().trim().pipe(z.email().max(150)),
+  phone: z
+    .string()
+    .trim()
+    .refine(
+      (value) =>
+        /^(?:\+91)?[6-9][0-9]{9}$/.test(value.replace(/[\s-]/g, "")),
+      "Enter a valid 10-digit Indian mobile number.",
+    ),
+  subject: z.enum([
+    "General Enquiry",
+    "Volunteer",
+    "Partnership",
+    "Donation",
+    "Event",
+    "Other",
+  ]),
+  message: text(10, 2000),
+});
+export type ContactInput = z.infer<typeof contactSchema>;
