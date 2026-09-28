@@ -76,12 +76,12 @@ export const navigation: NavigationItem[] = [
   },
   {
     label: "Insights",
-    href: "/events",
+    href: "/insights",
     description: "Learning and updates",
     children: [
-      { label: "Events", href: "/events", icon: "event", description: "Upcoming programmes" },
-      { label: "Campaigns", href: "/events/campaigns", icon: "campaign", description: "Impact stories" },
-      { label: "Knowledge Center", href: "/events/knowledge-center", icon: "knowledge", description: "Resources and learning" },
+      { label: "Events", href: "/insights#events", icon: "event", description: "Upcoming programmes" },
+      { label: "Campaigns", href: "/insights#campaigns", icon: "campaign", description: "Impact stories" },
+      { label: "Knowledge Center", href: "/insights#knowledge-center", icon: "knowledge", description: "Resources and learning" },
     ],
   },
   { label: "Contact", href: "/contact", description: "Reach us" },
