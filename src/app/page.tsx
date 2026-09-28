@@ -1,18 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  BookOpen,
-  HandHeart,
-  Leaf,
-  Heart,
-  Users,
-  TrendingUp,
-} from "lucide-react";
+import { ArrowUpRight, Heart } from "lucide-react";
 import HeroSlider from "@/components/home/HeroSlider";
 import WhoWeAre from "@/components/home/WhoWeAre";
 import TrimurthyPhilosophy from "@/components/home/TrimurthyPhilosophy";
 import TransformALife from "@/components/home/TransformALife";
+import SupportRequestCards from "@/components/home/SupportRequestCards";
 import EventsCampaigns from "@/components/sections/EventsCampaigns";
 import DonateNow from "@/components/sections/DonateNow";
 import TrimurtiFamily from "@/components/sections/TrimurtiFamily";
@@ -41,76 +34,7 @@ export default function Home() {
             </p>
           </div>
           <div className="support-request-grid">
-            <div className="support-request-cards">
-              {[
-                {
-                  image: "/education.png",
-                  title: "Education for Children & Students",
-                  description: "We support children and students with access to quality education, school supplies and learning opportunities.",
-                  icon: "school",
-                },
-                {
-                  image: "/elder.webp",
-                  title: "Support for Elderly People",
-                  description: "We provide care, companionship and essential support to help elderly individuals live with dignity and wellness.",
-                  icon: "elder",
-                },
-                {
-                  image: "/health2.jpg",
-                  title: "Healthcare Support",
-                  description: "We help families access medical treatment, medicines and healthcare services when they need it most.",
-                  icon: "health",
-                },
-                {
-                  image: "/food.jpg",
-                  title: "Food & Essentials",
-                  description: "We provide nutritious food, clean water and daily essentials to families facing hunger and hardship.",
-                  icon: "food",
-                },
-                {
-                  image: "/WOMAN.jpg",
-                  title: "Opportunities for Women",
-                  description: "We empower women with skills, training and resources to build independence and a safer future.",
-                  icon: "women",
-                },
-                {
-                  image: "/We provide.jpeg",
-                  title: "Emergency & Crisis Support",
-                  description: "We provide immediate relief and long-term help to families affected by disasters, conflict or other emergencies.",
-                  icon: "support",
-                },
-              ].map((item) => (
-                <Link
-                  className="support-request-card philosophy-card"
-                  href="/volunteer"
-                  key={item.title}
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 22vw"
-                    className="philosophy-card-image"
-                  />
-                  <span className="philosophy-card-overlay" aria-hidden="true" />
-                  <span className="philosophy-card-content">
-                    <span className={`philosophy-icon-badge support-request-card-icon-${item.icon}`} aria-hidden="true">
-                      {item.icon === "school" && <BookOpen size={18} strokeWidth={1.8} />}
-                      {item.icon === "elder" && <Users size={18} strokeWidth={1.8} />}
-                      {item.icon === "health" && <Heart size={18} strokeWidth={1.8} />}
-                      {item.icon === "food" && <Leaf size={18} strokeWidth={1.8} />}
-                      {item.icon === "women" && <TrendingUp size={18} strokeWidth={1.8} />}
-                      {item.icon === "support" && <HandHeart size={18} strokeWidth={1.8} />}
-                    </span>
-                    <strong>{item.title}</strong>
-                    <span>{item.description}</span>
-                    <span className="philosophy-card-link">
-                      Learn how we help <ArrowUpRight size={14} />
-                    </span>
-                  </span>
-                </Link>
-              ))}
-            </div>
+            <SupportRequestCards />
 
             <aside className="support-request-panel">
               <Image

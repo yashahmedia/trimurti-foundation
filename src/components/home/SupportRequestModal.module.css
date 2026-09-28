@@ -1,0 +1,636 @@
+.supportCard {
+  width: 100%;
+  padding: 0;
+  appearance: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.supportCard:focus-visible {
+  outline: 3px solid rgba(224, 190, 114, 0.9);
+  outline-offset: 4px;
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  width: min(930px, calc(100% - 40px));
+  max-width: none;
+  max-height: min(91dvh, 920px);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(226, 215, 188, 0.72);
+  border-radius: 24px;
+  background: #f8f7f0;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+  color: #173b36;
+}
+
+.dialog[open] {
+  animation: modal-enter 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.dialog::backdrop {
+  background: rgba(5, 18, 15, 0.68);
+  backdrop-filter: blur(7px);
+  animation: backdrop-enter 180ms ease both;
+}
+
+.modal {
+  position: relative;
+  max-height: min(91dvh, 920px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(25, 102, 83, 0.35) transparent;
+  scrollbar-width: thin;
+}
+
+.closeButton {
+  position: sticky;
+  top: 14px;
+  z-index: 5;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  margin: 14px 14px -54px auto;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(27, 73, 61, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 5px 16px rgba(20, 58, 47, 0.1);
+  color: #285a4e;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.closeButton:hover {
+  transform: rotate(5deg);
+  background: #0d7562;
+  color: white;
+}
+
+.modalHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(230px, 0.65fr);
+  align-items: stretch;
+  gap: 26px;
+  padding: 36px 38px 27px;
+}
+
+.modalIntro {
+  align-self: center;
+  padding-top: 4px;
+}
+
+.categoryIcon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 17px;
+  place-items: center;
+  border: 1px solid rgba(13, 117, 98, 0.13);
+  border-radius: 16px;
+  background: #e6f0e7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: #0d7562;
+}
+
+.eyebrow {
+  color: #a17a38;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.modalIntro h2,
+.successState h2 {
+  margin: 9px 0 0;
+  color: #123f36;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.modalIntro p {
+  max-width: 550px;
+  margin: 12px 0 0;
+  color: #5f756e;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.bannerImage {
+  position: relative;
+  min-height: 190px;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.86);
+  border-radius: 19px 19px 19px 6px;
+  background: #dae7dc;
+  box-shadow: 0 12px 28px rgba(21, 64, 48, 0.12);
+}
+
+.bannerImage img {
+  object-fit: cover;
+}
+
+.formSection {
+  padding: 23px 38px 27px;
+  border-top: 1px solid rgba(31, 79, 65, 0.09);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.formHeading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.formHeading h3,
+.emailStep h3 {
+  margin: 0;
+  color: #234b40;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.formHeading p {
+  margin: 0;
+  color: #82918b;
+  font-size: 10px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px 17px;
+}
+
+.field {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 7px;
+  color: #385c51;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.fieldLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fieldLabel svg {
+  flex: 0 0 auto;
+  color: #0d7562;
+}
+
+.fieldWide {
+  grid-column: 1 / -1;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 43px;
+  padding: 10px 12px;
+  border: 1px solid rgba(31, 79, 65, 0.15);
+  border-radius: 11px;
+  outline: none;
+  background: #fff;
+  color: #25493f;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 450;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #99a6a0;
+}
+
+.field textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #3b8e77;
+  outline: 3px solid rgba(59, 142, 119, 0.14);
+  background: #fff;
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: #b44840;
+}
+
+.fieldError {
+  color: #a33c35;
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.submitButton,
+.confirmButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 47px;
+  margin-top: 19px;
+  padding: 10px 18px;
+  border: 1px solid #0d7562;
+  border-radius: 999px;
+  background: #0d7562;
+  box-shadow: 0 8px 18px rgba(13, 117, 98, 0.14);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submitButton:hover,
+.confirmButton:hover {
+  transform: translateY(-2px);
+  background: #095e50;
+  box-shadow: 0 12px 23px rgba(13, 117, 98, 0.22);
+}
+
+.privacyNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 11px 0 0;
+  color: #788980;
+  font-size: 10px;
+}
+
+.privacyNote svg {
+  color: #0d7562;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px 24px;
+  padding: 15px 24px;
+  border-top: 1px solid rgba(31, 79, 65, 0.08);
+  background: #f2f3eb;
+  color: #718179;
+  font-size: 10px;
+}
+
+.modalFooter span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.modalFooter svg {
+  color: #0d7562;
+}
+
+.emailStep {
+  display: flex;
+  max-width: 530px;
+  min-height: 360px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.emailStepIcon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 17px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e5f0e7;
+  color: #0d7562;
+}
+
+.emailStep p {
+  max-width: 460px;
+  margin: 12px 0 0;
+  color: #647871;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.emailStep .submitButton,
+.emailStep .confirmButton {
+  width: min(100%, 360px);
+}
+
+.emailStep .confirmButton {
+  margin-top: 10px;
+  border-color: rgba(13, 117, 98, 0.2);
+  background: #eaf2e9;
+  box-shadow: none;
+  color: #17614f;
+}
+
+.emailStep .confirmButton:hover {
+  background: #dcebdd;
+}
+
+.editButton {
+  margin-top: 15px;
+  padding: 6px 10px;
+  border: 0;
+  background: transparent;
+  color: #6b7f77;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.editButton:hover {
+  color: #0d7562;
+}
+
+.successState {
+  position: relative;
+  display: flex;
+  min-height: 510px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 54px 35px 40px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 10% 95%, rgba(206, 229, 211, 0.6), transparent 35%),
+    #f8f7f0;
+  text-align: center;
+}
+
+.successIcon {
+  display: grid;
+  width: 82px;
+  height: 82px;
+  margin-bottom: 22px;
+  place-items: center;
+  border: 7px solid #d8eadc;
+  border-radius: 50%;
+  background: #0d7562;
+  box-shadow: 0 12px 28px rgba(13, 117, 98, 0.2);
+  color: white;
+  animation: success-pop 400ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.successState h2 {
+  font-size: clamp(36px, 5vw, 48px);
+}
+
+.successState > p {
+  max-width: 460px;
+  margin: 13px auto 0;
+  color: #637970;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.successState .submitButton {
+  width: min(100%, 220px);
+  margin-top: 27px;
+}
+
+.successAccent {
+  position: absolute;
+  top: 43px;
+  right: 18%;
+  width: 47px;
+  height: 47px;
+  border: 1px solid rgba(173, 137, 68, 0.22);
+  border-radius: 50%;
+  box-shadow: 0 0 0 11px rgba(173, 137, 68, 0.035);
+}
+
+.successFootnote {
+  position: absolute;
+  bottom: 22px;
+  color: #74857c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes backdrop-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes success-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .dialog {
+    width: min(680px, calc(100% - 30px));
+    max-height: 92dvh;
+    border-radius: 21px;
+  }
+
+  .modal {
+    max-height: 92dvh;
+  }
+
+  .modalHeader {
+    grid-template-columns: minmax(0, 1fr) minmax(190px, 0.7fr);
+    gap: 17px;
+    padding: 33px 25px 23px;
+  }
+
+  .bannerImage {
+    min-height: 170px;
+  }
+
+  .formSection {
+    padding: 21px 25px 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .dialog {
+    width: calc(100% - 24px);
+    max-height: 94dvh;
+    border-radius: 19px;
+  }
+
+  .modal {
+    max-height: 94dvh;
+  }
+
+  .closeButton {
+    top: 10px;
+    width: 37px;
+    height: 37px;
+    margin: 10px 10px -47px auto;
+  }
+
+  .modalHeader {
+    grid-template-columns: minmax(0, 1fr) 112px;
+    gap: 12px;
+    padding: 25px 16px 18px;
+  }
+
+  .categoryIcon {
+    width: 41px;
+    height: 41px;
+    margin-bottom: 12px;
+    border-radius: 13px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+  }
+
+  .modalIntro h2 {
+    font-size: 26px;
+  }
+
+  .modalIntro p {
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .bannerImage {
+    min-height: 145px;
+    border-width: 3px;
+    border-radius: 14px 14px 14px 5px;
+  }
+
+  .formSection {
+    padding: 19px 16px 21px;
+  }
+
+  .formHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 13px;
+  }
+
+  .formHeading h3 {
+    font-size: 19px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .fieldWide {
+    grid-column: auto;
+  }
+
+  .field input,
+  .field select {
+    min-height: 42px;
+  }
+
+  .field textarea {
+    min-height: 84px;
+  }
+
+  .submitButton,
+  .confirmButton {
+    min-height: 45px;
+    margin-top: 15px;
+  }
+
+  .modalFooter {
+    gap: 8px 13px;
+    padding: 12px 10px;
+    font-size: 9px;
+  }
+
+  .emailStep {
+    min-height: 320px;
+  }
+
+  .successState {
+    min-height: 410px;
+    padding: 45px 20px 46px;
+  }
+
+  .successIcon {
+    width: 73px;
+    height: 73px;
+  }
+
+  .successState > p {
+    font-size: 13px;
+  }
+
+  .successAccent {
+    top: 33px;
+    right: 9%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open],
+  .dialog::backdrop,
+  .successIcon {
+    animation: none;
+  }
+
+  .supportCard,
+  .closeButton,
+  .field input,
+  .field select,
+  .field textarea,
+  .submitButton,
+  .confirmButton {
+    transition: none;
+  }
+}
