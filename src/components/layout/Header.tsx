@@ -53,6 +53,7 @@ const dropdownIcons: Record<string, LucideIcon> = {
   elderly: HandHeart,
   environment: Leaf,
   culture: Landmark,
+  donate: HandHeart,
   temple: Landmark,
   gurukul: GraduationCap,
   heritage: Landmark,

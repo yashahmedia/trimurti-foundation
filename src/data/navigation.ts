@@ -31,6 +31,7 @@ export const navigation: NavigationItem[] = [
       { label: "Elderly Care", href: "/services/elderly-care", icon: "elderly", description: "Support and dignity" },
       { label: "Environment & Welfare", href: "/services/environment-welfare", icon: "environment", description: "Greener communities" },
       { label: "Culture & Heritage", href: "/services/culture-heritage", icon: "culture", description: "Keeping roots alive" },
+      { label: "Donate to a Cause", href: "/donate", icon: "donate", description: "Support our initiatives" },
     ],
   },
   {

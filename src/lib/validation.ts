@@ -25,19 +25,38 @@ export const volunteerSchema = z.object({
     ),
   email: z.email().max(150),
   city: text(2, 100),
-  age: z.number().int().min(18, "Applicants must be at least 18.").max(100),
-  gender: z.enum(["Woman", "Man", "Non-binary", "Prefer not to say"]),
-  occupation: text(2, 100),
-  availability: z.enum(["Weekdays", "Weekends", "Flexible", "Remote"]),
-  area: text(2, 120),
-  skills: text(2, 1000),
-  experience: text(0, 1500),
+  interest: z.enum([
+    "Community Outreach",
+    "Event Support",
+    "Education & Mentoring",
+    "Social Media & Digital Support",
+    "Administrative Support",
+    "Fundraising",
+    "Other",
+  ]),
+  skills: text(0, 1000),
+  frequency: z.enum(["One-time", "Weekly", "Monthly", "Occasionally", "Flexible"]),
+  schedule: z.union([
+    z.enum([
+      "Weekdays",
+      "Weekends",
+      "Mornings",
+      "Afternoons",
+      "Evenings",
+      "Flexible",
+    ]),
+    z.literal(""),
+  ]),
+  hours: text(0, 120),
   motivation: text(10, 1500),
+  volunteeredBefore: z.union([z.enum(["Yes", "No"]), z.literal("")]),
+  previousExperience: text(0, 1500).optional(),
+  additionalInformation: text(0, 1500),
   consent: z
     .boolean()
     .refine((v) => v, "Please give consent to submit your application."),
   website: z.string().max(0),
-  event: text(0, 100).optional(),
+  event: text(0, 100),
 });
 export type VolunteerInput = z.infer<typeof volunteerSchema>;
 

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   ArrowRight,
   BadgeDollarSign,
@@ -14,6 +17,7 @@ const supportActions = [
     title: "Donate to a Cause",
     description: "Support our initiatives",
     href: "/donate",
+    activePath: "/donate",
     icon: HandCoins,
     tone: "coral",
   },
@@ -21,6 +25,7 @@ const supportActions = [
     title: "Volunteer Your Time",
     description: "Share your time and skills",
     href: "/volunteer",
+    activePath: "/volunteer",
     icon: UsersRound,
     tone: "blue",
   },
@@ -48,6 +53,7 @@ const supportActions = [
 ];
 
 export default function TransformLifeSupportPanel() {
+  const pathname = usePathname();
   return (
     <aside
       className="initiative-approach-support-panel"
@@ -62,29 +68,33 @@ export default function TransformLifeSupportPanel() {
         className="initiative-approach-support-list"
         aria-label="Ways to support"
       >
-        {supportActions.map(({ title, description, href, icon: Icon, tone }) => (
-          <Link
-            className="initiative-approach-support-item"
-            href={href}
-            key={title}
-          >
-            <span
-              className={`initiative-approach-support-icon is-${tone}`}
-              aria-hidden="true"
+        {supportActions.map(({ title, description, href, activePath, icon: Icon, tone }) => {
+          const isActive = pathname === activePath;
+          return (
+            <Link
+              className={`initiative-approach-support-item ${isActive ? "is-active" : ""}`}
+              href={href}
+              key={title}
+              aria-current={isActive ? "page" : undefined}
             >
-              <Icon size={20} strokeWidth={1.8} />
-            </span>
-            <span className="initiative-approach-support-copy">
-              <strong>{title}</strong>
-              <span>{description}</span>
-            </span>
-            <ArrowRight
-              className="initiative-approach-support-arrow"
-              size={17}
-              aria-hidden="true"
-            />
-          </Link>
-        ))}
+              <span
+                className={`initiative-approach-support-icon is-${tone}`}
+                aria-hidden="true"
+              >
+                <Icon size={20} strokeWidth={1.8} />
+              </span>
+              <span className="initiative-approach-support-copy">
+                <strong>{title}</strong>
+                <span>{description}</span>
+              </span>
+              <ArrowRight
+                className="initiative-approach-support-arrow"
+                size={17}
+                aria-hidden="true"
+              />
+            </Link>
+          );
+        })}
       </nav>
 
       <div className="initiative-approach-support-message">
