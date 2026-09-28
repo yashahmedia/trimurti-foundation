@@ -11,7 +11,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-const amounts = ["500", "1000", "2500", "5000", "Custom"] as const;
+const amounts = ["1000", "2500", "5000", "Custom"] as const;
 const bankDetails = [
   { label: "Account Name", value: "Trimurti Foundation (Sample)" },
   { label: "Bank Name", value: "Example National Bank (Sample)" },

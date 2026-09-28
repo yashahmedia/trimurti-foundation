@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight, Heart } from "lucide-react";
 import HeroSlider from "@/components/home/HeroSlider";
 import WhoWeAre from "@/components/home/WhoWeAre";
 import TrimurthyPhilosophy from "@/components/home/TrimurthyPhilosophy";
@@ -60,13 +58,6 @@ export default function Home() {
                 Someone around you may need food, education, healthcare, or
                 simply a helping hand.
               </p>
-
-              <Link href="/volunteer" className="support-request-cta">
-                <span className="support-request-cta-icon" aria-hidden="true">
-                  <Heart size={17} fill="currentColor" />
-                </span>
-                Request Support <ArrowUpRight size={16} />
-              </Link>
 
               <div className="support-request-quote">
                 <p>No one should have to face life’s challenges alone</p>

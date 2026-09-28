@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
-  ArrowRight,
   BriefcaseBusiness,
   ContactRound,
   GraduationCap,
@@ -17,8 +15,6 @@ const connections = [
     title: "Bring your expertise.",
     description:
       "Doctors, teachers, lawyers and designers offering pro-bono hours, workshops or one-on-one guidance to the people we serve.",
-    href: "/volunteer/professionals",
-    cta: "Join as a professional",
     image: "/bring your expertise.jpg",
     imageAlt: "Professionals sharing their knowledge and experience",
     Icon: ContactRound,
@@ -33,8 +29,6 @@ const connections = [
     title: "Partner as an organisation.",
     description:
       "CSR partnerships, in-kind support and cause-marketing collaborations with businesses who share our purpose.",
-    href: "/volunteer/business-support",
-    cta: "Partner with us",
     image: "/partner as an organisation.jpg",
     imageAlt: "Business professionals discussing a partnership",
     Icon: BriefcaseBusiness,
@@ -70,8 +64,6 @@ export default function TrimurtiConnect() {
               label,
               title,
               description,
-              href,
-              cta,
               image,
               imageAlt,
               Icon,
@@ -103,9 +95,6 @@ export default function TrimurtiConnect() {
                       </li>
                     ))}
                   </ul>
-                  <Link href={href} className="connect-card-link">
-                    {cta} <ArrowRight size={15} aria-hidden="true" />
-                  </Link>
                 </div>
               </article>
             ),
