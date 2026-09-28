@@ -35,6 +35,25 @@ export default function Page() {
           permission; otherwise contributions are anonymous. Phone numbers,
           email addresses and payment references are not published.
         </p>
+        <h2>Support requests and optional documents</h2>
+        <p>
+          Support requests may include an applicant or guardian’s profession
+          and an optional monthly household-income range, along with contact
+          and category-specific details. Supporting PDFs or images are
+          optional. When private storage is configured, selected files are
+          uploaded to the foundation’s private S3-compatible storage and the
+          prepared email contains file references rather than attachments.
+          Authorized foundation personnel may access those files to assess the
+          request. The request details are prepared in your email app and are
+          sent only if you choose to send that email.
+        </p>
+        <p>
+          Upload only documents needed to assess your request. Do not submit
+          unmasked Aadhaar details; if an Aadhaar copy is specifically needed,
+          mask the first eight digits. Medical, identity and financial
+          documents are sensitive. Do not upload them until the foundation has
+          published an approved retention schedule and privacy contact.
+        </p>
         <h2>Security and third-party media</h2>
         <p>
           Request limits use a hashed network identifier when a trusted proxy is
@@ -47,8 +66,7 @@ export default function Page() {
           You can choose not to submit information. A verified contact for
           access, correction, withdrawal and deletion requests, and an approved
           retention schedule, must be supplied by the foundation before public
-          launch. Do not submit sensitive personal documents through this
-          website.
+          launch. You may submit a support request without uploading documents.
         </p>
       </article>
     </>

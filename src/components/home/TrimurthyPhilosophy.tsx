@@ -4,7 +4,7 @@ import {
   ArrowUpRight,
   BookOpen,
   HandHeart,
-  Leaf,
+  RefreshCw,
   TrendingUp,
   Users,
 } from "lucide-react";
@@ -51,7 +51,7 @@ const philosophyItems: PhilosophyItem[] = [
     image: "/evolve.jpg",
     alt: "Trimurti Foundation evolution initiative",
     href: "/community",
-    icon: Leaf,
+    icon: RefreshCw,
   },
   {
     title: "Enlighten",

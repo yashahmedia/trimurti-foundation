@@ -38,6 +38,11 @@ const supportCategories: SupportCategory[] = [
     alt: "A school student with books",
     icon: BookOpen,
     iconName: "school",
+    documentSuggestions: [
+      "School or college ID / fee receipt",
+      "Education expense estimate",
+      "Masked income or ration-card proof, if available",
+    ],
     fields: [
       { name: "studentName", label: "Student/Child Name", type: "text", required: true },
       { name: "age", label: "Age", type: "number", min: 3, max: 100 },
@@ -60,6 +65,11 @@ const supportCategories: SupportCategory[] = [
     alt: "An elderly community member receiving care",
     icon: Users,
     iconName: "elder",
+    documentSuggestions: [
+      "Masked identity or age proof, if required",
+      "Doctor’s prescription or care note",
+      "Pension or income proof, if available",
+    ],
     fields: [
       { name: "elderlyName", label: "Elderly Person’s Name", type: "text", required: true },
       { name: "age", label: "Age", type: "number", min: 50, max: 120 },
@@ -82,6 +92,11 @@ const supportCategories: SupportCategory[] = [
     alt: "A patient receiving healthcare support",
     icon: Heart,
     iconName: "health",
+    documentSuggestions: [
+      "Medical report or doctor’s prescription",
+      "Hospital bill, medicine receipt or cost estimate",
+      "Masked identity proof, only if required",
+    ],
     fields: [
       { name: "patientName", label: "Patient Name", type: "text", required: true },
       { name: "age", label: "Age", type: "number", min: 0, max: 120 },
@@ -111,6 +126,11 @@ const supportCategories: SupportCategory[] = [
     alt: "A family receiving food and essential supplies",
     icon: Leaf,
     iconName: "food",
+    documentSuggestions: [
+      "Ration-card or household proof, if available",
+      "Income or work proof, if available",
+      "Receipt or estimate for essential expenses",
+    ],
     fields: [
       { name: "familyName", label: "Family/Beneficiary Name", type: "text", required: true },
       {
@@ -140,6 +160,11 @@ const supportCategories: SupportCategory[] = [
     alt: "Women taking part in a community programme",
     icon: TrendingUp,
     iconName: "women",
+    documentSuggestions: [
+      "Education or skill-training certificate",
+      "Income or livelihood proof, if available",
+      "Masked identity proof, only if required",
+    ],
     fields: [
       { name: "applicantName", label: "Applicant Name", type: "text", required: true },
       { name: "age", label: "Age", type: "number", min: 18, max: 120 },
@@ -162,6 +187,11 @@ const supportCategories: SupportCategory[] = [
     alt: "Community members supporting a family in need",
     icon: HandHeart,
     iconName: "support",
+    documentSuggestions: [
+      "Medical report or prescription, if relevant",
+      "Hospital bill, repair receipt or expense estimate",
+      "Incident or disaster-related proof, if available",
+    ],
     fields: [
       { name: "personFamilyName", label: "Person/Family Name", type: "text", required: true },
       { name: "location", label: "Location", type: "text", required: true },
