@@ -7,12 +7,14 @@ type DonationTriggerProps = {
   children: ReactNode;
   className?: string;
   initialCause?: string;
+  modalTitle?: string;
 };
 
 export default function DonationTrigger({
   children,
   className,
   initialCause,
+  modalTitle,
 }: DonationTriggerProps) {
   const [open, setOpen] = useState(false);
 
@@ -29,6 +31,7 @@ export default function DonationTrigger({
         open={open}
         onClose={() => setOpen(false)}
         initialCause={initialCause}
+        modalTitle={modalTitle}
       />
     </>
   );

@@ -9,12 +9,14 @@ type DonationModalProps = {
   open: boolean;
   onClose: () => void;
   initialCause?: string;
+  modalTitle?: string;
 };
 
 export default function DonationModal({
   open,
   onClose,
   initialCause,
+  modalTitle = "Donate to a Cause",
 }: DonationModalProps) {
   const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
   const [closing, setClosing] = useState(false);
@@ -116,7 +118,7 @@ export default function DonationModal({
       >
         <header className="donation-modal-header">
           <div className="donation-modal-heading">
-            <h2 id={titleId}>Donate to a Cause</h2>
+            <h2 id={titleId}>{modalTitle}</h2>
             <p>Your contribution can help create meaningful change.</p>
             {initialCause && (
               <p className="donation-modal-cause">

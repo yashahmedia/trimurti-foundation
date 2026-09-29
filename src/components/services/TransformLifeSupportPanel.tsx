@@ -12,6 +12,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import DonationTrigger from "@/components/donate/DonationTrigger";
+import KnowledgeModal from "@/components/forms/KnowledgeModal";
 import VolunteerModal from "@/components/forms/VolunteerModal";
 
 const supportActions = [
@@ -107,6 +108,7 @@ export default function TransformLifeSupportPanel() {
                 className="initiative-approach-support-item donation-trigger"
                 key={title}
                 initialCause={initialCause}
+                modalTitle={title}
               >
                 {content}
               </DonationTrigger>
@@ -123,6 +125,17 @@ export default function TransformLifeSupportPanel() {
               >
                 {content}
               </VolunteerModal>
+            );
+          }
+
+          if (title === "Empower Through Knowledge") {
+            return (
+              <KnowledgeModal
+                className="initiative-approach-support-item"
+                key={title}
+              >
+                {content}
+              </KnowledgeModal>
             );
           }
 
