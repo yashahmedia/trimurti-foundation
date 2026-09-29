@@ -34,7 +34,6 @@ export const volunteerSchema = z.object({
     "Fundraising",
     "Other",
   ]),
-  skills: text(0, 1000),
   frequency: z.enum(["One-time", "Weekly", "Monthly", "Occasionally", "Flexible"]),
   schedule: z.union([
     z.enum([
@@ -48,10 +47,8 @@ export const volunteerSchema = z.object({
     z.literal(""),
   ]),
   hours: text(0, 120),
-  motivation: text(10, 1500),
   volunteeredBefore: z.union([z.enum(["Yes", "No"]), z.literal("")]),
   previousExperience: text(0, 1500).optional(),
-  additionalInformation: text(0, 1500),
   consent: z
     .boolean()
     .refine((v) => v, "Please give consent to submit your application."),

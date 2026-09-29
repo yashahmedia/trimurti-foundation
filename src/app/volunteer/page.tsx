@@ -6,9 +6,11 @@ import {
   BookOpenCheck,
   CalendarDays,
   ClipboardList,
+  Compass,
   Heart,
   HeartHandshake,
   Megaphone,
+  ShieldCheck,
   UsersRound,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -56,27 +58,44 @@ const volunteerOpportunities = [
     title: "Community Outreach",
     description: "Be there for people and families in our community.",
     icon: HeartHandshake,
+    image: "/protect.png",
+    imageAlt: "Community support",
   },
   {
     title: "Event Support",
     description: "Help bring community events and initiatives to life.",
     icon: CalendarDays,
+    image: "/volunteer.jpg",
+    imageAlt: "Volunteers coming together",
   },
   {
     title: "Education & Mentoring",
     description: "Share your knowledge and encourage lifelong learning.",
     icon: BookOpenCheck,
+    image: "/education-support.png",
+    imageAlt: "Education and mentoring",
   },
   {
     title: "Social Media & Digital Support",
     description: "Help more people discover and support our work.",
     icon: Megaphone,
+    image: "/bring your expertise.jpg",
+    imageAlt: "Sharing professional skills",
   },
   {
     title: "Administrative Support",
     description: "Put your planning and organisational skills to good use.",
     icon: ClipboardList,
+    image: "/partner as an organisation.jpg",
+    imageAlt: "Working together in support of an organization",
   },
+];
+
+const volunteerPrinciples = [
+  { title: "Meaningful Service", icon: HeartHandshake },
+  { title: "Thoughtful Onboarding", icon: Compass },
+  { title: "Privacy Respected", icon: ShieldCheck },
+  { title: "Community First", icon: UsersRound },
 ];
 
 export default async function Page({
@@ -137,7 +156,7 @@ export default async function Page({
                 src="/volunteer.jpg"
                 alt="Community volunteers joining hands to support one another"
                 fill
-                priority
+                loading="eager"
                 sizes="(max-width: 760px) 100vw, 48vw"
               />
               <div className="volunteer-photo-caption">
@@ -154,6 +173,19 @@ export default async function Page({
               </span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="volunteer-trust-strip" aria-label="Volunteer principles">
+        <div className="container volunteer-trust-grid">
+          {volunteerPrinciples.map(({ title, icon: Icon }) => (
+            <div className="volunteer-trust-item" key={title}>
+              <span aria-hidden="true">
+                <Icon size={18} strokeWidth={1.7} />
+              </span>
+              <p>{title}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -195,16 +227,27 @@ export default async function Page({
           <h2 id="volunteer-ways-title">Ways You Can Volunteer</h2>
         </div>
         <div className="volunteer-ways">
-          {volunteerOpportunities.map(({ title, description, icon: Icon }, index) => (
+          {volunteerOpportunities.map(({ title, description, icon: Icon, image, imageAlt }, index) => (
             <article className="volunteer-way" key={title}>
-              <span className="volunteer-way-icon">
-                <Icon size={22} strokeWidth={1.7} aria-hidden="true" />
-              </span>
-              <span className="volunteer-way-number">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3>{title}</h3>
-              <p>{description}</p>
+              <div className="volunteer-way-image">
+                <Image
+                  src={image}
+                  alt={imageAlt}
+                  fill
+                  sizes="(max-width: 680px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                />
+                <span className="volunteer-way-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <div className="volunteer-way-copy">
+                <span className="volunteer-way-icon">
+                  <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
+                </span>
+                <ArrowUpRight className="volunteer-way-arrow" size={19} aria-hidden="true" />
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
             </article>
           ))}
         </div>
@@ -214,6 +257,14 @@ export default async function Page({
         className="volunteer-cta"
         aria-labelledby="volunteer-time-title"
       >
+        <Image
+          className="volunteer-cta-image"
+          src="/volunteer.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          aria-hidden="true"
+        />
         <div className="container volunteer-cta-content">
           <div>
             <p className="volunteer-cta-eyebrow">Small acts. Lasting change.</p>
@@ -240,19 +291,32 @@ export default async function Page({
         aria-labelledby="volunteer-application-title"
       >
         <div className="volunteer-application-layout">
-          <div className="volunteer-form-card">
-            <div className="volunteer-form-heading">
-              <p className="eyebrow">Join our community</p>
-              <h2 id="volunteer-application-title">Become a Volunteer</h2>
-              <p>
-                Thank you for your interest in volunteering with us. Please
-                fill out the form below, and our team will get in touch with
-                you.
-              </p>
+          <aside className="volunteer-application-sidebar">
+            <div className="volunteer-application-intro">
+              <div className="volunteer-application-image">
+                <Image
+                  src="/volunteer.jpg"
+                  alt=""
+                  fill
+                  sizes="(max-width: 900px) 100vw, 36vw"
+                  aria-hidden="true"
+                />
+              </div>
+              <div className="volunteer-form-heading">
+                <p className="eyebrow">Join our community</p>
+                <h2 id="volunteer-application-title">Become a Volunteer</h2>
+                <p>
+                  Thank you for your interest in volunteering with us. Please
+                  fill out the form below, and our team will get in touch with
+                  you.
+                </p>
+              </div>
             </div>
+            <TransformLifeSupportPanel />
+          </aside>
+          <div className="volunteer-form-card">
             <VolunteerForm initialInterest={initialInterest} event={event} />
           </div>
-          <TransformLifeSupportPanel />
         </div>
       </section>
     </main>

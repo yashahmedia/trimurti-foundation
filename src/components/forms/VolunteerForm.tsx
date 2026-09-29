@@ -55,14 +55,11 @@ export default function VolunteerForm({
       phone: "",
       city: "",
       interest: initialVolunteerInterest(initialInterest),
-      skills: "",
       frequency: undefined,
       schedule: "",
       hours: "",
-      motivation: "",
       volunteeredBefore: "",
       previousExperience: "",
-      additionalInformation: "",
       consent: false,
       website: "",
       event,
@@ -165,21 +162,6 @@ export default function VolunteerForm({
               </span>
             )}
           </label>
-          <label htmlFor="skills" className="wide">
-            <span>What skills or experience can you contribute?</span>
-            <textarea
-              id="skills"
-              placeholder="Tell us about your skills, experience, or areas of expertise"
-              aria-invalid={!!errors.skills}
-              aria-describedby={errors.skills ? "skills-error" : undefined}
-              {...register("skills")}
-            />
-            {errors.skills && (
-              <span className="error" id="skills-error">
-                {errors.skills.message}
-              </span>
-            )}
-          </label>
         </div>
       </fieldset>
 
@@ -243,28 +225,6 @@ export default function VolunteerForm({
       </fieldset>
 
       <fieldset className="volunteer-form-group wide">
-        <legend>Motivation</legend>
-        <label htmlFor="motivation">
-          <span>Why would you like to volunteer with us? *</span>
-          <textarea
-            id="motivation"
-            required
-            placeholder="Tell us what motivates you to volunteer"
-            aria-invalid={!!errors.motivation}
-            aria-describedby={
-              errors.motivation ? "motivation-error" : undefined
-            }
-            {...register("motivation")}
-          />
-          {errors.motivation && (
-            <span className="error" id="motivation-error">
-              {errors.motivation.message}
-            </span>
-          )}
-        </label>
-      </fieldset>
-
-      <fieldset className="volunteer-form-group wide">
         <legend>Previous Experience</legend>
         <div className="volunteer-form-fields">
           <label htmlFor="volunteeredBefore" className="wide">
@@ -289,17 +249,6 @@ export default function VolunteerForm({
         </div>
       </fieldset>
 
-      <fieldset className="volunteer-form-group wide">
-        <legend>Additional Information</legend>
-        <label htmlFor="additionalInformation">
-          <span>Anything else you&apos;d like us to know?</span>
-          <textarea
-            id="additionalInformation"
-            {...register("additionalInformation")}
-          />
-        </label>
-      </fieldset>
-
       <label className="consent wide" htmlFor="consent">
         <input
           id="consent"
@@ -319,6 +268,8 @@ export default function VolunteerForm({
           {errors.consent.message}
         </p>
       )}
+
+      <input type="hidden" {...register("event")} />
 
       <label className="honeypot" aria-hidden="true">
         Website
