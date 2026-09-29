@@ -12,6 +12,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import DonationTrigger from "@/components/donate/DonationTrigger";
+import VolunteerModal from "@/components/forms/VolunteerModal";
 
 const supportActions = [
   {
@@ -57,9 +58,9 @@ export default function TransformLifeSupportPanel() {
   const pathname = usePathname();
   const initialCause = {
     "/services/education": "Education & Empowerment",
-    "/services/healthcare": "Healthcare Support",
-    "/services/nutrition": "Annadhan & Nutrition",
-    "/services/elderly-care": "Elderly Care",
+    "/services/healthcare": "Medical & Healthcare Support",
+    "/services/nutrition": "Annadan / Food & Nutrition",
+    "/services/elderly-care": "Elderly Support",
     "/services/environment-welfare": "Environment & Welfare",
     "/services/culture-heritage": "Culture & Heritage",
   }[pathname];
@@ -109,6 +110,19 @@ export default function TransformLifeSupportPanel() {
               >
                 {content}
               </DonationTrigger>
+            );
+          }
+
+          if (title === "Volunteer Your Time") {
+            return (
+              <VolunteerModal
+                className="initiative-approach-support-item"
+                key={title}
+                initialCause={initialCause}
+                isActive={pathname === activePath}
+              >
+                {content}
+              </VolunteerModal>
             );
           }
 

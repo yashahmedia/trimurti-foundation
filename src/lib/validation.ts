@@ -60,6 +60,94 @@ export const volunteerSchema = z.object({
 });
 export type VolunteerInput = z.infer<typeof volunteerSchema>;
 
+const volunteerTypeOptions = [
+  "On-Ground Volunteer",
+  "Online / Remote Volunteer",
+  "Event Volunteer",
+  "Professional / Skill-Based Volunteer",
+  "Awareness & Outreach",
+  "Teaching / Mentoring",
+  "Fundraising Support",
+  "Content & Social Media",
+  "Photography / Videography",
+  "Administrative Support",
+  "Other",
+] as const;
+
+const volunteerSkillOptions = [
+  "Teaching",
+  "Healthcare",
+  "Digital Marketing",
+  "Social Media",
+  "Graphic Design",
+  "Photography",
+  "Videography",
+  "Web / Technology",
+  "Event Management",
+  "Fundraising",
+  "Public Relations",
+  "Administration",
+  "Legal Services",
+  "Professional Consulting",
+  "Writing / Content",
+  "Other",
+] as const;
+
+export const volunteerApplicationSchema = z.object({
+  fullName: text(2, 100),
+  phone: z
+    .string()
+    .trim()
+    .regex(
+      /^(?:\+?91[ -]?)?[6-9][0-9]{9}$/,
+      "Enter a valid 10-digit Indian mobile number.",
+    ),
+  email: z
+    .string()
+    .trim()
+    .max(150)
+    .refine(
+      (value) => !value || z.email().safeParse(value).success,
+      "Enter a valid email address.",
+    ),
+  city: text(2, 100),
+  ageGroup: z.enum(["", "Below 18", "18–25", "26–35", "36–50", "50+"]),
+  volunteerTypes: z.array(z.enum(volunteerTypeOptions)).min(1, "Choose at least one way to volunteer."),
+  volunteerOther: text(0, 500),
+  cause: z.enum([
+    "Education & Empowerment",
+    "Medical & Healthcare Support",
+    "Elderly Support",
+    "Annadan / Food & Nutrition",
+    "Environment & Welfare",
+    "Culture & Heritage",
+    "Any Cause / Wherever Needed",
+  ]),
+  skills: z.array(z.enum(volunteerSkillOptions)),
+  skillOther: text(0, 500),
+  timeCommitment: z.enum([
+    "A Few Hours",
+    "One Day",
+    "Weekends",
+    "2–4 Hours Per Week",
+    "5–10 Hours Per Week",
+    "Regular / Long-Term Volunteer",
+    "Only During Events",
+    "Flexible",
+  ]),
+  availability: z.array(
+    z.enum(["Weekdays", "Weekends", "Morning", "Afternoon", "Evening", "Flexible"]),
+  ),
+  mode: z.enum(["On-Site", "Remote", "Both"]),
+  contribution: text(0, 1500),
+  volunteeredBefore: z.enum(["", "Yes", "No"]),
+  previousExperience: text(0, 1000),
+  consent: z
+    .boolean()
+    .refine((value) => value, "Please agree before submitting your application."),
+});
+export type VolunteerApplicationInput = z.infer<typeof volunteerApplicationSchema>;
+
 export const contactSchema = z.object({
   fullName: text(2, 100),
   email: z.string().trim().pipe(z.email().max(150)),
