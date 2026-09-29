@@ -199,7 +199,7 @@ export default function Header() {
           <>
             <Link
               href={item.href}
-              className={`nav-item nav-linked-link ${isCurrent ? "is-current-page" : ""}`}
+              className={`nav-item nav-linked-link ${isCurrent ? "is-active" : ""}`}
               aria-current={isCurrent ? "page" : undefined}
               onFocus={() => handleDesktopMenuEnter(item.label)}
             >
@@ -296,7 +296,7 @@ export default function Header() {
               href={item.href}
               onClick={closeMenuAndDrawer}
               aria-current={isCurrent ? "page" : undefined}
-              className={`nav-item mobile-link mobile-accordion-linked-link ${isCurrent ? "is-current-page" : ""}`}
+              className={`nav-item mobile-link mobile-accordion-linked-link ${isCurrent ? "is-active" : ""}`}
             >
               <span>{item.label}</span>
             </Link>

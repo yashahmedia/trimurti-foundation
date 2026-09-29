@@ -3722,12 +3722,8 @@ img {
   text-decoration: none;
 }
 
-.nav-linked-link.is-current-page {
-  color: var(--green);
-}
-
-.nav-linked-link.is-current-page::after {
-  transform: scaleX(1);
+.nav-linked-link.is-active {
+  padding-inline: 14px;
 }
 
 .nav-linked-toggle {
@@ -3900,10 +3896,6 @@ img {
   width: 100%;
   justify-content: flex-start;
   text-decoration: none;
-}
-
-.mobile-accordion-linked-link.is-current-page {
-  color: var(--green);
 }
 
 .mobile-accordion-linked-toggle {
