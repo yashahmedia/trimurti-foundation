@@ -15,6 +15,7 @@ import {
   Users,
 } from "lucide-react";
 import CultureReveal from "@/components/culture/CultureReveal";
+import DonationForm from "@/components/donate/DonationForm";
 
 const values = [
   { label: "Preserve traditions", icon: Landmark },
@@ -322,15 +323,7 @@ export default function CultureHeritagePage() {
               <p className="eyebrow">Request a Support</p>
               <h2 id="culture-support-title">Support Our Work</h2>
             </div>
-            <div className="culture-support-intro">
-              <p>
-                Your contribution helps us preserve culture, protect heritage
-                and create opportunities for future generations.
-              </p>
-              <Link className="culture-donate-link" href="/donate">
-                Make a Donation <ArrowUpRight size={17} aria-hidden="true" />
-              </Link>
-            </div>
+            
           </CultureReveal>
           <div className="culture-support-grid">
             {supportAreas.map(({ title, description, image, alt, icon: Icon, href }, index) => (
@@ -353,6 +346,7 @@ export default function CultureHeritagePage() {
               </CultureReveal>
             ))}
           </div>
+          
         </div>
       </section>
 
@@ -367,42 +361,6 @@ export default function CultureHeritagePage() {
         </div>
       </section>
 
-      <section className="culture-presence" aria-labelledby="culture-presence-title">
-        <div className="culture-botanical culture-botanical-presence" aria-hidden="true">
-          <Sprout />
-        </div>
-        <div className="culture-container culture-presence-grid">
-          <CultureReveal className="culture-presence-copy">
-            <p className="eyebrow">Our Presence</p>
-            <h2 id="culture-presence-title">Working across communities, creating lasting change.</h2>
-            <p>
-              Our roots are strengthened by the people, places and traditions
-              we care for together. We work alongside communities to keep
-              heritage alive and create a sense of belonging for generations
-              to come.
-            </p>
-            <Link className="culture-text-link" href="/about-us">
-              Discover who we are <ArrowRight size={17} aria-hidden="true" />
-            </Link>
-          </CultureReveal>
-          <CultureReveal className="culture-presence-visual" delay={0.1}>
-            <div className="culture-presence-image culture-image-frame">
-              <Image
-                src="/volunteer.jpg"
-                alt="A younger volunteer and an elder sharing a warm moment in their community"
-                fill
-                sizes="(max-width: 800px) 100vw, 55vw"
-              />
-            </div>
-            <div className="culture-presence-stat">
-              <p>Communities Reached</p>
-              <span className="culture-stat-flower" aria-hidden="true">
-                <Flower2 size={22} />
-              </span>
-            </div>
-          </CultureReveal>
-        </div>
-      </section>
     </div>
   );
 }
