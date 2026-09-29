@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   BookOpenText,
@@ -82,23 +82,24 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileAccordionOpen, setMobileAccordionOpen] = useState<string | null>(null);
 
-  const clearCloseTimer = () => {
+  const clearCloseTimer = useCallback(() => {
     if (closeTimerRef.current) {
       window.clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
-  };
+  }, []);
 
-  const closeAllMenus = () => {
+  const closeAllMenus = useCallback(() => {
     clearCloseTimer();
     setActiveMenu(null);
     setMobileAccordionOpen(null);
     setMobileMenuOpen(false);
-  };
+  }, [clearCloseTimer]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     closeAllMenus();
-  }, [pathname]);
+  }, [closeAllMenus, pathname]);
 
   useEffect(() => {
     const handlePointerDown = (event: MouseEvent) => {
@@ -254,10 +255,7 @@ export default function Header() {
                 <span className="nav-dropdown-icon">
                   <Icon size={16} />
                 </span>
-                <span className="nav-dropdown-text-wrap">
-                  <span className="nav-dropdown-label">{child.label}</span>
-                  {child.description ? <span className="nav-dropdown-description">{child.description}</span> : null}
-                </span>
+                <span className="nav-dropdown-label">{child.label}</span>
               </Link>
             );
           })}
