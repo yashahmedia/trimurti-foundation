@@ -19,20 +19,6 @@ import {
 } from "@/lib/validation";
 import styles from "./VolunteerModal.module.css";
 
-const volunteerTypes = [
-  "On-Ground Volunteer",
-  "Online / Remote Volunteer",
-  "Event Volunteer",
-  "Professional / Skill-Based Volunteer",
-  "Awareness & Outreach",
-  "Teaching / Mentoring",
-  "Fundraising Support",
-  "Content & Social Media",
-  "Photography / Videography",
-  "Administrative Support",
-  "Other",
-] as const;
-
 const causes = [
   "Education & Empowerment",
   "Medical & Healthcare Support",
@@ -42,51 +28,6 @@ const causes = [
   "Culture & Heritage",
   "Any Cause / Wherever Needed",
 ] as const;
-
-const skills = [
-  "Teaching",
-  "Healthcare",
-  "Digital Marketing",
-  "Social Media",
-  "Graphic Design",
-  "Photography",
-  "Videography",
-  "Web / Technology",
-  "Event Management",
-  "Fundraising",
-  "Public Relations",
-  "Administration",
-  "Legal Services",
-  "Professional Consulting",
-  "Writing / Content",
-  "Other",
-] as const;
-
-const availabilityOptions = [
-  "Weekdays",
-  "Weekends",
-  "Morning",
-  "Afternoon",
-  "Evening",
-  "Flexible",
-] as const;
-
-const timeCommitments = [
-  "A Few Hours",
-  "One Day",
-  "Weekends",
-  "2–4 Hours Per Week",
-  "5–10 Hours Per Week",
-  "Regular / Long-Term Volunteer",
-  "Only During Events",
-  "Flexible",
-] as const;
-
-const modeDescriptions = {
-  "On-Site": "Participate directly in foundation activities and events.",
-  Remote: "Contribute digitally from your location.",
-  Both: "I am comfortable with both on-site and remote opportunities.",
-} as const;
 
 const causeAliases: Record<string, string> = {
   "Healthcare Support": "Medical & Healthcare Support",
@@ -284,14 +225,7 @@ function createEmailDraft(data: VolunteerApplicationInput) {
       `Email: ${data.email || "Not provided"}`,
       `City / State: ${data.city}`,
       `Age group: ${data.ageGroup || "Not provided"}`,
-      `Volunteer interests: ${data.volunteerTypes.join(", ")}`,
-      `Other volunteering preference: ${data.volunteerOther || "Not provided"}`,
       `Cause: ${data.cause}`,
-      `Skills: ${data.skills.length ? data.skills.join(", ") : "Not provided"}`,
-      `Other skill: ${data.skillOther || "Not provided"}`,
-      `Time commitment: ${data.timeCommitment}`,
-      `Availability: ${data.availability.length ? data.availability.join(", ") : "Not provided"}`,
-      `Preferred mode: ${data.mode}`,
       `Contribution message: ${data.contribution || "Not provided"}`,
       `Volunteered before: ${data.volunteeredBefore || "Not provided"}`,
       `Previous experience: ${data.previousExperience || "Not provided"}`,
@@ -321,22 +255,13 @@ function VolunteerApplicationForm({
       email: "",
       city: "",
       ageGroup: "",
-      volunteerTypes: [],
-      volunteerOther: "",
       cause: getInitialCause(initialCause) || undefined,
-      skills: [],
-      skillOther: "",
-      timeCommitment: undefined,
-      availability: [],
-      mode: undefined,
       contribution: "",
       volunteeredBefore: "",
       previousExperience: "",
       consent: false,
     },
   });
-  const selectedTypes = useWatch({ control, name: "volunteerTypes" }) ?? [];
-  const selectedSkills = useWatch({ control, name: "skills" }) ?? [];
   const volunteeredBefore = useWatch({ control, name: "volunteeredBefore" });
 
   async function submit(data: VolunteerApplicationInput) {
@@ -423,98 +348,21 @@ function VolunteerApplicationForm({
       </fieldset>
 
       <fieldset className={styles.group}>
-        <legend>How You Want to Help</legend>
-        <div className={styles.choiceGrid}>
-          {volunteerTypes.map((option) => (
-            <label className={styles.choice} key={option}>
-              <input type="checkbox" value={option} {...register("volunteerTypes")} />
-              <span>{option}</span>
-            </label>
-          ))}
-        </div>
-        {fieldError("volunteerTypes")}
-        {selectedTypes.includes("Other") && (
-          <label className={`${styles.field} ${styles.revealedField}`} htmlFor="volunteer-other">
-            <span>Please tell us how you would like to volunteer</span>
-            <input
-              id="volunteer-other"
-              placeholder="Describe how you would like to help"
-              {...register("volunteerOther")}
-            />
-          </label>
-        )}
-
-        <p className={styles.fieldLabel}>Choose a Cause *</p>
-        <div className={styles.causeGrid} role="radiogroup" aria-label="Choose a cause">
-          {causes.map((cause) => (
-            <label className={styles.choice} key={cause}>
-              <input type="radio" value={cause} {...register("cause")} />
-              <span>{cause}</span>
-            </label>
-          ))}
-        </div>
-        {fieldError("cause")}
-      </fieldset>
-
-      <fieldset className={styles.group}>
-        <legend>Skills & Interests</legend>
-        <p className={styles.fieldLabel}>What skills can you contribute?</p>
-        <div className={styles.choiceGrid}>
-          {skills.map((skill) => (
-            <label className={styles.choice} key={skill}>
-              <input type="checkbox" value={skill} {...register("skills")} />
-              <span>{skill}</span>
-            </label>
-          ))}
-        </div>
-        {selectedSkills.includes("Other") && (
-          <label className={`${styles.field} ${styles.revealedField}`} htmlFor="volunteer-skill-other">
-            <span>Tell us about your skill</span>
-            <input
-              id="volunteer-skill-other"
-              placeholder="Describe your skill or expertise"
-              {...register("skillOther")}
-            />
-          </label>
-        )}
-      </fieldset>
-
-      <fieldset className={styles.group}>
-        <legend>Availability</legend>
-        <label className={`${styles.field} ${styles.commitment}`} htmlFor="volunteer-time">
-          <span>How much time can you contribute? *</span>
+        <legend>Cause</legend>
+        <label className={styles.field} htmlFor="volunteer-cause">
+          <span>Choose a Cause *</span>
           <select
-            id="volunteer-time"
-            aria-invalid={Boolean(errors.timeCommitment)}
-            aria-describedby={errors.timeCommitment ? "timeCommitment-error" : undefined}
-            {...register("timeCommitment")}
+            id="volunteer-cause"
+            required
+            aria-invalid={Boolean(errors.cause)}
+            aria-describedby={errors.cause ? "cause-error" : undefined}
+            {...register("cause")}
           >
-            <option value="">Select a time commitment</option>
-            {timeCommitments.map((option) => <option key={option}>{option}</option>)}
+            <option value="">Select a cause</option>
+            {causes.map((cause) => <option key={cause}>{cause}</option>)}
           </select>
-          {fieldError("timeCommitment")}
+          {fieldError("cause")}
         </label>
-        <p className={styles.fieldLabel}>When are you usually available?</p>
-        <div className={styles.choiceGrid}>
-          {availabilityOptions.map((option) => (
-            <label className={styles.choice} key={option}>
-              <input type="checkbox" value={option} {...register("availability")} />
-              <span>{option}</span>
-            </label>
-          ))}
-        </div>
-
-        <p className={styles.fieldLabel}>How would you prefer to volunteer? *</p>
-        <div className={styles.modeGrid} role="radiogroup" aria-label="Preferred volunteering mode">
-          {(["On-Site", "Remote", "Both"] as const).map((mode) => (
-            <label className={styles.modeCard} key={mode}>
-              <input type="radio" value={mode} {...register("mode")} />
-              <span className={styles.modeTitle}>{mode}</span>
-              <span className={styles.modeDescription}>{modeDescriptions[mode]}</span>
-            </label>
-          ))}
-        </div>
-        {fieldError("mode")}
       </fieldset>
 
       <fieldset className={styles.group}>

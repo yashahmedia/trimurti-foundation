@@ -195,17 +195,6 @@
   font-weight: 650;
 }
 
-.choiceGrid,
-.causeGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.causeGrid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .choice {
   position: relative;
   display: flex;
@@ -231,8 +220,7 @@
   color: #214f3d;
 }
 
-.choice input,
-.modeCard input {
+.choice input {
   width: 16px;
   height: 16px;
   flex: 0 0 16px;
@@ -247,53 +235,6 @@
 
 .revealedField {
   margin-top: 2px;
-}
-
-.commitment {
-  max-width: 440px;
-}
-
-.modeGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.modeCard {
-  display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
-  align-content: start;
-  gap: 5px 8px;
-  min-width: 0;
-  min-height: 100px;
-  padding: 13px;
-  border: 1px solid #dce6dd;
-  border-radius: 10px;
-  background: #fbfdfb;
-  cursor: pointer;
-}
-
-.modeCard:has(input:checked) {
-  border-color: #69a18a;
-  background: #eff7f1;
-}
-
-.modeCard input {
-  grid-row: span 2;
-  margin-top: 2px;
-}
-
-.modeTitle {
-  color: #254d3d;
-  font-size: 13px;
-  font-weight: 750;
-}
-
-.modeDescription {
-  grid-column: 2;
-  color: #6b7c71;
-  font-size: 11px;
-  line-height: 1.45;
 }
 
 .experience {
@@ -475,30 +416,10 @@
     padding: 19px 18px 24px;
   }
 
-  .choiceGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .causeGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .modeGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .modeCard {
-    min-height: 0;
-  }
 }
 
 @media (max-width: 460px) {
   .fields {
-    grid-template-columns: 1fr;
-  }
-
-  .choiceGrid,
-  .causeGrid {
     grid-template-columns: 1fr;
   }
 
