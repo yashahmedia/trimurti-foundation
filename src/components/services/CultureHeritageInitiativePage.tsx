@@ -309,18 +309,6 @@ export default function CultureHeritageInitiativePage() {
                     <div className="healthcare-programme-copy">
                       <h3>{title}</h3>
                       <p>{description}</p>
-                      <Link
-                        href={
-                          id === "online-gurukul"
-                            ? "/contact?interest=online-gurukul"
-                            : id === "cultural-events"
-                              ? "/events"
-                              : "/contact?interest=heritage-preservation"
-                        }
-                        aria-label={`Learn more about ${title}`}
-                      >
-                        Learn more <ArrowRight size={15} />
-                      </Link>
                     </div>
                   </article>
                 </CultureReveal>

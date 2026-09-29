@@ -297,12 +297,6 @@ export default function ElderlyCarePage() {
                     <div className="healthcare-programme-copy">
                       <h3>{title}</h3>
                       <p>{description}</p>
-                      <Link
-                        href="/volunteer?area=Elderly%20Care"
-                        aria-label={`Learn more about ${title}`}
-                      >
-                        Learn more <ArrowRight size={15} />
-                      </Link>
                     </div>
                   </article>
                 </CultureReveal>

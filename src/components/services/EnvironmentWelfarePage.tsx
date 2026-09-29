@@ -299,12 +299,6 @@ export default function EnvironmentWelfarePage() {
                     <div className="healthcare-programme-copy">
                       <h3>{title}</h3>
                       <p>{description}</p>
-                      <Link
-                        href="/volunteer?area=Environment%20%26%20Welfare"
-                        aria-label={`Learn more about ${title}`}
-                      >
-                        Learn more <ArrowRight size={15} />
-                      </Link>
                     </div>
                   </article>
                 </CultureReveal>

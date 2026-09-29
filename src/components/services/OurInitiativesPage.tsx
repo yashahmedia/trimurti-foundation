@@ -65,21 +65,18 @@ const featuredInitiatives = [
     description:
       "We create access to scholarships, basic learning support and practical training that opens stronger future pathways.",
     image: "/education_empowerment.png",
-    href: "/volunteer",
   },
   {
     title: "Healthcare Access",
     description:
       "From health camps to crisis support, we help families access timely care, treatment and wellness services.",
     image: "/healthcare_support.png",
-    href: "/volunteer",
   },
   {
     title: "Nourishment & Relief",
     description:
       "Annadhan drives ensure regular meals, essential groceries and compassionate support for families facing hardship.",
     image: "/annadhan_nutrition.png",
-    href: "/services/nutrition",
   },
 ];
 
@@ -212,7 +209,7 @@ export default function OurInitiativesPage() {
           </div>
 
           <div className="showcase-grid">
-            {featuredInitiatives.map(({ title, description, image, href }) => (
+            {featuredInitiatives.map(({ title, description, image }) => (
               <article key={title} className="initiative-showcase-card">
                 <div className="initiative-showcase-image">
                   <Image src={image} alt={title} fill sizes="(max-width: 800px) 100vw, 33vw" />
@@ -220,9 +217,6 @@ export default function OurInitiativesPage() {
                 <div className="initiative-showcase-copy">
                   <h3>{title}</h3>
                   <p>{description}</p>
-                  <Link href={href} className="initiative-card-link">
-                    Learn more <ArrowRight size={15} />
-                  </Link>
                 </div>
               </article>
             ))}

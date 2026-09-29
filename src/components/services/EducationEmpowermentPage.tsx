@@ -248,12 +248,6 @@ export default function EducationEmpowermentPage() {
                     <div className="healthcare-programme-copy">
                       <h3>{title}</h3>
                       <p>{description}</p>
-                      <Link
-                        href="/volunteer?area=Education%20Support"
-                        aria-label={`Learn more about ${title}`}
-                      >
-                        Learn more <ArrowRight size={15} />
-                      </Link>
                     </div>
                   </article>
                 </CultureReveal>

@@ -295,12 +295,6 @@ export default function HealthcareSupportPage() {
                     <div className="healthcare-programme-copy">
                       <h3>{title}</h3>
                       <p>{description}</p>
-                      <Link
-                        href="/volunteer?area=Healthcare%20Support"
-                        aria-label={`Learn more about ${title}`}
-                      >
-                        Learn more <ArrowRight size={15} />
-                      </Link>
                     </div>
                   </article>
                 </CultureReveal>

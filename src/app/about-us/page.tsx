@@ -1,4 +1,4 @@
-import AboutUsPage from "@/components/about/AboutUsPage";
+import AboutUsPage from "@/components/about/AboutUsRedesign";
 import { seo } from "@/lib/seo";
 
 export const metadata = seo("Who We Are", "/about-us");
