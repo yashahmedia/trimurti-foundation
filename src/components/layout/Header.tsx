@@ -40,7 +40,7 @@ import { navigation } from "@/data/navigation";
 import { site } from "@/config/site";
 import LuxuryDivider from "@/components/LuxuryDivider";
 
-const linkedDropdownLabels = new Set(["Who we are", "Our initiatives"]);
+const linkedDropdownLabels = new Set(["Who we are", "Our initiatives", "Culture & Heritage"]);
 
 const dropdownIcons: Record<string, LucideIcon> = {
   foundation: Building2,
@@ -208,7 +208,7 @@ export default function Header() {
             <button
               type="button"
               className="nav-item nav-trigger nav-linked-toggle"
-              onClick={() => toggleDesktopMenu(item.label)}
+              onClick={() => setActiveMenu(item.label)}
               onFocus={() => handleDesktopMenuEnter(item.label)}
               aria-label={`Open ${item.label} submenu`}
               aria-expanded={isActive}

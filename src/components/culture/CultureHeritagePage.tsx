@@ -10,6 +10,7 @@ import {
   Landmark,
   Leaf,
   Music2,
+  ShieldCheck,
   Sprout,
   Users,
 } from "lucide-react";
@@ -62,6 +63,13 @@ const gurukulFeatures = [
   { label: "Value Education", icon: HeartIcon },
   { label: "Cultural Learning", icon: Landmark },
   { label: "Flexible Access", icon: GraduationCap },
+];
+
+const cultureTrustItems = [
+  { label: "Cultural Knowledge", icon: BookOpen },
+  { label: "Community Participation", icon: Users },
+  { label: "Heritage Preservation", icon: Landmark },
+  { label: "Responsible Support", icon: ShieldCheck },
 ];
 
 function HeartIcon({ size = 18 }: { size?: number }) {
@@ -348,6 +356,17 @@ export default function CultureHeritagePage() {
         </div>
       </section>
 
+      <section className="culture-trust-strip" aria-label="Culture and heritage principles">
+        <div className="culture-container culture-trust-grid">
+          {cultureTrustItems.map(({ label, icon: Icon }) => (
+            <div className="culture-trust-item" key={label}>
+              <span aria-hidden="true"><Icon size={18} strokeWidth={1.7} /></span>
+              <p>{label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="culture-presence" aria-labelledby="culture-presence-title">
         <div className="culture-botanical culture-botanical-presence" aria-hidden="true">
           <Sprout />
@@ -376,7 +395,6 @@ export default function CultureHeritagePage() {
               />
             </div>
             <div className="culture-presence-stat">
-              <span>12+</span>
               <p>Communities Reached</p>
               <span className="culture-stat-flower" aria-hidden="true">
                 <Flower2 size={22} />
