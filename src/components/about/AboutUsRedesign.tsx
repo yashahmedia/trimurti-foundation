@@ -241,7 +241,11 @@ We bring care, learning and connection to the areas that help people and communi
           </div>
           <div className={styles.cultureCopy}>
             <p className={styles.eyebrow}>Culture &amp; Heritage</p>
-            <h2 id="culture-title">Preserving Traditions. Inspiring Generations.</h2>
+            <h2 id="culture-title">
+              Preserving Traditions.
+              <br />
+              Inspiring Generations.
+            </h2>
             <p>
               We work to keep Indian traditions, arts and values connected
               across generations, creating opportunities for people to

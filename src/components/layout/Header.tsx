@@ -40,6 +40,8 @@ import { navigation } from "@/data/navigation";
 import { site } from "@/config/site";
 import LuxuryDivider from "@/components/LuxuryDivider";
 
+const linkedDropdownLabels = new Set(["Who we are", "Our initiatives"]);
+
 const dropdownIcons: Record<string, LucideIcon> = {
   foundation: Building2,
   founder: Users,
@@ -189,22 +191,47 @@ export default function Header() {
     return (
       <div
         key={item.href}
-        className={`nav-dropdown ${isActive ? "is-open" : ""}`}
+        className={`nav-dropdown ${isActive ? "is-open" : ""} ${linkedDropdownLabels.has(item.label) ? "nav-dropdown-linked" : ""}`}
         onMouseEnter={() => handleDesktopMenuEnter(item.label)}
         onMouseLeave={handleDesktopMenuLeave}
       >
-        <button
-          type="button"
-          className={`nav-item nav-trigger ${isCurrent ? "is-active" : ""}`}
-          onClick={() => toggleDesktopMenu(item.label)}
-          onFocus={() => handleDesktopMenuEnter(item.label)}
-          aria-expanded={isActive}
-          aria-haspopup="menu"
-          aria-controls={`submenu-${item.label}`}
-        >
-          <span>{item.label}</span>
-          <ChevronDown size={12} className={`nav-chevron ${isActive ? "is-open" : ""}`} />
-        </button>
+        {linkedDropdownLabels.has(item.label) ? (
+          <>
+            <Link
+              href={item.href}
+              className={`nav-item nav-linked-link ${isCurrent ? "is-current-page" : ""}`}
+              aria-current={isCurrent ? "page" : undefined}
+              onFocus={() => handleDesktopMenuEnter(item.label)}
+            >
+              <span>{item.label}</span>
+            </Link>
+            <button
+              type="button"
+              className="nav-item nav-trigger nav-linked-toggle"
+              onClick={() => toggleDesktopMenu(item.label)}
+              onFocus={() => handleDesktopMenuEnter(item.label)}
+              aria-label={`Open ${item.label} submenu`}
+              aria-expanded={isActive}
+              aria-haspopup="menu"
+              aria-controls={`submenu-${item.label}`}
+            >
+              <ChevronDown size={12} className={`nav-chevron ${isActive ? "is-open" : ""}`} />
+            </button>
+          </>
+        ) : (
+          <button
+            type="button"
+            className={`nav-item nav-trigger ${isCurrent ? "is-active" : ""}`}
+            onClick={() => toggleDesktopMenu(item.label)}
+            onFocus={() => handleDesktopMenuEnter(item.label)}
+            aria-expanded={isActive}
+            aria-haspopup="menu"
+            aria-controls={`submenu-${item.label}`}
+          >
+            <span>{item.label}</span>
+            <ChevronDown size={12} className={`nav-chevron ${isActive ? "is-open" : ""}`} />
+          </button>
+        )}
 
         <div
           id={`submenu-${item.label}`}
@@ -260,6 +287,52 @@ export default function Header() {
     }
 
     const children = item.children ?? [];
+
+    if (linkedDropdownLabels.has(item.label)) {
+      return (
+        <div key={item.href} className="mobile-accordion-item">
+          <div className="mobile-accordion-heading">
+            <Link
+              href={item.href}
+              onClick={closeMenuAndDrawer}
+              aria-current={isCurrent ? "page" : undefined}
+              className={`nav-item mobile-link mobile-accordion-linked-link ${isCurrent ? "is-current-page" : ""}`}
+            >
+              <span>{item.label}</span>
+            </Link>
+            <button
+              type="button"
+              className="nav-item mobile-accordion-trigger mobile-accordion-linked-toggle"
+              aria-label={`Open ${item.label} submenu`}
+              aria-expanded={isOpen}
+              onClick={() => setMobileAccordionOpen((current) => (current === item.label ? null : item.label))}
+            >
+              <ChevronDown size={15} className={`nav-chevron ${isOpen ? "is-open" : ""}`} />
+            </button>
+          </div>
+          <div className={`mobile-submenu ${isOpen ? "is-open" : ""}`}>
+            <div className="mobile-submenu-inner">
+              {children.map((child) => {
+                const Icon = dropdownIcons[child.icon ?? "foundation"];
+                return (
+                  <Link
+                    key={`${item.href}-${child.href}-${child.label}`}
+                    href={child.href}
+                    onClick={closeMenuAndDrawer}
+                    className="mobile-submenu-item"
+                  >
+                    <span className="nav-dropdown-icon">
+                      <Icon size={16} />
+                    </span>
+                    <span>{child.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div key={item.href} className="mobile-accordion-item">
