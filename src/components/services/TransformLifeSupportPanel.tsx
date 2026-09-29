@@ -101,7 +101,7 @@ export default function TransformLifeSupportPanel() {
             </>
           );
 
-          if (title === "Donate to a Cause") {
+          if (title === "Donate to a Cause" || title === "Sponsor a Cause") {
             return (
               <DonationTrigger
                 className="initiative-approach-support-item donation-trigger"
