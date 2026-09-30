@@ -1,0 +1,76 @@
+.section {
+  padding: clamp(48px, 5vw, 72px) 0;
+  background: radial-gradient(circle at 1px 1px, #53694e08 1px, transparent 0) 0 0 / 18px 18px, #f7f5ef;
+}
+.inner { width: min(1320px, calc(100% - 80px)); margin-inline: auto; }
+.heading { text-align: center; }
+.eyebrow, .kicker { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+.eyebrow { color: var(--green); }
+.heading h2 { margin-top: 12px; color: #0a312b; font-family: Georgia, "Times New Roman", serif; font-size: clamp(36px, 4.5vw, 58px); font-weight: 500; line-height: 1.05; }
+.heading p { max-width: 600px; margin: 16px auto 0; color: #4a6470; font-size: clamp(14px, 1.3vw, 17px); }
+.divider { display: block; width: 52px; height: 1px; margin: 24px auto 0; background: #c9912070; }
+.grid { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 26px; margin-top: 40px; }
+.featuredSlot, .causeSlot { min-width: 0; }
+.featuredSlot { grid-column: 13 / 21; grid-row: 1; }
+.primarySlot { grid-column: span 6; grid-row: 1; }
+.secondarySlot { grid-column: span 5; }
+.card { display: flex; height: 100%; flex-direction: column; overflow: hidden; border: 1px solid #c9912059; border-radius: 22px; background: #123e35; box-shadow: 0 12px 30px #163c2a16; transition: transform 350ms ease, box-shadow 350ms ease, border-color 350ms ease; }
+.image { position: relative; aspect-ratio: 1.6; overflow: hidden; flex-shrink: 0; }
+.image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 350ms ease; }
+/* These six source images include a white frame; crop it inside this section only. */
+.causeSlot .image img { transform: scale(1.08); }
+.primarySlot .image, .featured .image { height: 224px; aspect-ratio: auto; }
+.content {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(201, 145, 32, .12), transparent 65%),
+    linear-gradient(135deg, #17473f 0%, #102f36 55%, #0b2132 100%);
+  box-shadow: inset 0 1px 0 rgba(229, 186, 88, .18);
+}
+.content h3 { font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 500; line-height: 1.2; color: #fff9ec; }
+.content p { margin-top: 9px; color: #e0e9e2; font-size: 14px; line-height: 1.6; }
+.link { display: inline-flex; align-items: center; gap: 9px; margin-top: auto; padding-top: 22px; color: #efd193; font-size: 12px; font-weight: 650; }
+.link svg { flex-shrink: 0; transition: transform 350ms ease; }
+.featured { border-color: #c9912059; background: #123e35; box-shadow: 0 12px 30px #163c2a16; }
+.featured .image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, #123e3559); pointer-events: none; }
+.featured .image img { object-position: center 38%; }
+.featured .content h3 { color: #fff9ec; font-size: 28px; }
+.featured p { color: #e0e9e2; }
+.featured .link { color: #efd193; padding-top: 18px; }
+.kicker { color: #e5c583; margin-bottom: 10px; font-size: 9px; }
+.card:focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
+@media (hover: hover) {
+  .card:hover { transform: translateY(-6px); border-color: #c9912080; box-shadow: 0 18px 36px #163c2a20; }
+  .card:hover .image img { transform: scale(1.04); }
+  .causeSlot .card:hover .image img { transform: scale(1.12); }
+  .card:hover .link svg { transform: translateX(4px); }
+}
+@media (min-width: 640px) and (max-width: 1099px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .featuredSlot { grid-column: 1 / -1; grid-row: auto; }
+  .primarySlot, .secondarySlot { grid-column: auto; grid-row: auto; }
+  .featured { display: grid; grid-template-columns: 1fr 1fr; }
+  .featured .image { height: 100%; min-height: 280px; }
+  .primarySlot .image { height: auto; aspect-ratio: 1.6; }
+  .featured .content { justify-content: center; padding: 28px; }
+  .featured .link { margin-top: 0; }
+}
+@media (max-width: 639px) {
+  .inner { width: calc(100% - 36px); }
+  .grid { grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 30px; }
+  .featuredSlot, .primarySlot, .secondarySlot { grid-column: auto; grid-row: auto; }
+  .primarySlot .image, .featured .image { height: auto; aspect-ratio: 1.6; }
+  .content { padding: 20px; }
+  .content h3 { font-size: 23px; }
+  .featured .content h3 { font-size: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .image img, .link svg { transition: none; }
+  .card:hover, .card:hover .image img, .card:hover .link svg { transform: none; }
+  .causeSlot .card:hover .image img { transform: scale(1.08); }
+}
