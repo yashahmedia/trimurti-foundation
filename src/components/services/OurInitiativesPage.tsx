@@ -59,24 +59,97 @@ const impactMetrics = [
   { value: "94%", label: "of support directed to frontline care" },
 ];
 
-const featuredInitiatives = [
+const initiativeDetails = [
   {
-    title: "Learning & Skill Development",
+    title: "Education & Empowerment",
     description:
-      "We create access to scholarships, basic learning support and practical training that opens stronger future pathways.",
+      "We help children, students and families build a stronger future through support for access, opportunity and everyday learning.",
     image: "/education_empowerment.png",
+    alt: "A child learning in a community education setting",
+    href: "/services/education",
+    points: [
+      "Learning material and school support",
+      "Community mentoring and encouragement",
+      "Skills that increase long-term opportunity",
+    ],
   },
   {
-    title: "Healthcare Access",
+    title: "Healthcare Support",
     description:
-      "From health camps to crisis support, we help families access timely care, treatment and wellness services.",
+      "We make compassionate care and health awareness more accessible, helping individuals and families take the next step towards healthier lives.",
     image: "/healthcare_support.png",
+    alt: "A healthcare professional providing compassionate care",
+    href: "/services/healthcare",
+    points: [
+      "Access to essential healthcare",
+      "Health camps and awareness",
+      "Support for treatment and medicines",
+    ],
   },
   {
-    title: "Nourishment & Relief",
+    title: "Annadhan & Nutrition",
     description:
-      "Annadhan drives ensure regular meals, essential groceries and compassionate support for families facing hardship.",
+      "We bring communities together through nourishing meals and food support, helping families face each day with strength, hope and dignity.",
     image: "/annadhan_nutrition.png",
+    alt: "Community meal and nutrition support",
+    href: "/services/nutrition",
+    points: [
+      "Nutritious meals for families",
+      "Essential grocery support",
+      "Community meals with dignity",
+    ],
+  },
+  {
+    title: "Elderly Care",
+    description:
+      "We honour our elders with companionship, compassionate support and care that helps them feel valued, connected and respected.",
+    image: "/elderly_care.png",
+    alt: "A caregiver supporting an elderly woman",
+    href: "/services/elderly-care",
+    points: [
+      "Companionship and regular connection",
+      "Essential care and daily support",
+      "Respect, dignity and wellbeing",
+    ],
+  },
+  {
+    title: "Environment & Welfare",
+    description:
+      "We encourage tree planting, sustainable habits and community participation to nurture greener neighbourhoods and a healthier environment for all.",
+    image: "/environment_welfare.png",
+    alt: "A volunteer planting a young tree",
+    href: "/services/environment-welfare",
+    points: [
+      "Tree planting and green spaces",
+      "Sustainable everyday practices",
+      "Healthier neighbourhoods together",
+    ],
+  },
+  {
+    title: "Culture & Heritage",
+    description:
+      "We celebrate Indian traditions, arts and shared heritage, connecting generations with the stories and practices that keep our culture alive.",
+    image: "/culture_heritage.png",
+    alt: "Indian heritage temple representing culture and tradition",
+    href: "/services/culture-heritage",
+    points: [
+      "Traditional arts and expression",
+      "Heritage learning across generations",
+      "Preserving stories and practices",
+    ],
+  },
+  {
+    title: "Stand With Our Soldiers",
+    description:
+      "We honour those who serve our nation by standing beside serving personnel, veterans and their families with gratitude, compassion and support.",
+    image: "/soldiers-family.webp",
+    alt: "An Indian soldier spending time with his family",
+    href: "/about-us#standing-with-soldiers",
+    points: [
+      "Support for serving personnel",
+      "Care for veterans and families",
+      "Gratitude, dignity and community",
+    ],
   },
 ];
 
@@ -138,47 +211,43 @@ export default function OurInitiativesPage() {
 
       <section className="our-initiative-featured" aria-labelledby="featured-initiative-title">
         <div className="our-initiatives-container">
-          <div className="featured-initiative-card">
-            <div className="featured-initiative-image">
-              <Image
-                src="/education_empowerment.png"
-                alt="A child learning in a community education setting"
-                fill
-                sizes="(max-width: 800px) 100vw, 50vw"
-              />
-            </div>
+          <div className="initiative-details-list">
+            {initiativeDetails.map(({ title, description, image, alt, href, points }, initiativeIndex) => (
+              <article
+                className={`featured-initiative-card initiative-detail-card ${
+                  initiativeIndex % 2 === 1 ? "initiative-detail-card-dark" : ""
+                }`}
+                key={title}
+              >
+                <div className="featured-initiative-image">
+                  <Image src={image} alt={alt} fill sizes="(max-width: 800px) 100vw, 50vw" />
+                </div>
 
-            <div className="featured-initiative-copy">
-              <p className="eyebrow eyebrow-compact">Featured initiative</p>
-              <h2 id="featured-initiative-title">Education &amp; Empowerment</h2>
-              <p>
-                We help children, students and families build a stronger future through
-                support for access, opportunity and everyday learning.
-              </p>
-              <ul>
-                <li>
-                  <span aria-hidden="true">
-                    <BookOpen size={14} strokeWidth={2.1} />
-                  </span>
-                  Learning material and school support
-                </li>
-                <li>
-                  <span aria-hidden="true">
-                    <HandHeart size={14} strokeWidth={2.1} />
-                  </span>
-                  Community mentoring and encouragement
-                </li>
-                <li>
-                  <span aria-hidden="true">
-                    <GraduationCap size={14} strokeWidth={2.1} />
-                  </span>
-                  Skills that increase long-term opportunity
-                </li>
-              </ul>
-              <Link href="/volunteer" className="initiative-link">
-                Explore the programme <ArrowRight size={16} />
-              </Link>
-            </div>
+                <div className="featured-initiative-copy">
+                  <p className="eyebrow eyebrow-compact">
+                    {initiativeIndex === 0 ? "Featured initiative" : "Our initiative"}
+                  </p>
+                  <h2 id={initiativeIndex === 0 ? "featured-initiative-title" : undefined}>{title}</h2>
+                  <p>{description}</p>
+                  <ul>
+                    {points.map((point, pointIndex) => {
+                      const PointIcon = [BookOpen, HandHeart, GraduationCap][pointIndex];
+                      return (
+                        <li key={point}>
+                          <span aria-hidden="true">
+                            <PointIcon size={14} strokeWidth={2.1} />
+                          </span>
+                          {point}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <Link href={href} className="initiative-link">
+                    Explore the programme <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -191,34 +260,6 @@ export default function OurInitiativesPage() {
                 <strong>{value}</strong>
                 <span>{label}</span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="our-initiative-showcase" aria-labelledby="featured-programmes-title">
-        <div className="our-initiatives-container">
-          <div className="showcase-header">
-            <div>
-              <p className="eyebrow">Featured initiatives</p>
-              <h2 id="featured-programmes-title">Focused programmes for community wellbeing</h2>
-            </div>
-            <Link href="/volunteer" className="showcase-link">
-              See how you can support <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          <div className="showcase-grid">
-            {featuredInitiatives.map(({ title, description, image }) => (
-              <article key={title} className="initiative-showcase-card">
-                <div className="initiative-showcase-image">
-                  <Image src={image} alt={title} fill sizes="(max-width: 800px) 100vw, 33vw" />
-                </div>
-                <div className="initiative-showcase-copy">
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                </div>
-              </article>
             ))}
           </div>
         </div>

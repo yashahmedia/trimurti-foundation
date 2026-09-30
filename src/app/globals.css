@@ -2124,6 +2124,11 @@ img {
   padding: 30px 0 14px;
 }
 
+.initiative-details-list {
+  display: grid;
+  gap: 24px;
+}
+
 .featured-initiative-card {
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
@@ -2140,6 +2145,37 @@ img {
 .featured-initiative-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 26px 52px rgba(25, 48, 40, 0.12);
+}
+
+.initiative-detail-card-dark {
+  border-color: rgba(229, 186, 88, 0.24);
+  background: linear-gradient(135deg, #17473f 0%, #102f36 56%, #0b2132 100%);
+  box-shadow: 0 18px 42px rgba(8, 39, 45, 0.16);
+}
+
+.initiative-detail-card-dark .featured-initiative-copy h2 {
+  color: #fff9ec;
+}
+
+.initiative-detail-card-dark .featured-initiative-copy > p {
+  color: #dce9e1;
+}
+
+.initiative-detail-card-dark .featured-initiative-copy li {
+  color: #edf4ed;
+}
+
+.initiative-detail-card-dark .featured-initiative-copy li span {
+  background: rgba(229, 186, 88, 0.14);
+  color: #f1cf83;
+}
+
+.initiative-detail-card-dark .initiative-link {
+  color: #f1cf83;
+}
+
+.initiative-detail-card-dark .initiative-link:hover {
+  color: #fff1c5;
 }
 
 .featured-initiative-image {
