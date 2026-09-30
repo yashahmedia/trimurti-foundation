@@ -70,7 +70,7 @@ export default function Services({
             <span>Together, we can</span>
             <strong>Turn compassion into <em>action.</em></strong>
           </div>
-          <Link href="/services">
+          <Link href="/initiatives">
             View all programs <ArrowRight size={16} />
           </Link>
         </div>

@@ -108,7 +108,7 @@ const waysToConnect = [
     title: "Partnerships & Support",
     description: "Interested in partnering with us or supporting our mission?",
     action: "Explore opportunities",
-    href: "/services",
+    href: "/initiatives",
   },
 ];
 

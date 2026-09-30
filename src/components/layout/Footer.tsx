@@ -57,10 +57,10 @@ export default function Footer() {
         <div>
           <h3>Our services</h3>
           <div className="footer-links footer-service-links">
-            <Link href="/services">Healthcare</Link>
-            <Link href="/services">Education</Link>
-            <Link href="/services">Soldiers&apos; families</Link>
-            <Link href="/services">Heritage &amp; culture</Link>
+            <Link href="/initiatives">Healthcare</Link>
+            <Link href="/initiatives">Education</Link>
+            <Link href="/initiatives">Soldiers&apos; families</Link>
+            <Link href="/initiatives">Heritage &amp; culture</Link>
             <Link href="/volunteer">Volunteer</Link>
           </div>
         </div>

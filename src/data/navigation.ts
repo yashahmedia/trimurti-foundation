@@ -22,7 +22,7 @@ export const navigation: NavigationItem[] = [
   },
   {
     label: "Our initiatives",
-    href: "/services",
+    href: "/initiatives",
     description: "Impact programmes",
     children: [
       { label: "Education & Empowerment", href: "/services/education", icon: "education", description: "Learning and opportunity" },

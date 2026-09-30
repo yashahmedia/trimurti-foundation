@@ -28,7 +28,7 @@ const programUpdates: FoundationUpdate[] = services.slice(0, 3).map((service) =>
   summary: service.description,
   image: service.image,
   date: "Available now",
-  href: "/services",
+  href: "/initiatives",
 }));
 
 export const latestUpdates = [...eventUpdates, ...programUpdates].slice(0, 5);

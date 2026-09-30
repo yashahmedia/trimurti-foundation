@@ -223,7 +223,7 @@ export default function InsightsPage() {
               Get to know the causes and community initiatives that help create
               a more caring, resilient future.
             </p>
-            <Link className={styles.textLink} href="/services">
+            <Link className={styles.textLink} href="/initiatives">
               Explore Our Initiatives <ArrowUpRight size={16} />
             </Link>
           </div>
