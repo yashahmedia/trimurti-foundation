@@ -102,7 +102,7 @@
 .heading p {
   max-width: 600px;
   margin: 16px auto 0;
-  color: #4a6470;
+  color: #242424;
   font-size: clamp(14px, 1.3vw, 17px);
 }
 .divider {

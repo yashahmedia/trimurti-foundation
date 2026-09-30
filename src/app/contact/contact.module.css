@@ -3,8 +3,8 @@
   --green: #0d7562;
   --sage: #e9f1e9;
   --gold: #c89138;
-  --ink: #193d37;
-  --muted: #647a76;
+  --ink: #111111;
+  --muted: #242424;
   color: var(--ink);
   overflow: hidden;
 }

@@ -12,7 +12,6 @@ import {
   Users,
 } from "lucide-react";
 import CultureReveal from "@/components/culture/CultureReveal";
-import InitiativesBanner from "@/components/services/InitiativesBanner";
 import InitiativeApproachSection from "@/components/services/InitiativeApproachSection";
 
 const initiatives = [
@@ -59,33 +58,33 @@ const learningProgrammes = [
   {
     title: "Education Support",
     description:
-      "Opening doors to learning, confidence and a brighter tomorrow.",
+      "Books, notebooks, stationery and learning kits can help with the everyday costs of studying at school and at home.",
     image: "/education_empowerment.png",
-    imageAlt: "A schoolgirl learning alongside her classmates",
+    imageAlt: "Illustrative scene of students learning together",
     icon: BookOpen,
   },
   {
-    title: "Learning Resources",
+    title: "Learning Support",
     description:
-      "Helping learners access study materials and the tools they need to keep learning.",
+      "Extra academic resources and community learning activities may help students strengthen foundational skills and keep learning.",
     image: "/education-support.png",
-    imageAlt: "A student reading a book in a classroom",
+    imageAlt: "Illustrative image of a student reading in a classroom",
     icon: BookOpenCheck,
   },
   {
-    title: "Skills & Livelihood",
+    title: "Digital Learning",
     description:
-      "Practical skills that nurture confidence and open up new opportunities.",
-    image: "/women-empower.png",
-    imageAlt: "A woman taking part in a skills and empowerment programme",
+      "Where a programme identifies a need, support may provide digital learning resources or access to technology for study.",
+    image: "/education.png",
+    imageAlt: "Illustrative image representing access to study resources",
     icon: Laptop,
   },
   {
-    title: "Mentorship & Guidance",
+    title: "Skills & Career Guidance",
     description:
-      "Encouragement and guidance to help students plan their next steps.",
-    image: "/education.png",
-    imageAlt: "A student focused on their studies",
+      "Mentoring, practical skills and career guidance can help young people consider and plan their next steps.",
+    image: "/women-empower.png",
+    imageAlt: "Illustrative image representing skills and empowerment",
     icon: Lightbulb,
   },
 ];
@@ -104,12 +103,7 @@ const relatedInitiatives = [
 
 export default function EducationEmpowermentPage() {
   return (
-    <div className="healthcare-page education-page initiative-banner-page">
-      <InitiativesBanner
-        pageTitle="Education & Empowerment"
-        image="/Education%20%26%20Empowerment.png"
-        imageAlt="Education and Empowerment: students reading together, with learning, scholarship and skills programmes."
-      />
+    <div className="healthcare-page education-page">
       <section
         className="healthcare-hero"
         aria-labelledby="education-hero-title"
@@ -118,17 +112,20 @@ export default function EducationEmpowermentPage() {
           <CultureReveal className="healthcare-hero-copy">
             <p className="eyebrow">Education &amp; Empowerment</p>
             <h1 id="education-hero-title">
-              Learning Opens Doors,
+              A Child&apos;s Education
               <br />
-              Empowerment Builds Futures
+              {" "}
+              Shouldn&apos;t Depend on Income
             </h1>
             <p className="healthcare-hero-description">
-              We support children, students and families with access to
-              education, skills and opportunities that help them shape a
-              brighter future.
+              Every child deserves the chance to learn, grow and build a future.
+              For many families, education costs and gaps in learning support
+              can become barriers. Trimurti Foundation&apos;s education initiative
+              aims to make learning resources, guidance and skills support more
+              accessible.
             </p>
             <p className="healthcare-hero-promise">
-              Learning for today. Opportunity for tomorrow.
+              Learning resources and guidance for students who need added support.
             </p>
           </CultureReveal>
 
@@ -136,7 +133,7 @@ export default function EducationEmpowermentPage() {
             <div className="healthcare-image-frame healthcare-hero-image">
               <Image
                 src="/education_empowerment.png"
-                alt="A schoolgirl engaged in classroom learning with her classmates"
+                alt="Illustrative scene of a school-age learner reading with classmates"
                 fill
                 priority
                 sizes="(max-width: 800px) 100vw, 52vw"
@@ -152,7 +149,7 @@ export default function EducationEmpowermentPage() {
               <span className="healthcare-hero-note-icon" aria-hidden="true">
                 <Lightbulb size={18} />
               </span>
-              <span>Every learner deserves a chance to thrive</span>
+              <span>Education should not depend on family income</span>
             </div>
           </CultureReveal>
         </div>
@@ -189,20 +186,29 @@ export default function EducationEmpowermentPage() {
       <InitiativeApproachSection
         headingId="education-approach-title"
         image="/education.png"
-        imageAlt="A student with a book, ready to continue learning"
-        imageCaption="Helping every learner move forward"
+        imageAlt="Illustrative image of a learner studying with a book"
+        imageCaption="Learning support can include resources and guidance"
       >
-        <p className="eyebrow">Our Approach</p>
+        <p className="eyebrow">Why education support matters</p>
         <h2 id="education-approach-title">
-          Education That Builds Opportunity
+          Why Are We Asking You to Support Education?
         </h2>
         <p>
-          We believe education can help people build confidence, discover their
-          strengths and take meaningful steps towards a more secure future.
+          School enrolment is important, but being in school does not always
+          mean a child has the books, stationery, digital access or individual
+          learning support they need. For families balancing essential costs,
+          these resources can be difficult to provide.
         </p>
         <p>
-          By supporting learning, practical skills and personal growth, we work
-          to make opportunity more accessible to students and communities.
+          ASER Centre&apos;s 2024 rural India survey found that 23.4% of Class III
+          children in government schools could read a Class II-level text, and
+          27.6% could solve a basic subtraction problem. These are survey
+          findings, not results from Trimurti Foundation programmes.
+        </p>
+        <p>
+          <small>
+            Source: <a href="https://asercentre.org/aser-2024/" target="_blank" rel="noreferrer">ASER Centre, ASER 2024</a>.
+          </small>
         </p>
       </InitiativeApproachSection>
 
@@ -212,13 +218,15 @@ export default function EducationEmpowermentPage() {
       >
         <div className="healthcare-container">
           <CultureReveal className="healthcare-section-heading">
-            <p className="eyebrow">Learning and growth</p>
+            <p className="eyebrow">Education support</p>
             <h2 id="education-programmes-title">
-              Learning, Skills &amp; Empowerment
+              Where Your Education Donation May Go
             </h2>
             <p>
-              Encouraging students and families with support that helps them
-              learn, grow and take the next step.
+              Contributions may support learning resources, academic activities,
+              digital access where appropriate, and skills guidance. Essential
+              coordination, record-keeping and reporting also take resources; we
+              do not claim a fixed allocation or percentage.
             </p>
           </CultureReveal>
 
@@ -263,44 +271,52 @@ export default function EducationEmpowermentPage() {
       >
         <div className="healthcare-container healthcare-two-column healthcare-access-grid">
           <CultureReveal className="healthcare-section-copy healthcare-access-copy">
-            <p className="eyebrow">Beyond the Classroom</p>
+            <p className="eyebrow">Beyond the classroom</p>
             <h2 id="education-growth-title">
-              Skills That Strengthen Independence
+              Education Is the Beginning - Empowerment Is the Goal
             </h2>
             <p>
-              Empowerment continues beyond formal learning. Skills, mentorship
-              and encouragement can help people recognize their potential and
-              take part in shaping their own futures.
+              Education can help a learner build skills, confidence,
+              decision-making and future work options. Those opportunities may
+              extend beyond one learner to families and communities. We aim to
+              earn donor trust through clear objectives, documented activities,
+              responsible financial and appropriate beneficiary records, regular
+              programme updates and learning from results.
             </p>
             <blockquote>
-              “When people have the chance to learn, they can create new
-              possibilities for themselves and their communities.”
+              “We don&apos;t want you to support us simply because you trust our
+              words. We want to earn your trust through our actions, records and
+              results.”
             </blockquote>
             <ul className="healthcare-support-points">
               <li>
                 <span aria-hidden="true"><BookOpen size={15} /></span>
-                Learning support
+                Students supported: verified figure to be added
               </li>
               <li>
                 <span aria-hidden="true"><Lightbulb size={15} /></span>
-                Practical skills
+                Learning kits distributed: verified figure to be added
               </li>
               <li>
                 <span aria-hidden="true"><Users size={15} /></span>
-                Mentorship
+                Students mentored: verified figure to be added
               </li>
               <li>
                 <span aria-hidden="true"><Sprout size={15} /></span>
-                Personal growth
+                Communities reached: verified figure to be added
               </li>
             </ul>
+            <p className="healthcare-impact-note">
+              Education-specific impact totals are not yet published here; figures
+              should be added after they are checked against programme records.
+            </p>
           </CultureReveal>
 
           <CultureReveal className="healthcare-section-visual" delay={0.1}>
             <div className="healthcare-image-frame healthcare-editorial-image healthcare-access-image">
               <Image
                 src="/education-support.png"
-                alt="A student studying in a bright classroom"
+                alt="Illustrative image of a student studying in a classroom"
                 fill
                 sizes="(max-width: 800px) 100vw, 50vw"
               />
@@ -328,17 +344,23 @@ export default function EducationEmpowermentPage() {
         <CultureReveal className="healthcare-container healthcare-cta-content">
           <p className="eyebrow">Join our mission</p>
           <h2 id="education-cta-title">
-            Help Open Doors to Learning
+            Help Us Open More Doors to Education
           </h2>
           <p>
-            Your time, skills and support can help learners access more
-            opportunities and build confidence for the future.
+            There are children and young people with the ability and desire to
+            learn who may need someone to stand behind them. Your contribution
+            can help provide learning resources, additional support and guidance.
+          </p>
+          <p>
+            We believe donors deserve clear information about how contributions
+            are used. No fixed percentage or education-specific impact total is
+            claimed on this page.
           </p>
           <Link
-            href="/volunteer?area=Education%20Support"
+            href="/donate"
             className="healthcare-cta-button"
           >
-            Support Education <ArrowRight size={17} />
+            Donate for Education <ArrowRight size={17} />
           </Link>
         </CultureReveal>
       </section>
