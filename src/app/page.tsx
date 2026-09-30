@@ -15,8 +15,8 @@ export const metadata = seo("Trimurti Foundation", "/");
 export default function Home() {
   return (
     <>
-      <HeroSlider />
       <WhoWeAre />
+      <HeroSlider />
       <TrimurthyPhilosophy />
       <TransformALife />
       <section className="support-request-section" aria-labelledby="support-request-title">

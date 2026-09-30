@@ -13,7 +13,6 @@ import type { LucideIcon } from "lucide-react";
 
 type WhoWeAreCard = {
   title: string;
-  description: string;
   href: string;
   icon: LucideIcon;
 };
@@ -21,37 +20,31 @@ type WhoWeAreCard = {
 const cards: WhoWeAreCard[] = [
   {
     title: "About Trimurti Foundation",
-    description: "Our mission and purpose",
     href: "/about-us#about-foundation",
     icon: Building2,
   },
   {
-    title: "About our founder",
-    description: "Leadership and vision",
+    title: "Our Founder",
     href: "/about-us#founder",
     icon: Users,
   },
   {
     title: "Our journey",
-    description: "The path we have taken",
     href: "/about-us#journey",
     icon: Leaf,
   },
   {
     title: "Mission & vision",
-    description: "What drives us",
     href: "/about-us#mission-vision",
     icon: Target,
   },
   {
     title: "Governance & Transparency",
-    description: "Ethics and accountability",
     href: "/about-us#governance",
     icon: ShieldCheck,
   },
   {
     title: "Advisory Board / Team",
-    description: "People behind the mission",
     href: "/about-us#team",
     icon: BriefcaseBusiness,
   },
@@ -76,7 +69,6 @@ export default function WhoWeAre() {
 
         <div className="who-we-are-content">
           <span className="who-we-are-rule" aria-hidden="true" />
-          <p className="eyebrow">The people behind the purpose</p>
           <h2 id="who-we-are-title">
             <span>Who</span> we are
           </h2>
@@ -93,7 +85,6 @@ export default function WhoWeAre() {
                   </span>
                   <span className="who-we-are-card-copy">
                     <strong>{card.title}</strong>
-                    <span>{card.description}</span>
                   </span>
                   <ArrowUpRight className="who-we-are-card-arrow" size={17} />
                 </Link>
