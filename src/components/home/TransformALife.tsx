@@ -62,7 +62,7 @@ const soldiers: SupportItem = {
   description: "Honouring those who serve our nation by standing beside serving personnel, veterans, and their families with gratitude, compassion, and support for their wellbeing.",
   image: "/soldiers-family.webp",
   alt: "Illustrative portrait of an Indian soldier spending time with his family",
-  href: "/about-us#standing-with-soldiers",
+  href: "/services/standing-with-soldiers",
 };
 
 function CauseCard({ item, featured = false }: { item: SupportItem; featured?: boolean }) {

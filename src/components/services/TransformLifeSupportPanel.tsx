@@ -55,7 +55,11 @@ const supportActions = [
   },
 ];
 
-export default function TransformLifeSupportPanel() {
+export default function TransformLifeSupportPanel({
+  showRequestSupport = true,
+}: {
+  showRequestSupport?: boolean;
+}) {
   const pathname = usePathname();
   const initialCause = {
     "/services/education": "Education & Empowerment",
@@ -80,7 +84,9 @@ export default function TransformLifeSupportPanel() {
         className="initiative-approach-support-list"
         aria-label="Ways to support"
       >
-        {supportActions.map(({ title, description, href, activePath, icon: Icon, tone }) => {
+        {supportActions
+          .filter(({ title }) => showRequestSupport || title !== "Request Support")
+          .map(({ title, description, href, activePath, icon: Icon, tone }) => {
           const isActive = pathname === activePath;
           const content = (
             <>
@@ -149,7 +155,7 @@ export default function TransformLifeSupportPanel() {
               {content}
             </Link>
           );
-        })}
+          })}
       </nav>
 
       <div className="initiative-approach-support-message">

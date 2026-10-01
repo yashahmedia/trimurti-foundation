@@ -144,7 +144,7 @@ const initiativeDetails = [
       "We honour those who serve our nation by standing beside serving personnel, veterans and their families with gratitude, compassion and support.",
     image: "/soldiers-family.webp",
     alt: "An Indian soldier spending time with his family",
-    href: "/about-us#standing-with-soldiers",
+    href: "/services/standing-with-soldiers",
     points: [
       "Support for serving personnel",
       "Care for veterans and families",

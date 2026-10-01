@@ -28,7 +28,7 @@ export const navigation: NavigationItem[] = [
       { label: "Education & Empowerment", href: "/services/education", icon: "education", description: "Learning and opportunity" },
       { label: "Healthcare Support", href: "/services/healthcare", icon: "healthcare", description: "Access to care" },
       { label: "Annadhan & Nutrition", href: "/services/nutrition", icon: "nutrition", description: "Meals and nourishment" },
-      { label: "Stand with our Soldiers", href: "/services/elderly-care", icon: "elderly", description: "Support and dignity" },
+      { label: "Stand with our Soldiers", href: "/services/standing-with-soldiers", icon: "elderly", description: "Support and dignity" },
       { label: "Environment & Welfare", href: "/services/environment-welfare", icon: "environment", description: "Greener communities" },
       { label: "Culture & Heritage", href: "/services/culture-heritage", icon: "culture", description: "Keeping roots alive" },
       ],

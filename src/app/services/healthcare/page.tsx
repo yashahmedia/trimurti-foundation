@@ -1,12 +1,12 @@
-import HealthcareSupportPage from "@/components/services/HealthcareSupportPage";
+import HealthcareSupportExperience from "@/components/services/HealthcareSupportExperience";
 import { seo } from "@/lib/seo";
 
 export const metadata = seo(
   "Healthcare Support",
   "/services/healthcare",
-  "Learn how Trimurti Foundation supports community health through awareness, preventive care, health camps and compassionate guidance.",
+  "Learn how timely medical support can provide relief during difficult moments and help individuals receive the care they need.",
 );
 
 export default function Page() {
-  return <HealthcareSupportPage />;
+  return <HealthcareSupportExperience />;
 }

@@ -1,0 +1,490 @@
+.page {
+  --environment-green: #245839;
+  --environment-teal: #236b60;
+  --environment-gold: #c79b39;
+  --environment-ink: #244d3a;
+  --environment-body: #252525;
+  background: #f7f5e9;
+  color: var(--environment-ink);
+}
+
+:global(html:has(.environment-welfare-experience)),
+:global(body:has(.environment-welfare-experience)) {
+  overflow-x: clip;
+}
+
+.heroBand {
+  background:
+    radial-gradient(ellipse at 10% 5%, rgba(174, 185, 109, 0.17), transparent 42%),
+    linear-gradient(125deg, #fbf9ed 0%, #f2f4e8 58%, #edf3e8 100%);
+}
+
+.heroLayout {
+  display: grid;
+  width: min(1500px, calc(100% - 72px));
+  margin-inline: auto;
+  padding: 56px 0 64px;
+  grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.12fr) minmax(280px, 0.9fr);
+  align-items: center;
+  gap: clamp(20px, 2.4vw, 38px);
+}
+
+.heroCopy,
+.supportRail {
+  min-width: 0;
+}
+
+.heroCopy {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: #6d7a2d;
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.heroCopy h1,
+.whyHeading h2,
+.supportCopy h2,
+.impactLead h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+}
+
+.heroCopy h1 {
+  max-width: 580px;
+  color: #214e38;
+  font-size: 42px;
+  line-height: 1.05;
+}
+
+.heroIntro {
+  max-width: 520px;
+  margin-top: 16px;
+  color: var(--environment-body);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.heroImage {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 1.2 / 1;
+  margin: 0;
+  border: 1px solid rgba(36, 88, 57, 0.16);
+  border-radius: 18px 18px 58px 18px;
+  background: #e8eadc;
+  box-shadow: 0 20px 48px rgba(35, 66, 50, 0.12);
+}
+
+.heroImage img,
+.supportImage img {
+  object-fit: cover;
+}
+
+.supportRail {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+}
+
+.supportRail :global(.initiative-approach-support-header p),
+.supportRail :global(.initiative-approach-support-copy > span) {
+  color: #292929;
+}
+
+.supportRail :global(.initiative-approach-support-copy > span) {
+  font-size: 11px;
+}
+
+.whySection {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(116deg, #1e5548 0%, #21665e 54%, #2d694b 100%);
+  color: #fbf8e9;
+}
+
+.whyLayout {
+  display: grid;
+  width: min(1200px, calc(100% - 72px));
+  margin-inline: auto;
+  padding: 94px 0 92px;
+  grid-template-columns: minmax(250px, 0.78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: clamp(48px, 7vw, 100px);
+}
+
+.whyHeading {
+  min-width: 0;
+}
+
+.whyHeading h2 {
+  color: #fbf8e9;
+  font-size: 54px;
+  line-height: 1.07;
+}
+
+.whyStory {
+  min-width: 0;
+  padding-top: 12px;
+}
+
+.darkCopy,
+.impactStory > p {
+  color: #f5f4e9;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.quote {
+  display: grid;
+  margin: 32px 0 0;
+  padding: 23px 0 0 22px;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  border-top: 1px solid rgba(250, 249, 230, 0.27);
+  border-left: 2px solid #d6bb62;
+  color: #fbf8e9;
+}
+
+.quote > svg {
+  color: #e1cb78;
+}
+
+.quote p {
+  color: #fbf8e9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.supportSection {
+  padding: 90px 24px;
+  background: #f2f1e4;
+}
+
+.supportShell {
+  display: grid;
+  width: min(1280px, 100%);
+  margin-inline: auto;
+  padding: 58px;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+  align-items: center;
+  gap: 56px;
+  border: 1px solid rgba(36, 88, 57, 0.15);
+  border-radius: 28px;
+  background: #fffdf7;
+  box-shadow: 0 20px 54px rgba(39, 67, 48, 0.08);
+}
+
+.supportCopy h2 {
+  max-width: 660px;
+  color: #214e38;
+  font-size: 45px;
+  line-height: 1.1;
+}
+
+.supportCopy h3 {
+  margin-top: 13px;
+  color: #778034;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.supportCopy > p {
+  margin-top: 25px;
+  color: var(--environment-body);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.supportImage {
+  position: relative;
+  overflow: hidden;
+  min-height: 430px;
+  margin: 0;
+  border: 1px solid rgba(36, 88, 57, 0.13);
+  border-radius: 16px 16px 78px 16px;
+  background: #e4e8d9;
+}
+
+.impactSection {
+  background: linear-gradient(128deg, #285b43 0%, #28675a 52%, #305d4d 100%);
+  color: #fbf8e9;
+}
+
+.impactLayout {
+  display: grid;
+  width: min(1200px, calc(100% - 72px));
+  margin-inline: auto;
+  padding: 98px 0 104px;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  align-items: start;
+  gap: clamp(48px, 7vw, 96px);
+}
+
+.impactLead {
+  padding-top: 5px;
+}
+
+.impactLead h2 {
+  color: #fbf8e9;
+  font-size: 45px;
+  line-height: 1.1;
+}
+
+.impactLead h3 {
+  margin-top: 19px;
+  color: #e8d785;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.impactStory {
+  min-width: 0;
+  padding: 12px 0 12px 30px;
+  border-left: 1px solid rgba(250, 249, 230, 0.4);
+}
+
+@media (max-width: 1100px) {
+  .heroLayout {
+    grid-template-columns: minmax(0, 1fr) minmax(265px, 0.9fr);
+    column-gap: 28px;
+    row-gap: 24px;
+  }
+
+  .heroCopy h1 {
+    font-size: 40px;
+  }
+
+  .heroImage {
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: 1.8 / 1;
+  }
+
+  .supportRail {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .whyLayout,
+  .impactLayout {
+    gap: 48px;
+  }
+
+  .whyHeading h2 {
+    font-size: 44px;
+  }
+
+  .supportShell {
+    padding: 42px;
+    grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+    gap: 36px;
+  }
+
+  .supportCopy h2 {
+    font-size: 40px;
+  }
+
+  .supportImage {
+    min-height: 370px;
+  }
+
+  .impactLead h2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 760px) {
+  .heroLayout {
+    width: min(100% - 40px, 620px);
+    padding: 44px 0 56px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 27px;
+  }
+
+  .heroCopy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .heroCopy h1 {
+    font-size: 40px;
+  }
+
+  .heroIntro {
+    font-size: 16px;
+  }
+
+  .heroImage {
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: 1.55 / 1;
+  }
+
+  .supportRail {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: stretch;
+  }
+
+  .whyLayout,
+  .impactLayout {
+    width: min(100% - 44px, 620px);
+    padding: 68px 0 72px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .whyHeading h2 {
+    max-width: 520px;
+    font-size: 43px;
+  }
+
+  .whyStory {
+    padding-top: 0;
+  }
+
+  .darkCopy,
+  .impactStory > p {
+    font-size: 15px;
+  }
+
+  .quote {
+    margin-top: 26px;
+    padding: 21px 0 0 17px;
+    gap: 12px;
+  }
+
+  .quote p {
+    font-size: 21px;
+  }
+
+  .supportSection {
+    padding: 58px 18px;
+  }
+
+  .supportShell {
+    width: min(100%, 620px);
+    padding: 32px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    border-radius: 22px;
+  }
+
+  .supportCopy h2 {
+    font-size: 38px;
+  }
+
+  .supportCopy h3 {
+    font-size: 21px;
+  }
+
+  .supportCopy > p {
+    font-size: 15px;
+  }
+
+  .supportImage {
+    min-height: 0;
+    aspect-ratio: 1.25 / 1;
+    border-bottom-right-radius: 58px;
+  }
+
+  .impactLead h2 {
+    max-width: 540px;
+    font-size: 38px;
+  }
+
+  .impactLead h3 {
+    margin-top: 15px;
+    font-size: 21px;
+  }
+
+  .impactStory {
+    padding: 0 0 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroLayout {
+    width: calc(100% - 34px);
+    padding: 38px 0 48px;
+    gap: 24px;
+  }
+
+  .heroCopy h1 {
+    font-size: 35px;
+  }
+
+  .heroImage {
+    aspect-ratio: 1.35 / 1;
+  }
+
+  .whyLayout,
+  .impactLayout {
+    width: calc(100% - 36px);
+    padding: 56px 0 60px;
+    gap: 23px;
+  }
+
+  .whyHeading h2 {
+    font-size: 35px;
+  }
+
+  .darkCopy,
+  .impactStory > p {
+    line-height: 1.8;
+  }
+
+  .quote p {
+    font-size: 19px;
+  }
+
+  .supportSection {
+    padding: 42px 13px;
+  }
+
+  .supportShell {
+    padding: 24px 21px;
+    gap: 24px;
+  }
+
+  .supportCopy h2 {
+    font-size: 33px;
+  }
+
+  .supportCopy > p {
+    margin-top: 21px;
+  }
+
+  .supportImage {
+    aspect-ratio: 1.12 / 1;
+  }
+
+  .impactLead h2 {
+    font-size: 34px;
+  }
+
+  .impactLead h3 {
+    font-size: 19px;
+  }
+
+  .impactStory {
+    padding-left: 15px;
+  }
+}

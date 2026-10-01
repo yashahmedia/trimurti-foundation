@@ -1,0 +1,553 @@
+.page {
+  --healthcare-wine: #682f41;
+  --healthcare-wine-deep: #71394a;
+  --healthcare-body: #51373b;
+  background: #faf4eb;
+  color: var(--healthcare-wine);
+}
+
+:global(html:has(.healthcare-support-experience)),
+:global(body:has(.healthcare-support-experience)) {
+  overflow-x: clip;
+}
+
+.heroBand {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 12% 4%, rgba(183, 126, 112, 0.12), transparent 42%),
+    linear-gradient(125deg, #fbf5ec 0%, #f7eee3 58%, #f8f3e9 100%);
+}
+
+.heroLayout {
+  display: grid;
+  width: min(1500px, calc(100% - 72px));
+  margin-inline: auto;
+  padding: 56px 0 64px;
+  grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.12fr) minmax(280px, 0.9fr);
+  align-items: center;
+  gap: clamp(20px, 2.4vw, 38px);
+}
+
+.heroCopy,
+.supportRail {
+  min-width: 0;
+}
+
+.heroCopy {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: #844454;
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.heroCopy h1,
+.whyHeading h2,
+.changeCopy h2,
+.impactLead h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+}
+
+.heroCopy h1 {
+  max-width: 760px;
+  color: #642d3e;
+  font-size: 42px;
+  line-height: 1.02;
+}
+
+.heroIntro {
+  max-width: 620px;
+  margin-top: 14px;
+  color: var(--healthcare-body);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.heroImage {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 1.2 / 1;
+  margin: 0;
+  border: 1px solid rgba(104, 47, 65, 0.14);
+  border-radius: 18px 18px 58px 18px;
+  background: #eee3d9;
+  box-shadow: 0 20px 48px rgba(91, 49, 56, 0.12);
+}
+
+.heroImage img,
+.changeImage img {
+  object-fit: cover;
+}
+
+.heroImage img {
+  object-position: center 30%;
+}
+
+.supportRail {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+}
+
+.supportRail :global(.initiative-approach-support-header p),
+.supportRail :global(.initiative-approach-support-copy > span) {
+  color: #302629;
+}
+
+.supportRail :global(.initiative-approach-support-copy > span) {
+  font-size: 11px;
+}
+
+.whySection {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(116deg, #713546 0%, #80404c 54%, #925046 100%);
+  color: #fff4e9;
+}
+
+.whyLayout {
+  display: grid;
+  width: min(1200px, calc(100% - 72px));
+  margin-inline: auto;
+  padding: 96px 0 92px;
+  grid-template-columns: minmax(250px, 0.78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: clamp(48px, 7vw, 100px);
+}
+
+.whyHeading {
+  min-width: 0;
+}
+
+.sectionMarker {
+  display: inline-block;
+  margin-bottom: 22px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 233, 214, 0.58);
+  color: #f2d5bd;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.whyHeading h2 {
+  color: #fff4e9;
+  font-size: 54px;
+  line-height: 1.06;
+}
+
+.whyStory {
+  min-width: 0;
+  padding-top: 12px;
+}
+
+.darkCopy,
+.impactStory > p {
+  color: #f5e9df;
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.quote {
+  display: grid;
+  margin: 32px 0 0;
+  padding: 23px 0 0 22px;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 239, 226, 0.26);
+  border-left: 2px solid #d9ae8e;
+  color: #fff4e9;
+}
+
+.quote > svg {
+  color: #e6c3a3;
+}
+
+.quote p {
+  color: #fff4e9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-style: italic;
+  line-height: 1.48;
+}
+
+.changeSection {
+  padding: 92px 24px;
+  background: #f8f2e8;
+}
+
+.changeShell {
+  display: grid;
+  width: min(1280px, 100%);
+  margin-inline: auto;
+  padding: 62px;
+  grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+  align-items: center;
+  gap: 58px;
+  border: 1px solid rgba(104, 47, 65, 0.15);
+  border-radius: 28px;
+  background: #fffdf8;
+  box-shadow: 0 20px 54px rgba(88, 49, 54, 0.08);
+}
+
+.changeCopy h2 {
+  max-width: 650px;
+  color: #642d3e;
+  font-size: 46px;
+  line-height: 1.08;
+}
+
+.changeCopy h3 {
+  margin-top: 13px;
+  color: #854958;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.changeBody {
+  display: grid;
+  gap: 17px;
+  margin-top: 26px;
+}
+
+.changeBody p {
+  color: #4f383b;
+  font-size: 16px;
+  line-height: 1.82;
+}
+
+.changeImage {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  margin: 0;
+  border: 1px solid rgba(104, 47, 65, 0.12);
+  border-radius: 16px 16px 82px 16px;
+  background: #e9dfd3;
+}
+
+.impactSection {
+  background: linear-gradient(128deg, #87483b 0%, #945344 51%, #75404b 100%);
+  color: #fff4e9;
+}
+
+.impactLayout {
+  display: grid;
+  width: min(1200px, calc(100% - 72px));
+  margin-inline: auto;
+  padding: 100px 0 104px;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  align-items: start;
+  gap: clamp(48px, 7vw, 96px);
+}
+
+.impactLead {
+  padding-top: 12px;
+}
+
+.impactRule {
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin-bottom: 25px;
+  background: #e8c4a1;
+}
+
+.impactLead h2 {
+  color: #fff4e9;
+  font-size: 47px;
+  line-height: 1.08;
+}
+
+.impactLead h3 {
+  margin-top: 20px;
+  color: #f8dfcb;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.38;
+}
+
+.impactStory {
+  min-width: 0;
+  padding: 12px 0 0 30px;
+  border-left: 1px solid rgba(255, 237, 223, 0.42);
+}
+
+.impactConclusion {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 237, 223, 0.3);
+  color: #fff4e9 !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px !important;
+  line-height: 1.65 !important;
+}
+
+@media (max-width: 1100px) {
+  .heroLayout {
+    grid-template-columns: minmax(0, 1fr) minmax(265px, 0.9fr);
+    column-gap: 28px;
+    row-gap: 24px;
+  }
+
+  .heroCopy h1 {
+    font-size: 40px;
+  }
+
+  .heroImage {
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: 1.8 / 1;
+  }
+
+  .supportRail {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .whyLayout,
+  .impactLayout {
+    gap: 48px;
+  }
+
+  .whyHeading h2 {
+    font-size: 46px;
+  }
+
+  .changeShell {
+    padding: 42px;
+    grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+    gap: 36px;
+  }
+
+  .changeCopy h2 {
+    font-size: 40px;
+  }
+
+  .changeImage {
+    min-height: 370px;
+  }
+
+  .impactLead h2 {
+    font-size: 41px;
+  }
+}
+
+@media (max-width: 760px) {
+  .heroLayout {
+    width: min(100% - 40px, 620px);
+    padding: 44px 0 56px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+  }
+
+  .heroCopy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .heroCopy h1 {
+    font-size: 36px;
+  }
+
+  .heroIntro {
+    font-size: 17px;
+  }
+
+  .heroImage {
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: 1.8 / 1;
+    border-bottom-right-radius: 52px;
+  }
+
+  .supportRail {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: stretch;
+  }
+
+  .whyLayout,
+  .impactLayout {
+    width: min(100% - 44px, 620px);
+    padding: 68px 0 72px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .sectionMarker {
+    margin-bottom: 17px;
+  }
+
+  .whyHeading h2 {
+    max-width: 520px;
+    font-size: 43px;
+  }
+
+  .whyStory {
+    padding-top: 0;
+  }
+
+  .darkCopy,
+  .impactStory > p {
+    font-size: 16px;
+  }
+
+  .quote {
+    margin-top: 26px;
+    padding: 21px 0 0 17px;
+    gap: 12px;
+  }
+
+  .quote p {
+    font-size: 22px;
+  }
+
+  .changeSection {
+    padding: 58px 18px;
+  }
+
+  .changeShell {
+    width: min(100%, 620px);
+    padding: 32px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    border-radius: 22px;
+  }
+
+  .changeCopy h2 {
+    font-size: 38px;
+  }
+
+  .changeCopy h3 {
+    font-size: 21px;
+  }
+
+  .changeBody p {
+    font-size: 15px;
+  }
+
+  .changeImage {
+    min-height: 0;
+    aspect-ratio: 1.35 / 1;
+    border-bottom-right-radius: 58px;
+  }
+
+  .impactRule {
+    margin-bottom: 20px;
+  }
+
+  .impactLead h2 {
+    max-width: 540px;
+    font-size: 40px;
+  }
+
+  .impactLead h3 {
+    margin-top: 15px;
+    font-size: 22px;
+  }
+
+  .impactStory {
+    padding: 0 0 0 20px;
+  }
+
+  .impactConclusion {
+    margin-top: 24px;
+    padding-top: 20px;
+    font-size: 19px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroLayout {
+    width: calc(100% - 34px);
+    padding: 38px 0 48px;
+    gap: 27px;
+  }
+
+  .heroCopy h1 {
+    font-size: 34px;
+  }
+
+  .heroIntro {
+    margin-top: 17px;
+    font-size: 16px;
+  }
+
+  .heroImage {
+    margin-top: 24px;
+    aspect-ratio: 1.55 / 1;
+  }
+
+  .whyLayout,
+  .impactLayout {
+    width: calc(100% - 36px);
+    padding: 56px 0 60px;
+    gap: 23px;
+  }
+
+  .whyHeading h2 {
+    font-size: 36px;
+  }
+
+  .darkCopy,
+  .impactStory > p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .quote p {
+    font-size: 20px;
+  }
+
+  .changeSection {
+    padding: 42px 13px;
+  }
+
+  .changeShell {
+    padding: 24px 21px;
+    gap: 24px;
+  }
+
+  .changeCopy h2 {
+    font-size: 33px;
+  }
+
+  .changeBody {
+    margin-top: 21px;
+  }
+
+  .changeImage {
+    aspect-ratio: 1.15 / 1;
+  }
+
+  .impactLead h2 {
+    font-size: 35px;
+  }
+
+  .impactLead h3 {
+    font-size: 20px;
+  }
+
+  .impactStory {
+    padding-left: 15px;
+  }
+
+  .impactConclusion {
+    font-size: 18px !important;
+  }
+}
