@@ -1,4 +1,4 @@
-import CultureHeritageInitiativePage from "@/components/services/CultureHeritageInitiativePage";
+import CultureHeritageExperience from "@/components/services/CultureHeritageExperience";
 import { seo } from "@/lib/seo";
 
 export const metadata = seo(
@@ -8,5 +8,5 @@ export const metadata = seo(
 );
 
 export default function Page() {
-  return <CultureHeritageInitiativePage />;
+  return <CultureHeritageExperience />;
 }

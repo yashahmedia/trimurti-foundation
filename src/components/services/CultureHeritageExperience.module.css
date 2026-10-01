@@ -1,0 +1,449 @@
+.page {
+  --heritage-plum: #60384c;
+  --heritage-body: #393235;
+  background: #faf5ea;
+  color: var(--heritage-plum);
+}
+
+:global(html:has(.culture-heritage-experience)),
+:global(body:has(.culture-heritage-experience)) {
+  overflow-x: clip;
+}
+
+.heroBand {
+  background:
+    radial-gradient(ellipse at 12% 5%, rgba(196, 144, 69, 0.16), transparent 42%),
+    linear-gradient(125deg, #fff8ed 0%, #f7efe7 58%, #f4f1e8 100%);
+}
+
+.heroLayout {
+  display: grid;
+  width: min(1500px, calc(100% - 72px));
+  margin-inline: auto;
+  padding: 56px 0 64px;
+  grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.12fr) minmax(280px, 0.9fr);
+  align-items: center;
+  gap: clamp(20px, 2.4vw, 38px);
+}
+
+.heroCopy,
+.supportRail {
+  min-width: 0;
+}
+
+.heroCopy {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: #946728;
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.heroCopy h1,
+.whyHeading h2,
+.supportCopy h2,
+.impactLead h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+}
+
+.heroCopy h1 {
+  max-width: 560px;
+  color: #60384c;
+  font-size: 42px;
+  line-height: 1.05;
+}
+
+.heroIntro {
+  max-width: 520px;
+  margin-top: 16px;
+  color: var(--heritage-body);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.heroImage {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 1.2 / 1;
+  margin: 0;
+  border: 1px solid rgba(96, 56, 76, 0.15);
+  border-radius: 18px 18px 58px 18px;
+  background: #eee3d6;
+  box-shadow: 0 20px 48px rgba(85, 55, 55, 0.12);
+}
+
+.heroImage img,
+.supportImage img {
+  object-fit: cover;
+}
+
+.heroImage img {
+  object-position: center 38%;
+}
+
+.supportRail {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+}
+
+.supportRail :global(.initiative-approach-support-header p),
+.supportRail :global(.initiative-approach-support-copy > span) {
+  color: #352d2d;
+}
+
+.supportRail :global(.initiative-approach-support-copy > span) {
+  font-size: 11px;
+}
+
+.whySection {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(116deg, #552b43 0%, #754052 54%, #7a563c 100%);
+  color: #fff8ed;
+}
+
+.whyLayout {
+  display: grid;
+  width: min(1200px, calc(100% - 72px));
+  margin-inline: auto;
+  padding: 94px 0 92px;
+  grid-template-columns: minmax(250px, 0.78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: clamp(48px, 7vw, 100px);
+}
+
+.whyHeading {
+  min-width: 0;
+}
+
+.sectionMarker {
+  display: inline-block;
+  margin-bottom: 22px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 242, 214, 0.58);
+  color: #f2d692;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.whyHeading h2 {
+  color: #fff8ed;
+  font-size: 52px;
+  line-height: 1.07;
+}
+
+.whyStory {
+  min-width: 0;
+  padding-top: 12px;
+}
+
+.darkCopy,
+.impactStory > p {
+  color: #f8eee5;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.quote {
+  display: grid;
+  margin: 32px 0 0;
+  padding: 23px 0 0 22px;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 246, 226, 0.27);
+  border-left: 2px solid #dfb66d;
+  color: #fff8ed;
+}
+
+.quote > svg {
+  color: #eccb8b;
+}
+
+.quote p {
+  color: #fff8ed;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.supportSection {
+  padding: 90px 24px;
+  background: #f0eee5;
+}
+
+.supportShell {
+  display: grid;
+  width: min(1280px, 100%);
+  margin-inline: auto;
+  padding: 58px;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+  align-items: center;
+  gap: 56px;
+  border: 1px solid rgba(96, 56, 76, 0.15);
+  border-radius: 28px;
+  background: #fffdf8;
+  box-shadow: 0 20px 54px rgba(72, 51, 47, 0.08);
+}
+
+.supportCopy h2 {
+  max-width: 660px;
+  color: #60384c;
+  font-size: 45px;
+  line-height: 1.1;
+}
+
+.supportCopy h3 {
+  margin-top: 13px;
+  color: #92652b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.supportCopy > p {
+  margin-top: 25px;
+  color: var(--heritage-body);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.supportImage {
+  position: relative;
+  overflow: hidden;
+  min-height: 430px;
+  margin: 0;
+  border: 1px solid rgba(96, 56, 76, 0.14);
+  border-radius: 16px 16px 78px 16px;
+  background: #e8dfd5;
+}
+
+.impactSection {
+  background: linear-gradient(128deg, #315b4c 0%, #285d60 52%, #31566b 100%);
+  color: #fff8ed;
+}
+
+.impactLayout {
+  display: grid;
+  width: min(1200px, calc(100% - 72px));
+  margin-inline: auto;
+  padding: 98px 0 104px;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  align-items: start;
+  gap: clamp(48px, 7vw, 96px);
+}
+
+.impactLead {
+  padding-top: 5px;
+}
+
+.impactRule {
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin-bottom: 25px;
+  background: #e2bd68;
+}
+
+.impactLead h2 {
+  color: #fff8ed;
+  font-size: 45px;
+  line-height: 1.1;
+}
+
+.impactLead h3 {
+  margin-top: 19px;
+  color: #f3dca9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.impactStory {
+  min-width: 0;
+  padding: 12px 0 12px 30px;
+  border-left: 1px solid rgba(255, 244, 221, 0.4);
+}
+
+@media (max-width: 1100px) {
+  .heroLayout {
+    grid-template-columns: minmax(0, 1fr) minmax(265px, 0.9fr);
+    column-gap: 28px;
+    row-gap: 24px;
+  }
+
+  .heroCopy h1 {
+    font-size: 40px;
+  }
+
+  .heroImage {
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: 1.8 / 1;
+  }
+
+  .supportRail {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .whyLayout,
+  .impactLayout {
+    gap: 48px;
+  }
+
+  .whyHeading h2 {
+    font-size: 46px;
+  }
+
+  .supportShell {
+    padding: 42px;
+    grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+    gap: 36px;
+  }
+
+  .supportCopy h2 {
+    font-size: 40px;
+  }
+
+  .supportImage {
+    min-height: 370px;
+  }
+
+  .impactLead h2 {
+    font-size: 41px;
+  }
+}
+
+@media (max-width: 760px) {
+  .heroLayout {
+    width: min(100% - 40px, 620px);
+    padding: 44px 0 56px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+  }
+
+  .heroCopy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .heroCopy h1 {
+    font-size: 36px;
+  }
+
+  .heroIntro {
+    font-size: 17px;
+  }
+
+  .heroImage {
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: 1.8 / 1;
+    border-bottom-right-radius: 52px;
+  }
+
+  .supportRail {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: stretch;
+  }
+
+  .whyLayout,
+  .impactLayout {
+    width: min(100% - 44px, 620px);
+    padding: 68px 0 72px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .sectionMarker {
+    margin-bottom: 17px;
+  }
+
+  .whyHeading h2 {
+    max-width: 520px;
+    font-size: 43px;
+  }
+
+  .whyStory {
+    padding-top: 0;
+  }
+
+  .darkCopy,
+  .impactStory > p {
+    font-size: 16px;
+  }
+
+  .quote {
+    margin-top: 26px;
+    padding-left: 16px;
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .quote p {
+    font-size: 21px;
+  }
+
+  .supportSection {
+    padding: 58px 20px;
+  }
+
+  .supportShell {
+    width: min(100%, 620px);
+    padding: 30px 24px 24px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    border-radius: 20px;
+  }
+
+  .supportCopy h2 {
+    font-size: 38px;
+  }
+
+  .supportCopy h3 {
+    font-size: 21px;
+  }
+
+  .supportCopy > p {
+    margin-top: 20px;
+  }
+
+  .supportImage {
+    min-height: 0;
+    aspect-ratio: 1.35 / 1;
+    border-bottom-right-radius: 54px;
+  }
+
+  .impactLayout {
+    gap: 24px;
+  }
+
+  .impactLead h2 {
+    font-size: 40px;
+  }
+
+  .impactLead h3 {
+    font-size: 21px;
+  }
+
+  .impactStory {
+    padding: 0 0 0 20px;
+  }
+}

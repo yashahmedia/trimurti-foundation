@@ -1,4 +1,4 @@
-import EducationEmpowermentPage from "@/components/services/EducationEmpowermentPage";
+import EducationEmpowermentExperience from "@/components/services/EducationEmpowermentExperience";
 import { seo } from "@/lib/seo";
 
 export const metadata = seo(
@@ -8,5 +8,5 @@ export const metadata = seo(
 );
 
 export default function Page() {
-  return <EducationEmpowermentPage />;
+  return <EducationEmpowermentExperience />;
 }
