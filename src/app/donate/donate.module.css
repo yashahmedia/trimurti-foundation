@@ -452,6 +452,13 @@
   color: var(--page-muted);
 }
 
+.donationPanel :global(.donation-form textarea) {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 132px;
+  resize: vertical;
+}
+
 .donationPanel :global(.donation-thank-you) {
   margin-top: 20px;
   color: var(--page-muted);
