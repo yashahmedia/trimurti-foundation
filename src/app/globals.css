@@ -6796,9 +6796,9 @@ img {
 .events-card-rail { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 40px) / 3); gap: 20px; overflow-x: auto; overscroll-behavior-x: contain; padding: 1px 1px 12px; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .events-card-rail::-webkit-scrollbar { display: none; }
 .events-card-rail:focus-visible { outline: 3px solid rgba(22, 116, 93, 0.38); outline-offset: 4px; }
-.events-card { display: flex; min-width: 0; height: 440px; flex-direction: column; overflow: hidden; scroll-snap-align: start; border: 1px solid rgba(18, 59, 56, 0.11); border-radius: 19px; background: #fff; box-shadow: 0 10px 28px rgba(18, 59, 56, 0.07); transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1), border-color 380ms ease, box-shadow 380ms ease; }
+.events-card { display: flex; min-width: 0; height: 500px; flex-direction: column; overflow: hidden; scroll-snap-align: start; border: 1px solid rgba(18, 59, 56, 0.11); border-radius: 19px; background: #fff; box-shadow: 0 10px 28px rgba(18, 59, 56, 0.07); transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1), border-color 380ms ease, box-shadow 380ms ease; }
 .events-card:hover { transform: translateY(-5px); border-color: rgba(22, 116, 93, 0.34); box-shadow: 0 17px 34px rgba(18, 59, 56, 0.13); }
-.events-card-image { position: relative; flex: 0 0 210px; overflow: hidden; background: #e5ede6; }
+.events-card-image { position: relative; flex: 0 0 260px; overflow: hidden; background: #e5ede6; }
 .events-card-image img { object-fit: cover; transition: transform 450ms cubic-bezier(0.2, 0.7, 0.2, 1); }
 .events-card:hover .events-card-image img { transform: scale(1.04); }
 .events-image-shade { position: absolute; inset: 45% 0 0; background: linear-gradient(180deg, transparent, rgba(8, 28, 30, 0.48)); pointer-events: none; }
@@ -7433,7 +7433,7 @@ body.donation-modal-open { overflow: hidden; }
 }
 .connect-card-image {
   position: relative;
-  aspect-ratio: 3 / 1;
+  aspect-ratio: 2 / 1;
   overflow: hidden;
 }
 .connect-card-image img {
@@ -7808,8 +7808,8 @@ body.donation-modal-open { overflow: hidden; }
   .events-section-actions > .text-link { margin: 0; font-size: 13px; }
   .events-carousel-controls button { width: 38px; height: 38px; }
   .events-card-rail { grid-auto-columns: min(88vw, 380px); gap: 16px; padding-inline: 1px; scroll-padding-inline: 1px; }
-  .events-card { height: 460px; }
-  .events-card-image { flex-basis: 225px; }
+  .events-card { height: 520px; }
+  .events-card-image { flex-basis: 270px; }
   .events-card-content { padding: 18px 19px 17px; }
   .events-card-content h3 { font-size: 20px; }
   .connect-grid {
@@ -7828,6 +7828,7 @@ body.donation-modal-open { overflow: hidden; }
     padding: 0;
     scroll-snap-align: start;
   }
+  .connect-card-image { aspect-ratio: 1.8 / 1; }
   .press-coverage-group .press-coverage-card { flex-basis: min(82vw, 330px); }
   .donate-details { padding: 22px; }
   .donate-qr-placeholder { min-height: 300px; padding: 30px 24px; border-right: 0; border-bottom: 1px solid rgba(163, 196, 179, 0.15); }
@@ -9787,12 +9788,15 @@ button:disabled {
   transform: translate(3px, -3px);
 }
 .initiative-slider {
+  display: flex;
   min-width: 0;
+  align-items: center;
   animation: initiative-fade-in 0.75s 0.15s both;
 }
 .initiative-slider-frame {
   position: relative;
-  height: 100%;
+  width: 100%;
+  height: auto;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border-radius: 30px;
@@ -10046,6 +10050,10 @@ button:disabled {
     transform: translateX(-50%);
   }
   .initiative-slider-controls > button { display: none; }
+}
+@media (min-width: 561px) {
+  .initiative-hero.has-expanded-initiative-grid .initiative-grid { gap: 8px; }
+  .initiative-hero.has-expanded-initiative-grid .initiative-card { min-height: 78px; padding-block: 8px; }
 }
 
 .volunteer-hero {

@@ -10,6 +10,7 @@ import {
   HeartPulse,
   Landmark,
   Leaf,
+  ShieldCheck,
   UtensilsCrossed,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -73,6 +74,14 @@ const initiatives: Initiative[] = [
     alt: "Cultural heritage preservation through Trimurti Foundation",
     icon: Landmark,
   },
+  {
+    title: "Stand With Our Soldiers",
+    shortTitle: "Our Soldiers",
+    description: "Standing with serving personnel, veterans and their families.",
+    image: "/soldiers-family.webp",
+    alt: "An Indian soldier spending time with his family",
+    icon: ShieldCheck,
+  },
 ];
 
 const AUTOPLAY_DELAY = 5500;
@@ -106,7 +115,7 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="initiative-hero"
+      className={`initiative-hero${initiatives.length > 6 ? " has-expanded-initiative-grid" : ""}`}
       aria-label="Trimurti Foundation initiatives"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
