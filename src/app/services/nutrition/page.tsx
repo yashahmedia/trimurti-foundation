@@ -1,4 +1,4 @@
-import AnnadhanNutritionPage from "@/components/services/AnnadhanNutritionPage";
+import AnnadhanNutritionExperience from "@/components/services/AnnadhanNutritionExperience";
 import { seo } from "@/lib/seo";
 
 export const metadata = seo(
@@ -8,5 +8,5 @@ export const metadata = seo(
 );
 
 export default function Page() {
-  return <AnnadhanNutritionPage />;
+  return <AnnadhanNutritionExperience />;
 }
