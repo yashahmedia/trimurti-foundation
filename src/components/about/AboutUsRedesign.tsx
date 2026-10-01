@@ -150,6 +150,33 @@ export default function AboutUsRedesign() {
         </div>
       </section>
 
+      <section className={`${styles.section} ${styles.founderSection} ${styles.reveal}`} id="founder" aria-labelledby="founders-title">
+        <div className={styles.container}>
+          <SectionHeading
+            id="founders-title"
+            eyebrow="Our Founders"
+            title="Three Brothers. One Shared Purpose."
+            description="Trimurti Foundation was founded by three brothers united by the belief that communities grow stronger through compassion, purpose and collective responsibility."
+            align="center"
+          />
+          <div className={styles.founderGrid} id="team">
+            {founders.map(({ initials, name, role, background }, index) => (
+              <article className={styles.founderCard} key={name}>
+                <div className={`${styles.founderPortrait} ${index === 1 ? styles.founderPortraitWarm : index === 2 ? styles.founderPortraitCool : ""}`} aria-hidden="true">
+                  <span>{initials}</span>
+                  <span className={styles.portraitRule} />
+                </div>
+                <div className={styles.founderMeta}>
+                  <p className={styles.founderRole}>{role}</p>
+                  <h3>{name}</h3>
+                  <p className={styles.founderBackground}>{background}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className={`${styles.section} ${styles.pillarsSection} ${styles.reveal}`} aria-labelledby="pillars-title">
         <div className={styles.container}>
           <SectionHeading
@@ -341,33 +368,6 @@ We bring care, learning and connection to the areas that help people and communi
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.founderSection} ${styles.reveal}`} id="founder" aria-labelledby="founders-title">
-        <div className={styles.container}>
-          <SectionHeading
-            id="founders-title"
-            eyebrow="Our Founders"
-            title="Three Brothers. One Shared Purpose."
-            description="Trimurti Foundation was founded by three brothers united by the belief that communities grow stronger through compassion, purpose and collective responsibility."
-            align="center"
-          />
-          <div className={styles.founderGrid} id="team">
-            {founders.map(({ initials, name, role, background }, index) => (
-              <article className={styles.founderCard} key={name}>
-                <div className={`${styles.founderPortrait} ${index === 1 ? styles.founderPortraitWarm : index === 2 ? styles.founderPortraitCool : ""}`} aria-hidden="true">
-                  <span>{initials}</span>
-                  <span className={styles.portraitRule} />
-                </div>
-                <div className={styles.founderMeta}>
-                  <p className={styles.founderRole}>{role}</p>
-                  <h3>{name}</h3>
-                  <p className={styles.founderBackground}>{background}</p>
-                </div>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
