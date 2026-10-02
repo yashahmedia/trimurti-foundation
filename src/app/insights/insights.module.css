@@ -91,33 +91,6 @@
   line-height: 1.75;
 }
 
-.heroLink,
-.textLink,
-.cardLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 13px;
-  font-weight: 750;
-}
-
-.heroLink {
-  margin-top: 30px;
-  padding: 13px 19px;
-  border: 1px solid rgba(13, 117, 98, 0.22);
-  border-radius: 999px;
-  background: #0d7562;
-  box-shadow: 0 10px 24px rgba(13, 117, 98, 0.16);
-  color: #fff;
-  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-}
-
-.heroLink:hover {
-  background: #095e50;
-  box-shadow: 0 14px 30px rgba(13, 117, 98, 0.23);
-  transform: translateY(-2px);
-}
-
 .heroVisual {
   position: relative;
   min-height: 360px;
@@ -303,18 +276,6 @@
   line-height: 1.75;
 }
 
-.textLink {
-  margin-top: 22px;
-  color: #0d7562;
-  transition: color 0.2s ease, gap 0.2s ease;
-}
-
-.textLink:hover,
-.cardLink:hover {
-  gap: 13px;
-  color: #9a7130;
-}
-
 .cardGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -337,7 +298,7 @@
   box-shadow: 0 22px 44px rgba(25, 58, 49, 0.13);
 }
 
-.cardImageLink {
+.cardImageFrame {
   position: relative;
   display: block;
   height: clamp(150px, 15vw, 205px);
@@ -386,7 +347,7 @@
 
 .cardBody {
   display: flex;
-  min-height: 210px;
+  min-height: 180px;
   flex-direction: column;
   align-items: flex-start;
   padding: 19px 19px 17px;
@@ -437,15 +398,6 @@
   line-height: 1.65;
 }
 
-.cardLink {
-  gap: 7px;
-  margin-top: auto;
-  padding-top: 17px;
-  color: #0d7562;
-  font-size: 12px;
-  transition: color 0.2s ease, gap 0.2s ease;
-}
-
 @media (max-width: 1100px) {
   .heroInner {
     grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
@@ -474,9 +426,6 @@
     max-width: 600px;
   }
 
-  .textLink {
-    margin-top: 15px;
-  }
 }
 
 @media (max-width: 760px) {
@@ -504,10 +453,6 @@
 
   .heroCopy > p {
     margin-top: 17px;
-  }
-
-  .heroLink {
-    margin-top: 22px;
   }
 
   .heroVisual {
@@ -539,12 +484,12 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .cardImageLink {
+  .cardImageFrame {
     height: 175px;
   }
 
   .cardBody {
-    min-height: 210px;
+    min-height: 180px;
     padding: 16px;
   }
 
@@ -597,24 +542,21 @@
     gap: 16px;
   }
 
-  .cardImageLink {
+  .cardImageFrame {
     height: 210px;
   }
 
   .cardBody {
-    min-height: 190px;
+    min-height: 170px;
     padding: 18px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .heroLink,
   .heroImage,
   .tab,
-  .textLink,
   .card,
-  .cardImage,
-  .cardLink {
+  .cardImage {
     transition: none;
   }
 }

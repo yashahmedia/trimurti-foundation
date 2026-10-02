@@ -4,10 +4,15 @@ import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import DonationForm from "@/components/donate/DonationForm";
+import {
+  lockPageScroll,
+  type PageScrollPosition,
+} from "@/lib/page-scroll-lock";
 
 type DonationModalProps = {
   open: boolean;
   onClose: () => void;
+  scrollPosition: PageScrollPosition;
   initialCause?: string;
   modalTitle?: string;
 };
@@ -15,10 +20,11 @@ type DonationModalProps = {
 export default function DonationModal({
   open,
   onClose,
+  scrollPosition,
   initialCause,
   modalTitle = "Donate to a Cause",
 }: DonationModalProps) {
-  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
+  const portalRoot = typeof document === "undefined" ? null : document.body;
   const [closing, setClosing] = useState(false);
   const titleId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -26,28 +32,13 @@ export default function DonationModal({
   const closeTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
-    setPortalRoot(document.body);
-  }, []);
-
-  useEffect(() => {
     if (!open) return;
 
-    setClosing(false);
-    const scrollY = window.scrollY;
     const previouslyFocused = document.activeElement;
-    const originalBodyStyles = {
-      position: document.body.style.position,
-      top: document.body.style.top,
-      width: document.body.style.width,
-      overflow: document.body.style.overflow,
-    };
+    const restorePageScroll = lockPageScroll(scrollPosition);
 
     document.body.classList.add("donation-modal-open");
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = "100%";
-    document.body.style.overflow = "hidden";
-    closeButtonRef.current?.focus();
+    closeButtonRef.current?.focus({ preventScroll: true });
 
     return () => {
       if (closeTimerRef.current !== null) {
@@ -55,21 +46,20 @@ export default function DonationModal({
         closeTimerRef.current = null;
       }
       document.body.classList.remove("donation-modal-open");
-      document.body.style.position = originalBodyStyles.position;
-      document.body.style.top = originalBodyStyles.top;
-      document.body.style.width = originalBodyStyles.width;
-      document.body.style.overflow = originalBodyStyles.overflow;
-      window.scrollTo(0, scrollY);
       if (previouslyFocused instanceof HTMLElement) {
         previouslyFocused.focus({ preventScroll: true });
       }
+      restorePageScroll();
     };
-  }, [open]);
+  }, [open, scrollPosition]);
 
   function close() {
     if (closing) return;
     setClosing(true);
-    closeTimerRef.current = window.setTimeout(onClose, 180);
+    closeTimerRef.current = window.setTimeout(() => {
+      setClosing(false);
+      onClose();
+    }, 180);
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {

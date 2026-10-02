@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, MapPin } from "lucide-react";
 import { demoEvents, events } from "@/data/events";
 
 export default function EventsCampaigns() {
@@ -62,7 +61,6 @@ export default function EventsCampaigns() {
             <p>Find a meaningful way to connect, contribute and care.</p>
           </div>
           <div className="events-section-actions">
-            <Link href="/events" className="text-link">View full calendar <ArrowUpRight size={16} /></Link>
             {canScroll ? (
               <div className="events-carousel-controls" aria-label="Event and campaign carousel controls">
                 <button
@@ -122,9 +120,6 @@ export default function EventsCampaigns() {
                 </div>
                 <p className="events-card-location"><MapPin size={14} aria-hidden="true" />{event.location}</p>
                 <p className="events-card-description">{event.description}</p>
-                <Link href={`/events/${event.slug}#event-details`} className="events-card-action">
-                  View details <ArrowRight size={16} aria-hidden="true" />
-                </Link>
               </div>
             </article>
           )) : (
@@ -152,9 +147,6 @@ export default function EventsCampaigns() {
               <h3>Support a community need</h3>
               <p className="events-card-description">Campaign details and verified progress will be shared here once confirmed.</p>
               <p className="campaign-goal-note">Campaign goal pending confirmation</p>
-              <Link href="/donate" className="events-card-action">
-                Support this campaign <ArrowRight size={16} aria-hidden="true" />
-              </Link>
             </div>
           </article>
         </div>

@@ -1,8 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
-  ArrowRight,
-  ArrowUpRight,
   BookOpen,
   CalendarDays,
   Clock3,
@@ -50,7 +47,6 @@ const campaigns = [
     title: "Nourish with Care",
     description:
       "Learn how community nutrition and everyday essentials can support families.",
-    href: "/services/nutrition",
   },
   {
     image: "/protect.png",
@@ -58,7 +54,6 @@ const campaigns = [
     title: "Greener Communities",
     description:
       "Explore ways to build healthier, greener and more connected neighbourhoods.",
-    href: "/services/environment-welfare",
   },
   {
     image: "/heritage.png",
@@ -66,7 +61,6 @@ const campaigns = [
     title: "Keep Heritage Alive",
     description:
       "Discover the value of preserving traditions and passing them on to the next generation.",
-    href: "/services/culture-heritage",
   },
 ];
 
@@ -77,7 +71,6 @@ const resources = [
     title: "A shared vision for community wellbeing",
     description:
       "An introduction to the focus areas that help communities learn, grow and thrive.",
-    href: "/about-us",
     icon: BookOpen,
   },
   {
@@ -86,7 +79,6 @@ const resources = [
     title: "Why showing up for one another matters",
     description:
       "A reflection on participation, compassion and the strength of local connection.",
-    href: "/community",
     icon: Megaphone,
   },
   {
@@ -95,7 +87,6 @@ const resources = [
     title: "Find a meaningful way to get involved",
     description:
       "Explore practical ways to share your time, skills and support with the community.",
-    href: "/volunteer",
     icon: Sprout,
   },
 ];
@@ -112,9 +103,6 @@ export default function InsightsPage() {
               Discover the people, ideas and opportunities bringing communities
               closer to a brighter future.
             </p>
-            <Link className={styles.heroLink} href="#events">
-              Explore our insights <ArrowRight size={17} />
-            </Link>
           </div>
           <div className={styles.heroVisual}>
             <Image
@@ -167,17 +155,14 @@ export default function InsightsPage() {
               Come together to learn, connect and turn shared purpose into
               meaningful action.
             </p>
-            <Link className={styles.textLink} href="/events">
-              View All Events <ArrowUpRight size={16} />
-            </Link>
           </div>
           <div className={styles.cardGrid}>
             {events.map((event) => (
               <article className={styles.card} key={event.title}>
-                <Link className={styles.cardImageLink} href="/events">
+                <div className={styles.cardImageFrame}>
                   <Image
                     src={event.image}
-                    alt=""
+                    alt={event.title}
                     fill
                     sizes="(max-width: 680px) 100vw, (max-width: 1050px) 50vw, 24vw"
                     className={styles.cardImage}
@@ -185,7 +170,7 @@ export default function InsightsPage() {
                   <span className={styles.dateBadge}>
                     <CalendarDays size={14} /> Date to be announced
                   </span>
-                </Link>
+                </div>
                 <div className={styles.cardBody}>
                   <span className={styles.category}>{event.category}</span>
                   <h3>{event.title}</h3>
@@ -197,9 +182,6 @@ export default function InsightsPage() {
                       <Clock3 size={14} /> Details coming soon
                     </span>
                   </div>
-                  <Link className={styles.cardLink} href="/events">
-                    Explore event <ArrowUpRight size={15} />
-                  </Link>
                 </div>
               </article>
             ))}
@@ -223,32 +205,26 @@ export default function InsightsPage() {
               Get to know the causes and community initiatives that help create
               a more caring, resilient future.
             </p>
-            <Link className={styles.textLink} href="/initiatives">
-              Explore Our Initiatives <ArrowUpRight size={16} />
-            </Link>
           </div>
           <div className={styles.cardGrid}>
             {campaigns.map((campaign) => (
               <article className={styles.card} key={campaign.title}>
-                <Link className={styles.cardImageLink} href={campaign.href}>
+                <div className={styles.cardImageFrame}>
                   <Image
                     src={campaign.image}
-                    alt=""
+                    alt={campaign.title}
                     fill
                     sizes="(max-width: 680px) 100vw, (max-width: 1050px) 50vw, 24vw"
                     className={styles.cardImage}
                   />
                   <span className={styles.imageTag}>Community initiative</span>
-                </Link>
+                </div>
                 <div className={styles.cardBody}>
                   <span className={styles.category}>{campaign.category}</span>
                   <h3>{campaign.title}</h3>
                   <p className={styles.cardDescription}>
                     {campaign.description}
                   </p>
-                  <Link className={styles.cardLink} href={campaign.href}>
-                    Learn more <ArrowUpRight size={15} />
-                  </Link>
                 </div>
               </article>
             ))}
@@ -272,19 +248,16 @@ export default function InsightsPage() {
               Find thoughtful perspectives and practical starting points for
               learning, helping and making a difference.
             </p>
-            <Link className={styles.textLink} href="/about-us">
-              Explore Resources <ArrowUpRight size={16} />
-            </Link>
           </div>
           <div className={styles.cardGrid}>
             {resources.map((resource) => {
               const Icon = resource.icon;
               return (
                 <article className={styles.card} key={resource.title}>
-                  <Link className={styles.cardImageLink} href={resource.href}>
+                  <div className={styles.cardImageFrame}>
                     <Image
                       src={resource.image}
-                      alt=""
+                      alt={resource.title}
                       fill
                       sizes="(max-width: 680px) 100vw, (max-width: 1050px) 50vw, 24vw"
                       className={styles.cardImage}
@@ -292,16 +265,13 @@ export default function InsightsPage() {
                     <span className={styles.imageTag}>
                       <Icon size={14} /> {resource.type}
                     </span>
-                  </Link>
+                  </div>
                   <div className={styles.cardBody}>
                     <span className={styles.category}>{resource.type}</span>
                     <h3>{resource.title}</h3>
                     <p className={styles.cardDescription}>
                       {resource.description}
                     </p>
-                    <Link className={styles.cardLink} href={resource.href}>
-                      Read more <ArrowUpRight size={15} />
-                    </Link>
                   </div>
                 </article>
               );

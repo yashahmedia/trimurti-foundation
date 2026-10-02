@@ -24,6 +24,10 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { site } from "@/config/site";
+import {
+  lockPageScroll,
+  type PageScrollPosition,
+} from "@/lib/page-scroll-lock";
 import styles from "./SupportRequestModal.module.css";
 
 export type SupportRequestField = {
@@ -50,6 +54,7 @@ export type SupportRequestConfig = {
 type SupportRequestModalProps = {
   request: SupportRequestConfig;
   onClose: () => void;
+  scrollPosition: PageScrollPosition;
 };
 
 type FormValues = Record<string, string>;
@@ -307,6 +312,7 @@ function validateField(field: SupportRequestField, value: string): string {
 export default function SupportRequestModal({
   request,
   onClose,
+  scrollPosition,
 }: SupportRequestModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [errors, setErrors] = useState<FormErrors>({});
@@ -327,8 +333,8 @@ export default function SupportRequestModal({
     const dialog = dialogRef.current;
     if (!dialog) return;
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const previouslyFocused = document.activeElement;
+    const restorePageScroll = lockPageScroll(scrollPosition);
     dialog.showModal();
     const focusFrame = window.requestAnimationFrame(() => {
       dialog.scrollTop = 0;
@@ -340,10 +346,13 @@ export default function SupportRequestModal({
 
     return () => {
       window.cancelAnimationFrame(focusFrame);
-      document.body.style.overflow = previousOverflow;
       if (dialog.open) dialog.close();
+      if (previouslyFocused instanceof HTMLElement) {
+        previouslyFocused.focus({ preventScroll: true });
+      }
+      restorePageScroll();
     };
-  }, []);
+  }, [scrollPosition]);
 
   function addFiles(fileList: FileList | null) {
     if (!fileList?.length) return;

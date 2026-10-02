@@ -16,6 +16,7 @@ import SupportRequestModal, {
   type SupportRequestConfig,
   type SupportRequestField,
 } from "./SupportRequestModal";
+import type { PageScrollPosition } from "@/lib/page-scroll-lock";
 import styles from "./SupportRequestModal.module.css";
 
 type SupportCategory = SupportRequestConfig & {
@@ -233,6 +234,10 @@ const categoryIcons: Record<string, LucideIcon> = {
 export default function SupportRequestCards() {
   const [selectedRequest, setSelectedRequest] =
     useState<SupportCategory | null>(null);
+  const [scrollPosition, setScrollPosition] = useState<PageScrollPosition>({
+    x: 0,
+    y: 0,
+  });
 
   return (
     <>
@@ -246,7 +251,13 @@ export default function SupportRequestCards() {
               type="button"
               aria-haspopup="dialog"
               aria-label={`Open support request: ${item.title}`}
-              onClick={() => setSelectedRequest(item)}
+              onClick={() => {
+                setScrollPosition({
+                  x: window.scrollX,
+                  y: window.scrollY,
+                });
+                setSelectedRequest(item);
+              }}
             >
               <Image
                 src={item.image}
@@ -276,6 +287,7 @@ export default function SupportRequestCards() {
       {selectedRequest && (
         <SupportRequestModal
           request={selectedRequest}
+          scrollPosition={scrollPosition}
           onClose={() => setSelectedRequest(null)}
         />
       )}

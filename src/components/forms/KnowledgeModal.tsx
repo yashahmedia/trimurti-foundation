@@ -11,6 +11,10 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { ArrowRight, Check, X } from "lucide-react";
+import {
+  lockPageScroll,
+  type PageScrollPosition,
+} from "@/lib/page-scroll-lock";
 import styles from "./VolunteerModal.module.css";
 
 const contributionOptions = [
@@ -47,6 +51,10 @@ export default function KnowledgeModal({
   className,
 }: KnowledgeModalProps) {
   const [open, setOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState<PageScrollPosition>({
+    x: 0,
+    y: 0,
+  });
   const portalRoot = typeof document === "undefined" ? null : document.body;
 
   return (
@@ -56,13 +64,19 @@ export default function KnowledgeModal({
         className={`${styles.trigger} ${className ?? ""}`}
         aria-haspopup="dialog"
         aria-expanded={open}
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          setScrollPosition({ x: window.scrollX, y: window.scrollY });
+          setOpen(true);
+        }}
       >
         {children}
       </button>
       {open && portalRoot
         ? createPortal(
-            <KnowledgeDialog onClose={() => setOpen(false)} />,
+            <KnowledgeDialog
+              scrollPosition={scrollPosition}
+              onClose={() => setOpen(false)}
+            />,
             portalRoot,
           )
         : null}
@@ -70,39 +84,30 @@ export default function KnowledgeModal({
   );
 }
 
-function KnowledgeDialog({ onClose }: { onClose: () => void }) {
+function KnowledgeDialog({
+  scrollPosition,
+  onClose,
+}: {
+  scrollPosition: PageScrollPosition;
+  onClose: () => void;
+}) {
   const titleId = useId();
   const dialogRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    const scrollY = window.scrollY;
     const previouslyFocused = document.activeElement;
-    const originalBodyStyles = {
-      position: document.body.style.position,
-      top: document.body.style.top,
-      width: document.body.style.width,
-      overflow: document.body.style.overflow,
-    };
-
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = "100%";
-    document.body.style.overflow = "hidden";
-    closeButtonRef.current?.focus();
+    const restorePageScroll = lockPageScroll(scrollPosition);
+    closeButtonRef.current?.focus({ preventScroll: true });
 
     return () => {
-      document.body.style.position = originalBodyStyles.position;
-      document.body.style.top = originalBodyStyles.top;
-      document.body.style.width = originalBodyStyles.width;
-      document.body.style.overflow = originalBodyStyles.overflow;
-      window.scrollTo(0, scrollY);
       if (previouslyFocused instanceof HTMLElement) {
         previouslyFocused.focus({ preventScroll: true });
       }
+      restorePageScroll();
     };
-  }, []);
+  }, [scrollPosition]);
 
   function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
     if (event.key === "Escape") {
