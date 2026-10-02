@@ -155,6 +155,11 @@
   color: #e3d49f;
 }
 
+.way:nth-child(even) .eventListing :global(.toolbar input) {
+  color: #111;
+  caret-color: #111;
+}
+
 .way:nth-child(even) .eventListing :global(.event-card) {
   color: #243b36;
 }
