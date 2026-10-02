@@ -122,7 +122,7 @@ export default function EventsCampaigns() {
                 </div>
                 <p className="events-card-location"><MapPin size={14} aria-hidden="true" />{event.location}</p>
                 <p className="events-card-description">{event.description}</p>
-                <Link href={`/events/${event.slug}`} className="events-card-action">
+                <Link href={`/events/${event.slug}#event-details`} className="events-card-action">
                   View details <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>

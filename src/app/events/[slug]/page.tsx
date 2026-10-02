@@ -35,7 +35,10 @@ export default async function Page({
         eyebrow={e.demo ? "Demo event — not scheduled" : "Community event"}
         description={e.description}
       />
-      <section className="container section split">
+      <section
+        className="container section split event-detail-section"
+        id="event-details"
+      >
         <Image src={e.image} alt={e.title} width={800} height={500} />
         <div className="panel stack">
           <h2>Event details</h2>

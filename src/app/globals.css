@@ -5606,6 +5606,10 @@ img {
   gap: 76px;
   align-items: center;
 }
+.event-detail-section {
+  scroll-margin-top: 132px;
+  padding-top: 36px;
+}
 .about-image {
   position: relative;
   padding-bottom: 24px;
