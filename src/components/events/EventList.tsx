@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { format } from "date-fns";
 import { ArrowLeft, ArrowRight, ArrowUpRight, MapPin, CalendarDays } from "lucide-react";
 import type { FoundationEvent } from "@/data/events";
@@ -88,9 +87,9 @@ export default function EventList({ items }: { items: FoundationEvent[] }) {
                   <MapPin size={14} /> {e.location}
                 </p>
                 <p className="event-description">{e.description}</p>
-                <Link href={`/events/${e.slug}#event-details`}>
+                <span className="event-details-button">
                   View details <ArrowUpRight size={16} />
-                </Link>
+                </span>
               </div>
             </article>
           </SwiperSlide>

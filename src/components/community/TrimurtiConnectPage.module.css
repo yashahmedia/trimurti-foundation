@@ -173,8 +173,7 @@
 }
 
 .way:nth-child(even) .eventListing :global(.event-card-body > a),
-.way:nth-child(even) .eventListing :global(.event-card-body > a:hover),
-.way:nth-child(even) .eventListing :global(.event-card-body > a:focus-visible) {
+.way:nth-child(even) .eventListing :global(.event-card-body > .event-details-button) {
   background: #16745d;
   color: #fff;
 }
@@ -398,6 +397,20 @@
 
 .action:hover svg {
   transform: translate(2px, -2px);
+}
+
+.actionStatic {
+  cursor: default;
+}
+
+.actionStatic:hover {
+  gap: 16px;
+  border-color: rgba(201, 162, 74, 0.78);
+  color: #15584b;
+}
+
+.actionStatic:hover svg {
+  transform: none;
 }
 
 .action:focus-visible {

@@ -9072,7 +9072,8 @@ textarea {
   border-top: 1px solid var(--line);
   line-height: 1.8;
 }
-.event-card-body > a {
+.event-card-body > a,
+.event-card-body > .event-details-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -9085,6 +9086,8 @@ textarea {
   background: var(--green);
   font-size: 12px;
   font-weight: 700;
+}
+.event-card-body > a {
   transition: background 0.2s ease, transform 0.2s ease;
 }
 .event-card-body > a:hover {

@@ -149,9 +149,9 @@ function ParticipationAction({ way }: { way: ParticipationWay }) {
       );
     case "events":
       return (
-        <Link className={styles.action} href="/events">
+        <span className={`${styles.action} ${styles.actionStatic}`}>
           {content}
-        </Link>
+        </span>
       );
     case "sponsor":
       return (
