@@ -155,6 +155,34 @@
   color: #e3d49f;
 }
 
+.way:nth-child(even) .eventListing :global(.event-card) {
+  color: #243b36;
+}
+
+.way:nth-child(even) .eventListing :global(.event-kicker) {
+  color: #567565;
+}
+
+.way:nth-child(even) .eventListing :global(.event-card-body h3) {
+  color: #17312e;
+}
+
+.way:nth-child(even) .eventListing :global(.event-card-body > a),
+.way:nth-child(even) .eventListing :global(.event-card-body > a:hover),
+.way:nth-child(even) .eventListing :global(.event-card-body > a:focus-visible) {
+  background: #16745d;
+  color: #fff;
+}
+
+.way:nth-child(even) .eventListing :global(.event-card-body > a:hover) {
+  background: #0d5f4b;
+}
+
+.way:nth-child(even) .eventListing :global(.event-card-body > a:focus-visible) {
+  outline: 2px solid #c9a24a;
+  outline-offset: 3px;
+}
+
 .wayInner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
