@@ -40,7 +40,13 @@ import { navigation } from "@/data/navigation";
 import { site } from "@/config/site";
 import LuxuryDivider from "@/components/LuxuryDivider";
 
-const linkedDropdownLabels = new Set(["Who we are", "Our initiatives", "Culture & Heritage"]);
+const linkedDropdownLabels = new Set([
+  "Who we are",
+  "Our initiatives",
+  "Culture & Heritage",
+  "Trimurthi Connect",
+  "Be a part of Trimurthi family",
+]);
 
 const dropdownIcons: Record<string, LucideIcon> = {
   foundation: Building2,
@@ -76,6 +82,7 @@ const dropdownIcons: Record<string, LucideIcon> = {
 export default function Header() {
   const dialog = useRef<HTMLDialogElement>(null);
   const navRef = useRef<HTMLElement | null>(null);
+  const familySubmenuRef = useRef<HTMLDivElement>(null);
   const closeTimerRef = useRef<number | null>(null);
   const pathname = usePathname();
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -338,13 +345,29 @@ export default function Header() {
           type="button"
           className={`nav-item mobile-accordion-trigger ${isCurrent ? "is-active" : ""}`}
           aria-expanded={isOpen}
-          onClick={() => setMobileAccordionOpen((current) => (current === item.label ? null : item.label))}
+          onClick={() => {
+            const opening = !isOpen;
+            setMobileAccordionOpen(opening ? item.label : null);
+            if (opening && item.label === "Be a part of Trimurthi family") {
+              window.setTimeout(() => {
+                familySubmenuRef.current?.scrollIntoView({
+                  behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                    ? "auto"
+                    : "smooth",
+                  block: "start",
+                });
+              }, 260);
+            }
+          }}
         >
           <span>{item.label}</span>
           <ChevronDown size={12} className={`nav-chevron ${isOpen ? "is-open" : ""}`} />
         </button>
 
-        <div className={`mobile-submenu ${isOpen ? "is-open" : ""}`}>
+        <div
+          ref={item.label === "Be a part of Trimurthi family" ? familySubmenuRef : undefined}
+          className={`mobile-submenu ${isOpen ? "is-open" : ""}`}
+        >
           <div className="mobile-submenu-inner">
             {children.map((child) => {
               const Icon = dropdownIcons[child.icon ?? "foundation"];

@@ -36,23 +36,23 @@ export const navigation: NavigationItem[] = [
   { label: "Transform a Life", href: "/donate", description: "Support a cause" },
   {
     label: "Trimurthi Connect",
-    href: "/community",
+    href: "/trimurti-connect",
     description: "Network and collaborate",
     children: [
-      { label: "Professional Connect", href: "/community/professional-connect", icon: "professional", description: "Expert community" },
-      { label: "Business Connect", href: "/community/business-connect", icon: "businessconnect", description: "Commercial partnerships" },
+      { label: "Professional Connect", href: "/trimurti-connect#professional-connect", icon: "professional", description: "Share expertise and build skills" },
+      { label: "Business Connect", href: "/trimurti-connect#business-connect", icon: "businessconnect", description: "Explore meaningful partnerships" },
     ],
   },
   {
     label: "Be a part of Trimurthi family",
-    href: "/volunteer",
+    href: "/be-a-part-of-trimurthi-family",
     description: "Get involved",
     children: [
-      { label: "Volunteer with us", href: "/volunteer", icon: "volunteer", description: "Contribute your time" },
-      { label: "Join an Event", href: "/events", icon: "event", description: "Participate with the community" },
-      { label: "Sponsor learning", href: "/services/education", icon: "sponsor", description: "Support a learner" },
-      { label: "Request for professionals", href: "/volunteer/professionals", icon: "professionals", description: "Offer specialist help" },
-      { label: "Request for Business support", href: "/volunteer/business-support", icon: "business", description: "Partner with us" },
+      { label: "Volunteer with us", href: "/be-a-part-of-trimurthi-family#volunteer", icon: "volunteer", description: "Contribute your time" },
+      { label: "Join an Event", href: "/be-a-part-of-trimurthi-family#events", icon: "event", description: "Participate with the community" },
+      { label: "Sponsor learning", href: "/be-a-part-of-trimurthi-family#sponsor-learning", icon: "sponsor", description: "Support a learner" },
+      { label: "Request for professionals", href: "/be-a-part-of-trimurthi-family#professionals", icon: "professionals", description: "Offer specialist help" },
+      { label: "Request for Business support", href: "/be-a-part-of-trimurthi-family#business-support", icon: "business", description: "Partner with us" },
     ],
   },
   {
