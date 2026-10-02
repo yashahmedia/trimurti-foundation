@@ -104,12 +104,55 @@
 }
 
 .way {
-  padding: clamp(52px, 7vw, 90px) 0;
+  padding: clamp(34px, 4.5vw, 60px);
+  margin-bottom: clamp(18px, 2.5vw, 30px);
+  border-radius: 22px;
+  background: #fffdf8;
+  box-shadow: 0 14px 38px rgba(24, 50, 44, 0.045);
   scroll-margin-top: 112px;
 }
 
-.way + .way {
-  border-top: 1px solid rgba(43, 81, 67, 0.1);
+.way:nth-child(even) {
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(201, 162, 74, 0.1), transparent 36%),
+    #104c43;
+  color: #fffdf8;
+}
+
+.way:nth-child(even) .wayLabel {
+  color: #d9c994;
+}
+
+.way:nth-child(even) .wayLabel > span:first-child,
+.way:nth-child(even) .action svg {
+  color: #e0c372;
+}
+
+.way:nth-child(even) .wayCopy h2 {
+  color: #fffdf8;
+}
+
+.way:nth-child(even) .description,
+.way:nth-child(even) .actionNote {
+  color: rgba(255, 253, 248, 0.78);
+}
+
+.way:nth-child(even) .action {
+  border-color: rgba(224, 195, 114, 0.8);
+  color: #fffdf8;
+}
+
+.way:nth-child(even) .action:hover {
+  border-color: #fffdf8;
+  color: #fffdf8;
+}
+
+.way:nth-child(even) .eventListing {
+  border-color: rgba(255, 253, 248, 0.22);
+}
+
+.way:nth-child(even) .eventListing::before {
+  color: #e3d49f;
 }
 
 .wayInner {
@@ -399,6 +442,10 @@
     gap: clamp(28px, 5vw, 56px);
   }
 
+  .way {
+    padding: clamp(28px, 4vw, 40px);
+  }
+
   .imageFrame {
     height: clamp(300px, 39vw, 385px);
     border-top-left-radius: 120px;
@@ -429,7 +476,8 @@
   }
 
   .way {
-    padding: 54px 0 58px;
+    padding: 28px;
+    border-radius: 20px;
   }
 
   .wayInner {
@@ -503,7 +551,9 @@
   }
 
   .way {
-    padding: 43px 0 48px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: 17px;
   }
 
   .wayInner {
