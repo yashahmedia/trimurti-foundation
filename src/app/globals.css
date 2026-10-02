@@ -11723,13 +11723,17 @@ button:disabled {
   text-align: center;
 }
 .donation-qr-frame {
+  position: relative;
   display: grid;
-  width: fit-content;
+  width: 210px;
+  aspect-ratio: 1;
   margin: 3px auto;
-  padding: 10px;
-  border: 1px solid #e1eaf3;
+  overflow: hidden;
+  border: 8px solid #fff;
   border-radius: 12px;
+  padding: 0;
   background: #fff;
+  box-sizing: border-box;
 }
 .donation-page .donation-qr-frame canvas {
   display: block;

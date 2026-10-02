@@ -1,7 +1,12 @@
 "use client";
 
 import { FormEvent, useId, useState } from "react";
-import { Check, QrCode } from "lucide-react";
+import Image from "next/image";
+import { Check } from "lucide-react";
+import {
+  donationBankDetails as bankDetails,
+  donationQrImage,
+} from "@/data/donation-payment";
 
 const amounts = ["1000", "2500", "5000", "Custom"] as const;
 const professions = [
@@ -15,14 +20,6 @@ const professions = [
   "Freelancer",
   "Other",
 ];
-const bankDetails = [
-  ["Account Name", "Trimurti Foundation (Sample)"],
-  ["Bank Name", "Example National Bank (Sample)"],
-  ["Account Number", "XXXXXX1234 (Sample)"],
-  ["IFSC Code", "DEMO0001234 (Sample)"],
-  ["Branch", "Thrissur Main Branch (Sample)"],
-];
-
 type PaymentMethod = "QR" | "Bank Details";
 
 export default function DonationForm() {
@@ -190,11 +187,13 @@ export default function DonationForm() {
         {paymentMethod === "QR" ? (
           <div className="donation-payment-card donation-qr-card">
             <div className="donation-qr-frame">
-              <QrCode
-                size={128}
-                strokeWidth={1.15}
-                aria-label="QR code placeholder"
-                role="img"
+              <Image
+                src={donationQrImage}
+                alt="Trimurti Foundation UPI QR code"
+                width={865}
+                height={1600}
+                className="donate-qr-image"
+                unoptimized
               />
             </div>
             <strong>Scan QR to complete your donation</strong>
@@ -202,16 +201,12 @@ export default function DonationForm() {
               Selected amount: ₹
               {Number(donationAmount || 0).toLocaleString("en-IN")}
             </p>
-            <small>
-              Verified QR payment details will appear here once confirmed by
-              the foundation.
-            </small>
           </div>
         ) : (
           <div className="donation-payment-card donation-bank-card">
             <h3>Bank Details</h3>
             <dl>
-              {bankDetails.map(([label, value]) => (
+              {bankDetails.map(({ label, value }) => (
                 <div key={label}>
                   <dt>{label}</dt>
                   <dd>{value}</dd>
@@ -219,11 +214,6 @@ export default function DonationForm() {
               ))}
             </dl>
             <p>Please use your name as the payment reference.</p>
-            <small>
-              These sample details are placeholders only. Please verify the
-              official bank details with the foundation before making a
-              transfer.
-            </small>
           </div>
         )}
       </fieldset>

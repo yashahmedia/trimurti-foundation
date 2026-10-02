@@ -10,16 +10,12 @@ import {
   Download,
   ShieldCheck,
 } from "lucide-react";
+import {
+  donationBankDetails as bankDetails,
+  donationQrImage,
+} from "@/data/donation-payment";
 
 const amounts = ["1000", "2500", "5000", "Custom"] as const;
-const bankDetails = [
-  { label: "Beneficiary Name", value: "TRIMURTHI FOUNDATION" },
-  { label: "Bank Name", value: "STATE BANK OF INDIA" },
-  { label: "Branch", value: "Poonkunnam, Thrissur, Kerala, India" },
-  { label: "Account Number (Current A/C)", value: "45353266227", copyable: true },
-  { label: "IFSC Code", value: "SBIN0021787", copyable: true },
-  { label: "MICR Code", value: "680002852", copyable: true },
-];
 
 export default function DonateNow() {
   const [selectedAmount, setSelectedAmount] = useState<string>("1000");
@@ -82,10 +78,10 @@ export default function DonateNow() {
           <div className="donate-qr-panel">
             <div className="donate-qr-image-frame">
               <Image
-                src="/qr%20trimurty.jpeg"
+                src={donationQrImage}
                 alt="Trimurti Foundation UPI QR code"
                 width={865}
-                height={1536}
+                height={1600}
                 className="donate-qr-image"
                 sizes="930px"
                 unoptimized
