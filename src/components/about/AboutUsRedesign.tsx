@@ -10,6 +10,11 @@ import {
   journeySteps,
   trustPrinciples,
 } from "@/data/aboutPage";
+import {
+  AdvisoryTeamSection,
+  GovernanceSection,
+  MissionVisionSection,
+} from "./AboutUsFeatureSections";
 import styles from "./AboutUsRedesign.module.css";
 
 type SectionHeadingProps = {
@@ -156,7 +161,7 @@ export default function AboutUsRedesign() {
             description="Trimurti Foundation was founded by three brothers united by the belief that communities grow stronger through compassion, purpose and collective responsibility."
             align="center"
           />
-          <div className={styles.founderGrid} id="team">
+          <div className={styles.founderGrid}>
             {founders.map(({ initials, name, role, background }, index) => (
               <article className={styles.founderCard} key={name}>
                 <div className={`${styles.founderPortrait} ${index === 1 ? styles.founderPortraitWarm : index === 2 ? styles.founderPortraitCool : ""}`} aria-hidden="true">
@@ -202,6 +207,27 @@ export default function AboutUsRedesign() {
         </div>
       </section>
 
+      <section className={`${styles.section} ${styles.journeySection} ${styles.reveal}`} id="journey" aria-labelledby="journey-title">
+        <div className={styles.container}>
+          <SectionHeading
+            id="journey-title"
+            eyebrow="Our Philosophy"
+            title="How Meaningful Change Happens"
+            description="A thoughtful path from listening to stronger, more self-reliant communities."
+            align="center"
+          />
+          <ol className={styles.journeyTrack}>
+            {journeySteps.map(({ number, title, description }) => (
+              <li className={styles.journeyStep} key={number}>
+                <span className={styles.journeyNumber}>{number}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       <section className={`${styles.section} ${styles.connectSection} ${styles.reveal}`} id="trimurti-connect" aria-labelledby="connect-title">
         <div className={styles.container}>
           <SectionHeading
@@ -224,27 +250,9 @@ export default function AboutUsRedesign() {
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.journeySection} ${styles.reveal}`} id="journey" aria-labelledby="journey-title">
-        <div className={styles.container}>
-          <SectionHeading
-            id="journey-title"
-            eyebrow="Our Philosophy"
-            title="How Meaningful Change Happens"
-            description="A thoughtful path from listening to stronger, more self-reliant communities."
-            align="center"
-          />
-          <ol className={styles.journeyTrack}>
-            {journeySteps.map(({ number, title, description }) => (
-              <li className={styles.journeyStep} key={number}>
-                <span className={styles.journeyNumber}>{number}</span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
+      <MissionVisionSection />
+      <GovernanceSection />
+      <AdvisoryTeamSection />
 
     </div>
   );
