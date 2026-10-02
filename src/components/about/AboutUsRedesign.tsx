@@ -1,15 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, Landmark } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
-  beliefs,
   connectAreas,
   foundationPillars,
   foundationValues,
   founders,
-  governancePrinciples,
-  impactAreas,
   journeySteps,
   trustPrinciples,
 } from "@/data/aboutPage";
@@ -17,7 +14,7 @@ import styles from "./AboutUsRedesign.module.css";
 
 type SectionHeadingProps = {
   id?: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   theme?: "light" | "dark";
@@ -36,7 +33,7 @@ function SectionHeading({
     <div
       className={`${styles.sectionHeading} ${theme === "dark" ? styles.darkHeading : ""} ${align === "center" ? styles.center : ""}`}
     >
-      <p className={styles.eyebrow}>{eyebrow}</p>
+      {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
       <h2 id={id}>{title}</h2>
       {description && <p className={styles.sectionDescription}>{description}</p>}
     </div>
@@ -181,7 +178,6 @@ export default function AboutUsRedesign() {
         <div className={styles.container}>
           <SectionHeading
             id="pillars-title"
-            eyebrow="Our Foundation"
             title="Two Pillars. One Shared Purpose."
             description="Our purpose is built around two complementary pillars: serving people with care and connecting communities with opportunity."
             theme="dark"
@@ -203,128 +199,6 @@ export default function AboutUsRedesign() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.beliefSection} ${styles.reveal}`} id="mission-vision" aria-labelledby="belief-title">
-        <div className={styles.container}>
-          <SectionHeading
-            id="belief-title"
-            eyebrow="Our Belief"
-            title="Transformation Begins When People Come Together"
-            description="A shared purpose gives each person a meaningful way to contribute and helps communities move forward together."
-            align="center"
-          />
-          <div className={styles.beliefGrid}>
-            {beliefs.map(({ number, title, description, Icon }, index) => (
-              <article className={`${styles.beliefCard} ${index === 0 ? styles.beliefFeatured : ""}`} key={number}>
-                <span className={styles.beliefNumber}>{number}</span>
-                <IconBadge Icon={Icon} />
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.impactSection} ${styles.reveal}`} id="areas-of-impact" aria-labelledby="impact-title">
-        <div className={styles.container}>
-          <SectionHeading
-            id="impact-title"
-            eyebrow="Serving Humanity"
-            title="Supporting Individuals and Communities in Need
-"
-            description="Trimurthi Foundation is committed to extending support to individuals and communities through meaningful initiatives that create hope, dignity and opportunity.
-We bring care, learning and connection to the areas that help people and communities thrive."
-            theme="dark"
-          />
-          <div className={styles.impactGrid}>
-            {impactAreas.map(({ category, title, description, image, imageAlt, href }) => (
-              <article className={styles.impactCard} key={title}>
-                <Link href={href} className={styles.impactLink} aria-label={`Explore ${title}`}>
-                  <div className={styles.impactImage}>
-                    <Image src={image} alt={imageAlt} fill sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 33vw" />
-                    <span className={styles.imageTint} />
-                    <span className={styles.category}>{category}</span>
-                  </div>
-                  <div className={styles.impactCopy}>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                    <span className={styles.exploreLink}>Explore <ArrowRight size={16} aria-hidden="true" /></span>
-                  </div>
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.cultureSection} ${styles.reveal}`} aria-labelledby="culture-title">
-        <div className={`${styles.container} ${styles.cultureGrid}`}>
-          <div className={styles.cultureVisual}>
-            <Image src="/culture_heritage.png" alt="Indian culture and heritage" fill sizes="(max-width: 760px) 100vw, 54vw" />
-            <span className={styles.cultureImageLabel}>Culture &amp; Heritage</span>
-          </div>
-          <div className={styles.cultureCopy}>
-            <p className={styles.eyebrow}>Culture &amp; Heritage</p>
-            <h2 id="culture-title">
-              Preserving Traditions.
-              <br />
-              Inspiring Generations.
-            </h2>
-            <p>
-              We work to keep Indian traditions, arts and values connected
-              across generations, creating opportunities for people to
-              experience and share a living heritage.
-            </p>
-            <article className={styles.cultureFeature}>
-              <span className={styles.cultureFeatureIcon} aria-hidden="true">
-                <Landmark size={22} strokeWidth={1.7} />
-              </span>
-              <div>
-                <p className={styles.eyebrow}>Annual celebration</p>
-                <h3>Vasantha Utsavam</h3>
-                <p>An annual celebration of Indian music and dance conducted in Dubai since 2015.</p>
-              </div>
-            </article>
-            <p className={styles.cultureSince}>Celebrating Indian Culture Since 2015</p>
-          </div>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.soldierSection} ${styles.reveal}`} id="standing-with-soldiers" aria-labelledby="soldier-title">
-        <div className={`${styles.container} ${styles.soldierGrid}`}>
-          <div className={styles.soldierCopy}>
-            <p className={styles.eyebrow}>Serving Our Nation</p>
-            <h2 id="soldier-title">Standing with Our Soldiers</h2>
-            <p>
-              Expressing gratitude and support to the brave men and women who
-              dedicate their lives in service of our nation.
-            </p>
-            <p>
-              Through this initiative, Trimurthi Foundation aims to recognise
-              their sacrifices, extend support where possible and contribute
-              towards the wellbeing of serving personnel, veterans and their
-              families.
-            </p>
-          </div>
-          <aside className={styles.soldierVisual} aria-label="Soldiers and the Indian flag">
-            <div className={styles.soldierImageFrame}>
-              <Image
-                src="/soldier.png"
-                alt="Indian soldiers standing with the national flag at sunrise"
-                fill
-                sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 560px"
-              />
-              <span className={styles.soldierImageShade} aria-hidden="true" />
-              <ul className={styles.soldierBadges} aria-label="Who this initiative supports">
-                <li>Serving personnel</li>
-                <li>Veterans</li>
-                <li>Their families</li>
-              </ul>
-            </div>
-          </aside>
         </div>
       </section>
 
@@ -371,43 +245,7 @@ We bring care, learning and connection to the areas that help people and communi
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.governanceSection} ${styles.reveal}`} id="governance" aria-labelledby="governance-title">
-        <div className={styles.container}>
-          <SectionHeading
-            id="governance-title"
-            eyebrow="Trust & Governance"
-            title="Built on Trust. Guided by Responsibility."
-            description="Our approach is grounded in responsible service, respect for people and a commitment to accountability."
-            align="center"
-          />
-          <div className={styles.governanceGrid}>
-            {governancePrinciples.map(({ title, Icon }) => (
-              <article className={styles.governanceCard} key={title}>
-                <IconBadge Icon={Icon} />
-                <h3>{title}</h3>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section className={styles.finalCta} aria-labelledby="about-cta-title">
-        <Image src="/banner1.png" alt="" fill sizes="100vw" className={styles.finalImage} aria-hidden="true" />
-        <div className={styles.finalOverlay} />
-        <div className={styles.finalContent}>
-          <p className={styles.eyebrow}>Be part of what comes next</p>
-          <h2 id="about-cta-title">Every Person Has Something Valuable to Contribute.</h2>
-          <p>Give your time, share your knowledge, extend support or simply help us build stronger connections.</p>
-          <div className={styles.heroActions}>
-            <Link className={styles.primaryButton} href="/volunteer">
-              Join Trimurti Family <ArrowRight size={17} aria-hidden="true" />
-            </Link>
-            <Link className={styles.secondaryButton} href="/donate">
-              Support a Cause
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
