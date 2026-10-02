@@ -214,7 +214,7 @@
 .whoSection,
 .beliefSection,
 .cultureSection,
-.journeySection,
+.philosophySection,
 .governanceSection { background: var(--cream); }
 
 .whoGrid,
@@ -575,15 +575,21 @@
 .connectCard:hover .connectArrow,
 .connectCard:focus-visible .connectArrow { transform: translateX(5px); background: rgba(200, 164, 93, 0.1); }
 
-.journeySection { padding-top: 108px; padding-bottom: 118px; }
-.journeySection .sectionHeading { max-width: 820px; }
-.journeyTrack { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; margin: 58px 0 0; padding: 0; list-style: none; }
-.journeyTrack::before { position: absolute; top: 25px; right: 9%; left: 9%; height: 2px; background: linear-gradient(90deg, var(--green), var(--gold)); content: ""; transform-origin: left; }
-.journeyStep { position: relative; padding-top: 68px; }
-.journeyNumber { position: absolute; top: 0; left: 0; display: grid; width: 52px; height: 52px; place-items: center; border: 1px solid #c6d9cb; border-radius: 50%; background: var(--cream); color: var(--green); font-size: 13px; font-weight: 750; transition: transform 300ms ease, border-color 300ms ease, background-color 300ms ease; }
-.journeyStep:hover .journeyNumber { transform: translateY(-3px); border-color: var(--gold); background: #fffefa; }
-.journeyStep h3 { margin: 0 0 8px; color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 23px; }
-.journeyStep p { margin: 0; color: var(--body); font-size: 14px; line-height: 1.65; }
+.philosophySection { padding-top: 108px; padding-bottom: 118px; }
+.philosophySection .sectionHeading { max-width: 820px; }
+.philosophyGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(205px, auto)); gap: 18px; margin-top: 54px; }
+.philosophyCard { position: relative; min-width: 0; min-height: 220px; overflow: hidden; isolation: isolate; border: 1px solid rgba(200, 164, 93, 0.42); border-radius: 20px; background: #18362f; box-shadow: 0 12px 30px rgba(11, 23, 32, 0.1); }
+.philosophyCard:first-child { grid-row: span 2; min-height: 440px; }
+.philosophyCardImage { z-index: 0; object-fit: cover; transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+.philosophyCard:hover .philosophyCardImage { transform: scale(1.045); }
+.philosophyCardOverlay { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(7, 18, 21, 0.06) 12%, rgba(7, 18, 21, 0.28) 42%, rgba(7, 18, 21, 0.88) 100%); }
+.philosophyCardContent { position: absolute; z-index: 2; right: 25px; bottom: 24px; left: 25px; color: var(--white); }
+.philosophyIcon { display: grid; width: 44px; height: 44px; margin-bottom: 14px; place-items: center; border: 1px solid rgba(231, 202, 129, 0.82); border-radius: 50%; background: rgba(13, 68, 58, 0.82); color: #f2d68f; }
+.philosophyCardContent h3 { margin: 0 0 7px; color: var(--white); font-family: Georgia, "Times New Roman", serif; font-size: 28px; line-height: 1.15; }
+.philosophyCardContent p { max-width: 480px; margin: 0; color: rgba(255, 255, 255, 0.9); font-size: 14px; line-height: 1.6; }
+.philosophyCard:first-child .philosophyCardContent { right: 30px; bottom: 30px; left: 30px; }
+.philosophyCard:first-child .philosophyCardContent h3 { font-size: 36px; }
+.philosophyCard:first-child .philosophyCardContent p { font-size: 15px; }
 
 .founderSection { background: #f0eee5; }
 .founderSection .sectionHeading { max-width: 900px; }
@@ -661,6 +667,12 @@
   .beliefCard { grid-column: span 2; }
   .beliefFeatured { grid-column: span 3; }
   .governanceGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .philosophyGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; margin-top: 42px; }
+  .philosophyCard { min-height: 250px; }
+  .philosophyCard:first-child { grid-column: span 2; grid-row: auto; min-height: 300px; }
+  .philosophyCard:first-child .philosophyCardContent { right: 25px; bottom: 24px; left: 25px; }
+  .philosophyCard:first-child .philosophyCardContent h3 { font-size: 32px; }
+  .philosophyCard:first-child .philosophyCardContent p { font-size: 14px; }
 }
 
 @media (max-width: 760px) {
@@ -714,10 +726,6 @@
   .impactCopy p { min-height: 0; font-size: 13px; }
   .cultureVisual { min-height: 380px; }
   .connectCard { min-height: 250px; }
-  .journeyTrack { grid-template-columns: 1fr; gap: 0; margin-top: 44px; padding-left: 4px; }
-  .journeyTrack::before { top: 25px; bottom: 40px; left: 25px; width: 2px; height: auto; background: linear-gradient(180deg, var(--green), var(--gold)); }
-  .journeyStep { min-height: 150px; padding: 2px 0 32px 72px; }
-  .journeyNumber { left: 0; }
   .founderGrid { grid-template-columns: 1fr; width: min(100%, 480px); margin-inline: auto; }
   .founderPortrait { min-height: 210px; }
   .governanceGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -727,6 +735,11 @@
 }
 
 @media (max-width: 600px) {
+  .philosophyGrid { grid-template-columns: 1fr; gap: 14px; }
+  .philosophyCard,
+  .philosophyCard:first-child { grid-column: auto; min-height: 275px; }
+  .philosophyCard:first-child .philosophyCardContent { right: 22px; bottom: 22px; left: 22px; }
+  .philosophyCardContent { right: 22px; bottom: 22px; left: 22px; }
   .soldierSection { min-height: 0; padding: 60px 18px; }
   .soldierGrid { grid-template-columns: minmax(0, 1fr); gap: 30px; }
   .soldierCopy h2 { font-size: clamp(36px, 8.5vw, 40px); }

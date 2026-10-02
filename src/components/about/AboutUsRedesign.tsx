@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { philosophyItems } from "@/data/philosophy";
 import {
   connectAreas,
   foundationPillars,
   foundationValues,
   founders,
-  journeySteps,
   trustPrinciples,
 } from "@/data/aboutPage";
 import {
@@ -207,24 +207,36 @@ export default function AboutUsRedesign() {
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.journeySection} ${styles.reveal}`} id="journey" aria-labelledby="journey-title">
+      <section className={`${styles.section} ${styles.philosophySection} ${styles.reveal}`} id="journey" aria-labelledby="philosophy-title">
         <div className={styles.container}>
           <SectionHeading
-            id="journey-title"
+            id="philosophy-title"
             eyebrow="Our Philosophy"
-            title="How Meaningful Change Happens"
-            description="A thoughtful path from listening to stronger, more self-reliant communities."
+            title="The Trimurthy Philosophy"
+            description="Five principles that guide our purpose, people and impact."
             align="center"
           />
-          <ol className={styles.journeyTrack}>
-            {journeySteps.map(({ number, title, description }) => (
-              <li className={styles.journeyStep} key={number}>
-                <span className={styles.journeyNumber}>{number}</span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </li>
+          <div className={styles.philosophyGrid}>
+            {philosophyItems.map(({ title, description, image, alt, icon: Icon }) => (
+              <article className={styles.philosophyCard} key={title}>
+                <Image
+                  src={image}
+                  alt={alt}
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 33vw"
+                  className={styles.philosophyCardImage}
+                />
+                <span className={styles.philosophyCardOverlay} aria-hidden="true" />
+                <div className={styles.philosophyCardContent}>
+                  <span className={styles.philosophyIcon} aria-hidden="true">
+                    <Icon size={22} strokeWidth={1.8} />
+                  </span>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
+              </article>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 

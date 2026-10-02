@@ -6853,61 +6853,34 @@ img {
   transform: translateY(-3px);
   box-shadow: 0 28px 64px rgba(4, 14, 18, 0.25);
 }
-.donate-qr-placeholder {
+.donate-qr-panel {
   display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 14px;
-  min-height: 540px;
-  padding: 44px;
+  place-items: center;
+  min-height: 440px;
+  padding: 32px;
   border-right: 1px solid rgba(163, 196, 179, 0.15);
   background:
     radial-gradient(circle at 50% 43%, rgba(237, 201, 110, 0.15), transparent 38%),
     linear-gradient(155deg, #0d5145, #073b37 72%);
-  color: white;
-  text-align: center;
 }
-.donate-qr-icon {
-  display: grid;
-  width: 88px;
-  height: 88px;
-  place-items: center;
-  margin-bottom: 4px;
-  border: 1px solid rgba(239, 207, 131, 0.35);
-  border-radius: 27px;
-  background: rgba(255, 255, 255, 0.08);
+.donate-qr-image-frame {
+  position: relative;
+  width: min(100%, 320px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 8px solid #fff;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.2);
 }
-.donate-qr-placeholder .donate-qr-icon svg { color: var(--light-gold); }
-.donate-qr-eyebrow,
-.donate-bank-eyebrow {
-  color: #e4c577;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.donate-qr-placeholder strong {
-  color: #fff9ec;
-  font-family: Georgia, serif;
-  font-size: clamp(24px, 2.5vw, 32px);
-  font-weight: 500;
-}
-.donate-qr-copy {
-  max-width: 290px;
-  color: #d6e8dc;
-  font-size: 14px;
-  line-height: 1.75;
-}
-.donate-qr-stamp {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 12px;
-  padding: 9px 13px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
-  color: #e5f0e8;
-  font-size: 12px;
+.donate-qr-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220%;
+  max-width: none;
+  height: auto;
+  transform: translate(-27.4%, -35.3%);
 }
 .donate-details { padding: clamp(30px, 4vw, 52px); }
 .donate-details h3 {
@@ -6997,16 +6970,6 @@ img {
   font-family: Georgia, serif;
   font-size: 22px;
   font-weight: 500;
-}
-.donate-sample-badge {
-  padding: 6px 9px;
-  border: 1px solid #e8d5a4;
-  border-radius: 999px;
-  background: #fff4d9;
-  color: #785e20;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
 }
 .donate-bank-grid {
   display: grid;
@@ -7835,7 +7798,7 @@ body.donation-modal-open { overflow: hidden; }
   .connect-card-image { aspect-ratio: 1.8 / 1; }
   .press-coverage-group .press-coverage-card { flex-basis: min(82vw, 330px); }
   .donate-details { padding: 22px; }
-  .donate-qr-placeholder { min-height: 300px; padding: 30px 24px; border-right: 0; border-bottom: 1px solid rgba(163, 196, 179, 0.15); }
+  .donate-qr-panel { min-height: 0; padding: 28px 24px; border-right: 0; border-bottom: 1px solid rgba(163, 196, 179, 0.15); }
   .donate-bank-card { padding: 14px; }
   .donate-bank-grid { grid-template-columns: 1fr; }
   .donate-actions { align-items: stretch; }

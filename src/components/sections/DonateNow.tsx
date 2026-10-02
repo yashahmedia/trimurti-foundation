@@ -1,24 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
   Check,
   Copy,
   Download,
-  QrCode,
   ShieldCheck,
 } from "lucide-react";
 
 const amounts = ["1000", "2500", "5000", "Custom"] as const;
 const bankDetails = [
-  { label: "Account Name", value: "Trimurti Foundation (Sample)" },
-  { label: "Bank Name", value: "Example National Bank (Sample)" },
-  { label: "Account Number", value: "XXXXXX1234", copyable: true },
-  { label: "IFSC Code", value: "DEMO0001234", copyable: true },
-  { label: "Branch", value: "Thrissur Main Branch (Sample)" },
-  { label: "Account Type", value: "Savings (Sample)" },
+  { label: "Beneficiary Name", value: "TRIMURTHI FOUNDATION" },
+  { label: "Bank Name", value: "STATE BANK OF INDIA" },
+  { label: "Branch", value: "Poonkunnam, Thrissur, Kerala, India" },
+  { label: "Account Number (Current A/C)", value: "45353266227", copyable: true },
+  { label: "IFSC Code", value: "SBIN0021787", copyable: true },
+  { label: "MICR Code", value: "680002852", copyable: true },
 ];
 
 export default function DonateNow() {
@@ -33,33 +33,32 @@ export default function DonateNow() {
   async function copyValue(label: string, value: string) {
     try {
       await navigator.clipboard.writeText(value);
-      setCopyStatus(`${label} placeholder copied.`);
+      setCopyStatus(`${label} copied.`);
     } catch {
       setCopyStatus(
-        `Could not copy the ${label.toLowerCase()} placeholder. Please copy it manually.`,
+        `Could not copy the ${label.toLowerCase()}. Please copy it manually.`,
       );
     }
   }
 
   function downloadDetails() {
     const content = [
-      "TRIMURTI FOUNDATION — SAMPLE DONATION DETAILS",
-      "These are illustrative placeholders only. Do not use for a bank transfer.",
+      "TRIMURTHI FOUNDATION — BANK DETAILS",
       "",
       ...bankDetails.map(({ label, value }) => `${label}: ${value}`),
       "",
-      "Please verify official bank details with the foundation before making a transfer.",
+      "Please confirm the beneficiary details before making a transfer.",
     ].join("\n");
     const file = new Blob([content], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(file);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "trimurti-foundation-sample-donation-details.txt";
+    link.download = "trimurthi-foundation-bank-details.txt";
     document.body.append(link);
     link.click();
     link.remove();
     URL.revokeObjectURL(url);
-    setDownloadStatus("Sample donation details downloaded.");
+    setDownloadStatus("Bank details downloaded.");
   }
 
   return (
@@ -80,27 +79,27 @@ export default function DonateNow() {
         </div>
 
         <div className="donate-now-panel">
-          <div className="donate-qr-placeholder">
-            <span className="donate-qr-icon" aria-hidden="true">
-              <QrCode size={39} strokeWidth={1.5} />
-            </span>
-            <span className="donate-qr-eyebrow">Quick &amp; secure giving</span>
-            <strong>UPI QR Coming Soon</strong>
-            <span className="donate-qr-copy">
-              Verified payment details will be published once confirmed by the
-              foundation.
-            </span>
-            <span className="donate-qr-stamp">
-              <ShieldCheck size={15} /> Secure giving
-            </span>
+          <div className="donate-qr-panel">
+            <div className="donate-qr-image-frame">
+              <Image
+                src="/qr%20trimurty.jpeg"
+                alt="Trimurti Foundation UPI QR code"
+                width={865}
+                height={1536}
+                className="donate-qr-image"
+                sizes="930px"
+                unoptimized
+                loading="eager"
+              />
+            </div>
           </div>
 
           <div className="donate-details">
             <span className="section-chip">Secure giving</span>
             <h3>Choose how you want to help</h3>
             <p className="donate-intro">
-              Select a contribution amount, or use the sample bank details
-              below while verified payment information is being prepared.
+              Select a contribution amount, or use the foundation bank details
+              below to make a transfer.
             </p>
 
             <div className="donate-amounts" aria-label="Choose a donation amount">
@@ -139,8 +138,7 @@ export default function DonateNow() {
             <div className="donate-finance-note">
               <ShieldCheck size={17} />
               <p>
-                Bank details shown here are sample placeholders, not valid
-                payment instructions. Please verify official details before
+                Please confirm the beneficiary and account details before
                 transferring funds.
               </p>
             </div>
@@ -151,7 +149,6 @@ export default function DonateNow() {
                   <span className="donate-bank-eyebrow">Bank transfer</span>
                   <h4>Bank Details</h4>
                 </div>
-                <span className="donate-sample-badge">SAMPLE DETAILS</span>
               </div>
 
               <dl className="donate-bank-grid">
@@ -164,7 +161,7 @@ export default function DonateNow() {
                         <button
                           type="button"
                           className="donate-copy-button"
-                          aria-label={`Copy ${label} placeholder`}
+                          aria-label={`Copy ${label}`}
                           onClick={() => copyValue(label, value)}
                         >
                           {copyStatus.startsWith(label) ? (
