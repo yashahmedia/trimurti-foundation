@@ -6880,24 +6880,28 @@ img {
     radial-gradient(circle at 50% 43%, rgba(237, 201, 110, 0.15), transparent 38%),
     linear-gradient(155deg, #0d5145, #073b37 72%);
 }
-.donate-qr-image-frame {
+.donate-qr-image-frame,
+.donation-qr-frame {
   position: relative;
-  width: min(100%, 320px);
   aspect-ratio: 1;
+  margin: 0 auto;
   overflow: hidden;
   border: 8px solid #fff;
   border-radius: 14px;
+  padding: 0;
   background: #fff;
+  box-sizing: border-box;
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.2);
 }
+.donate-qr-image-frame { width: min(100%, 320px); }
 .donate-qr-image {
   position: absolute;
   top: 0;
   left: 0;
-  width: 220%;
+  width: 253.7%;
   max-width: none;
   height: auto;
-  transform: translate(-27.4%, -35.3%);
+  transform: translate(-30.3%, -35%);
 }
 .donate-details { padding: clamp(30px, 4vw, 52px); }
 .donate-details h3 {
@@ -11740,17 +11744,8 @@ button:disabled {
   text-align: center;
 }
 .donation-qr-frame {
-  position: relative;
   display: grid;
   width: 210px;
-  aspect-ratio: 1;
-  margin: 3px auto;
-  overflow: hidden;
-  border: 8px solid #fff;
-  border-radius: 12px;
-  padding: 0;
-  background: #fff;
-  box-sizing: border-box;
 }
 .donation-page .donation-qr-frame canvas {
   display: block;
