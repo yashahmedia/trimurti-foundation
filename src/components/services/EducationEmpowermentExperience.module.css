@@ -1,6 +1,6 @@
 .page {
   --education-blue: #174a66;
-  --education-body: #293b43;
+  --education-body: #000000;
   background: #f3f4eb;
   color: var(--education-blue);
 }
@@ -99,7 +99,7 @@
 
 .supportRail :global(.initiative-approach-support-header p),
 .supportRail :global(.initiative-approach-support-copy > span) {
-  color: #2d3432;
+  color: #000000;
 }
 
 .supportRail :global(.initiative-approach-support-copy > span) {

@@ -1,6 +1,6 @@
 .page {
   --heritage-plum: #60384c;
-  --heritage-body: #393235;
+  --heritage-body: #000000;
   background: #faf5ea;
   color: var(--heritage-plum);
 }
@@ -99,7 +99,7 @@
 
 .supportRail :global(.initiative-approach-support-header p),
 .supportRail :global(.initiative-approach-support-copy > span) {
-  color: #352d2d;
+  color: #000000;
 }
 
 .supportRail :global(.initiative-approach-support-copy > span) {

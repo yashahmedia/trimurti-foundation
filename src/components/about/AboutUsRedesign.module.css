@@ -7,7 +7,7 @@
   --gold: #c8a45d;
   --cream: #f7f4ec;
   --white: #fff;
-  --body: #242424;
+  --body: #000000;
   color: var(--navy);
   overflow: clip;
 }
@@ -962,7 +962,7 @@
 .missionCopy > p:last-of-type {
   max-width: 520px;
   margin: 22px 0 0;
-  color: #39464a;
+  color: #000000;
   font-size: 16px;
   line-height: 1.8;
 }
@@ -1193,7 +1193,7 @@
 .advisoryHeader > p:last-child {
   max-width: 720px;
   margin: 20px auto 0;
-  color: #39464a;
+  color: #000000;
   font-size: 16px;
   line-height: 1.8;
 }
@@ -1343,7 +1343,7 @@
 .advisoryDescription {
   max-width: 550px;
   margin: 21px 0 0;
-  color: #39464a;
+  color: #000000;
   font-size: 16px;
   line-height: 1.8;
 }
@@ -1351,7 +1351,7 @@
 .advisoryMemberCopy .founderBackground {
   min-height: auto;
   margin: 16px 0 0;
-  color: #68716e;
+  color: #000000;
   font-size: 12px;
   letter-spacing: 0.03em;
 }
@@ -1395,7 +1395,7 @@
   display: grid;
   justify-items: center;
   gap: 8px;
-  color: #626c68;
+  color: #000000;
   cursor: pointer;
   text-align: center;
 }
@@ -1843,7 +1843,7 @@
 
 .advisoryMoments figcaption {
   margin-top: 7px;
-  color: #53615c;
+  color: #000000;
   font-size: 10px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1880,7 +1880,7 @@
 .advisoryStory > p:not(.eyebrow) {
   max-width: 480px;
   margin: 19px 0 0;
-  color: #39464a;
+  color: #000000;
   font-size: 15px;
   line-height: 1.75;
 }

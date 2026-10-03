@@ -2,7 +2,7 @@
   --page-cream: #fbf8f1;
   --page-paper: #fffdf9;
   --page-ink: #263a32;
-  --page-muted: #65716a;
+  --page-muted: #000000;
   --page-green: #315f4c;
   --page-burgundy: #813b45;
   --page-rule: #e9dfd2;
@@ -251,7 +251,7 @@
 
 .whyCopy p {
   margin-top: 18px;
-  color: #58645d;
+  color: #000000;
   font-size: 17px;
   line-height: 1.85;
 }

@@ -1,7 +1,7 @@
 .page {
   --healthcare-wine: #682f41;
   --healthcare-wine-deep: #71394a;
-  --healthcare-body: #51373b;
+  --healthcare-body: #000000;
   background: #faf4eb;
   color: var(--healthcare-wine);
 }
@@ -101,7 +101,7 @@
 
 .supportRail :global(.initiative-approach-support-header p),
 .supportRail :global(.initiative-approach-support-copy > span) {
-  color: #302629;
+  color: #000000;
 }
 
 .supportRail :global(.initiative-approach-support-copy > span) {

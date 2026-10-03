@@ -1,6 +1,6 @@
 .page {
   --ink: #111111;
-  --muted: #111111;
+  --muted: #000000;
   --green: #0d7562;
   --gold: #c89138;
   --line: rgba(19, 66, 56, 0.1);
@@ -171,7 +171,7 @@
 }
 
 .heroNote > span:last-child > span {
-  color: #6c807b;
+  color: #000000;
   font-size: 11px;
 }
 
@@ -201,7 +201,7 @@
   min-height: 43px;
   padding: 0 19px;
   border-radius: 999px;
-  color: #536e69;
+  color: #000000;
   font-size: 13px;
   font-weight: 700;
   transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;

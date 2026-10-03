@@ -84,7 +84,7 @@
 .heroIntro {
   max-width: 660px;
   margin: 21px auto 0;
-  color: #5a6962;
+  color: #000000;
   font-size: clamp(14px, 1.35vw, 16px);
   line-height: 1.75;
   text-wrap: pretty;

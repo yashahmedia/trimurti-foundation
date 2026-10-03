@@ -1,7 +1,7 @@
 .page {
   --food-green: #285543;
   --food-deep: #1f493b;
-  --food-body: #303a32;
+  --food-body: #000000;
   background: #f7f4e9;
   color: var(--food-green);
 }
@@ -100,7 +100,7 @@
 
 .supportRail :global(.initiative-approach-support-header p),
 .supportRail :global(.initiative-approach-support-copy > span) {
-  color: #30362d;
+  color: #000000;
 }
 
 .supportRail :global(.initiative-approach-support-copy > span) {

@@ -3,7 +3,7 @@
   --soldier-green: #1f5a4d;
   --soldier-gold: #c99a35;
   --soldier-ink: #183f55;
-  --soldier-body: #242424;
+  --soldier-body: #000000;
   background: #faf6ed;
   color: var(--soldier-ink);
 }
@@ -102,7 +102,7 @@
 
 .supportRail :global(.initiative-approach-support-header p),
 .supportRail :global(.initiative-approach-support-copy > span) {
-  color: #292929;
+  color: #000000;
 }
 
 .supportRail :global(.initiative-approach-support-copy > span) {

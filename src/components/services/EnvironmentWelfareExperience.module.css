@@ -3,7 +3,7 @@
   --environment-teal: #236b60;
   --environment-gold: #c79b39;
   --environment-ink: #244d3a;
-  --environment-body: #252525;
+  --environment-body: #000000;
   background: #f7f5e9;
   color: var(--environment-ink);
 }
@@ -98,7 +98,7 @@
 
 .supportRail :global(.initiative-approach-support-header p),
 .supportRail :global(.initiative-approach-support-copy > span) {
-  color: #292929;
+  color: #000000;
 }
 
 .supportRail :global(.initiative-approach-support-copy > span) {
