@@ -50,14 +50,6 @@ body h5,
 body h6 {
   color: inherit;
 }
-body p,
-body li,
-body label,
-body small,
-body figcaption,
-body time {
-  color: #111111 !important;
-}
 h1,
 h2,
 h3,
