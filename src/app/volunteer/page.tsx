@@ -66,8 +66,8 @@ const volunteerOpportunities = [
     title: "Event Support",
     description: "Help bring community events and initiatives to life.",
     icon: CalendarDays,
-    image: "/volunteer.jpg",
-    imageAlt: "Volunteers coming together",
+    image: "/soldier.png",
+    imageAlt: "Indian families volunteering to plant trees and care for animals",
   },
   {
     title: "Education & Mentoring",
@@ -80,15 +80,15 @@ const volunteerOpportunities = [
     title: "Social Media & Digital Support",
     description: "Help more people discover and support our work.",
     icon: Megaphone,
-    image: "/bring your expertise.jpg",
-    imageAlt: "Sharing professional skills",
+    image: "/education_empowerment.png",
+    imageAlt: "An Indian teacher sharing knowledge with students",
   },
   {
     title: "Administrative Support",
     description: "Put your planning and organisational skills to good use.",
     icon: ClipboardList,
-    image: "/partner as an organisation.jpg",
-    imageAlt: "Working together in support of an organization",
+    image: "/environment_welfare.png",
+    imageAlt: "Indian community members working together on a local initiative",
   },
 ];
 
@@ -154,8 +154,8 @@ export default async function Page({
             </div>
             <div className="volunteer-hero-visual">
               <Image
-                src="/volunteer.jpg"
-                alt="Community volunteers joining hands to support one another"
+                src="/soldier.png"
+                alt="Indian families volunteering to plant trees and care for animals"
                 fill
                 loading="eager"
                 sizes="(max-width: 760px) 100vw, 48vw"
@@ -262,7 +262,7 @@ export default async function Page({
       >
         <Image
           className="volunteer-cta-image"
-          src="/volunteer.jpg"
+          src="/soldier.png"
           alt=""
           fill
           sizes="100vw"
@@ -298,7 +298,7 @@ export default async function Page({
             <div className="volunteer-application-intro">
               <div className="volunteer-application-image">
                 <Image
-                  src="/volunteer.jpg"
+                  src="/soldier.png"
                   alt=""
                   fill
                   sizes="(max-width: 900px) 100vw, 36vw"

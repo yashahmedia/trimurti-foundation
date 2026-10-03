@@ -157,8 +157,8 @@ const supportCategories: SupportCategory[] = [
     title: "Opportunities for Women",
     description:
       "Help us empower women with skills, training and resources to build independence and a safer future.",
-    image: "/WOMAN.jpg",
-    alt: "Women taking part in a community programme",
+    image: "/evolve.png",
+    alt: "Indian women using digital resources in a community programme",
     icon: TrendingUp,
     iconName: "women",
     documentSuggestions: [

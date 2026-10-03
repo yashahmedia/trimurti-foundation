@@ -75,7 +75,7 @@ const resources = [
     icon: BookOpen,
   },
   {
-    image: "/volunteer.jpg",
+    image: "/soldier.png",
     type: "Blog",
     title: "Why showing up for one another matters",
     description:

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { HeartHandshake } from "lucide-react";
 import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
-import SupportPromptSection from "@/components/home/SupportPromptSection";
 import styles from "./EnvironmentWelfareExperience.module.css";
 
 export default function EnvironmentWelfareExperience() {
@@ -36,7 +35,6 @@ export default function EnvironmentWelfareExperience() {
         </div>
       </section>
 
-      <SupportPromptSection />
 
       <section className={styles.whySection} aria-labelledby="why-environment-title">
         <div className={styles.whyLayout}>

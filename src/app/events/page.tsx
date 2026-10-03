@@ -11,6 +11,7 @@ export default function Page() {
         title="Come together for good."
         eyebrow="Community Events"
         description="Meet, learn and contribute. Find opportunities to put compassion into action."
+        showSupportPrompt
       />
       <section className="container section">
         <EventBrowser

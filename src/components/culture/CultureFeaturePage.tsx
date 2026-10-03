@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import ContactForm from "@/components/forms/ContactForm";
 import PoojaEnquiryForm from "@/components/forms/PoojaEnquiryForm";
-import SupportPromptSection from "@/components/home/SupportPromptSection";
 import type { CultureFeaturePageData } from "@/data/culture-feature-pages";
 import styles from "./CultureFeaturePage.module.css";
 
@@ -39,7 +38,6 @@ export default function CultureFeaturePage({
         </div>
       </section>
 
-      <SupportPromptSection />
 
       <section className={styles.contentSection} aria-label={`${page.title} details`}>
         <div className={styles.container}>

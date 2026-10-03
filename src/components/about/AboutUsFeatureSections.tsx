@@ -193,8 +193,8 @@ export function GovernanceSection() {
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
             <Image
-              src="/bring your expertise.jpg"
-              alt="Colleagues reviewing plans and records together"
+              src="/environment_welfare.png"
+              alt="Indian community members working together on a local initiative"
               fill
               sizes="(max-width: 760px) 100vw, 45vw"
             />

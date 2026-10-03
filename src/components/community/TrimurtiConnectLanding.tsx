@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import styles from "./TrimurtiConnectLanding.module.css";
-import SupportPromptSection from "@/components/home/SupportPromptSection";
 
 const connections = [
   {
@@ -12,8 +11,8 @@ const connections = [
     title: "Connecting Professionals. Creating Impact.",
     description:
       "We bring together professionals, mentors and changemakers to share knowledge, build skills and create meaningful opportunities for a brighter future.",
-    image: "/offer mentorship.jpg",
-    alt: "A mentor sharing experience and guidance",
+    image: "/education_empowerment.png",
+    alt: "An Indian teacher guiding students in a classroom",
     position: "center 43%",
   },
   {
@@ -22,8 +21,8 @@ const connections = [
     title: "Stronger Businesses. Greater Good.",
     description:
       "We support businesses and entrepreneurs in creating sustainable growth, ethical practices and long-term social value.",
-    image: "/partner as an organisation.jpg",
-    alt: "People collaborating on an organisational partnership",
+    image: "/environment_welfare.png",
+    alt: "Indian community members working together on a local initiative",
     position: "center 42%",
   },
 ];
@@ -50,7 +49,6 @@ export default function TrimurtiConnectLanding() {
         </motion.div>
       </header>
 
-      <SupportPromptSection />
 
       <div className={styles.cards} aria-label="Ways to connect">
         {connections.map((connection, index) => (

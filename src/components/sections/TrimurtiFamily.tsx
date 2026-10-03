@@ -19,16 +19,16 @@ const ways = [
     title: "Become a donor",
     description:
       "Your generosity helps fund education, healthcare, and sustainable livelihoods for communities in need.",
-    image: "/become a dono.jpg",
-    imageAlt: "A heart held in hands representing donor support",
+    image: "/Become a donor.jpg",
+    imageAlt: "A donation being placed into a community collection box",
     Icon: HeartHandshake,
   },
   {
     title: "Offer mentorship",
     description:
       "Share your experience, guide future leaders, and help someone reach their potential.",
-    image: "/offer mentorship.jpg",
-    imageAlt: "A mentor guiding a learner",
+    image: "/education_empowerment.png",
+    imageAlt: "An Indian teacher guiding students in a classroom",
     Icon: Handshake,
   },
 ];

@@ -80,6 +80,15 @@
 
 .contentSection {
   padding: 64px 0 84px;
+  background: #203b36;
+}
+
+.contentSection .returnLink {
+  color: #fffdf8;
+}
+
+.contentSection .returnLink:hover {
+  color: #e6c878;
 }
 
 .cards {

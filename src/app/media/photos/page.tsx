@@ -1,5 +1,4 @@
 import Gallery from "@/components/media/Gallery";
-import SupportPromptSection from "@/components/home/SupportPromptSection";
 import { getMedia } from "@/lib/media";
 import { seo } from "@/lib/seo";
 export const metadata = seo("Photo Gallery", "/media/photos");
@@ -18,7 +17,6 @@ export default async function Page() {
         )}
         <Gallery items={photos} />
       </section>
-      <SupportPromptSection />
     </>
   );
 }

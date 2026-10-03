@@ -24,10 +24,12 @@ export function PageHero({
   title,
   eyebrow = "Together, we make a difference",
   description,
+  showSupportPrompt = false,
 }: {
   title: string;
   eyebrow?: string;
   description: string;
+  showSupportPrompt?: boolean;
 }) {
   return (
     <>
@@ -44,7 +46,7 @@ export function PageHero({
           <p className="lead">{description}</p>
         </div>
       </section>
-      <SupportPromptSection />
+      {showSupportPrompt && <SupportPromptSection />}
     </>
   );
 }

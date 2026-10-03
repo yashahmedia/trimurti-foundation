@@ -2,7 +2,6 @@ import Image from "next/image";
 import { HeartHandshake } from "lucide-react";
 import CultureHeritageShowcase from "@/components/culture/CultureHeritageShowcase";
 import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
-import SupportPromptSection from "@/components/home/SupportPromptSection";
 import styles from "./CultureHeritageExperience.module.css";
 
 export default function CultureHeritageExperience() {
@@ -35,7 +34,6 @@ export default function CultureHeritageExperience() {
         </div>
       </section>
 
-      <SupportPromptSection />
       <CultureHeritageShowcase />
 
       <section className={styles.whySection} aria-labelledby="why-culture-title">

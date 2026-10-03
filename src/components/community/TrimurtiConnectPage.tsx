@@ -26,8 +26,8 @@ const participationWays = [
     title: "Give your time. Grow a community.",
     description:
       "Your time can become practical support, encouragement and connection for people in our communities. Find a way to contribute that fits your skills and availability.",
-    image: "/volunteer.jpg",
-    imageAlt: "Volunteers coming together to support their community",
+    image: "/soldier.png",
+    imageAlt: "Indian families volunteering to plant trees and care for animals",
     imagePosition: "center 42%",
     action: "volunteer",
   },
@@ -62,8 +62,8 @@ const participationWays = [
     title: "Put your experience to work for good.",
     description:
       "Offer your professional experience where it can help someone learn, plan or move forward. Share your expertise, mentor, provide guidance or contribute a skills session.",
-    image: "/offer mentorship.jpg",
-    imageAlt: "A mentor sharing experience in a thoughtful conversation",
+    image: "/education_empowerment.png",
+    imageAlt: "An Indian teacher guiding students in a classroom",
     imagePosition: "center 43%",
     action: "professionals",
   },
@@ -74,8 +74,8 @@ const participationWays = [
     title: "Bring your organisation into the good.",
     description:
       "Start a conversation about partnership, practical resources or sustainable ways your organisation can support community-led work.",
-    image: "/partner as an organisation.jpg",
-    imageAlt: "People working together on a community partnership",
+    image: "/environment_welfare.png",
+    imageAlt: "Indian community members working together on a local initiative",
     imagePosition: "center 42%",
     action: "business",
   },

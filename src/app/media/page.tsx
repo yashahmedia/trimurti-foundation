@@ -9,6 +9,7 @@ export default function Page() {
         title="Stories that bring us closer."
         eyebrow="Our Media"
         description="Explore moments of care, shared purpose and community connection."
+        showSupportPrompt
       />
       <section className="container section content-grid">
         {[
