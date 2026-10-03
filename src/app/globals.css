@@ -8,7 +8,7 @@
   --cream: #fff9ec;
   --white: #ffffff;
   --text-dark: #111111;
-  --muted: #242424;
+  --muted: #111111;
   --line: rgba(201, 145, 32, 0.12);
   --shadow-soft: 0 12px 35px rgba(8, 39, 65, 0.1);
   --shadow-gold: 0 8px 22px rgba(193, 137, 25, 0.28);
@@ -32,6 +32,31 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+}
+body,
+body p,
+body li,
+body small,
+body label,
+body figcaption,
+body time,
+body strong,
+body em,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  color: inherit;
+}
+body p,
+body li,
+body label,
+body small,
+body figcaption,
+body time {
+  color: #111111 !important;
 }
 h1,
 h2,

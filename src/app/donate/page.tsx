@@ -188,27 +188,6 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={styles.contributionSection} aria-labelledby="contribution-title">
-        <div className={styles.contributionInner}>
-          <span className={styles.eyebrow}>Every act has a place</span>
-          <h2 id="contribution-title">Every Contribution Counts</h2>
-          <p>
-            You do not have to do something big to make a difference. Your
-            time, knowledge, resources, or financial support can become
-            meaningful when people come together.
-          </p>
-          <nav className={styles.contributionLinks} aria-label="Ways to contribute">
-            <Link href="#ways-to-transform">Donate</Link>
-            <Link href="/volunteer">Volunteer</Link>
-            <Link href="/volunteer?area=Workshops%20and%20Mentoring">
-              Share Knowledge
-            </Link>
-            <Link href="#ways-to-transform">Sponsor</Link>
-            <Link href="/#support-request-title">Request Support</Link>
-          </nav>
-        </div>
-      </section>
-
       <section className={styles.areasSection} aria-labelledby="areas-title">
         <div className={styles.contentWidth}>
           <header className={styles.sectionHeading}>

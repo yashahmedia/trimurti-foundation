@@ -1,6 +1,6 @@
 .page {
   --ink: #111111;
-  --muted: #242424;
+  --muted: #111111;
   --green: #0d7562;
   --gold: #c89138;
   --line: rgba(19, 66, 56, 0.1);
@@ -86,7 +86,7 @@
 .heroCopy > p {
   max-width: 500px;
   margin-top: 23px;
-  color: #526d69;
+  color: var(--muted);
   font-size: clamp(15px, 1.35vw, 18px);
   line-height: 1.75;
 }
@@ -276,6 +276,14 @@
   line-height: 1.75;
 }
 
+.cardDescription,
+.eventMeta,
+.eventMeta span,
+.cardDescription,
+.eventMeta svg {
+  color: var(--muted);
+}
+
 .cardGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -374,7 +382,7 @@
   display: grid;
   gap: 8px;
   margin-top: 13px;
-  color: #6a7e7b;
+  color: var(--muted);
   font-size: 11px;
   line-height: 1.4;
 }
@@ -392,7 +400,7 @@
 
 .cardDescription {
   margin-top: 10px;
-  color: #667c79;
+  color: var(--muted);
   font-size: 12px;
   line-height: 1.65;
 }
