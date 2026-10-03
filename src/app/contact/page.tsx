@@ -10,6 +10,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import ContactForm from "@/components/forms/ContactForm";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 import { site } from "@/config/site";
 import { seo } from "@/lib/seo";
 import styles from "./contact.module.css";
@@ -151,6 +152,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <SupportPromptSection />
 
       <section className={styles.contactCardsSection} aria-label="Contact details">
         <div className={`${styles.container} ${styles.contactCards}`}>

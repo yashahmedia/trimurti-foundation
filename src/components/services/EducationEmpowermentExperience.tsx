@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { HeartHandshake } from "lucide-react";
 import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 import styles from "./EducationEmpowermentExperience.module.css";
 
 export default function EducationEmpowermentExperience() {
@@ -34,6 +35,8 @@ export default function EducationEmpowermentExperience() {
           </aside>
         </div>
       </section>
+
+      <SupportPromptSection />
 
       <section className={styles.whySection} aria-labelledby="why-education-title">
         <div className={styles.whyLayout}>

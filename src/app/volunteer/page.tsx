@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import VolunteerForm from "@/components/forms/VolunteerForm";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
 import { seo } from "@/lib/seo";
 
@@ -175,6 +176,8 @@ export default async function Page({
           </div>
         </div>
       </section>
+
+      <SupportPromptSection />
 
       <section className="volunteer-trust-strip" aria-label="Volunteer principles">
         <div className="container volunteer-trust-grid">

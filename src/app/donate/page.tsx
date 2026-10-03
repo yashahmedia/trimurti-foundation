@@ -1,5 +1,6 @@
 import DonationForm from "@/components/donate/DonationForm";
 import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -104,6 +105,8 @@ export default function Page() {
           </figure>
         </div>
       </section>
+
+      <SupportPromptSection />
 
       <section
         className={styles.waysSection}

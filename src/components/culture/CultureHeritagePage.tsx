@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import CultureReveal from "@/components/culture/CultureReveal";
 import DonationForm from "@/components/donate/DonationForm";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 
 const values = [
   { label: "Preserve traditions", icon: Landmark },
@@ -168,6 +169,8 @@ export default function CultureHeritagePage() {
           </CultureReveal>
         </div>
       </section>
+
+      <SupportPromptSection />
 
       <section
         className="culture-editorial culture-temple"

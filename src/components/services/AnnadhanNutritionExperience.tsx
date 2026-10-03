@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { HeartHandshake } from "lucide-react";
 import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 import styles from "./AnnadhanNutritionExperience.module.css";
 
 export default function AnnadhanNutritionExperience() {
@@ -32,6 +33,8 @@ export default function AnnadhanNutritionExperience() {
           </aside>
         </div>
       </section>
+
+      <SupportPromptSection />
 
       <section className={styles.whySection} aria-labelledby="why-annadhan-title">
         <div className={styles.whyLayout}>

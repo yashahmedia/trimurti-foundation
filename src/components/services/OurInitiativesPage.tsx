@@ -12,6 +12,7 @@ import {
   Users,
 } from "lucide-react";
 import InitiativesBanner from "@/components/services/InitiativesBanner";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 
 const initiativeNavigator = [
   {
@@ -190,6 +191,8 @@ export default function OurInitiativesPage() {
         </div>
 
       </section>
+
+      <SupportPromptSection />
 
       <section className="our-initiatives-strip" aria-label="Initiatives overview">
         <div className="our-initiatives-container">

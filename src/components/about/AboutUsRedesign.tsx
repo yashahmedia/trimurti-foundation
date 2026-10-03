@@ -16,6 +16,7 @@ import {
   MissionVisionSection,
 } from "./AboutUsFeatureSections";
 import styles from "./AboutUsRedesign.module.css";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 
 type SectionHeadingProps = {
   id?: string;
@@ -96,6 +97,8 @@ export default function AboutUsRedesign() {
           <ArrowDown size={16} aria-hidden="true" />
         </a>
       </section>
+
+      <SupportPromptSection />
 
       <section className={styles.trustStrip} id="trust-strip" aria-label="Our values in action">
         <div className={styles.trustInner}>

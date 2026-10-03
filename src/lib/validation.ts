@@ -116,3 +116,29 @@ export const contactSchema = z.object({
   message: text(10, 2000),
 });
 export type ContactInput = z.infer<typeof contactSchema>;
+
+export const poojaEnquirySchema = z.object({
+  fullName: text(2, 100),
+  nakshatra: text(1, 100),
+  gothra: text(1, 100),
+  address: text(5, 500),
+  email: z.string().trim().pipe(z.email().max(150)),
+  phone: z
+    .string()
+    .trim()
+    .refine(
+      (value) =>
+        /^(?:\+91)?[6-9][0-9]{9}$/.test(value.replace(/[\s-]/g, "")),
+      "Enter a valid 10-digit Indian mobile number.",
+    ),
+  poojaHomam: text(2, 150),
+  preferredDate: z.union([
+    z.literal(""),
+    z.iso.date("Enter a valid date."),
+  ]),
+  specialRequest: text(0, 2000),
+  consent: z
+    .boolean()
+    .refine((value) => value, "Please confirm your details and agree to the terms."),
+});
+export type PoojaEnquiryInput = z.infer<typeof poojaEnquirySchema>;

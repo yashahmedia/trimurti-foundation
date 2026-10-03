@@ -16,6 +16,7 @@ import KnowledgeModal from "@/components/forms/KnowledgeModal";
 import VolunteerModal from "@/components/forms/VolunteerModal";
 import { demoEvents, events } from "@/data/events";
 import styles from "./TrimurtiConnectPage.module.css";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 
 const participationWays = [
   {
@@ -226,6 +227,8 @@ export default function TrimurtiConnectPage() {
           <span className={styles.heroRule} aria-hidden="true" />
         </motion.div>
       </header>
+
+      <SupportPromptSection />
 
       <div className={styles.ways} aria-label="Ways to connect">
         {participationWays.map((way, index) => (

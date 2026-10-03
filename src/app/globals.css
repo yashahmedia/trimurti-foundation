@@ -6501,14 +6501,19 @@ img {
 
 .support-request-section {
   padding: 76px 0 88px;
-  background: #ffffff;
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(201, 145, 32, 0.11), transparent 36%),
+    linear-gradient(125deg, #0b1720 0%, #10332f 58%, #17483b 100%);
 }
 .support-request-heading {
   margin-bottom: 30px;
 }
+.support-request-heading .eyebrow {
+  color: #e0be72;
+}
 .support-request-heading h2 {
   margin: 0;
-  color: #0d534b;
+  color: #fffaf0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(38px, 4vw, 62px);
   line-height: 1;
@@ -6517,7 +6522,7 @@ img {
 .support-request-heading > p {
   max-width: 900px;
   margin: 10px 0 0;
-  color: #4e6c74;
+  color: rgba(255, 250, 240, 0.78);
   font-size: 17px;
   line-height: 1.7;
 }
@@ -6543,17 +6548,17 @@ img {
   justify-content: flex-start;
   min-height: 100%;
   padding: 28px 28px 0;
-  border: 1px solid rgba(16, 74, 66, 0.1);
+  border: 1px solid rgba(224, 190, 114, 0.26);
   border-radius: 22px;
-  background: linear-gradient(180deg, #f5faf5 0%, #e8f2eb 100%);
-  box-shadow: 0 12px 28px rgba(30, 55, 48, 0.05);
+  background: linear-gradient(160deg, #16433b 0%, #102e2e 100%);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
 }
 .support-request-panel-header {
   display: grid;
   gap: 10px;
 }
 .support-request-eyebrow {
-  color: #0d5662;
+  color: #e0be72;
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -6561,7 +6566,7 @@ img {
 }
 .support-request-panel h3 {
   margin: 0;
-  color: #0d534b;
+  color: #fffaf0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(38px, 3vw, 58px);
   line-height: 1.02;
@@ -6570,7 +6575,7 @@ img {
 .support-request-panel p {
   max-width: 320px;
   margin: 16px 0 0;
-  color: #4e6c74;
+  color: rgba(255, 250, 240, 0.78);
   font-size: 15px;
   line-height: 1.7;
 }
@@ -6611,7 +6616,7 @@ img {
 .support-request-quote p {
   margin: 0;
   max-width: 210px;
-  color: #0d5d52;
+  color: #fffaf0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(22px, 1.8vw, 30px);
   line-height: 1.1;
@@ -6623,7 +6628,7 @@ img {
   right: 8px;
   bottom: 12px;
   font-size: 34px;
-  color: #0d5d52;
+  color: #e0be72;
 }
 .support-request-panel-logo {
   position: absolute;
@@ -6632,7 +6637,7 @@ img {
   width: 64px;
   height: 64px;
   object-fit: contain;
-  opacity: 0.1;
+  opacity: 0.16;
 }
 .support-request-panel-image {
   position: relative;

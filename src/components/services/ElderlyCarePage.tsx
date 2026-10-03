@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import CultureReveal from "@/components/culture/CultureReveal";
 import InitiativesBanner from "@/components/services/InitiativesBanner";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 import InitiativeApproachSection from "@/components/services/InitiativeApproachSection";
 
 const initiatives = [
@@ -204,6 +205,8 @@ export default function ElderlyCarePage() {
           </CultureReveal>
         </div>
       </section>
+
+      <SupportPromptSection />
 
       <section
         className="healthcare-initiative-strip"

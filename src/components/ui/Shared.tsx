@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, HeartHandshake } from "lucide-react";
 import { site } from "@/config/site";
 import CountUp from "./CountUp";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 export function Button({
   href,
   children,
@@ -29,19 +30,22 @@ export function PageHero({
   description: string;
 }) {
   return (
-    <section className="page-hero">
-      <BreadcrumbSchema title={title} />
-      <div className="container">
-        <div className="breadcrumb">
-          <Link href="/">Home</Link>
-          <span>/</span>
-          {title}
+    <>
+      <section className="page-hero">
+        <BreadcrumbSchema title={title} />
+        <div className="container">
+          <div className="breadcrumb">
+            <Link href="/">Home</Link>
+            <span>/</span>
+            {title}
+          </div>
+          <p className="eyebrow">{eyebrow}</p>
+          <h1>{title}</h1>
+          <p className="lead">{description}</p>
         </div>
-        <p className="eyebrow">{eyebrow}</p>
-        <h1>{title}</h1>
-        <p className="lead">{description}</p>
-      </div>
-    </section>
+      </section>
+      <SupportPromptSection />
+    </>
   );
 }
 export function Empty({

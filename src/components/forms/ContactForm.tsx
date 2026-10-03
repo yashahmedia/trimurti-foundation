@@ -17,7 +17,11 @@ const subjects = [
   "Other",
 ];
 
-export default function ContactForm() {
+export default function ContactForm({
+  initialSubject = "General Enquiry",
+}: {
+  initialSubject?: ContactInput["subject"];
+}) {
   const [result, setResult] = useState("");
   const [emailLink, setEmailLink] = useState("");
   const {
@@ -30,7 +34,7 @@ export default function ContactForm() {
       fullName: "",
       email: "",
       phone: "",
-      subject: "General Enquiry",
+      subject: initialSubject,
       message: "",
     },
   });

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import styles from "./TrimurtiConnectLanding.module.css";
+import SupportPromptSection from "@/components/home/SupportPromptSection";
 
 const connections = [
   {
@@ -48,6 +49,8 @@ export default function TrimurtiConnectLanding() {
           <span className={styles.rule} aria-hidden="true" />
         </motion.div>
       </header>
+
+      <SupportPromptSection />
 
       <div className={styles.cards} aria-label="Ways to connect">
         {connections.map((connection, index) => (
