@@ -356,7 +356,7 @@
 .description {
   max-width: 455px;
   margin: 19px 0 0;
-  color: #586761;
+  color: #111111;
   font-size: 15px;
   line-height: 1.8;
   text-wrap: pretty;
@@ -422,7 +422,7 @@
 .actionNote {
   max-width: 370px;
   margin: 11px 0 0;
-  color: #748078;
+  color: #111111;
   font-size: 12px;
   line-height: 1.6;
 }
