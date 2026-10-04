@@ -4,6 +4,7 @@ export type CultureFeaturePageData = {
   description: string;
   image: string;
   imageAlt: string;
+  sectionDisplay?: "cards" | "buttons";
   sections: {
     title: string;
     description: string;
@@ -83,12 +84,13 @@ export const cultureFeaturePages = {
     ],
   },
   "tourism-gurukul": {
-    title: "Tourism Gurukul",
+    title: "Trimurthi Gurukul",
     eyebrow: "Culture & Heritage",
     description:
       "A place for learning and reference resources connected with culture and heritage. Resource listings will be added after client approval.",
     image: "/education_empowerment.png",
     imageAlt: "Learners reading and studying together",
+    sectionDisplay: "buttons",
     sections: [
       {
         title: "Books",

@@ -20,8 +20,8 @@ export const philosophyItems: PhilosophyItem[] = [
     title: "Engage",
     description:
       "Build stronger communities through active participation, collaboration and meaningful connection.",
-    image: "/engage.png",
-    alt: "Community members sharing ideas in a group conversation",
+    image: "/engage 2.jpg",
+    alt: "A couple exchanging rings during an engagement ceremony",
     icon: Users,
   },
   {

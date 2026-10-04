@@ -27,8 +27,8 @@ const ways = [
     title: "Offer mentorship",
     description:
       "Share your experience, guide future leaders, and help someone reach their potential.",
-    image: "/education_empowerment.png",
-    imageAlt: "An Indian teacher guiding students in a classroom",
+    image: "/offer mentorship.jpg",
+    imageAlt: "An experienced mentor guiding a younger professional",
     Icon: Handshake,
   },
 ];

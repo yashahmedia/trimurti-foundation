@@ -45,13 +45,13 @@ const features = [
   {
     title: "Temple Support",
     description: "Information about temple support areas.",
-    image: "/heritage.png",
-    imageAlt: "Temple and heritage setting",
+    image: "/culture_heritage.png",
+    imageAlt: "Traditional temple with a classical dancer",
     href: "/services/culture-heritage/temple-support",
     icon: Landmark,
   },
   {
-    title: "Tourism Gurukul",
+    title: "Trimurthi Gurukul",
     description: "Books, videos and learning resources.",
     image: "/education_empowerment.png",
     imageAlt: "Learners reading and studying together",

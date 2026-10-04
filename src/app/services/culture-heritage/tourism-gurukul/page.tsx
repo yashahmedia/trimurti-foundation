@@ -5,9 +5,9 @@ import { seo } from "@/lib/seo";
 const page = cultureFeaturePages["tourism-gurukul"];
 
 export const metadata = seo(
-  "Tourism Gurukul | Culture & Heritage",
+  "Trimurthi Gurukul | Culture & Heritage",
   "/services/culture-heritage/tourism-gurukul",
-  "Explore planned Tourism Gurukul categories for books, videos and other learning and reference material.",
+  "Explore planned Trimurthi Gurukul categories for books, videos and other learning and reference material.",
 );
 
 export default function Page() {

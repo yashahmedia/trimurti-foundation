@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import ContactForm from "@/components/forms/ContactForm";
 import PoojaEnquiryForm from "@/components/forms/PoojaEnquiryForm";
+import GurukulResourceSections from "@/components/culture/GurukulResourceSections";
 import type { CultureFeaturePageData } from "@/data/culture-feature-pages";
 import styles from "./CultureFeaturePage.module.css";
 
@@ -41,25 +42,32 @@ export default function CultureFeaturePage({
 
       <section className={styles.contentSection} aria-label={`${page.title} details`}>
         <div className={styles.container}>
-          <div className={styles.cards}>
-            {page.sections.map((section, index) => (
-              <article className={styles.infoCard} key={`${section.title}-${index}`}>
-                <div className={styles.infoCardImage}>
-                  <Image
-                    src={section.image ?? page.image}
-                    alt={section.imageAlt ?? page.imageAlt}
-                    fill
-                    sizes="(max-width: 560px) 100vw, (max-width: 800px) 50vw, 33vw"
-                  />
-                </div>
-                <span className={styles.cardIndex}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h2>{section.title}</h2>
-                <p>{section.description}</p>
-              </article>
-            ))}
-          </div>
+          {page.sectionDisplay === "buttons" ? (
+            <GurukulResourceSections sections={page.sections} />
+          ) : (
+            <div className={styles.cards}>
+              {page.sections.map((section, index) => (
+                <article
+                  className={styles.infoCard}
+                  key={`${section.title}-${index}`}
+                >
+                  <div className={styles.infoCardImage}>
+                    <Image
+                      src={section.image ?? page.image}
+                      alt={section.imageAlt ?? page.imageAlt}
+                      fill
+                      sizes="(max-width: 560px) 100vw, (max-width: 800px) 50vw, 33vw"
+                    />
+                  </div>
+                  <span className={styles.cardIndex}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h2>{section.title}</h2>
+                  <p>{section.description}</p>
+                </article>
+              ))}
+            </div>
+          )}
 
           {page.externalLink && (
             <aside className={styles.clientNote} aria-label="Website link status">

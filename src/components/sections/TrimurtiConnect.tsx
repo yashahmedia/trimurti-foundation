@@ -15,8 +15,8 @@ const connections = [
     title: "Bring your expertise.",
     description:
       "Doctors, teachers, lawyers and designers offering pro-bono hours, workshops or one-on-one guidance to the people we serve.",
-    image: "/education_empowerment.png",
-    imageAlt: "An Indian teacher sharing knowledge with students",
+    image: "/Bring your expertise..jpg",
+    imageAlt: "Two professionals discussing ideas while reviewing a tablet",
     Icon: ContactRound,
     features: [
       { label: "Share your skills", Icon: GraduationCap },
@@ -28,9 +28,9 @@ const connections = [
     label: "Business Connect",
     title: "Partner as an organisation.",
     description:
-      "CSR partnerships, in-kind support and cause-marketing collaborations with businesses who share our purpose.",
-    image: "/environment_welfare.png",
-    imageAlt: "Indian community members working together on a local initiative",
+      "Collaborate with us through resources, expertise, networks and meaningful initiatives that help us create a greater impact in the community.",
+    image: "/Partner as an organisation..webp",
+    imageAlt: "Two business partners shaking hands",
     Icon: BriefcaseBusiness,
     features: [
       { label: "Build meaningful partnerships", Icon: Handshake },

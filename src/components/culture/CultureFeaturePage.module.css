@@ -167,6 +167,113 @@
   line-height: 1.75;
 }
 
+.resourceSections {
+  display: grid;
+  gap: 24px;
+}
+
+.resourceButtons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.resourceButton {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid rgba(96, 56, 76, 0.18);
+  border-radius: 14px;
+  background: #fffdf8;
+  color: #60384c;
+  cursor: pointer;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.resourceButton:hover,
+.resourceButton[aria-expanded="true"] {
+  border-color: rgba(139, 106, 36, 0.65);
+  background: #fffaf0;
+  box-shadow: 0 8px 22px rgba(72, 51, 47, 0.08);
+}
+
+.resourceButton:focus-visible {
+  outline: 3px solid #18745f;
+  outline-offset: 3px;
+}
+
+.resourceButtonIndex {
+  color: #8b6a24;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+}
+
+.resourceButton > span:nth-child(2) {
+  flex: 1;
+}
+
+.resourceButton svg {
+  flex: 0 0 auto;
+  color: #18745f;
+}
+
+.resourcePanel {
+  min-height: 380px;
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid rgba(96, 56, 76, 0.14);
+  border-radius: 18px;
+  background: #fffdf8;
+  box-shadow: 0 12px 32px rgba(10, 28, 25, 0.14);
+  color: #203b36;
+}
+
+.resourcePanel[hidden] {
+  display: none;
+}
+
+.resourcePanel .eyebrow {
+  color: #8b6a24;
+}
+
+.resourcePanel h2 {
+  margin: 8px 0 0;
+  color: #60384c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 600;
+}
+
+.resourcePanel > p:not(.eyebrow) {
+  margin: 10px 0 0;
+  color: #203b36;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.resourcePlaceholder {
+  display: grid;
+  min-height: 220px;
+  margin-top: 24px;
+  padding: 24px;
+  place-items: center;
+  border: 1px dashed rgba(96, 56, 76, 0.2);
+  border-radius: 12px;
+  background: #faf5ea;
+  color: #52645c;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
 .clientNote {
   margin-top: 22px;
   padding: 20px 22px;
@@ -271,6 +378,10 @@
   .cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .resourceButtons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 560px) {
@@ -292,6 +403,10 @@
   }
 
   .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .resourceButtons {
     grid-template-columns: minmax(0, 1fr);
   }
 
