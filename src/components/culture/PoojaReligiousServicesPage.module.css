@@ -1042,42 +1042,10 @@
 .bankPanel { min-width: 0; padding: 19px; border: 1px solid #dfd6c3; border-radius: 6px; background: var(--paper); }
 .qrPanel { display: flex; flex-direction: column; align-items: center; text-align: center; }
 
-.qrPlaceholder {
-  position: relative;
-  width: 142px;
-  height: 142px;
-  overflow: hidden;
-  border: 8px solid white;
-  outline: 1px solid #d9d0bf;
-  background-color: #fffefa;
-  background-image:
-    linear-gradient(90deg, #25352d 8px, transparent 8px),
-    linear-gradient(#25352d 8px, transparent 8px),
-    linear-gradient(90deg, transparent 50%, #25352d 50%),
-    linear-gradient(transparent 50%, #25352d 50%);
-  background-size: 21px 21px, 21px 21px, 13px 13px, 13px 13px;
-  background-position: 0 0, 0 0, 5px 4px, 3px 7px;
-}
-
-.qrFinderOne,
-.qrFinderTwo,
-.qrFinderThree {
-  position: absolute;
-  width: 31px;
-  height: 31px;
-  border: 6px solid #25352d;
-  background: #fffefa;
-  box-shadow: inset 0 0 0 5px #25352d;
-}
-
-.qrFinderOne { top: 1px; left: 1px; }
-.qrFinderTwo { top: 1px; right: 1px; }
-.qrFinderThree { bottom: 1px; left: 1px; }
-.qrLabel { position: absolute; right: 5px; bottom: 4px; padding: 2px 4px; background: var(--paper); color: #314a3c; font-size: 8px; font-weight: 800; }
+.qrPanel :global(.donate-qr-image-frame) { width: min(100%, 240px); flex: 0 0 auto; }
 .qrPanel h3,
 .bankPanel h3 { margin: 16px 0 0; color: var(--ink); font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; font-size: 21px; font-weight: 500; }
 .qrPanel > p { margin: 7px 0 0; color: #62685f; font-size: 11px; line-height: 1.55; }
-.qrPanel > small { margin-top: auto; padding-top: 12px; color: #8c7050; font-size: 9px; line-height: 1.4; }
 .bankPanel h3 { margin-top: 0; }
 .bankPanel dl { margin: 12px 0 0; }
 
@@ -1276,11 +1244,7 @@
   .dialogActions { flex-direction: column-reverse; }
   .dialogActions button { width: 100%; min-height: 48px; }
   .paymentLayout { grid-template-columns: minmax(0, 1fr); }
-  .qrPanel { display: grid; grid-template-columns: 116px minmax(0, 1fr); align-items: center; gap: 4px 15px; text-align: left; }
-  .qrPlaceholder { width: 112px; height: 112px; grid-column: 1; grid-row: 1 / span 3; }
-  .qrPanel h3 { margin: 0; font-size: 19px; }
-  .qrPanel > p { margin: 0; }
-  .qrPanel > small { margin: 0; padding: 0; }
+  .qrPanel :global(.donate-qr-image-frame) { width: min(100%, 210px); }
   .bankPanel { padding: 16px; }
   .paymentInputs { grid-template-columns: minmax(0, 1fr); }
   .successState { padding-top: 22px; }

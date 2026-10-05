@@ -21,6 +21,10 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import {
+  donationBankDetails as paymentDetails,
+  donationQrImage,
+} from "@/data/donation-payment";
 import styles from "./PoojaReligiousServicesPage.module.css";
 
 type PoojaService = {
@@ -195,14 +199,6 @@ const ancestralCeremonies = [
   "Tarpanam and other Pitru Karyas",
   "Kashi / Varanasi Pitru Karyas",
   "Other traditional ancestral ceremonies",
-];
-
-const paymentDetails = [
-  { label: "Account Name", value: "Trimurthi Foundation" },
-  { label: "Account Number", value: "[ADD ACCOUNT NUMBER]" },
-  { label: "IFSC Code", value: "[ADD IFSC CODE]" },
-  { label: "Bank Name", value: "[ADD BANK NAME]" },
-  { label: "UPI ID", value: "[ADD UPI ID]" },
 ];
 
 const emptyDetails: BookingDetails = {
@@ -782,15 +778,20 @@ export default function PoojaReligiousServicesPage() {
               </div>
               <div className={styles.paymentLayout}>
                 <section className={styles.qrPanel} aria-labelledby="scan-pay-title">
-                  <div className={styles.qrPlaceholder} role="img" aria-label="UPI QR code placeholder; payment details are not configured">
-                    <span className={styles.qrFinderOne} />
-                    <span className={styles.qrFinderTwo} />
-                    <span className={styles.qrFinderThree} />
-                    <span className={styles.qrLabel}>UPI</span>
+                  <div className="donate-qr-image-frame">
+                    <Image
+                      src={donationQrImage}
+                      alt="Trimurti Foundation UPI payment QR code"
+                      width={865}
+                      height={1600}
+                      sizes="240px"
+                      className="donate-qr-image"
+                      unoptimized
+                      loading="eager"
+                    />
                   </div>
                   <h3 id="scan-pay-title">Scan &amp; Pay</h3>
                   <p>Scan the QR code using your preferred UPI app to complete the payment.</p>
-                  <small>QR placeholder — replace with the Foundation’s verified payment QR.</small>
                 </section>
                 <section className={styles.bankPanel} aria-labelledby="bank-details-title">
                   <h3 id="bank-details-title">Bank / Payment Details</h3>
