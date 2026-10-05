@@ -79,7 +79,7 @@ export default function DonateNow() {
             <div className="donate-qr-image-frame">
               <Image
                 src={donationQrImage}
-                alt="Trimurti Foundation UPI QR code"
+                alt="Trimurthi Foundation UPI QR code"
                 width={865}
                 height={1600}
                 className="donate-qr-image"

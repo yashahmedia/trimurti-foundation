@@ -39,7 +39,7 @@ export default function TrimurtiConnectLanding() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className={styles.eyebrow}>Trimurti Connect</p>
+          <p className={styles.eyebrow}>Trimurthi Connect</p>
           <h1>Building a Stronger Tomorrow Together</h1>
           <p className={styles.intro}>
             Through meaningful connections and collaborative efforts, we create

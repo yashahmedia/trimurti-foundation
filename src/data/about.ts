@@ -1,7 +1,7 @@
 export const about = {
   draft: true,
   introduction:
-    "We believe everyone deserves the chance to learn, be well, feel safe and belong. Trimurti Foundation brings people, care and opportunity closer to home.",
+    "We believe everyone deserves the chance to learn, be well, feel safe and belong. Trimurthi Foundation brings people, care and opportunity closer to home.",
   story:
     "A stronger community begins with people who care. Our purpose is to turn that care into practical support — connecting willing hands with the places they can make a difference. We aspire to work alongside communities, listening first and putting dignity at the heart of every step.",
   mission:

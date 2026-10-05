@@ -44,7 +44,7 @@ export default function TrimurtiFamily() {
         <div className="homepage-section-heading family-heading">
           <div>
             <p className="eyebrow">Ways to get involved</p>
-            <h2 id="family-title">Be Part of the Trimurti Family</h2>
+            <h2 id="family-title">Be Part of the Trimurthi Family</h2>
             <p>
               Together, we can create lasting change. Choose how you’d like to
               contribute and be a part of a kinder, stronger community.

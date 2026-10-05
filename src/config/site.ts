@@ -1,5 +1,5 @@
 export const site = {
-  name: "Trimurti Foundation",
+  name: "Trimurthi Foundation",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   description:
     "Bringing people, care and opportunity together for stronger communities.",

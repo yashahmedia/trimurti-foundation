@@ -17,7 +17,7 @@ export default function LatestUpdates({ items }: { items: FoundationUpdate[] }) 
             <p className="eyebrow">
               <Megaphone size={15} /> Latest updates
             </p>
-            <h2 id="latest-updates-title">What is happening at Trimurti</h2>
+            <h2 id="latest-updates-title">What is happening at Trimurthi Foundation</h2>
           </div>
           <Link href="/events" className="latest-updates-view-all">
             View all <ArrowUpRight size={15} />

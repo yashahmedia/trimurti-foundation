@@ -2,9 +2,9 @@ import TrimurtiConnectLanding from "@/components/community/TrimurtiConnectLandin
 import { seo } from "@/lib/seo";
 
 export const metadata = seo(
-  "Trimurti Connect",
+  "Trimurthi Connect",
   "/trimurti-connect",
-  "Connect with professionals and businesses to share expertise, build partnerships and create meaningful opportunities with Trimurti Foundation.",
+  "Connect with professionals and businesses to share expertise, build partnerships and create meaningful opportunities with Trimurthi Foundation.",
 );
 
 export default function Page() {

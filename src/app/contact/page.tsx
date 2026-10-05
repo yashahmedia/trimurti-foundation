@@ -18,7 +18,7 @@ import styles from "./contact.module.css";
 export const metadata = seo(
   "Contact Us",
   "/contact",
-  "Get in touch with Trimurti Foundation in Thrissur, Kerala. Ask a question, volunteer, explore a partnership or request support.",
+  "Get in touch with Trimurthi Foundation in Thrissur, Kerala. Ask a question, volunteer, explore a partnership or request support.",
 );
 
 type ContactCard = {
@@ -207,7 +207,7 @@ export default function ContactPage() {
                 <MapPin size={22} fill="currentColor" />
               </span>
               <span className={styles.mapLabel}>
-                <strong>Trimurti Foundation</strong>
+                <strong>Trimurthi Foundation</strong>
                 <span>Thrissur, Kerala</span>
               </span>
               <span className={styles.mapAction}>

@@ -453,10 +453,10 @@ export default function Header() {
 
       <div className="brand-header">
         <div className="container brand-header-inner">
-          <Link href="/" aria-label="Trimurti Foundation home" className="brand-logo-link">
+          <Link href="/" aria-label="Trimurthi Foundation home" className="brand-logo-link">
             <Image
               src={site.logo}
-              alt="Trimurti Foundation logo"
+              alt="Trimurthi Foundation logo"
               width={430}
               height={190}
               priority

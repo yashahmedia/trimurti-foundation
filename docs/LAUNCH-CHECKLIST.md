@@ -1,6 +1,6 @@
 ﻿# Required before public launch
 
-- Approved legal organization name (supplied logos spell “Trimurthi”; the brief uses “Trimurti”). Logos have been preserved exactly as supplied.
+- Public-facing foundation name: “Trimurthi Foundation”. Confirm legal registration documents use the same name before publishing legal claims; logos have been preserved exactly as supplied.
 - Actual domain and verified email, phone and address. The legacy source contains `hello@trimurtifoundation.org`, but no evidence that it is operational; it remains an unpublished configuration note.
 - Organization history, leadership names and approved message; the legacy “Since 2010” was unsupported and is not republished.
 - Registration details and actual certificates, including PAN, 12A, 80G, CSR or FCRA only where genuinely held; publish only appropriately redacted public copies.

@@ -10,7 +10,7 @@ import TrimurtiConnect from "@/components/sections/TrimurtiConnect";
 import TestimonialsSection from "@/components/sections/Testimonials";
 import OurPresence from "@/components/sections/OurPresence";
 import { seo } from "@/lib/seo";
-export const metadata = seo("Trimurti Foundation", "/");
+export const metadata = seo("Trimurthi Foundation", "/");
 export default function Home() {
   return (
     <>

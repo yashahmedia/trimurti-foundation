@@ -183,7 +183,7 @@ function KnowledgeDialog({
               <p>
                 Our team will review your details and contact you to understand
                 your experience, availability, preferred activities, and how
-                you can contribute to Trimurti Foundation.
+                you can contribute to Trimurthi Foundation.
               </p>
               <button
                 className={styles.done}
@@ -320,7 +320,7 @@ function KnowledgeDialog({
                 <label className={styles.consent} htmlFor="knowledge-consent">
                   <input id="knowledge-consent" name="consent" type="checkbox" required />
                   <span>
-                    I agree to be contacted by Trimurti Foundation regarding
+                    I agree to be contacted by Trimurthi Foundation regarding
                     knowledge-sharing and volunteering opportunities.
                   </span>
                 </label>

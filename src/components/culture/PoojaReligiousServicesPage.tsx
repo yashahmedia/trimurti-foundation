@@ -781,7 +781,7 @@ export default function PoojaReligiousServicesPage() {
                   <div className="donate-qr-image-frame">
                     <Image
                       src={donationQrImage}
-                      alt="Trimurti Foundation UPI payment QR code"
+                      alt="Trimurthi Foundation UPI payment QR code"
                       width={865}
                       height={1600}
                       sizes="240px"

@@ -17,7 +17,7 @@ export default function Footer() {
             src="/logo3.png"
             width={430}
             height={190}
-            alt="Trimurti Foundation"
+            alt="Trimurthi Foundation"
             className="footer-logo"
           />
           <p>
@@ -101,7 +101,7 @@ export default function Footer() {
       </div>
       <div className="container footer-bottom">
         <span>
-          © {new Date().getFullYear()} Trimurti Foundation. All rights reserved.
+          © {new Date().getFullYear()} Trimurthi Foundation. All rights reserved.
         </span>
         <div>
           <Link href="/privacy-policy">Privacy Policy</Link>

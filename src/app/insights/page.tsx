@@ -14,7 +14,7 @@ import styles from "./insights.module.css";
 export const metadata = seo(
   "Insights",
   "/insights",
-  "Explore Trimurti Foundation events, community initiatives and practical resources for creating lasting impact.",
+  "Explore Trimurthi Foundation events, community initiatives and practical resources for creating lasting impact.",
 );
 
 const events = [

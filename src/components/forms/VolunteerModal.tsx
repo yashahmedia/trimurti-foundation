@@ -189,7 +189,7 @@ function VolunteerDialog({
               </span>
               <h3>Thank You for Volunteering!</h3>
               <p>
-                Your interest in supporting Trimurti Foundation means a lot to
+                Your interest in supporting Trimurthi Foundation means a lot to
                 us. Your application details are ready; open your email app and
                 send the prepared message to complete your application.
               </p>
@@ -410,7 +410,7 @@ function VolunteerApplicationForm({
             {...register("consent")}
           />
           <span>
-            I agree to be contacted by Trimurti Foundation regarding
+            I agree to be contacted by Trimurthi Foundation regarding
             volunteering opportunities, events and related initiatives. *
           </span>
         </label>

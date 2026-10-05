@@ -16,7 +16,7 @@ import styles from "./donate.module.css";
 export const metadata = seo(
   "Transform a Life",
   "/donate",
-  "Discover meaningful ways to support Trimurti Foundation initiatives through giving, volunteering, sharing knowledge, or requesting support.",
+  "Discover meaningful ways to support Trimurthi Foundation initiatives through giving, volunteering, sharing knowledge, or requesting support.",
 );
 
 const impactAreas = [
@@ -84,7 +84,7 @@ export default function Page() {
       <section className={styles.hero} aria-labelledby="transform-life-title">
         <div className={styles.heroInner}>
           <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>Trimurti Foundation</span>
+            <span className={styles.eyebrow}>Trimurthi Foundation</span>
             <h1 id="transform-life-title">Transform a Life</h1>
             <p className={styles.heroLead}>Your support creates real change.</p>
             <p className={styles.heroText}>
@@ -237,7 +237,7 @@ export default function Page() {
               <h2 id="donation-title">Make your contribution</h2>
               <p>
                 Share your details and choose how you would like to support
-                Trimurti Foundation.
+                Trimurthi Foundation.
               </p>
             </header>
             <DonationForm />

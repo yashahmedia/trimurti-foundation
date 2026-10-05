@@ -51,7 +51,7 @@ export default function TrimurtiConnect() {
         <div className="homepage-section-heading connect-heading">
           <div>
             <p className="eyebrow">Skills that strengthen communities</p>
-            <h2 id="connect-title">Trimurti Connect</h2>
+            <h2 id="connect-title">Trimurthi Connect</h2>
             <p>
               Professionals and organisations can contribute in ways that go
               beyond donations.

@@ -31,7 +31,7 @@ const initiatives: Initiative[] = [
     shortTitle: "Education",
     description: "Opening doors to learning and opportunity.",
     image: "/education-support.png",
-    alt: "Children learning together through Trimurti Foundation support",
+    alt: "Children learning together through Trimurthi Foundation support",
     icon: BookOpenText,
   },
   {
@@ -39,7 +39,7 @@ const initiatives: Initiative[] = [
     shortTitle: "Healthcare",
     description: "Making compassionate care more accessible.",
     image: "/health support.png",
-    alt: "Community healthcare support from Trimurti Foundation",
+    alt: "Community healthcare support from Trimurthi Foundation",
     icon: HeartPulse,
   },
   {
@@ -55,7 +55,7 @@ const initiatives: Initiative[] = [
     shortTitle: "Elderly Care",
     description: "Companionship, care and dignity across generations.",
     image: "/elder support.png",
-    alt: "Trimurti Foundation elderly support initiative",
+    alt: "Trimurthi Foundation elderly support initiative",
     icon: HandHeart,
   },
   {
@@ -63,7 +63,7 @@ const initiatives: Initiative[] = [
     shortTitle: "Environment",
     description: "Greener, healthier and connected communities.",
     image: "/protect.png",
-    alt: "Trimurti Foundation community and environment welfare initiative",
+    alt: "Trimurthi Foundation community and environment welfare initiative",
     icon: Leaf,
   },
   {
@@ -71,7 +71,7 @@ const initiatives: Initiative[] = [
     shortTitle: "Culture",
     description: "Keeping shared traditions alive for generations.",
     image: "/heritage.png",
-    alt: "Cultural heritage preservation through Trimurti Foundation",
+    alt: "Cultural heritage preservation through Trimurthi Foundation",
     icon: Landmark,
   },
   {
@@ -116,7 +116,7 @@ export default function HeroSlider() {
   return (
     <section
       className={`initiative-hero${initiatives.length > 6 ? " has-expanded-initiative-grid" : ""}`}
-      aria-label="Trimurti Foundation initiatives"
+      aria-label="Trimurthi Foundation initiatives"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={(event) => {
@@ -135,7 +135,7 @@ export default function HeroSlider() {
           <p className="initiative-hero-eyebrow">Our initiatives</p>
           <h1>Serving communities. Preserving values.</h1>
           <p className="initiative-hero-intro">
-            Explore the areas where Trimurti Foundation is creating meaningful, lasting impact.
+            Explore the areas where Trimurthi Foundation is creating meaningful, lasting impact.
           </p>
 
           <div className="initiative-grid" role="tablist" aria-label="Choose an initiative">

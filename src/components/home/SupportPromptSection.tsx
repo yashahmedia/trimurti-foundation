@@ -14,7 +14,7 @@ export default function SupportPromptSection() {
           </p>
           <h2 id="support-prompt-title">We’re Here to Support You</h2>
           <p className={styles.description}>
-            Trimurti Foundation is dedicated to supporting individuals and
+            Trimurthi Foundation is dedicated to supporting individuals and
             communities in need. If you or someone you know needs assistance,
             reach out to us and our team will guide you through the next steps.
           </p>

@@ -126,7 +126,7 @@ export default async function Page({
             <div className="volunteer-hero-copy">
               <p className="volunteer-eyebrow">
                 <span aria-hidden="true" />
-                Volunteer with Trimurti
+                Volunteer with Trimurthi Foundation
               </p>
               <h1 id="volunteer-title">
                 Make a Difference

@@ -69,7 +69,7 @@ export default function AboutUsRedesign() {
         <div className={styles.heroOverlay} />
         <div className={styles.heroInner}>
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>About Trimurti Foundation</p>
+            <p className={styles.eyebrow}>About Trimurthi Foundation</p>
             <h1 id="about-hero-title">
               Connecting People.
               <br className={styles.heroBreak} />
@@ -86,7 +86,7 @@ export default function AboutUsRedesign() {
                 Discover Our Purpose <ArrowRight size={17} aria-hidden="true" />
               </Link>
               <Link className={styles.secondaryButton} href="/volunteer">
-                Join Trimurti Family
+                Join Trimurthi Family
               </Link>
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function AboutUsRedesign() {
             id="founders-title"
             eyebrow="Our Founders"
             title="Three Brothers. One Shared Purpose."
-            description="Trimurti Foundation was founded by three brothers united by the belief that communities grow stronger through compassion, purpose and collective responsibility."
+            description="Trimurthi Foundation was founded by three brothers united by the belief that communities grow stronger through compassion, purpose and collective responsibility."
             align="center"
           />
           <div className={styles.founderGrid}>
@@ -244,9 +244,9 @@ export default function AboutUsRedesign() {
         <div className={styles.container}>
           <SectionHeading
             id="connect-title"
-            eyebrow="Trimurti Connect"
+            eyebrow="Trimurthi Connect"
             title="Connecting People. Creating Opportunities."
-            description="Trimurti Connect is a community ecosystem bringing together professionals, entrepreneurs, service providers, volunteers and well-wishers."
+            description="Trimurthi Connect is a community ecosystem bringing together professionals, entrepreneurs, service providers, volunteers and well-wishers."
             theme="dark"
           />
           <div className={styles.connectGrid}>

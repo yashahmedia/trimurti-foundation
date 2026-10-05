@@ -19,7 +19,7 @@ type WhoWeAreCard = {
 
 const cards: WhoWeAreCard[] = [
   {
-    title: "About Trimurti Foundation",
+    title: "About Trimurthi Foundation",
     href: "/about-us#about-foundation",
     icon: Building2,
   },
@@ -60,7 +60,7 @@ export default function WhoWeAre() {
           <div className="who-we-are-image">
             <Image
               src="/trimurti_hero.png"
-              alt="Trimurti Foundation volunteers spending time with a child in their community"
+              alt="Trimurthi Foundation volunteers spending time with a child in their community"
               fill
               sizes="(max-width: 820px) 100vw, 46vw"
             />
@@ -73,7 +73,7 @@ export default function WhoWeAre() {
             <span>Who</span> we are
           </h2>
           <p className="who-we-are-intro">
-            The people, purpose, and principles behind Trimurti Foundation.
+            The people, purpose, and principles behind Trimurthi Foundation.
           </p>
           <div className="who-we-are-grid">
             {cards.map((card) => {

@@ -8,17 +8,17 @@ import { ArrowUpRight, Pause, Play } from "lucide-react";
 const pressCoverage = [
   {
     image: "/news%20paper.jpg",
-    alt: "Trimurti Foundation newspaper coverage",
+    alt: "Trimurthi Foundation newspaper coverage",
     label: "Newspaper coverage 1",
   },
   {
     image: "/news%20paper%202.jpg",
-    alt: "Trimurti Foundation newspaper coverage",
+    alt: "Trimurthi Foundation newspaper coverage",
     label: "Newspaper coverage 2",
   },
   {
     image: "/news%20paper%203.webp",
-    alt: "Trimurti Foundation newspaper coverage",
+    alt: "Trimurthi Foundation newspaper coverage",
     label: "Newspaper coverage 3",
   },
 ];
@@ -37,7 +37,7 @@ export default function OurPresence() {
             <p className="eyebrow">Shared with permission</p>
             <h2 id="presence-title">Our Presence</h2>
             <p>
-              Trimurti Foundation in the news. Explore our newspaper coverage.
+              Trimurthi Foundation in the news. Explore our newspaper coverage.
             </p>
           </div>
         </div>

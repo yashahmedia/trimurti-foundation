@@ -36,7 +36,7 @@ export default function DonationForm() {
   function downloadReceipt(form: HTMLFormElement) {
     const data = new FormData(form);
     const content = [
-      "TRIMURTI FOUNDATION — DONATION ACKNOWLEDGEMENT",
+      "TRIMURTHI FOUNDATION — DONATION ACKNOWLEDGEMENT",
       "",
       `Full Name: ${data.get("fullName")}`,
       `Email Address: ${data.get("email")}`,
@@ -47,14 +47,14 @@ export default function DonationForm() {
       `Message: ${data.get("message") || "—"}`,
       `Date: ${new Date().toLocaleString("en-IN")}`,
       "",
-      "Thank you for supporting Trimurti Foundation.",
+      "Thank you for supporting Trimurthi Foundation.",
     ].join("\n");
     const url = URL.createObjectURL(
       new Blob([content], { type: "text/plain;charset=utf-8" }),
     );
     const link = document.createElement("a");
     link.href = url;
-    link.download = "trimurti-foundation-donation-acknowledgement.txt";
+    link.download = "trimurthi-foundation-donation-acknowledgement.txt";
     link.click();
     URL.revokeObjectURL(url);
     setReceiptReady(true);
@@ -189,7 +189,7 @@ export default function DonationForm() {
             <div className="donation-qr-frame">
               <Image
                 src={donationQrImage}
-                alt="Trimurti Foundation UPI QR code"
+                alt="Trimurthi Foundation UPI QR code"
                 width={865}
                 height={1600}
                 className="donate-qr-image"

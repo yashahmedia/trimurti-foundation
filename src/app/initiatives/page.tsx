@@ -4,7 +4,7 @@ import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Our Initiatives",
   "/initiatives",
-  "Explore Trimurti Foundation’s initiatives across education, healthcare, nutrition, elderly care, environment and cultural heritage.",
+  "Explore Trimurthi Foundation’s initiatives across education, healthcare, nutrition, elderly care, environment and cultural heritage.",
 );
 
 export default function Page() {
