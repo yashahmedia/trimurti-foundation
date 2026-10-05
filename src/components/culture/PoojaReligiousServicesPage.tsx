@@ -1,11 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import {
   ArrowRight,
   BookOpen,
-  CalendarDays,
   Check,
   CheckCircle2,
   Coins,
@@ -147,70 +145,47 @@ const services: PoojaService[] = [
   },
 ];
 
-const trustItems = [
-  {
-    title: "Authentic Traditions",
-    description: "Respecting established customs and practices.",
-    Icon: Flower2,
-  },
-  {
-    title: "Thoughtful Coordination",
-    description: "Helping families organise important ceremonies with care.",
-    Icon: CalendarDays,
-  },
-  {
-    title: "Transparent Process",
-    description: "Clear communication regarding arrangements and applicable charges.",
-    Icon: ShieldCheck,
-  },
-  {
-    title: "Meaningful Occasions",
-    description: "Supporting families through important spiritual and cultural moments.",
-    Icon: HeartHandshake,
-  },
-];
-
 const otherCeremonyServices = [
   {
     title: "Grihapravesham / Housewarming",
     description: "Begin your new journey with a blessed and traditional Grihapravesham ceremony.",
-    image: "/shanti-puja.webp",
-    imageAlt: "Sacred kalash, diya, flowers and havan arranged for a Hindu pooja",
+    image: "/grihpravesh.jpg",
+    imageAlt: "A family performing a Grihapravesham havan in their decorated new home",
     Icon: Flower2,
   },
   {
     title: "Upanayanam",
     description: "A meaningful traditional ceremony arranged with care and devotion.",
-    image: "/Ganapathy-Homam.webp",
-    imageAlt: "Hindu homam taking place before Lord Ganesha with priests gathered around",
+    image: "/upanyanam.jpg",
+    imageAlt: "A boy with his family during a Hindu sacred-thread ceremony",
     Icon: Sparkles,
   },
   {
     title: "Marriage Ceremonies",
     description: "Complete wedding ceremony coordination with traditional rituals and arrangements.",
-    image: "/Swayamvara-Parvathi-Pooja.png",
-    imageAlt: "Devotional illustration of Lord Shiva and Goddess Parvathi",
+    image: "/marriage-ceremonies.jpg",
+    imageAlt: "A couple's hands joined during a traditional Hindu wedding ritual",
     Icon: HeartHandshake,
   },
   {
     title: "Shashtiapthapoorthi",
     description: "A sacred milestone ceremony celebrating a meaningful life journey.",
-    image: "/elder support.png",
-    imageAlt: "Older community members sharing a moment with younger family members",
+    image: "/Shashtiapthapoorthi.jpg",
+    imageAlt: "An elderly couple participating in a traditional South Indian milestone ceremony",
     Icon: HandHeart,
   },
   {
     title: "Bheema Ratha Shanti",
     description: "Traditional rituals performed for blessings, wellbeing and a peaceful new chapter.",
-    image: "/Maha-Mrityunjaya-Homam.jpg",
-    imageAlt: "A priest offers into a sacred homam fire in a Hindu temple",
+    image: "/Bheema Ratha Shanti.jpg",
+    imageAlt: "Priests and family members performing a Bheema Ratha Shanti havan",
     Icon: Flame,
   },
   {
     title: "Shatabhishekam",
     description: "A deeply meaningful traditional ceremony honouring longevity and blessings.",
-    image: "/pooja-service.png",
-    imageAlt: "A traditional Hindu pooja with a priest, sacred fire, flowers and lamps",
+    image: "/Shatabhishekam.jpg",
+    imageAlt: "A decorated kalash and flowers prepared for a traditional Shatabhishekam ceremony",
     Icon: ShieldCheck,
   },
 ];
@@ -482,8 +457,8 @@ export default function PoojaReligiousServicesPage() {
           <div className={styles.ancestralPanel}>
             <figure className={styles.ancestralImage}>
               <Image
-                src="/Temple&heritage.png"
-                alt="Traditional Hindu temple at sunset"
+                src="/ptra.jpg"
+                alt="A priest performing tarpanam at the river with traditional offerings"
                 fill
                 sizes="(max-width: 760px) 100vw, 42vw"
               />
@@ -508,87 +483,6 @@ export default function PoojaReligiousServicesPage() {
                 Apply for Ancestral Ritual <ArrowRight size={17} aria-hidden="true" />
               </button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.customSection} aria-labelledby="custom-title">
-        <div className={`${styles.container} ${styles.customLayout}`}>
-          <div className={styles.customCopy}>
-            <p className={styles.eyebrow}>Personal arrangements</p>
-            <h2 id="custom-title">Every Ceremony Is Unique</h2>
-            <p>
-              Each requirement is unique. Once we understand your requirements
-              and discuss the arrangements with you, we will provide the
-              applicable charges and other details. The service will proceed
-              upon your confirmation and agreement to the proposed arrangements
-              and charges.
-            </p>
-            <button
-              className={styles.buttonPrimary}
-              type="button"
-              onClick={startEnquiry}
-            >
-              Discuss Your Requirements <ArrowRight size={16} aria-hidden="true" />
-            </button>
-          </div>
-          <div className={styles.customAside} aria-hidden="true">
-            <div className={styles.customRule} />
-            <p>Thoughtfully arranged</p>
-            <span>with devotion</span>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.trustSection} aria-labelledby="trust-title">
-        <div className={styles.container}>
-          <header className={styles.trustHeader}>
-            <p className={styles.eyebrow}>A promise of care</p>
-            <h2 id="trust-title">Tradition With Care</h2>
-          </header>
-          <div className={styles.trustGrid}>
-            {trustItems.map(({ title, description, Icon }, index) => (
-              <article className={styles.trustItem} key={title}>
-                <span className={styles.trustIndex}>0{index + 1}</span>
-                <span className={styles.trustIcon} aria-hidden="true">
-                  <Icon size={23} strokeWidth={1.55} />
-                </span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.finalCta} aria-labelledby="final-title">
-        <Image
-          src="/pooja-service.png"
-          alt=""
-          fill
-          sizes="100vw"
-          className={styles.finalImage}
-          aria-hidden="true"
-        />
-        <div className={styles.finalOverlay} aria-hidden="true" />
-        <div className={styles.finalContent}>
-          <span className={styles.finalMotif} aria-hidden="true">
-            <Flame size={23} strokeWidth={1.3} />
-          </span>
-          <p className={styles.eyebrow}>With devotion and care</p>
-          <h2 id="final-title">Begin Your Sacred Occasion</h2>
-          <p>
-            Whether you are planning a pooja, homam, family ceremony or
-            traditional ritual, Trimurthi Foundation is here to help you
-            organise the occasion with care and devotion.
-          </p>
-          <div className={styles.finalActions}>
-            <a className={styles.buttonPrimary} href="#pooja-services">
-              Host a Pooja <ArrowRight size={16} aria-hidden="true" />
-            </a>
-            <Link className={styles.buttonSecondary} href="/contact">
-              Contact Us
-            </Link>
           </div>
         </div>
       </section>
