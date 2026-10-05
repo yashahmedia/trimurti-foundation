@@ -1,15 +1,12 @@
-import CultureFeaturePage from "@/components/culture/CultureFeaturePage";
-import { cultureFeaturePages } from "@/data/culture-feature-pages";
+import PoojaReligiousServicesPage from "@/components/culture/PoojaReligiousServicesPage";
 import { seo } from "@/lib/seo";
 
-const page = cultureFeaturePages["pooja-religious-service"];
-
 export const metadata = seo(
-  "Pooja & Religious Service | Culture & Heritage",
+  "Pooja & Religious Services | Culture & Heritage",
   "/services/culture-heritage/pooja-religious-service",
-  "View approved Pooja and religious-service information and send an enquiry to Trimurthi Foundation.",
+  "Traditional poojas, homams and religious ceremonies organised with care, coordination and respect for established customs and traditions.",
 );
 
 export default function Page() {
-  return <CultureFeaturePage page={page} />;
+  return <PoojaReligiousServicesPage />;
 }
