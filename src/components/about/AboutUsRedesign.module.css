@@ -1625,6 +1625,7 @@
   .missionCopy h3 { font-size: clamp(32px, 7vw, 42px); }
   .governanceImage { height: clamp(190px, 52vw, 260px); }
   .governanceIntro { gap: 26px; }
+  .governanceImage { width: 100%; }
   .principleJourney { margin-top: 32px; }
   .principleList { grid-template-columns: 1fr; }
   .principleItem { min-height: 94px; padding: 22px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
