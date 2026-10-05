@@ -45,6 +45,8 @@ type BookingDetails = {
   time: string;
   city: string;
   participants: string;
+  gotra: string;
+  nakshatra: string;
   notes: string;
   confirmed: boolean;
   utr: string;
@@ -220,6 +222,8 @@ const emptyDetails: BookingDetails = {
   time: "",
   city: "",
   participants: "1",
+  gotra: "",
+  nakshatra: "",
   notes: "",
   confirmed: false,
   utr: "",
@@ -753,6 +757,22 @@ export default function PoojaReligiousServicesPage() {
                     required
                     value={details.participants}
                     onChange={(event) => setDetails({ ...details, participants: event.target.value })}
+                  />
+                </label>
+                <label className={styles.field}>
+                  <span>Gotra (if known)</span>
+                  <input
+                    autoComplete="off"
+                    value={details.gotra}
+                    onChange={(event) => setDetails({ ...details, gotra: event.target.value })}
+                  />
+                </label>
+                <label className={styles.field}>
+                  <span>Nakshatra / Birth Star (if known)</span>
+                  <input
+                    autoComplete="off"
+                    value={details.nakshatra}
+                    onChange={(event) => setDetails({ ...details, nakshatra: event.target.value })}
                   />
                 </label>
                 <label className={`${styles.field} ${styles.fieldWide}`}>
