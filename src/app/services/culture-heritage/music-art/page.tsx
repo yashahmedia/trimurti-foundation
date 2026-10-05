@@ -1,8 +1,5 @@
-import CultureFeaturePage from "@/components/culture/CultureFeaturePage";
-import { cultureFeaturePages } from "@/data/culture-feature-pages";
+import MusicArtsPage from "@/components/culture/MusicArtsPage";
 import { seo } from "@/lib/seo";
-
-const page = cultureFeaturePages["music-art"];
 
 export const metadata = seo(
   "Music & Arts | Culture & Heritage",
@@ -11,5 +8,5 @@ export const metadata = seo(
 );
 
 export default function Page() {
-  return <CultureFeaturePage page={page} />;
+  return <MusicArtsPage />;
 }

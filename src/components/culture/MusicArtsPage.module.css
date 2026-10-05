@@ -1,0 +1,438 @@
+.page {
+  --dark: #35494e;
+  --dark-surface: #42585c;
+  --light: #fafaf7;
+  --ink: #172027;
+  --muted: #59636a;
+  --accent: #087f78;
+  --accent-hover: #066a64;
+  color: var(--ink);
+}
+
+.container {
+  width: min(1120px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(64px, 8vw, 108px) 0;
+  background:
+    radial-gradient(ellipse at 3% 100%, rgba(114, 186, 171, 0.18), transparent 42%),
+    repeating-linear-gradient(135deg, transparent 0 46px, rgba(255, 255, 255, 0.012) 47px 48px),
+    linear-gradient(112deg, #35494e 0%, #4b625f 52%, #3d535d 100%);
+  color: #fff;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+  align-items: center;
+  gap: clamp(38px, 7vw, 88px);
+}
+
+.heroCopy {
+  animation: enter 650ms ease-out both;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #6cbab0;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.heroCopy h1 {
+  max-width: 650px;
+  margin: 19px 0 0;
+  color: #fff;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(42px, 5.1vw, 68px);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.06;
+}
+
+.heroDescription {
+  max-width: 640px;
+  margin: 22px 0 0;
+  color: #e0e7e5;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.discoverLink {
+  display: grid;
+  justify-items: start;
+  gap: 6px;
+  margin-top: 25px;
+  color: #e0e7e5;
+  font-size: 13px;
+}
+
+.discoverLink a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #7fc9be;
+  font-size: 15px;
+  font-weight: 650;
+  text-underline-offset: 5px;
+}
+
+.discoverLink a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.discoverLink a:focus-visible,
+.primaryButton:focus-visible,
+.submitButton:focus-visible,
+.formStatus a:focus-visible {
+  outline: 3px solid #83d2c7;
+  outline-offset: 4px;
+}
+
+.heroImage {
+  position: relative;
+  min-height: 450px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 5px 5px 5px 64px;
+  background: var(--dark-surface);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.25);
+  animation: enter 750ms 100ms ease-out both;
+}
+
+.heroImage::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgba(16, 24, 32, 0.22));
+  content: "";
+  pointer-events: none;
+}
+
+.heroImage img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.ctaSection {
+  padding: clamp(66px, 8vw, 100px) 0;
+  background: var(--light);
+}
+
+.ctaCard {
+  width: min(820px, 100%);
+  margin-inline: auto;
+  padding: clamp(30px, 5.5vw, 58px);
+  border: 1px solid #e5e8e3;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 16px 44px rgba(23, 32, 39, 0.055);
+  text-align: center;
+  animation: enter 600ms 160ms ease-out both;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.ctaCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 21px 50px rgba(23, 32, 39, 0.09);
+}
+
+.ctaCard .eyebrow,
+.formIntro .eyebrow {
+  color: var(--accent);
+}
+
+.ctaCard h2,
+.formIntro h2 {
+  margin: 11px 0 0;
+  font-size: clamp(29px, 3.5vw, 42px);
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.14;
+}
+
+.ctaCard > p:not(.eyebrow) {
+  max-width: 600px;
+  margin: 15px auto 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.primaryButton {
+  display: flex;
+  width: 100%;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 27px;
+  padding: 14px 22px;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  background: var(--accent-hover);
+  box-shadow: 0 9px 22px rgba(8, 127, 120, 0.2);
+}
+
+.formSection {
+  padding: clamp(66px, 8vw, 102px) 0;
+  background:
+    radial-gradient(ellipse at 95% 0%, rgba(131, 194, 177, 0.16), transparent 34%),
+    linear-gradient(125deg, #3c5357 0%, #506863 48%, #3b505b 100%);
+  color: #fff;
+  scroll-margin-top: 32px;
+}
+
+.formIntro {
+  width: min(680px, 100%);
+  margin: 0 auto 32px;
+  text-align: center;
+  animation: enter 600ms ease-out both;
+}
+
+.formIntro h2 {
+  color: #fff;
+}
+
+.formIntro > p:last-child {
+  margin: 14px auto 0;
+  color: #e0e7e5;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.formCard {
+  width: min(900px, 100%);
+  margin-inline: auto;
+  padding: clamp(24px, 4.5vw, 48px);
+  border: 1px solid #e7eae6;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+  color: var(--ink);
+  animation: enter 700ms 100ms ease-out both;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 20px;
+}
+
+.field {
+  display: grid;
+  min-width: 0;
+  gap: 7px;
+}
+
+.fieldWide {
+  grid-column: 1 / -1;
+}
+
+.fieldLabel {
+  color: #253239;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.fieldLabel > span {
+  margin-left: 3px;
+  color: var(--accent);
+}
+
+.fieldHint {
+  color: #727d82;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 49px;
+  padding: 12px 14px;
+  border: 1px solid #d9dfdd;
+  border-radius: 4px;
+  outline: none;
+  background: #fcfdfc;
+  color: #172027;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #899398;
+}
+
+.field select {
+  color: #364248;
+}
+
+.field textarea {
+  min-height: 168px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(8, 127, 120, 0.12);
+}
+
+.submitButton {
+  display: flex;
+  width: 100%;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+  padding: 13px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  background: var(--accent-hover);
+  box-shadow: 0 9px 22px rgba(8, 127, 120, 0.2);
+}
+
+.formStatus {
+  margin-top: 20px;
+  padding: 16px 18px;
+  border: 1px solid #cae3de;
+  border-radius: 4px;
+  background: #f0f8f6;
+  color: #24443f;
+}
+
+.formStatus p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.formStatus a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 8px;
+  color: var(--accent-hover);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroCopy {
+    max-width: 700px;
+  }
+
+  .heroImage {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    width: min(100% - 40px, 480px);
+  }
+
+  .hero {
+    padding: 58px 0 64px;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(38px, 10vw, 48px);
+  }
+
+  .heroDescription {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .heroImage {
+    min-height: 300px;
+    border-bottom-left-radius: 42px;
+  }
+
+  .ctaCard {
+    padding: 29px 22px;
+  }
+
+  .formGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .fieldWide {
+    grid-column: auto;
+  }
+
+  .formCard {
+    padding: 23px 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroCopy,
+  .heroImage,
+  .ctaCard,
+  .formIntro,
+  .formCard {
+    animation: none;
+  }
+
+  .ctaCard,
+  .primaryButton,
+  .submitButton {
+    transition: none;
+  }
+}
