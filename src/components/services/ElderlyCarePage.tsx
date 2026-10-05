@@ -17,6 +17,7 @@ import {
 import CultureReveal from "@/components/culture/CultureReveal";
 import InitiativesBanner from "@/components/services/InitiativesBanner";
 import InitiativeApproachSection from "@/components/services/InitiativeApproachSection";
+import RequestSupportCta from "@/components/services/RequestSupportCta";
 
 const initiatives = [
   {
@@ -205,6 +206,7 @@ export default function ElderlyCarePage() {
         </div>
       </section>
 
+      <RequestSupportCta />
 
       <section
         className="healthcare-initiative-strip"
