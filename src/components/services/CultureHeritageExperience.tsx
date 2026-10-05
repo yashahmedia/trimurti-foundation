@@ -1,8 +1,10 @@
 import Image from "next/image";
-import { HeartHandshake } from "lucide-react";
+import { HeartHandshake, Landmark } from "lucide-react";
+import CultureReveal from "@/components/culture/CultureReveal";
 import CultureHeritageShowcase from "@/components/culture/CultureHeritageShowcase";
-import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
 import RequestSupportCta from "@/components/services/RequestSupportCta";
+import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
+import contentStyles from "./CultureHeritageContent.module.css";
 import styles from "./CultureHeritageExperience.module.css";
 
 export default function CultureHeritageExperience() {
@@ -36,92 +38,88 @@ export default function CultureHeritageExperience() {
       </section>
 
       <RequestSupportCta />
-      <CultureHeritageShowcase />
 
-      <section className={styles.whySection} aria-labelledby="why-culture-title">
-        <div className={styles.whyLayout}>
-          <div className={styles.whyHeading}>
-            <span className={styles.sectionMarker} aria-hidden="true">01</span>
-            <h2 id="why-culture-title">Why Culture and Heritage Matters</h2>
-          </div>
-          <div className={styles.whyStory}>
-            <p className={styles.darkCopy}>
-              Culture and heritage are the foundation of our identity,
-              connecting us to our history, traditions, values and communities.
-              Our rich cultural heritage reflects the stories, knowledge, art,
-              customs and traditions passed down through generations. At
-              Trimurthi Foundation, we believe that preserving and celebrating
-              our cultural heritage helps strengthen our connection with our
-              roots while inspiring future generations to value and carry
-              forward our traditions. Through our initiatives, we aim to promote
-              cultural awareness, encourage community participation and
-              contribute towards the preservation of our shared heritage.
-            </p>
-            <blockquote className={styles.quote}>
-              <HeartHandshake size={25} strokeWidth={1.6} aria-hidden="true" />
+      <section className={contentStyles.whySection} aria-labelledby="why-culture-title">
+        <Landmark className={contentStyles.heritageWatermark} aria-hidden="true" />
+        <div className={contentStyles.whyLayout}>
+          <CultureReveal className={contentStyles.whyHeading}>
+            <h2 id="why-culture-title">Why Culture &amp; Heritage Matters</h2>
+          </CultureReveal>
+          <CultureReveal className={contentStyles.whyStory} delay={0.08}>
+            <div className={contentStyles.whyParagraphs}>
               <p>
-                &quot;When we preserve our heritage, we preserve the stories,
-                values and traditions that connect generations and shape our
-                identity.&quot;
+                India&apos;s heritage is a vast living tradition shaped by knowledge,
+                music, dance, literature, spirituality, temples, festivals, values
+                and ways of life passed down through generations.
+              </p>
+              <p>
+                In a rapidly changing world, many traditional practices and forms
+                of knowledge face the risk of being forgotten or losing their
+                connection with younger generations. Preserving our heritage
+                therefore means more than remembering the past — it means helping
+                future generations understand, experience and carry forward what
+                is valuable.
+              </p>
+              <p>
+                At Trimurthi Foundation, we aim to create opportunities to
+                celebrate our arts, support our heritage institutions, share
+                traditional knowledge and keep India&apos;s cultural and
+                civilisational values alive.
+              </p>
+            </div>
+            <blockquote className={contentStyles.quote}>
+              <HeartHandshake size={24} strokeWidth={1.6} aria-hidden="true" />
+              <p>
+                “When we preserve our heritage, we give future generations a
+                connection to where they came from and a foundation for where
+                they can go.”
               </p>
             </blockquote>
-          </div>
+          </CultureReveal>
         </div>
       </section>
 
-      <section className={styles.supportSection} aria-labelledby="support-title">
-        <div className={styles.supportShell}>
-          <div className={styles.supportCopy}>
+      <section className={contentStyles.supportSection} aria-labelledby="support-title">
+        <CultureReveal className={contentStyles.supportShell}>
+          <div className={contentStyles.supportCopy}>
             <h2 id="support-title">Your Support Can Make a Difference</h2>
-            <h3>Every Effort to Preserve Heritage Matters</h3>
-            <p>
-              Supporting culture and heritage initiatives is not only about
-              preserving the past; it is about keeping our traditions meaningful
-              and alive for future generations. Your contribution, however
-              small, can help support cultural activities, traditional arts,
-              community celebrations and initiatives that promote awareness of
-              our rich heritage. By coming together, we can encourage younger
-              generations to learn about their cultural roots and ensure that
-              valuable traditions, knowledge and artistic expressions continue
-              to flourish.
-            </p>
+            <h3>Every Tradition Preserved Is a Legacy Passed Forward</h3>
+            <div className={contentStyles.supportParagraphs}>
+              <p>
+                Supporting culture and heritage may not always create an
+                immediate visible change, but its impact can last for
+                generations.
+              </p>
+              <p>
+                Your contribution can help a young artist continue learning,
+                support a traditional art form, contribute towards the
+                preservation of a heritage temple or help make India&apos;s
+                traditional knowledge accessible to someone who may otherwise
+                never encounter it.
+              </p>
+              <p>
+                A small act of support today can help keep a song, a dance, a
+                story, a tradition or a piece of knowledge alive for tomorrow.
+              </p>
+              <p>
+                Together, we can help ensure that the richness of our heritage
+                continues to be experienced, understood and valued by
+                generations to come.
+              </p>
+            </div>
           </div>
-          <figure className={styles.supportImage}>
+          <figure className={contentStyles.supportImage}>
             <Image
               src="/heritage.png"
-              alt="A community sharing traditional dance, music and pottery in a historic courtyard"
+              alt="Traditional dance, music and pottery being shared in a temple courtyard"
               fill
               sizes="(max-width: 760px) 100vw, (max-width: 1100px) 42vw, 34vw"
             />
           </figure>
-        </div>
+        </CultureReveal>
       </section>
 
-      <section className={styles.impactSection} aria-labelledby="impact-title">
-        <div className={styles.impactLayout}>
-          <div className={styles.impactLead}>
-            <span className={styles.impactRule} aria-hidden="true" />
-            <h2 id="impact-title">How Trimurthi Foundation Creates Impact</h2>
-            <h3>Preserving Traditions Through Meaningful Cultural Initiatives</h3>
-          </div>
-          <div className={styles.impactStory}>
-            <p>
-              Trimurthi Foundation aims to create meaningful initiatives that
-              promote cultural awareness and contribute towards the preservation
-              of our rich heritage. Our efforts include supporting cultural
-              activities, traditional arts and crafts, heritage awareness
-              programmes and community events that bring people together.
-              Through our initiatives, we strive to celebrate diversity,
-              encourage respect for different traditions and create
-              opportunities for communities to share their cultural knowledge
-              with future generations. We believe that by preserving our
-              heritage and celebrating our cultural identity, we can build
-              stronger communities while keeping our traditions alive for
-              generations to come.
-            </p>
-          </div>
-        </div>
-      </section>
+      <CultureHeritageShowcase />
     </div>
   );
 }

@@ -25,24 +25,23 @@ export type CultureFeaturePageData = {
 
 export const cultureFeaturePages = {
   "music-art": {
-    title: "Music & Art",
+    title: "Music & Arts",
     eyebrow: "Culture & Heritage",
-    description:
-      "Information about Music & Art, including Vasantha Utsavam. Programme details are being confirmed with the client.",
+    description: "Celebrating Talent. Inspiring Generations.",
     image: "/preserve.png",
     imageAlt: "Traditional Indian cultural performance",
     sections: [
       {
         title: "Vasantha Utsavam",
         description:
-          "The approved event description, programme, date, venue and participation information are to be supplied by the client.",
+          "Trimurthi Foundation has been conducting Vasantha Utsavam, a music and dance festival in Dubai, since 2015, celebrating India's rich artistic traditions. Over the years, the festival has welcomed renowned maestros and accomplished artistes, while providing a platform for emerging talent to showcase their abilities through performances, concerts and workshops. Through Vasantha Utsavam, we aim to nurture the next generation of artists, encourage learning and collaboration, and keep India's musical and dance traditions alive for generations to come.",
         image: "/preserve.png",
         imageAlt: "Traditional Indian cultural performance",
       },
     ],
     externalLink: {
-      label: "Visit Vasantha Utsavam",
-      href: "https://vasanthautsavam.com/",
+      label: "www.vasanthautsavam.com",
+      href: "https://www.vasanthautsavam.com",
     },
     form: {
       kind: "contact",

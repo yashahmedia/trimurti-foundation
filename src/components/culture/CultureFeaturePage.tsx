@@ -71,14 +71,13 @@ export default function CultureFeaturePage({
 
           {page.externalLink && (
             <aside className={styles.clientNote} aria-label="Website link status">
-              <strong>Vasantha Utsavam official website</strong>
+              <p>Discover more about Vasantha Utsavam:</p>
               <a
                 href={page.externalLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {page.externalLink.label}
-                <ArrowRight size={16} aria-hidden="true" />
               </a>
             </aside>
           )}

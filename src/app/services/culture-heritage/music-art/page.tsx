@@ -5,9 +5,9 @@ import { seo } from "@/lib/seo";
 const page = cultureFeaturePages["music-art"];
 
 export const metadata = seo(
-  "Music & Art | Culture & Heritage",
+  "Music & Arts | Culture & Heritage",
   "/services/culture-heritage/music-art",
-  "Information about Music & Art and Vasantha Utsavam. Event details and the official website link are pending client confirmation.",
+  "Discover Vasantha Utsavam, a music and dance festival in Dubai celebrating India's musical and dance traditions since 2015.",
 );
 
 export default function Page() {
