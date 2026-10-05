@@ -1,11 +1,11 @@
 .page {
-  --dark: #35494e;
-  --dark-surface: #42585c;
-  --light: #fafaf7;
-  --ink: #172027;
-  --muted: #59636a;
-  --accent: #087f78;
-  --accent-hover: #066a64;
+  --dark: #68252e;
+  --dark-surface: #8b3640;
+  --light: #fff7e7;
+  --ink: #2d211f;
+  --muted: #675653;
+  --accent: #b83c4a;
+  --accent-hover: #922d3a;
   color: var(--ink);
 }
 
@@ -19,9 +19,10 @@
   overflow: hidden;
   padding: clamp(64px, 8vw, 108px) 0;
   background:
-    radial-gradient(ellipse at 3% 100%, rgba(114, 186, 171, 0.18), transparent 42%),
-    repeating-linear-gradient(135deg, transparent 0 46px, rgba(255, 255, 255, 0.012) 47px 48px),
-    linear-gradient(112deg, #35494e 0%, #4b625f 52%, #3d535d 100%);
+    radial-gradient(ellipse at 3% 100%, rgba(255, 190, 75, 0.24), transparent 42%),
+    radial-gradient(ellipse at 91% 0%, rgba(239, 123, 57, 0.2), transparent 38%),
+    repeating-linear-gradient(135deg, transparent 0 46px, rgba(255, 248, 232, 0.025) 47px 48px),
+    linear-gradient(112deg, #742b35 0%, #ad463e 52%, #cf7137 100%);
   color: #fff;
 }
 
@@ -38,7 +39,7 @@
 
 .eyebrow {
   margin: 0;
-  color: #6cbab0;
+  color: #ffdc87;
   font-size: 11px;
   font-weight: 750;
   letter-spacing: 0.18em;
@@ -60,7 +61,7 @@
 .heroDescription {
   max-width: 640px;
   margin: 22px 0 0;
-  color: #e0e7e5;
+  color: #fff0dd;
   font-size: 15px;
   line-height: 1.85;
 }
@@ -70,7 +71,7 @@
   justify-items: start;
   gap: 6px;
   margin-top: 25px;
-  color: #e0e7e5;
+  color: #fff0dd;
   font-size: 13px;
 }
 
@@ -78,7 +79,7 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: #7fc9be;
+  color: #ffdb7e;
   font-size: 15px;
   font-weight: 650;
   text-underline-offset: 5px;
@@ -93,7 +94,7 @@
 .primaryButton:focus-visible,
 .submitButton:focus-visible,
 .formStatus a:focus-visible {
-  outline: 3px solid #83d2c7;
+  outline: 3px solid #ffd875;
   outline-offset: 4px;
 }
 
@@ -101,7 +102,7 @@
   position: relative;
   min-height: 450px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 220, 135, 0.44);
   border-radius: 5px 5px 5px 64px;
   background: var(--dark-surface);
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.25);
@@ -111,7 +112,7 @@
 .heroImage::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 65%, rgba(16, 24, 32, 0.22));
+  background: linear-gradient(180deg, transparent 65%, rgba(67, 25, 30, 0.3));
   content: "";
   pointer-events: none;
 }
@@ -123,17 +124,19 @@
 
 .ctaSection {
   padding: clamp(66px, 8vw, 100px) 0;
-  background: var(--light);
+  background:
+    radial-gradient(ellipse at 5% 12%, rgba(238, 158, 54, 0.14), transparent 36%),
+    linear-gradient(135deg, #fff9ea 0%, #fff0d6 52%, #fff8eb 100%);
 }
 
 .ctaCard {
   width: min(820px, 100%);
   margin-inline: auto;
   padding: clamp(30px, 5.5vw, 58px);
-  border: 1px solid #e5e8e3;
+  border: 1px solid #ead9b9;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 16px 44px rgba(23, 32, 39, 0.055);
+  box-shadow: 0 16px 44px rgba(88, 49, 34, 0.08);
   text-align: center;
   animation: enter 600ms 160ms ease-out both;
   transition: transform 220ms ease, box-shadow 220ms ease;
@@ -141,13 +144,11 @@
 
 .ctaCard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 21px 50px rgba(23, 32, 39, 0.09);
+  box-shadow: 0 21px 50px rgba(129, 57, 44, 0.13);
 }
 
-.ctaCard .eyebrow,
-.formIntro .eyebrow {
-  color: var(--accent);
-}
+.ctaCard .eyebrow { color: var(--accent); }
+.formIntro .eyebrow { color: #ffdc87; }
 
 .ctaCard h2,
 .formIntro h2 {
@@ -187,14 +188,15 @@
 .primaryButton:hover {
   transform: translateY(-2px);
   background: var(--accent-hover);
-  box-shadow: 0 9px 22px rgba(8, 127, 120, 0.2);
+  box-shadow: 0 9px 22px rgba(184, 60, 74, 0.22);
 }
 
 .formSection {
   padding: clamp(66px, 8vw, 102px) 0;
   background:
-    radial-gradient(ellipse at 95% 0%, rgba(131, 194, 177, 0.16), transparent 34%),
-    linear-gradient(125deg, #3c5357 0%, #506863 48%, #3b505b 100%);
+    radial-gradient(ellipse at 95% 0%, rgba(255, 193, 83, 0.2), transparent 34%),
+    radial-gradient(ellipse at 5% 100%, rgba(226, 101, 73, 0.19), transparent 38%),
+    linear-gradient(125deg, #762934 0%, #ad3e43 48%, #c96536 100%);
   color: #fff;
   scroll-margin-top: 32px;
 }
@@ -212,7 +214,7 @@
 
 .formIntro > p:last-child {
   margin: 14px auto 0;
-  color: #e0e7e5;
+  color: #fff0dd;
   font-size: 15px;
   line-height: 1.75;
 }
@@ -221,10 +223,10 @@
   width: min(900px, 100%);
   margin-inline: auto;
   padding: clamp(24px, 4.5vw, 48px);
-  border: 1px solid #e7eae6;
+  border: 1px solid #ead8bc;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 24px 60px rgba(64, 23, 25, 0.2);
   color: var(--ink);
   animation: enter 700ms 100ms ease-out both;
 }
@@ -298,7 +300,7 @@
 .field textarea:focus {
   border-color: var(--accent);
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(8, 127, 120, 0.12);
+  box-shadow: 0 0 0 3px rgba(184, 60, 74, 0.13);
 }
 
 .submitButton {
@@ -324,7 +326,7 @@
 .submitButton:hover {
   transform: translateY(-2px);
   background: var(--accent-hover);
-  box-shadow: 0 9px 22px rgba(8, 127, 120, 0.2);
+  box-shadow: 0 9px 22px rgba(184, 60, 74, 0.22);
 }
 
 .formStatus {
