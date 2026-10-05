@@ -74,9 +74,9 @@ export default function AboutUsRedesign() {
             <h1 id="about-hero-title">
               Connecting People.
               <br className={styles.heroBreak} />
-              Serving Humanity.
+              {" "}Serving Humanity.
               <br className={styles.heroBreak} />
-              <span>Transforming Lives.</span>
+              {" "}<span>Transforming Lives.</span>
             </h1>
             <p className={styles.heroDescription}>
               Building a compassionate, connected and empowered community where
