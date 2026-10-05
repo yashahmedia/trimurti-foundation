@@ -17,7 +17,12 @@ export default function TrimurthyPhilosophy() {
             <h2 id="philosophy-title">
               <span>The Trimurthy</span> Philosophy
             </h2>
-            <p>Five principles that guide our purpose, people and impact.</p>
+            <p className="philosophy-subtitle">
+              <strong>The 5&apos;Es</strong>
+            </p>
+            <p className="philosophy-tagline">
+              Five principles that guide our purpose, people and impact.
+            </p>
             <span className="philosophy-divider" aria-hidden="true" />
           </header>
         </Reveal>

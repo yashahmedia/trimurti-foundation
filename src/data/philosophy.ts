@@ -20,7 +20,7 @@ export const philosophyItems: PhilosophyItem[] = [
     title: "Engage",
     description:
       "Build stronger communities through active participation, collaboration and meaningful connection.",
-    image: "/engage-current-202609281559.png",
+    image: "/enagage.png",
     alt: "Community members sharing ideas in a group discussion",
     icon: Users,
   },
@@ -28,7 +28,7 @@ export const philosophyItems: PhilosophyItem[] = [
     title: "Empower",
     description:
       "Create opportunities that give individuals the confidence, support and resources to thrive.",
-    image: "/empower.png",
+    image: "/5es4.png",
     alt: "A team joining hands to show unity and mutual support",
     icon: HandHeart,
   },
@@ -36,7 +36,7 @@ export const philosophyItems: PhilosophyItem[] = [
     title: "Elevate",
     description:
       "Enable better access to education, healthcare and essential resources for a better quality of life.",
-    image: "/elevate.png",
+    image: "/Philosophy3.png",
     alt: "Students taking part in a hands-on science learning activity",
     icon: TrendingUp,
   },
@@ -44,7 +44,7 @@ export const philosophyItems: PhilosophyItem[] = [
     title: "Evolve",
     description:
       "Encourage continuous growth, learning and positive transformation for a stronger tomorrow.",
-    image: "/evolve-current-202609281559.png",
+    image: "/5es2.png",
     alt: "School children learning and experimenting together",
     icon: RefreshCw,
   },
@@ -52,7 +52,7 @@ export const philosophyItems: PhilosophyItem[] = [
     title: "Enlighten",
     description:
       "Spread awareness, inspire positive change and guide communities with knowledge and purpose.",
-    image: "/enlighten-current-202609281559.png",
+    image: "/5es1.png",
     alt: "Women learning skills together in a community workshop",
     icon: BookOpen,
   },
