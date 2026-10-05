@@ -50,23 +50,6 @@ export default function MusicArtsPage() {
         </div>
       </section>
 
-      <section className={styles.ctaSection} aria-labelledby="festival-cta-title">
-        <div className={styles.container}>
-          <article className={styles.ctaCard}>
-            <p className={styles.eyebrow}>Vasantha Utsavam</p>
-            <h2 id="festival-cta-title">Be Part of Vasantha Utsavam</h2>
-            <p>
-              Are you a musician, dancer, performing artist or teacher
-              interested in performing or conducting a workshop?
-            </p>
-            <a className={styles.primaryButton} href="#artist-interest-form">
-              Express Your Interest
-              <ArrowRight size={19} aria-hidden="true" />
-            </a>
-          </article>
-        </div>
-      </section>
-
       <section
         className={styles.formSection}
         id="artist-interest-form"
