@@ -3,7 +3,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   description:
     "Bringing people, care and opportunity together for stronger communities.",
-  logo: "/logo5.jpeg",
+  logo: "/logo.png",
   email: "hello@trimurtifoundation.org",
   phone: "+91 98765 43210",
   address: "Thrissur, Kerala, India",
