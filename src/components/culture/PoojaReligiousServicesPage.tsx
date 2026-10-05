@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowDown,
   ArrowRight,
   BookOpen,
   CalendarDays,
@@ -148,24 +147,6 @@ const services: PoojaService[] = [
   },
 ];
 
-const highlights = [
-  {
-    title: "Traditional Practices",
-    description: "Authentic rituals rooted in established traditions.",
-    Icon: Flower2,
-  },
-  {
-    title: "Thoughtful Coordination",
-    description: "Careful planning and coordination for every ceremony.",
-    Icon: CalendarDays,
-  },
-  {
-    title: "Family & Community",
-    description: "Supporting individuals and families during meaningful occasions.",
-    Icon: HandHeart,
-  },
-];
-
 const trustItems = [
   {
     title: "Authentic Traditions",
@@ -189,13 +170,49 @@ const trustItems = [
   },
 ];
 
-const familyCeremonies = [
-  "Grihapravesham / Housewarming",
-  "Upanayanam",
-  "Marriage Ceremonies",
-  "Shashtiapthapoorthi",
-  "Bheema Ratha Shanti",
-  "Shatabhishekam",
+const otherCeremonyServices = [
+  {
+    title: "Grihapravesham / Housewarming",
+    description: "Begin your new journey with a blessed and traditional Grihapravesham ceremony.",
+    image: "/shanti-puja.webp",
+    imageAlt: "Sacred kalash, diya, flowers and havan arranged for a Hindu pooja",
+    Icon: Flower2,
+  },
+  {
+    title: "Upanayanam",
+    description: "A meaningful traditional ceremony arranged with care and devotion.",
+    image: "/Ganapathy-Homam.webp",
+    imageAlt: "Hindu homam taking place before Lord Ganesha with priests gathered around",
+    Icon: Sparkles,
+  },
+  {
+    title: "Marriage Ceremonies",
+    description: "Complete wedding ceremony coordination with traditional rituals and arrangements.",
+    image: "/Swayamvara-Parvathi-Pooja.png",
+    imageAlt: "Devotional illustration of Lord Shiva and Goddess Parvathi",
+    Icon: HeartHandshake,
+  },
+  {
+    title: "Shashtiapthapoorthi",
+    description: "A sacred milestone ceremony celebrating a meaningful life journey.",
+    image: "/elder support.png",
+    imageAlt: "Older community members sharing a moment with younger family members",
+    Icon: HandHeart,
+  },
+  {
+    title: "Bheema Ratha Shanti",
+    description: "Traditional rituals performed for blessings, wellbeing and a peaceful new chapter.",
+    image: "/Maha-Mrityunjaya-Homam.jpg",
+    imageAlt: "A priest offers into a sacred homam fire in a Hindu temple",
+    Icon: Flame,
+  },
+  {
+    title: "Shatabhishekam",
+    description: "A deeply meaningful traditional ceremony honouring longevity and blessings.",
+    image: "/pooja-service.png",
+    imageAlt: "A traditional Hindu pooja with a priest, sacred fire, flowers and lamps",
+    Icon: ShieldCheck,
+  },
 ];
 
 const ancestralCeremonies = [
@@ -245,6 +262,7 @@ export default function PoojaReligiousServicesPage() {
   const [selectedService, setSelectedService] = useState<PoojaService | null>(
     null,
   );
+  const [enquirySubject, setEnquirySubject] = useState("");
   const [details, setDetails] = useState<BookingDetails>(emptyDetails);
   const [screenshot, setScreenshot] = useState<File | null>(null);
   const [copiedDetail, setCopiedDetail] = useState<string | null>(null);
@@ -263,14 +281,16 @@ export default function PoojaReligiousServicesPage() {
 
   function startBooking(service: PoojaService) {
     setSelectedService(service);
+    setEnquirySubject("");
     setDetails(emptyDetails);
     setScreenshot(null);
     setDialogStep("details");
     setDialogMode("booking");
   }
 
-  function startEnquiry() {
+  function startEnquiry(subject = "") {
     setSelectedService(null);
+    setEnquirySubject(subject);
     setDetails(emptyDetails);
     setScreenshot(null);
     setDialogStep("details");
@@ -334,14 +354,6 @@ export default function PoojaReligiousServicesPage() {
               traditional poojas, homams and religious ceremonies with care,
               coordination and respect for established customs and traditions.
             </p>
-            <div className={styles.heroActions}>
-              <a className={styles.buttonPrimary} href="#pooja-services">
-                Explore Pooja Services <ArrowDown size={16} aria-hidden="true" />
-              </a>
-              <a className={styles.buttonSecondary} href="#pooja-services">
-                Host a Pooja <ArrowRight size={16} aria-hidden="true" />
-              </a>
-            </div>
             <p className={styles.heroNote}>
               <span aria-hidden="true" /> Arrangements made with care and respect
             </p>
@@ -366,47 +378,13 @@ export default function PoojaReligiousServicesPage() {
         </span>
       </section>
 
-      <section className={styles.introduction} aria-labelledby="intro-title">
-        <div className={styles.container}>
-          <div className={styles.introHeading}>
-            <p className={styles.eyebrow}>A moment held with meaning</p>
-            <h2 id="intro-title">Sacred Traditions. Meaningful Occasions.</h2>
-            <span className={styles.divider} aria-hidden="true">
-              <i />
-              <span>✦</span>
-              <i />
-            </span>
-            <p className={styles.introDescription}>
-              Our Pooja &amp; Religious Services are designed to help individuals
-              and families organise important spiritual ceremonies with ease,
-              while preserving the traditional significance and devotional
-              essence of each ritual.
-            </p>
-          </div>
-          <div className={styles.highlightGrid}>
-            {highlights.map(({ title, description, Icon }, index) => (
-              <article className={styles.highlight} key={title}>
-                <span className={styles.highlightNumber}>0{index + 1}</span>
-                <span className={styles.highlightIcon} aria-hidden="true">
-                  <Icon size={22} strokeWidth={1.6} />
-                </span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section
         className={styles.servicesSection}
         id="pooja-services"
         aria-labelledby="services-title"
       >
         <div className={styles.container}>
-          <header className={styles.sectionHeaderDark}>
+          <header className={styles.sectionHeaderLight}>
             <p className={styles.eyebrow}>Our Services</p>
             <h2 id="services-title">Pooja &amp; Religious Services</h2>
             <p>
@@ -467,41 +445,69 @@ export default function PoojaReligiousServicesPage() {
             <p>
               Through our event management team, Trimurthi Foundation also
               supports families in organising and coordinating important
-              religious, cultural and traditional ceremonies. These may include
-              Services may include:
+              religious, cultural and traditional ceremonies.
             </p>
           </header>
-          <div className={styles.occasionGrid}>
-            <article className={styles.occasionCard}>
-              <div className={styles.occasionCardHeader}>
-                <span className={styles.occasionIcon} aria-hidden="true">
-                  <Flower2 size={24} strokeWidth={1.5} />
-                </span>
-                <h3>Family &amp; Life Ceremonies</h3>
-              </div>
-              <ul>
-                {familyCeremonies.map((item) => (
-                  <li key={item}>
-                    <Check size={16} aria-hidden="true" /> <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-            <article className={`${styles.occasionCard} ${styles.occasionCardDark}`}>
-              <div className={styles.occasionCardHeader}>
-                <span className={styles.occasionIcon} aria-hidden="true">
-                  <Flame size={24} strokeWidth={1.5} />
-                </span>
-                <h3>Pitru Karyas &amp; Ancestral Rituals</h3>
-              </div>
+          <div className={styles.otherServiceGrid}>
+            {otherCeremonyServices.map(({ title, description, image, imageAlt, Icon }) => (
+              <article className={styles.otherServiceCard} key={title}>
+                <div className={styles.otherServiceImage}>
+                  <Image
+                    src={image}
+                    alt={imageAlt}
+                    fill
+                    sizes="(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                  />
+                  <span className={styles.otherServiceImageOverlay} aria-hidden="true" />
+                </div>
+                <div className={styles.otherServiceBody}>
+                  <div className={styles.otherServiceHeading}>
+                    <span className={styles.otherServiceIcon} aria-hidden="true">
+                      <Icon size={19} strokeWidth={1.6} />
+                    </span>
+                    <h3>{title}</h3>
+                  </div>
+                  <p>{description}</p>
+                  <button
+                    className={styles.otherServiceButton}
+                    type="button"
+                    onClick={() => startEnquiry(title)}
+                  >
+                    Apply for Pooja <ArrowRight size={16} aria-hidden="true" />
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className={styles.ancestralPanel}>
+            <figure className={styles.ancestralImage}>
+              <Image
+                src="/Temple&heritage.png"
+                alt="Traditional Hindu temple at sunset"
+                fill
+                sizes="(max-width: 760px) 100vw, 42vw"
+              />
+              <span className={styles.ancestralImageOverlay} aria-hidden="true" />
+              <figcaption>Honouring family traditions</figcaption>
+            </figure>
+            <div className={styles.ancestralContent}>
+              <p className={styles.eyebrow}>Ancestral observances</p>
+              <h3>Pitru Karyas &amp; Ancestral Rituals</h3>
               <ul>
                 {ancestralCeremonies.map((item) => (
                   <li key={item}>
-                    <Check size={16} aria-hidden="true" /> <span>{item}</span>
+                    <Check size={17} aria-hidden="true" /> <span>{item}</span>
                   </li>
                 ))}
               </ul>
-            </article>
+              <button
+                className={styles.ancestralButton}
+                type="button"
+                onClick={() => startEnquiry("Pitru Karyas & Ancestral Rituals")}
+              >
+                Apply for Ancestral Ritual <ArrowRight size={17} aria-hidden="true" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -806,6 +812,14 @@ export default function PoojaReligiousServicesPage() {
 
           {dialogStep === "details" && dialogMode === "enquiry" && (
             <form className={styles.dialogForm} onSubmit={handleDetailsSubmit}>
+              {enquirySubject && (
+                <div className={styles.selectedService}>
+                  <div>
+                    <span>Selected Ceremony</span>
+                    <strong>{enquirySubject}</strong>
+                  </div>
+                </div>
+              )}
               <div className={styles.formGrid}>
                 <label className={styles.field}>
                   <span>Full Name <i>*</i></span>

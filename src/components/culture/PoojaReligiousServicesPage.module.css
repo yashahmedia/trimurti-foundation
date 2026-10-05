@@ -384,13 +384,33 @@
 
 .servicesSection {
   position: relative;
+  isolation: isolate;
   padding: 92px 0 100px;
   background:
-    radial-gradient(ellipse at 96% 8%, rgba(232, 126, 43, 0.18), transparent 29%),
-    repeating-linear-gradient(135deg, transparent 0, transparent 110px, rgba(255, 222, 145, 0.025) 111px, transparent 112px),
-    linear-gradient(128deg, #2f1411 0%, #4a1e18 52%, #351510 100%);
-  color: var(--paper);
+    radial-gradient(ellipse at 96% 8%, rgba(231, 123, 49, 0.13), transparent 29%),
+    linear-gradient(128deg, #fff8e6 0%, #fff0cd 52%, #fff9ec 100%);
+  color: var(--ink);
 }
+
+.servicesSection::before {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: -90px;
+  width: clamp(190px, 42vw, 430px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(160, 67, 30, 0.14);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 14%, rgba(160, 67, 30, 0.12) 14.4% 14.8%, transparent 15.2% 32%, rgba(160, 67, 30, 0.1) 32.4% 32.8%, transparent 33.2% 51%, rgba(160, 67, 30, 0.09) 51.4% 51.8%, transparent 52.2%),
+    repeating-conic-gradient(from 0deg, transparent 0deg 14deg, rgba(160, 67, 30, 0.11) 14.4deg 14.8deg, transparent 15.2deg 30deg);
+  mask-image: radial-gradient(circle, #000 0 66%, transparent 72%);
+  opacity: 0.56;
+  content: "";
+  pointer-events: none;
+}
+
+.servicesSection > .container { position: relative; z-index: 1; }
 
 .sectionHeaderDark {
   max-width: 760px;
@@ -587,35 +607,219 @@
   font-size: 20px;
 }
 
-.occasionGrid {
+.otherServiceGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
   gap: 20px;
 }
 
-.occasionCard {
-  padding: 30px;
-  border: 1px solid #dfd6c3;
-  border-radius: 8px;
-  background: var(--paper);
-  box-shadow: 0 12px 28px rgba(31, 35, 28, 0.055);
-  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+.otherServiceCard {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(156, 111, 56, 0.23);
+  border-radius: 20px;
+  background: #fffaf0;
+  box-shadow: 0 12px 28px rgba(71, 42, 23, 0.08);
+  transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
 }
 
-.occasionCard:hover { transform: translateY(-3px); border-color: #c9b27f; box-shadow: 0 17px 34px rgba(31, 35, 28, 0.09); }
+.otherServiceCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(177, 128, 59, 0.56);
+  box-shadow: 0 19px 38px rgba(71, 42, 23, 0.14);
+}
 
-.occasionCardHeader { display: flex; align-items: center; gap: 16px; padding-bottom: 22px; border-bottom: 1px solid #e6dfd1; }
-.occasionIcon { width: 48px; height: 48px; flex-basis: 48px; }
-.occasionCard h3 { font-size: 25px; }
-.occasionCard ul { display: grid; gap: 0; margin: 10px 0 0; padding: 0; list-style: none; }
-.occasionCard li { display: flex; min-height: 47px; align-items: center; gap: 12px; border-bottom: 1px solid rgba(25, 33, 29, 0.08); color: #555d54; font-size: 13px; line-height: 1.5; }
-.occasionCard li:last-child { border-bottom: 0; }
-.occasionCard li svg { flex: 0 0 auto; color: #967747; }
-.occasionCardDark { border-color: rgba(178, 76, 34, 0.34); background: var(--night-soft); }
-.occasionCardDark .occasionCardHeader { border-color: rgba(255, 253, 247, 0.12); }
-.occasionCardDark h3 { color: var(--paper); }
-.occasionCardDark li { border-color: rgba(255, 253, 247, 0.1); color: rgba(255, 253, 247, 0.74); }
-.occasionCardDark li svg { color: var(--gold-light); }
+.otherServiceImage {
+  position: relative;
+  height: 238px;
+  overflow: hidden;
+  background: #6b472d;
+}
+
+.otherServiceImage img {
+  object-fit: cover;
+  object-position: center 45%;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.otherServiceCard:hover .otherServiceImage img { transform: scale(1.045); }
+
+.otherServiceImageOverlay {
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(0deg, rgba(31, 17, 12, 0.24), transparent);
+  pointer-events: none;
+}
+
+.otherServiceBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 21px 22px 22px;
+}
+
+.otherServiceHeading {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.otherServiceIcon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border: 1px solid rgba(166, 121, 61, 0.37);
+  border-radius: 50%;
+  color: #8d5d2c;
+}
+
+.otherServiceHeading h3 {
+  margin: 1px 0 0;
+  color: #382016;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.otherServiceBody > p {
+  flex: 1;
+  margin: 14px 0 20px;
+  color: #6c5747;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.otherServiceButton,
+.ancestralButton {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+.otherServiceButton {
+  width: 100%;
+  margin-top: auto;
+  background: #78291d;
+  color: #fffaf0;
+}
+
+.otherServiceButton:hover,
+.otherServiceButton:focus-visible {
+  transform: translateY(-2px);
+  background: #5c1c16;
+  box-shadow: 0 7px 18px rgba(120, 41, 29, 0.2);
+}
+
+.ancestralPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  overflow: hidden;
+  margin-top: 34px;
+  border: 1px solid rgba(230, 173, 76, 0.54);
+  border-radius: 20px;
+  background: linear-gradient(118deg, #3b1713 0%, #64221b 58%, #471914 100%);
+  box-shadow: 0 18px 42px rgba(67, 28, 20, 0.15);
+  color: var(--paper);
+}
+
+.ancestralImage {
+  position: relative;
+  min-height: 420px;
+  margin: 0;
+  overflow: hidden;
+  background: #5e422b;
+}
+
+.ancestralImage img { object-fit: cover; object-position: center; }
+
+.ancestralImageOverlay {
+  position: absolute;
+  inset: 38% 0 0;
+  background: linear-gradient(0deg, rgba(34, 16, 12, 0.66), transparent);
+}
+
+.ancestralImage > figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 22px;
+  bottom: 19px;
+  left: 22px;
+  color: #fff5dd;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 20px;
+}
+
+.ancestralContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(28px, 4vw, 52px);
+}
+
+.ancestralContent .eyebrow { color: var(--gold-light); }
+
+.ancestralContent h3 {
+  margin: 0;
+  color: var(--paper);
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(30px, 3.1vw, 39px);
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.ancestralContent ul {
+  display: grid;
+  width: 100%;
+  gap: 0;
+  margin: 19px 0 25px;
+  padding: 0;
+  list-style: none;
+}
+
+.ancestralContent li {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 250, 240, 0.12);
+  color: rgba(255, 250, 240, 0.84);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.ancestralContent li:last-child { border-bottom: 0; }
+.ancestralContent li svg { flex: 0 0 auto; color: var(--gold-light); }
+
+.ancestralButton {
+  min-height: 50px;
+  padding: 0 22px;
+  background: linear-gradient(110deg, #e4b448, #f2ce72);
+  color: #3b2116;
+}
+
+.ancestralButton:hover,
+.ancestralButton:focus-visible {
+  transform: translateY(-2px);
+  background: #ffdc88;
+  box-shadow: 0 8px 20px rgba(225, 173, 66, 0.22);
+}
 
 .customSection {
   position: relative;
@@ -939,6 +1143,7 @@
   .heroCopy h1 { font-size: 52px; }
   .heroVisual { height: 430px; }
   .serviceGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .otherServiceGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .serviceCard { min-height: 410px; }
   .highlight { padding-inline: 18px; }
   .trustItem { padding-inline: 18px; }
@@ -970,9 +1175,8 @@
   .serviceCard { min-height: 0; }
   .serviceCard h3 { font-size: 22px; }
   .serviceDescription { font-size: 12px; }
-  .occasionGrid { gap: 14px; }
-  .occasionCard { padding: 23px; }
-  .occasionCard h3 { font-size: 21px; }
+  .ancestralPanel { grid-template-columns: minmax(0, 1fr); }
+  .ancestralImage { height: clamp(250px, 48vw, 360px); min-height: 0; }
   .customSection { padding: 64px 0; }
   .customLayout { grid-template-columns: minmax(0, 1fr) minmax(190px, 0.65fr); gap: 34px; }
   .customCopy h2 { font-size: 38px; }
@@ -1024,9 +1228,14 @@
   .serviceButton { padding-inline: 11px; }
   .sectionHeaderLight { margin-bottom: 30px; }
   .sectionHeaderLight .sectionSubheading { font-size: 18px; }
-  .occasionGrid { grid-template-columns: minmax(0, 1fr); }
-  .occasionCard { padding: 21px; }
-  .occasionCard h3 { font-size: 22px; }
+  .otherServiceGrid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .otherServiceImage { height: clamp(220px, 62vw, 280px); }
+  .otherServiceBody { padding: 20px; }
+  .ancestralPanel { margin-top: 24px; }
+  .ancestralImage { height: 230px; }
+  .ancestralContent { padding: 25px 21px 24px; }
+  .ancestralContent h3 { font-size: 30px; }
+  .ancestralButton { width: 100%; }
   .customSection { padding: 52px 0; }
   .customLayout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .customCopy h2 { font-size: 35px; }
@@ -1084,9 +1293,9 @@
   .heroLead { font-size: 18px; }
   .serviceFooter { align-items: stretch; flex-direction: column; }
   .serviceButton { width: 100%; }
-  .occasionCard { padding: 18px; }
-  .occasionCardHeader { align-items: flex-start; gap: 12px; }
-  .occasionCard h3 { font-size: 20px; }
+  .otherServiceBody { padding: 18px; }
+  .otherServiceHeading { gap: 10px; }
+  .otherServiceHeading h3 { font-size: 21px; }
   .selectedService,
   .paymentSummary { flex-direction: column; gap: 10px; }
   .selectedService > div:last-child,
@@ -1103,3 +1312,6 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+.servicesSection .sectionHeaderLight h2 { color: var(--ink); }
+.servicesSection .sectionHeaderLight > p:last-child { color: #5b6259; }
