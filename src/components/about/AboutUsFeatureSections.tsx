@@ -213,13 +213,13 @@ export function GovernanceSection() {
           >
             <h2 id="governance-title">Governance &amp; Transparency</h2>
             <h3 className={styles.governanceLead}>
-              Trust is built through what we do.
+              Building Trust Through Accountability
             </h3>
             <p>
-              We believe that every responsibility entrusted to us deserves
-              honesty, accountability and care. Our approach to governance is
-              rooted in responsible decisions, ethical practices and
-              transparency in the way we serve people and manage resources.
+              Trimurthi Foundation believes that trust is built through responsible governance, transparency and accountability.
+            </p>
+            <p>
+              We are committed to conducting our activities in accordance with our governing documents and applicable laws and regulations. We believe our supporters, beneficiaries, volunteers and partners should have access to relevant information about the Foundation and its legal status.
             </p>
             <div className={styles.governancePromise} aria-hidden="true">
               <span>Trust</span>
