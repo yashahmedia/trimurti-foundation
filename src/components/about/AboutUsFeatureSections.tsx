@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import { Eye, HandHeart, Scale, ShieldCheck } from "lucide-react";
 import { useRef } from "react";
+import governanceCard from "../../../public/pan card  trimuthi .png";
 import styles from "./AboutUsRedesign.module.css";
 
 const principles = [
@@ -193,10 +194,12 @@ export function GovernanceSection() {
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
             <Image
-              src="/environment_welfare.png"
-              alt="Indian community members working together on a local initiative"
+              src={governanceCard}
+              alt="Trimurthi Foundation PAN card"
               fill
+              loading="eager"
               sizes="(max-width: 760px) 100vw, 45vw"
+              unoptimized
             />
             <span className={styles.governanceImageCaption}>
               Decisions made with care

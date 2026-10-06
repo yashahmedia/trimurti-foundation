@@ -264,7 +264,7 @@ export default function AboutUsRedesign() {
 
             <div className={styles.journeyTimeline} aria-label="Our journey timeline">
               <article className={styles.journeyChapter}>
-                <span className={styles.journeyNode} aria-hidden="true" />
+                <span className={styles.journeyNode} aria-hidden="true">01</span>
                 <div className={styles.journeyContent}>
                   <h3>Every Institution Has a Beginning</h3>
                   <p>Every institution has a story. For Trimurthi Foundation, that story began long before this Foundation was formally established.</p>
@@ -273,12 +273,12 @@ export default function AboutUsRedesign() {
                   <p>At the centre of our lives was our beloved mother, Mrs. P. V. Lakshmi, whose courage, strength and unwavering values guided us through those years. She taught us that education creates opportunity, integrity builds trust, and success carries with it a responsibility to uplift others.</p>
                 </div>
                 <div className={styles.journeyImageWrap} aria-hidden="true">
-                  <Image src="/family.png" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
+                  <Image src="/soldiers-family.webp" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
                 </div>
               </article>
 
               <article className={styles.journeyChapter}>
-                <span className={styles.journeyNode} aria-hidden="true" />
+                <span className={styles.journeyNode} aria-hidden="true">02</span>
                 <div className={styles.journeyContent}>
                   <h3>Values That Shaped Us</h3>
                   <p>Long before we thought of creating a charitable foundation, service was already part of our lives.</p>
@@ -291,7 +291,7 @@ export default function AboutUsRedesign() {
               </article>
 
               <article className={styles.journeyChapter}>
-                <span className={styles.journeyNode} aria-hidden="true" />
+                <span className={styles.journeyNode} aria-hidden="true">03</span>
                 <div className={styles.journeyContent}>
                   <h3>A Journey Beyond Borders</h3>
                   <p>As we moved forward in our professional lives, our journey took us to the United Arab Emirates. While building our careers overseas, our connection with India and our commitment to community remained strong.</p>
@@ -306,7 +306,7 @@ export default function AboutUsRedesign() {
               </article>
 
               <article className={styles.journeyChapter}>
-                <span className={styles.journeyNode} aria-hidden="true" />
+                <span className={styles.journeyNode} aria-hidden="true">04</span>
                 <div className={styles.journeyContent}>
                   <h3>From Experience to Purpose</h3>
                   <p>Over the years, we encountered people with different needs and aspirations — individuals seeking opportunities, young people looking for guidance, professionals willing to share their knowledge, entrepreneurs seeking connections and communities that could benefit from collective support.</p>
@@ -320,7 +320,7 @@ export default function AboutUsRedesign() {
               </article>
 
               <article className={styles.journeyChapter}>
-                <span className={styles.journeyNode} aria-hidden="true" />
+                <span className={styles.journeyNode} aria-hidden="true">05</span>
                 <div className={styles.journeyContent}>
                   <h3>The Journey Continues</h3>
                   <p>Trimurthi Foundation is not the beginning of our journey. It is the next chapter of a journey shaped by family, values, experience, community and service.</p>

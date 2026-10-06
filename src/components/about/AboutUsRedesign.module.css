@@ -288,7 +288,7 @@
 .whoCopy h2 { font-size: 42px; }
 
 .whoCopy > p:not(.eyebrow),
-.cultureCopy > p:not(.eyebrow):not(.cultureSince) { margin: 20px 0 0; color: var(--body); font-size: 17px; line-height: 1.75; }
+.cultureCopy > p:not(.eyebrow):not(.cultureSince) { margin: 20px 0 0; color: var(--body); font-size: 16px; line-height: 1.75; }
 
 .editorialSection,
 .connectSection,
@@ -326,7 +326,7 @@
   margin: 0 0 20px;
   color: var(--navy);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(32px, 3.2vw, 46px);
+  font-size: clamp(32px, 3.2vw, 42px);
   font-weight: 600;
   line-height: 1.12;
 }
@@ -334,7 +334,7 @@
 .editorialParagraph {
   margin: 0;
   color: var(--body);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.9;
 }
 
@@ -371,7 +371,7 @@
 
 .connectSection .editorialParagraph {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.8;
 }
 
@@ -458,7 +458,7 @@
 }
 
 .editorialParagraph {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.8;
 }
 
@@ -478,7 +478,7 @@
   min-height: 92px;
   align-items: center;
   justify-content: center;
-  padding: 16px 14px;
+  padding: 16px 8px;
   border: 1px solid rgba(17, 36, 31, 0.08);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.75);
@@ -488,13 +488,31 @@
 .beliefPointCard span {
   color: var(--navy);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(20px, 1.8vw, 30px);
+  font-size: clamp(13px, 1.05vw, 16px);
   font-weight: 600;
   line-height: 1.15;
+  white-space: nowrap;
 }
 
 .beliefStatement {
   display: none;
+}
+
+@media (max-width: 760px) {
+  .beliefCardGroup {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 460px) {
+  .beliefCardGroup {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .beliefPointCard {
+    min-height: 58px;
+    padding: 10px 12px;
+  }
 }
 
 .valueTags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
@@ -522,9 +540,9 @@
 
 .sectionHeading { max-width: 760px; margin-bottom: 44px; }
 .sectionHeading.center { margin-inline: auto; text-align: center; }
-.sectionHeading h2 { color: var(--navy); font-size: clamp(38px, 4.2vw, 52px); line-height: 1.13; }
+.sectionHeading h2 { color: var(--navy); font-size: clamp(36px, 3.8vw, 48px); line-height: 1.13; }
 .darkHeading h2 { color: var(--white); }
-.sectionDescription { max-width: 740px; margin: 15px 0 0; color: var(--body); font-size: 17px; line-height: 1.7; }
+.sectionDescription { max-width: 740px; margin: 15px 0 0; color: var(--body); font-size: 16px; line-height: 1.7; }
 .darkHeading .sectionDescription { color: rgba(255, 255, 255, 0.72); }
 
 .pillarGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
@@ -543,7 +561,7 @@
 .pillarCard:hover { transform: translateY(-7px); border-color: rgba(200, 164, 93, 0.8); background: #152a34; }
 .pillarNumber { position: absolute; top: 12px; right: 24px; color: rgba(255, 255, 255, 0.045); font-family: Georgia, "Times New Roman", serif; font-size: 124px; line-height: 1; pointer-events: none; }
 .pillarCard .iconBadge { position: relative; width: 58px; height: 58px; }
-.pillarCard h3 { position: relative; max-width: 490px; margin: 25px 0 12px; color: var(--white); font-family: Georgia, "Times New Roman", serif; font-size: 31px; line-height: 1.2; }
+.pillarCard h3 { position: relative; max-width: 490px; margin: 25px 0 12px; color: var(--white); font-family: Georgia, "Times New Roman", serif; font-size: 28px; line-height: 1.2; }
 .pillarDescription { position: relative; max-width: 540px; margin: 0; color: rgba(255, 255, 255, 0.72); font-size: 16px; line-height: 1.7; }
 .focusList { position: relative; display: flex; flex-wrap: wrap; gap: 9px; margin: 25px 0 0; padding: 0 34px 0 0; list-style: none; }
 .focusList li { padding: 8px 11px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 8px; color: rgba(255, 255, 255, 0.82); font-size: 12px; line-height: 1.35; }
@@ -821,7 +839,7 @@
 .philosophyCardContent h3 { margin: 0 0 7px; color: var(--white); font-family: Georgia, "Times New Roman", serif; font-size: 28px; line-height: 1.15; }
 .philosophyCardContent p { max-width: 480px; margin: 0; color: rgba(255, 255, 255, 0.9); font-size: 14px; line-height: 1.6; }
 .philosophyCard:first-child .philosophyCardContent { right: 30px; bottom: 30px; left: 30px; }
-.philosophyCard:first-child .philosophyCardContent h3 { font-size: 36px; }
+.philosophyCard:first-child .philosophyCardContent h3 { font-size: 32px; }
 .philosophyCard:first-child .philosophyCardContent p { font-size: 15px; }
 
 .founderSection {
@@ -845,8 +863,8 @@
 
 .founderSection .sectionHeading { max-width: 900px; }
 .founderGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; scroll-margin-top: 110px; }
-.founderCard { overflow: hidden; border: 1px solid #e1dfd4; border-radius: 18px; background: #fffefa; box-shadow: 0 8px 24px rgba(11, 23, 32, 0.05); transition: transform 350ms ease, border-color 350ms ease, box-shadow 350ms ease; }
-.founderCard::after { display: block; height: 3px; background: var(--gold); content: ""; transform: scaleX(0); transform-origin: left; transition: transform 350ms ease; }
+.founderCard { display: flex; flex-direction: column; overflow: hidden; border: 1px solid #e1dfd4; border-radius: 18px; background: #fffefa; box-shadow: 0 8px 24px rgba(11, 23, 32, 0.05); transition: transform 350ms ease, border-color 350ms ease, box-shadow 350ms ease; }
+.founderCard::after { display: block; height: 3px; flex: 0 0 3px; background: var(--gold); content: ""; transform: scaleX(0); transform-origin: left; transition: transform 350ms ease; }
 .founderCard:hover { transform: translateY(-5px); border-color: #c9b276; box-shadow: 0 16px 30px rgba(11, 23, 32, 0.1); }
 .founderCard:hover::after { transform: scaleX(1); }
 .founderPortrait { position: relative; display: grid; min-height: 240px; place-items: center; overflow: hidden; background-color: #e2e9df; background-image: repeating-linear-gradient(135deg, transparent 0, transparent 36px, rgba(31, 92, 69, 0.06) 37px, transparent 38px); }
@@ -855,7 +873,7 @@
 .founderPortrait > span:first-child { color: var(--green); font-family: Georgia, "Times New Roman", serif; font-size: 72px; font-weight: 600; transition: transform 350ms ease; }
 .founderCard:hover .founderPortrait > span:first-child { transform: scale(1.03); }
 .portraitRule { position: absolute; width: 54px; height: 2px; margin-top: 118px; background: var(--gold); }
-.founderMeta { padding: 24px; }
+.founderMeta { flex: 1; padding: 24px; }
 .founderRole { margin: 0 0 8px; color: var(--green); font-size: 12px; font-weight: 750; }
 .founderMeta h3 { margin: 0; color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 24px; line-height: 1.25; }
 .founderBackground { min-height: 48px; margin: 12px 0 0; color: var(--body); font-size: 14px; line-height: 1.6; }
@@ -864,25 +882,14 @@
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at top left, rgba(98, 128, 110, 0.12), transparent 26%),
-    radial-gradient(circle at bottom right, rgba(220, 178, 95, 0.12), transparent 24%),
-    linear-gradient(180deg, #f9f4eb 0%, #f3efe7 28%, #f5f1eb 100%);
-}
-
-.journeySection::before {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(90, 119, 105, 0.04), transparent 22%, transparent 78%, rgba(196, 160, 93, 0.04)),
-    repeating-linear-gradient(180deg, transparent 0, transparent 54px, rgba(23, 39, 46, 0.02) 55px, transparent 56px);
-  content: "";
-  pointer-events: none;
+    radial-gradient(circle at 8% 4%, rgba(98, 128, 110, 0.1), transparent 25%),
+    linear-gradient(180deg, #faf7f0 0%, #f5f2eb 100%);
 }
 
 .journeyStory {
   position: relative;
   z-index: 1;
-  width: min(100%, 1100px);
+  width: min(100%, 1180px);
   margin: 0 auto;
 }
 
@@ -890,7 +897,7 @@
   margin: 0 0 22px;
   color: var(--navy);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 4vw, 62px);
+  font-size: clamp(40px, 3.5vw, 52px);
   line-height: 1.08;
   letter-spacing: -0.04em;
   text-transform: capitalize;
@@ -903,7 +910,7 @@
   border-left: 2px solid rgba(183, 149, 75, 0.75);
   color: rgba(16, 38, 44, 0.86);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(24px, 2.2vw, 34px);
+  font-size: clamp(22px, 2vw, 30px);
   line-height: 1.5;
   letter-spacing: -0.02em;
   font-style: italic;
@@ -914,7 +921,7 @@
   grid-template-columns: 1.08fr 1.4fr 0.92fr;
   gap: 20px;
   align-items: end;
-  margin: 0 0 42px;
+  margin: 0 0 76px;
 }
 
 .journeyMediaCard,
@@ -954,85 +961,86 @@
 
 .journeyTimeline {
   position: relative;
-  padding-left: clamp(18px, 2vw, 42px);
+  padding-left: 76px;
 }
 
 .journeyTimeline::before {
   position: absolute;
-  top: 8px;
-  bottom: 14px;
-  left: 9px;
+  top: 22px;
+  bottom: 112px;
+  left: 21px;
   width: 2px;
-  background: linear-gradient(180deg, rgba(177, 138, 64, 0.42), rgba(84, 123, 103, 0.42));
+  background: linear-gradient(180deg, rgba(177, 138, 64, 0.55), rgba(84, 123, 103, 0.5));
   content: "";
 }
 
 .journeyChapter {
   position: relative;
   display: grid;
-  grid-template-columns: 20px minmax(0, 1fr) minmax(220px, 280px);
-  gap: 24px;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+  grid-template-areas: "image content";
+  gap: clamp(24px, 4vw, 56px);
   align-items: center;
-  margin-bottom: 28px;
-  opacity: 0;
-  transform: translateY(18px);
-  animation: journeyReveal 700ms ease forwards;
-  transition: transform 350ms ease;
+  margin-bottom: 40px;
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid rgba(86, 104, 83, 0.11);
+  border-radius: 24px;
+  background: rgba(255, 255, 252, 0.84);
+  box-shadow: 0 12px 34px rgba(24, 40, 31, 0.055);
+  transition: box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.journeyChapter:nth-child(even) {
+  grid-template-areas: "content image";
+  background: rgba(239, 239, 229, 0.82);
 }
 
 .journeyChapter:hover {
-  transform: translateX(8px);
+  border-color: rgba(86, 104, 83, 0.2);
+  box-shadow: 0 16px 38px rgba(24, 40, 31, 0.08);
 }
-
-.journeyChapter:nth-child(1) { animation-delay: 80ms; }
-.journeyChapter:nth-child(2) { animation-delay: 160ms; }
-.journeyChapter:nth-child(3) { animation-delay: 240ms; }
-.journeyChapter:nth-child(4) { animation-delay: 320ms; }
-.journeyChapter:nth-child(5) { animation-delay: 400ms; }
 
 .journeyNode {
-  position: relative;
+  position: absolute;
   z-index: 1;
-  display: block;
-  width: 18px;
-  height: 18px;
-  margin-top: 14px;
-  border: 2px solid rgba(134, 154, 117, 0.84);
+  top: 34px;
+  left: -76px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(177, 138, 64, 0.5);
   border-radius: 50%;
-  background: #f9f4eb;
-  box-shadow: 0 0 0 6px rgba(177, 138, 64, 0.08);
-}
-
-.journeyChapter:nth-child(odd) .journeyNode {
-  border-color: rgba(175, 140, 72, 0.82);
+  background: #faf7f0;
+  box-shadow: 0 0 0 7px rgba(177, 138, 64, 0.08);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .journeyContent {
-  padding: 20px 0 10px;
-  border-radius: 18px;
-  transition: background-color 350ms ease, box-shadow 350ms ease, transform 350ms ease;
-}
-
-.journeyChapter:hover .journeyContent {
-  background: rgba(255, 255, 255, 0.18);
-  box-shadow: inset 0 0 0 1px rgba(158, 135, 76, 0.08);
+  grid-area: content;
+  padding: 4px 0;
 }
 
 .journeyImageWrap {
+  grid-area: image;
   position: relative;
   overflow: hidden;
-  height: 220px;
-  border: 1px solid rgba(17, 32, 26, 0.12);
-  border-radius: 18px;
+  width: min(100%, 340px);
+  height: 300px;
+  justify-self: center;
+  border: 1px solid rgba(17, 32, 26, 0.1);
+  border-radius: 20px;
   background: #e8e2d6;
-  box-shadow: 0 12px 30px rgba(15, 31, 30, 0.08);
-  transition: transform 350ms ease, box-shadow 350ms ease, border-color 350ms ease;
+  box-shadow: 0 10px 26px rgba(15, 31, 30, 0.08);
+  transition: transform 350ms ease, box-shadow 350ms ease;
 }
 
 .journeyImageWrap:hover {
-  transform: translateY(-6px);
-  border-color: rgba(175, 140, 72, 0.65);
-  box-shadow: 0 18px 34px rgba(15, 31, 30, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(15, 31, 30, 0.12);
 }
 
 .journeyImage {
@@ -1045,20 +1053,20 @@
 }
 
 .journeyContent h3 {
-  margin: 0 0 18px;
+  margin: 0 0 20px;
   color: var(--navy);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(28px, 2.5vw, 38px);
+  font-size: clamp(27px, 2.45vw, 36px);
   line-height: 1.2;
   letter-spacing: -0.03em;
 }
 
 .journeyContent p {
-  max-width: 860px;
-  margin: 0 0 18px;
+  max-width: 660px;
+  margin: 0 0 15px;
   color: var(--body);
-  font-size: 17px;
-  line-height: 1.84;
+  font-size: 16px;
+  line-height: 1.78;
 }
 
 .journeyContent p:last-child {
@@ -1067,8 +1075,8 @@
 
 .journeyEnding {
   position: relative;
-  margin-top: 28px;
-  padding-left: 28px;
+  margin: 48px 0 0;
+  padding: 4px 0 4px 26px;
   border-left: 2px solid rgba(180, 148, 81, 0.7);
 }
 
@@ -1077,7 +1085,7 @@
   margin: 0;
   color: var(--navy);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(28px, 3vw, 36px);
+  font-size: clamp(26px, 2.6vw, 32px);
   line-height: 1.5;
   letter-spacing: -0.03em;
 }
@@ -1114,17 +1122,6 @@
 @keyframes rise-in {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes journeyReveal {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @keyframes float-soft {
@@ -1192,6 +1189,24 @@
   .whoGrid,
   .cultureGrid { grid-template-columns: 1fr; gap: 40px; }
   .storyVisual { width: min(100%, 520px); margin-inline: auto; }
+  .journeyShowcase { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 58px; }
+  .journeyMediaCardLarge { grid-column: span 2; }
+  .journeyTimeline { padding-left: 56px; }
+  .journeyTimeline::before { left: 17px; }
+  .journeyChapter,
+  .journeyChapter:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "image" "content";
+    gap: 22px;
+    margin-bottom: 30px;
+    padding: 24px;
+    border-radius: 20px;
+  }
+  .journeyNode { top: 26px; left: -56px; width: 38px; height: 38px; }
+  .journeyImageWrap { width: 100%; max-width: none; height: 250px; }
+  .journeyContent h3 { font-size: clamp(26px, 5vw, 34px); }
+  .journeyContent p { font-size: 16px; }
+  .journeyEnding { margin-top: 36px; }
   .sectionHeading h2,
   .whoCopy h2,
   .cultureCopy h2 { font-size: clamp(34px, 7vw, 44px); }
@@ -1274,7 +1289,10 @@
   .journeyShowcase { grid-template-columns: 1fr 1fr; }
   .journeyMediaCardLarge { grid-column: span 2; }
   .journeyQuote { margin-bottom: 28px; }
-  .journeyChapter { grid-template-columns: 16px minmax(0, 1fr); gap: 18px; }
+  .journeyChapter,
+  .journeyChapter:nth-child(even) { gap: 18px; padding: 20px; }
+  .journeyImageWrap { height: 220px; }
+  .journeyNode { top: 22px; }
   .journeyContent h3 { font-size: clamp(24px, 6vw, 30px); }
   .journeyContent p { font-size: 16px; }
   .journeyEnding p { font-size: clamp(22px, 6vw, 28px); }
@@ -1350,7 +1368,7 @@
   margin: 0;
   color: var(--navy);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(40px, 5.1vw, 64px);
+  font-size: clamp(36px, 4.2vw, 52px);
   font-weight: 600;
   line-height: 1.08;
 }
@@ -1359,7 +1377,7 @@
   margin: 18px 0 0;
   color: var(--green);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(19px, 2.1vw, 25px);
+  font-size: clamp(18px, 1.8vw, 22px);
   font-style: italic;
 }
 
@@ -1449,7 +1467,7 @@
   margin: 0;
   color: var(--navy);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(38px, 4.15vw, 56px);
+  font-size: clamp(30px, 3.2vw, 42px);
   font-weight: 500;
   letter-spacing: -0.025em;
   line-height: 1.08;
@@ -1494,10 +1512,12 @@
 
 .governanceImage {
   position: relative;
+  display: grid;
   min-height: 460px;
+  place-items: center;
   overflow: hidden;
   border-radius: 5px 100px 5px 5px;
-  background: #22353a;
+  background: transparent;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.24);
   will-change: transform, clip-path;
 }
@@ -1505,19 +1525,17 @@
 .governanceImage::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(6, 16, 23, 0.52), transparent 44%);
+  background: linear-gradient(0deg, rgba(6, 16, 23, 0.2), transparent 35%);
   content: "";
   pointer-events: none;
 }
 
 .governanceImage img {
-  object-fit: cover;
-  object-position: center top;
-  transform-origin: center top;
-  transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+  object-fit: contain;
+  object-position: center;
+  padding: 28px;
+  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-
-.governanceImage:hover img { transform: scale(1.045); }
 
 .governanceImageCaption {
   position: absolute;
@@ -1545,7 +1563,7 @@
   margin: 0;
   color: #fff;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 5vw, 64px);
+  font-size: clamp(34px, 3.8vw, 48px);
   font-weight: 500;
   letter-spacing: -0.025em;
   line-height: 1.07;
@@ -1976,7 +1994,7 @@
   .missionCopy h3 { font-size: clamp(38px, 8vw, 50px); }
   .governanceIntro { grid-template-columns: 1fr; gap: 40px; }
   .governanceImage { min-height: auto; aspect-ratio: 1.25; }
-  .governanceLead { font-size: clamp(42px, 8vw, 56px); }
+  .governanceLead { font-size: clamp(30px, 6vw, 38px); }
   .principleJourney { margin-top: 62px; padding-left: 74px; }
   .principleJourneyLine { left: 20px; }
   .principleItem { grid-template-columns: 46px 1fr; gap: 16px; min-height: 116px; }
@@ -1989,9 +2007,9 @@
 
 @media (max-width: 460px) {
   .missionHeader h2,
-  .advisoryHeader h3 { font-size: clamp(36px, 10vw, 44px); }
-  .missionHeader > p:last-child { font-size: 19px; }
-  .missionCopy h3 { font-size: 38px; }
+  .advisoryHeader h3 { font-size: clamp(32px, 8vw, 38px); }
+  .missionHeader > p:last-child { font-size: 18px; }
+  .missionCopy h3 { font-size: 30px; }
   .missionCopy > p:last-of-type,
   .governanceCopy > p:not(.eyebrow),
   .advisoryDescription { font-size: 15px; }
@@ -2035,6 +2053,7 @@
 
 .governanceIntro { gap: clamp(34px, 5vw, 72px); }
 .governanceImage { height: clamp(220px, 22vw, 280px); min-height: 0; }
+.governanceImage img { padding: 18px; }
 .governanceCopy > p:not(.eyebrow) { margin-top: 14px; font-size: 14px; line-height: 1.65; }
 .governancePromise { margin-top: 18px; }
 
@@ -2120,6 +2139,7 @@
   .missionCopy { padding: 8px 2px; }
   .missionCopy h3 { font-size: clamp(32px, 7vw, 42px); }
   .governanceImage { height: clamp(190px, 52vw, 260px); }
+  .governanceImage img { padding: 16px; }
   .governanceIntro { gap: 26px; }
   .governanceImage { width: 100%; }
   .principleJourney { margin-top: 32px; }
@@ -2141,7 +2161,8 @@
   .advisorySection { padding: 40px 0; }
   .missionVisual { height: 190px; }
   .missionBlock + .missionBlock { margin-top: 24px; }
-  .governanceImage { height: 190px; }
+  .governanceImage { height: 190px; border-top-right-radius: 48px; }
+  .governanceImage img { padding: 12px; }
   .principleItem { min-height: 88px; }
   .teamPortraitStage { height: 220px; }
   .advisoryHeader > p:last-child { font-size: 14px; }
@@ -2406,4 +2427,158 @@
   .advisoryMomentImage { height: 86px; }
   .advisoryStory h2 { font-size: 34px; }
   .advisoryStory > p:not(.eyebrow) { margin-top: 12px; }
+}
+
+.aboutPage .sectionHeading h2,
+.aboutPage .editorialHeading,
+.aboutPage .missionHeader h2 {
+  font-size: clamp(32px, 3vw, 42px);
+}
+
+.aboutPage .whoCopy h2 {
+  font-size: clamp(32px, 2.8vw, 38px);
+}
+
+.aboutPage .journeyTitle {
+  font-size: clamp(36px, 3vw, 44px);
+}
+
+.aboutPage .journeyQuote {
+  font-size: clamp(22px, 1.8vw, 26px);
+}
+
+.aboutPage .journeyContent h3 {
+  font-size: clamp(26px, 2.2vw, 32px);
+}
+
+.aboutPage .journeyEnding p {
+  font-size: clamp(24px, 2.2vw, 30px);
+}
+
+.aboutPage .missionCopy h3,
+.aboutPage .missionBlock .missionCopy h3,
+.aboutPage .missionBlockVision .missionCopy h3 {
+  font-size: clamp(28px, 2.8vw, 36px);
+}
+
+.aboutPage .governanceLead {
+  font-size: clamp(32px, 3vw, 40px);
+}
+
+.aboutPage .soldierCopy h2 {
+  font-size: clamp(40px, 4vw, 54px);
+}
+
+.aboutPage .soldierCopy > p:not(.eyebrow) {
+  font-size: 16px;
+}
+
+.aboutPage .advisoryHeader h3,
+.aboutPage .advisoryStory h2 {
+  font-size: clamp(32px, 3.2vw, 42px);
+}
+
+@media (max-width: 760px) {
+  .aboutPage .sectionHeading h2,
+  .aboutPage .editorialHeading,
+  .aboutPage .missionHeader h2 {
+    font-size: clamp(28px, 5vw, 34px);
+  }
+
+  .aboutPage .whoCopy h2 {
+    font-size: clamp(28px, 5vw, 34px);
+  }
+
+  .aboutPage .journeyTitle {
+    font-size: clamp(34px, 6vw, 40px);
+  }
+
+  .aboutPage .journeyQuote {
+    font-size: clamp(20px, 3.5vw, 24px);
+  }
+
+  .aboutPage .journeyContent h3 {
+    font-size: clamp(24px, 4.5vw, 30px);
+  }
+
+  .aboutPage .journeyEnding p {
+    font-size: clamp(22px, 4vw, 26px);
+  }
+
+  .aboutPage .missionCopy h3,
+  .aboutPage .missionBlock .missionCopy h3,
+  .aboutPage .missionBlockVision .missionCopy h3 {
+    font-size: clamp(26px, 5vw, 32px);
+  }
+
+  .aboutPage .governanceLead {
+    font-size: clamp(28px, 5vw, 36px);
+  }
+
+  .aboutPage .advisoryHeader h3,
+  .aboutPage .advisoryStory h2 {
+    font-size: clamp(28px, 5vw, 36px);
+  }
+}
+
+@media (max-width: 460px) {
+  .aboutPage .sectionHeading h2,
+  .aboutPage .editorialHeading,
+  .aboutPage .missionHeader h2,
+  .aboutPage .whoCopy h2 {
+    font-size: 28px;
+  }
+
+  .aboutPage .journeyTitle {
+    font-size: 34px;
+  }
+
+  .aboutPage .journeyQuote {
+    font-size: 20px;
+  }
+
+  .aboutPage .journeyContent h3 {
+    font-size: 24px;
+  }
+
+  .aboutPage .journeyEnding p {
+    font-size: 22px;
+  }
+
+  .aboutPage .missionCopy h3,
+  .aboutPage .missionBlock .missionCopy h3,
+  .aboutPage .missionBlockVision .missionCopy h3 {
+    font-size: 26px;
+  }
+
+  .aboutPage .governanceLead,
+  .aboutPage .advisoryHeader h3,
+  .aboutPage .advisoryStory h2 {
+    font-size: 28px;
+  }
+}
+
+.aboutPage .governanceImage {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 597 / 352;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+}
+
+.aboutPage .governanceImage:hover {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 2px;
+}
+
+.aboutPage .governanceImage img {
+  padding: 0;
+}
+
+.aboutPage .governanceImage:hover img {
+  filter: brightness(1.07) saturate(1.08);
+}
+
+.aboutPage .governanceImage::after {
+  background: none;
 }
