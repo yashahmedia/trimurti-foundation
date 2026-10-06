@@ -265,6 +265,9 @@ export default function AboutUsRedesign() {
             <div className={styles.journeyTimeline} aria-label="Our journey timeline">
               <article className={styles.journeyChapter}>
                 <span className={styles.journeyNode} aria-hidden="true">01</span>
+                <div className={styles.journeyImageWrap} aria-hidden="true">
+                  <Image src="/Every Institution Has a Beginning.png" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
+                </div>
                 <div className={styles.journeyContent}>
                   <h3>Every Institution Has a Beginning</h3>
                   <p>Every institution has a story. For Trimurthi Foundation, that story began long before this Foundation was formally established.</p>
@@ -272,26 +275,26 @@ export default function AboutUsRedesign() {
                   <p>In 1997, our family experienced a profound loss when our father passed away while we were still in school. That early loss became an important part of our formative years and shaped our understanding of responsibility, resilience and the importance of family.</p>
                   <p>At the centre of our lives was our beloved mother, Mrs. P. V. Lakshmi, whose courage, strength and unwavering values guided us through those years. She taught us that education creates opportunity, integrity builds trust, and success carries with it a responsibility to uplift others.</p>
                 </div>
-                <div className={styles.journeyImageWrap} aria-hidden="true">
-                  <Image src="/soldiers-family.webp" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
-                </div>
               </article>
 
               <article className={styles.journeyChapter}>
                 <span className={styles.journeyNode} aria-hidden="true">02</span>
+                <div className={styles.journeyImageWrap} aria-hidden="true">
+                  <Image src="/Values That Shaped Us.png" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
+                </div>
                 <div className={styles.journeyContent}>
                   <h3>Values That Shaped Us</h3>
                   <p>Long before we thought of creating a charitable foundation, service was already part of our lives.</p>
                   <p>Our early involvement in temple festivals, cultural programmes and community activities taught us the importance of teamwork, responsibility and giving without expecting recognition. It also nurtured our appreciation for India's rich cultural and spiritual heritage.</p>
                   <p>These early experiences planted the seeds of a belief that has remained with us: meaningful service can take many forms — supporting someone in need, sharing knowledge, creating an opportunity, preserving a tradition or simply standing beside someone when they need support.</p>
                 </div>
-                <div className={styles.journeyImageWrap} aria-hidden="true">
-                  <Image src="/culture_heritage.png" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
-                </div>
               </article>
 
               <article className={styles.journeyChapter}>
                 <span className={styles.journeyNode} aria-hidden="true">03</span>
+                <div className={styles.journeyImageWrap} aria-hidden="true">
+                  <Image src="/A Journey Beyond Borders.png" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
+                </div>
                 <div className={styles.journeyContent}>
                   <h3>A Journey Beyond Borders</h3>
                   <p>As we moved forward in our professional lives, our journey took us to the United Arab Emirates. While building our careers overseas, our connection with India and our commitment to community remained strong.</p>
@@ -300,13 +303,13 @@ export default function AboutUsRedesign() {
                   <p>Living and working in a multicultural environment also broadened our perspectives and reinforced our belief in collaboration, mutual respect and the power of communities to support one another.</p>
                   <p>Over the years, we went on to organise and support various cultural, educational, spiritual and community initiatives, including Vasantha Utsavam – A Festival of Music and Dance, founded in 2015, which provides a platform to celebrate India's classical music and dance traditions while encouraging established and emerging artists.</p>
                 </div>
-                <div className={styles.journeyImageWrap} aria-hidden="true">
-                  <Image src="/education-support.png" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
-                </div>
               </article>
 
               <article className={styles.journeyChapter}>
                 <span className={styles.journeyNode} aria-hidden="true">04</span>
+                <div className={styles.journeyImageWrap} aria-hidden="true">
+                  <Image src="/From Experience to Purpose.png" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
+                </div>
                 <div className={styles.journeyContent}>
                   <h3>From Experience to Purpose</h3>
                   <p>Over the years, we encountered people with different needs and aspirations — individuals seeking opportunities, young people looking for guidance, professionals willing to share their knowledge, entrepreneurs seeking connections and communities that could benefit from collective support.</p>
@@ -314,21 +317,18 @@ export default function AboutUsRedesign() {
                   <p>We came to believe that service is not only about giving; it is also about connecting people with opportunities, knowledge, skills and relationships that can help them move forward.</p>
                   <p>This became the inspiration behind Trimurthi Foundation and its two complementary dimensions — serving communities through meaningful social and cultural initiatives, and creating opportunities and connections through Trimurthi Connect.</p>
                 </div>
-                <div className={styles.journeyImageWrap} aria-hidden="true">
-                  <Image src="/volunteer.jpg" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
-                </div>
               </article>
 
               <article className={styles.journeyChapter}>
                 <span className={styles.journeyNode} aria-hidden="true">05</span>
+                <div className={styles.journeyImageWrap} aria-hidden="true">
+                  <Image src="/The Journey Continues.png" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
+                </div>
                 <div className={styles.journeyContent}>
                   <h3>The Journey Continues</h3>
                   <p>Trimurthi Foundation is not the beginning of our journey. It is the next chapter of a journey shaped by family, values, experience, community and service.</p>
                   <p>Today, our aspiration is to build an institution that grows beyond the three of us — bringing together individuals, professionals, entrepreneurs, volunteers and well-wishers who believe they can contribute something meaningful to society.</p>
                   <p>Whether through time, knowledge, skills, resources, mentorship or compassion, every contribution has the potential to make a difference.</p>
-                </div>
-                <div className={styles.journeyImageWrap} aria-hidden="true">
-                  <Image src="/empower.png" alt="" fill sizes="(max-width: 760px) 100vw, 36vw" className={styles.journeyImage} />
                 </div>
               </article>
 
