@@ -85,7 +85,7 @@
 
 .heroCopy h1 {
   color: var(--white);
-  font-size: clamp(54px, 5.5vw, 68px);
+  font-size: clamp(38px, 4.1vw, 50px);
   line-height: 1.06;
 }
 
@@ -215,7 +215,13 @@
 .beliefSection,
 .cultureSection,
 .philosophySection,
-.governanceSection { background: var(--cream); }
+.governanceSection {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(107, 161, 255, 0.28), transparent 22%),
+    radial-gradient(circle at 85% 15%, rgba(244, 180, 120, 0.25), transparent 28%),
+    radial-gradient(circle at 80% 80%, rgba(244, 110, 125, 0.18), transparent 28%),
+    linear-gradient(135deg, #f5dccd 0%, #f7f1ea 22%, #edf3ff 48%, #f9ebd7 72%, #f7e1ea 100%);
+}
 
 .whoGrid,
 .cultureGrid {
@@ -279,10 +285,217 @@
 
 .whoCopy h2,
 .cultureCopy h2 { max-width: 620px; color: var(--navy); font-size: clamp(40px, 4.1vw, 54px); line-height: 1.12; }
-.whoCopy h2 { font-size: clamp(36px, 3.6vw, 46px); }
+.whoCopy h2 { font-size: 42px; }
 
 .whoCopy > p:not(.eyebrow),
 .cultureCopy > p:not(.eyebrow):not(.cultureSince) { margin: 20px 0 0; color: var(--body); font-size: 17px; line-height: 1.75; }
+
+.editorialSection,
+.connectSection,
+.beliefSection {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(146, 167, 201, 0.16), transparent 22%),
+    radial-gradient(circle at 80% 10%, rgba(211, 177, 118, 0.14), transparent 24%),
+    linear-gradient(135deg, #f3e6d8 0%, #f7f1ea 28%, #f3eee7 52%, #f7f0e5 100%);
+}
+
+.editorialSection {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.editorialSection::before {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(175, 194, 223, 0.22), transparent 25%),
+    radial-gradient(circle at 80% 12%, rgba(227, 200, 154, 0.18), transparent 25%);
+  filter: blur(12px);
+  opacity: 0.8;
+  content: "";
+  z-index: -1;
+}
+
+.editorialInner {
+  width: min(960px, 100%);
+  margin: 0 auto;
+}
+
+.editorialHeading {
+  margin: 0 0 20px;
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 3.2vw, 46px);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.editorialParagraph {
+  margin: 0;
+  color: var(--body);
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.editorialParagraph strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.connectSection {
+  position: relative;
+  background:
+    radial-gradient(circle at top left, rgba(200, 164, 93, 0.12), transparent 26%),
+    linear-gradient(180deg, rgba(8, 19, 25, 0.98), rgba(9, 31, 39, 0.96));
+  color: var(--white);
+}
+
+.connectSection::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0, transparent 79px, rgba(255, 255, 255, 0.018) 80px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 79px, rgba(255, 255, 255, 0.018) 80px);
+  content: "";
+  pointer-events: none;
+}
+
+.connectSection > .container {
+  position: relative;
+}
+
+.connectSection .editorialHeading {
+  color: var(--white);
+}
+
+.connectSection .editorialParagraph {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.connectSection .editorialParagraph strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.connectLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(250px, 0.8fr);
+  align-items: center;
+  gap: clamp(28px, 4vw, 52px);
+}
+
+.connectVisual {
+  position: relative;
+  min-height: 310px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(232, 238, 235, 0.7));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 22px 45px rgba(0, 0, 0, 0.2);
+}
+
+.connectVisual img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.whatWeDoGallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.galleryCard {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  border: 1px solid rgba(17, 36, 31, 0.12);
+  border-radius: 22px;
+  background: #dfeae4;
+  box-shadow: 0 12px 30px rgba(11, 23, 32, 0.06);
+}
+
+.galleryCard img {
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.galleryCard:hover img { transform: scale(1.04); }
+
+.beliefContent {
+  display: grid;
+  gap: 18px;
+}
+
+.beliefLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(22px, 4vw, 42px);
+}
+
+.beliefVisual {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 36, 31, 0.12);
+  border-radius: 26px;
+  background: #dfeae4;
+  box-shadow: 0 18px 40px rgba(11, 23, 32, 0.08);
+}
+
+.beliefVisual img {
+  object-fit: cover;
+}
+
+.beliefText {
+  display: grid;
+  gap: 16px;
+}
+
+.editorialParagraph {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.beliefCardGroup {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid rgba(200, 164, 93, 0.7);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.38);
+  box-shadow: 0 14px 32px rgba(11, 23, 32, 0.04);
+}
+
+.beliefPointCard {
+  display: flex;
+  min-height: 92px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 14px;
+  border: 1px solid rgba(17, 36, 31, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.75);
+  text-align: center;
+}
+
+.beliefPointCard span {
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(20px, 1.8vw, 30px);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.beliefStatement {
+  display: none;
+}
 
 .valueTags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
 
@@ -351,7 +564,27 @@
 
 .cardArrowLink:hover { background: rgba(200, 164, 93, 0.12); transform: translateX(4px); }
 
-.beliefSection { padding-top: 108px; padding-bottom: 118px; }
+.beliefSection {
+  position: relative;
+  overflow: hidden;
+  padding-top: 108px;
+  padding-bottom: 118px;
+  background:
+    radial-gradient(circle at top left, rgba(139, 174, 200, 0.22), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(215, 170, 108, 0.18), transparent 22%),
+    linear-gradient(135deg, #f7ece0 0%, #fdf9f5 30%, #eef3eb 60%, #f8f1ea 100%);
+}
+
+.beliefSection::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 48%, rgba(21, 83, 67, 0.04)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 54px, rgba(24, 58, 66, 0.024) 55px, transparent 56px);
+  content: "";
+  pointer-events: none;
+}
+
 .beliefSection .sectionHeading { max-width: 880px; }
 .beliefGrid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
 
@@ -591,7 +824,25 @@
 .philosophyCard:first-child .philosophyCardContent h3 { font-size: 36px; }
 .philosophyCard:first-child .philosophyCardContent p { font-size: 15px; }
 
-.founderSection { background: #f0eee5; }
+.founderSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(154, 191, 160, 0.24), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(231, 211, 163, 0.18), transparent 20%),
+    linear-gradient(135deg, #edf5ee 0%, #f9f4ea 35%, #eef4ee 68%, #f7f0e3 100%);
+}
+
+.founderSection::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(49, 98, 72, 0.06), transparent 36%, rgba(199, 176, 113, 0.08)),
+    repeating-linear-gradient(135deg, transparent 0, transparent 28px, rgba(20, 31, 38, 0.02) 29px, transparent 30px);
+  content: "";
+  pointer-events: none;
+}
+
 .founderSection .sectionHeading { max-width: 900px; }
 .founderGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; scroll-margin-top: 110px; }
 .founderCard { overflow: hidden; border: 1px solid #e1dfd4; border-radius: 18px; background: #fffefa; box-shadow: 0 8px 24px rgba(11, 23, 32, 0.05); transition: transform 350ms ease, border-color 350ms ease, box-shadow 350ms ease; }
@@ -608,6 +859,228 @@
 .founderRole { margin: 0 0 8px; color: var(--green); font-size: 12px; font-weight: 750; }
 .founderMeta h3 { margin: 0; color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 24px; line-height: 1.25; }
 .founderBackground { min-height: 48px; margin: 12px 0 0; color: var(--body); font-size: 14px; line-height: 1.6; }
+
+.journeySection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(98, 128, 110, 0.12), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(220, 178, 95, 0.12), transparent 24%),
+    linear-gradient(180deg, #f9f4eb 0%, #f3efe7 28%, #f5f1eb 100%);
+}
+
+.journeySection::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(90, 119, 105, 0.04), transparent 22%, transparent 78%, rgba(196, 160, 93, 0.04)),
+    repeating-linear-gradient(180deg, transparent 0, transparent 54px, rgba(23, 39, 46, 0.02) 55px, transparent 56px);
+  content: "";
+  pointer-events: none;
+}
+
+.journeyStory {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.journeyTitle {
+  margin: 0 0 22px;
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 4vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  text-transform: capitalize;
+}
+
+.journeyQuote {
+  max-width: 930px;
+  margin: 0 0 46px;
+  padding: 0 0 0 26px;
+  border-left: 2px solid rgba(183, 149, 75, 0.75);
+  color: rgba(16, 38, 44, 0.86);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+
+.journeyShowcase {
+  display: grid;
+  grid-template-columns: 1.08fr 1.4fr 0.92fr;
+  gap: 20px;
+  align-items: end;
+  margin: 0 0 42px;
+}
+
+.journeyMediaCard,
+.journeyMediaCardLarge {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(18, 36, 23, 0.12);
+  border-radius: 22px;
+  background: #e7e4dc;
+  box-shadow: 0 18px 34px rgba(12, 24, 29, 0.08);
+  transition: transform 350ms ease, box-shadow 350ms ease, border-color 350ms ease;
+}
+
+.journeyMediaCard {
+  height: 220px;
+}
+
+.journeyMediaCardLarge {
+  height: 290px;
+}
+
+.journeyMediaCard:hover,
+.journeyMediaCardLarge:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(170, 134, 58, 0.62);
+  box-shadow: 0 22px 42px rgba(12, 24, 29, 0.12);
+}
+
+.journeyMediaCard img,
+.journeyMediaCardLarge img {
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.journeyMediaCard:hover img,
+.journeyMediaCardLarge:hover img { transform: scale(1.04); }
+
+.journeyTimeline {
+  position: relative;
+  padding-left: clamp(18px, 2vw, 42px);
+}
+
+.journeyTimeline::before {
+  position: absolute;
+  top: 8px;
+  bottom: 14px;
+  left: 9px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(177, 138, 64, 0.42), rgba(84, 123, 103, 0.42));
+  content: "";
+}
+
+.journeyChapter {
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) minmax(220px, 280px);
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 28px;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: journeyReveal 700ms ease forwards;
+  transition: transform 350ms ease;
+}
+
+.journeyChapter:hover {
+  transform: translateX(8px);
+}
+
+.journeyChapter:nth-child(1) { animation-delay: 80ms; }
+.journeyChapter:nth-child(2) { animation-delay: 160ms; }
+.journeyChapter:nth-child(3) { animation-delay: 240ms; }
+.journeyChapter:nth-child(4) { animation-delay: 320ms; }
+.journeyChapter:nth-child(5) { animation-delay: 400ms; }
+
+.journeyNode {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-top: 14px;
+  border: 2px solid rgba(134, 154, 117, 0.84);
+  border-radius: 50%;
+  background: #f9f4eb;
+  box-shadow: 0 0 0 6px rgba(177, 138, 64, 0.08);
+}
+
+.journeyChapter:nth-child(odd) .journeyNode {
+  border-color: rgba(175, 140, 72, 0.82);
+}
+
+.journeyContent {
+  padding: 20px 0 10px;
+  border-radius: 18px;
+  transition: background-color 350ms ease, box-shadow 350ms ease, transform 350ms ease;
+}
+
+.journeyChapter:hover .journeyContent {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(158, 135, 76, 0.08);
+}
+
+.journeyImageWrap {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  border: 1px solid rgba(17, 32, 26, 0.12);
+  border-radius: 18px;
+  background: #e8e2d6;
+  box-shadow: 0 12px 30px rgba(15, 31, 30, 0.08);
+  transition: transform 350ms ease, box-shadow 350ms ease, border-color 350ms ease;
+}
+
+.journeyImageWrap:hover {
+  transform: translateY(-6px);
+  border-color: rgba(175, 140, 72, 0.65);
+  box-shadow: 0 18px 34px rgba(15, 31, 30, 0.12);
+}
+
+.journeyImage {
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.journeyImageWrap:hover .journeyImage {
+  transform: scale(1.04);
+}
+
+.journeyContent h3 {
+  margin: 0 0 18px;
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 2.5vw, 38px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.journeyContent p {
+  max-width: 860px;
+  margin: 0 0 18px;
+  color: var(--body);
+  font-size: 17px;
+  line-height: 1.84;
+}
+
+.journeyContent p:last-child {
+  margin-bottom: 0;
+}
+
+.journeyEnding {
+  position: relative;
+  margin-top: 28px;
+  padding-left: 28px;
+  border-left: 2px solid rgba(180, 148, 81, 0.7);
+}
+
+.journeyEnding p {
+  max-width: 820px;
+  margin: 0;
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3vw, 36px);
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+}
 
 .governanceSection { padding-bottom: 118px; }
 .governanceGrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
@@ -643,6 +1116,22 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes journeyReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-soft {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
 @keyframes cue-down {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(4px); }
@@ -660,7 +1149,7 @@
   .cultureCopy h2 { font-size: clamp(30px, 3.9vw, 40px); }
   .soldierImageFrame { min-height: 370px; }
   .hero { min-height: 620px; }
-  .heroCopy h1 { font-size: clamp(50px, 6.2vw, 68px); }
+  .heroCopy h1 { font-size: clamp(34px, 4.8vw, 48px); }
   .trustItem { padding-inline: 14px; }
   .trustItem .iconBadge { width: 42px; height: 42px; flex-basis: 42px; }
   .beliefGrid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
@@ -684,7 +1173,7 @@
   .heroOverlay { background: linear-gradient(90deg, rgba(7, 18, 26, 0.92), rgba(9, 28, 34, 0.7)), linear-gradient(0deg, rgba(7, 18, 26, 0.45), transparent 60%); }
   .heroInner { padding: 60px 0 76px; }
   .heroBreak { display: none; }
-  .heroCopy h1 { font-size: clamp(42px, 9vw, 58px); line-height: 1.08; }
+  .heroCopy h1 { font-size: clamp(30px, 7vw, 42px); line-height: 1.08; }
   .heroDescription { max-width: 560px; font-size: 16px; line-height: 1.7; }
   .trustInner { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; padding: 24px 0; }
   .trustItem,
@@ -756,7 +1245,7 @@
   .trustInner { width: calc(100% - 36px); }
   .hero { min-height: 540px; }
   .heroInner { padding: 38px 0 52px; }
-  .heroCopy h1 { font-size: clamp(36px, 10vw, 44px); }
+  .heroCopy h1 { font-size: clamp(27px, 8.4vw, 36px); }
   .heroActions { align-items: stretch; }
   .heroActions a { min-height: 48px; padding-inline: 14px; font-size: 14px; }
   .scrollCue { right: 18px; bottom: 18px; }
@@ -782,6 +1271,13 @@
   .cultureFeature { gap: 12px; padding: 17px; }
   .cultureFeatureIcon { width: 38px; height: 38px; flex-basis: 38px; }
   .cultureFeature h3 { font-size: 20px; }
+  .journeyShowcase { grid-template-columns: 1fr 1fr; }
+  .journeyMediaCardLarge { grid-column: span 2; }
+  .journeyQuote { margin-bottom: 28px; }
+  .journeyChapter { grid-template-columns: 16px minmax(0, 1fr); gap: 18px; }
+  .journeyContent h3 { font-size: clamp(24px, 6vw, 30px); }
+  .journeyContent p { font-size: 16px; }
+  .journeyEnding p { font-size: clamp(22px, 6vw, 28px); }
   .cultureCopy h2 { font-size: clamp(24px, 7.2vw, 32px); }
   .soldierCopy h2 { font-size: clamp(34px, 8.5vw, 40px); }
   .soldierCopy > p:not(.eyebrow) { font-size: 16px; }
@@ -798,7 +1294,7 @@
   .heroInner,
   .trustInner { width: calc(100% - 32px); }
   .heroInner { padding: 58px 0 64px; }
-  .heroCopy h1 { font-size: 31px; line-height: 1.08; }
+  .heroCopy h1 { font-size: 26px; line-height: 1.08; }
   .heroDescription { margin: 14px 0 18px; font-size: 15px; }
   .heroCopy .heroActions { flex-direction: column; }
   .heroCopy .heroActions a { width: 100%; }
