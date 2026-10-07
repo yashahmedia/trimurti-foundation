@@ -10,6 +10,7 @@ import TrimurtiConnect from "@/components/sections/TrimurtiConnect";
 import TestimonialsSection from "@/components/sections/Testimonials";
 import OurPresence from "@/components/sections/OurPresence";
 import { seo } from "@/lib/seo";
+const showSupportRequestSection = false;
 export const metadata = seo("Trimurthi Foundation", "/");
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       <HeroSlider />
       <TrimurthyPhilosophy />
       <TransformALife />
-      <SupportRequestSection />
+      {showSupportRequestSection && <SupportRequestSection />}
       <EventsCampaigns />
       <DonateNow />
       <TrimurtiFamily />
