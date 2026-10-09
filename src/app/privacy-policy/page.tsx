@@ -37,15 +37,17 @@ export default function Page() {
         </p>
         <h2>Support requests and optional documents</h2>
         <p>
-          Support requests may include an applicant or guardian’s profession
-          and an optional monthly household-income range, along with contact
-          and category-specific details. Supporting PDFs or images are
-          optional. When private storage is configured, selected files are
+          The support request form collects your contact details, selected
+          support category and the details you choose to provide for that
+          category. The website does not currently store or deliver support
+          request form submissions. It prepares an email in your email
+          application; the request is sent only if you choose to send that
+          email. Supporting PDFs or images are optional for selected
+          categories. If private storage is configured, selected files are
           uploaded to the foundation’s private S3-compatible storage and the
           prepared email contains file references rather than attachments.
           Authorized foundation personnel may access those files to assess the
-          request. The request details are prepared in your email app and are
-          sent only if you choose to send that email.
+          request.
         </p>
         <p>
           Upload only documents needed to assess your request. Do not submit

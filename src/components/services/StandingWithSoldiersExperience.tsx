@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { HeartHandshake } from "lucide-react";
 import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
+import RequestSupportCta from "@/components/services/RequestSupportCta";
 import styles from "./StandingWithSoldiersExperience.module.css";
 
 export default function StandingWithSoldiersExperience() {
@@ -34,6 +35,7 @@ export default function StandingWithSoldiersExperience() {
         </div>
       </section>
 
+      <RequestSupportCta category="Stand with our Soldiers" />
 
       <section className={styles.whySection} aria-labelledby="why-soldiers-title">
         <div className={styles.whyLayout}>

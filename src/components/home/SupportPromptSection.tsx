@@ -18,7 +18,7 @@ export default function SupportPromptSection() {
             communities in need. If you or someone you know needs assistance,
             reach out to us and our team will guide you through the next steps.
           </p>
-          <Link className={styles.button} href="/#support-request-title">
+          <Link className={styles.button} href="/donate#support-request-form">
             Request Support
             <ArrowRight size={18} aria-hidden="true" />
           </Link>

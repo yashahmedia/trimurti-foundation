@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, CalendarDays, MapPin } from "lucide-react";
 import { demoEvents, events } from "@/data/events";
+import JoinNowButton from "@/components/events/JoinNowButton";
 
 export default function EventsCampaigns() {
   const items = [...events, ...demoEvents];
@@ -120,6 +121,7 @@ export default function EventsCampaigns() {
                 </div>
                 <p className="events-card-location"><MapPin size={14} aria-hidden="true" />{event.location}</p>
                 <p className="events-card-description">{event.description}</p>
+                <JoinNowButton itemName={event.title} />
               </div>
             </article>
           )) : (
@@ -147,6 +149,7 @@ export default function EventsCampaigns() {
               <h3>Support a community need</h3>
               <p className="events-card-description">Campaign details and verified progress will be shared here once confirmed.</p>
               <p className="campaign-goal-note">Campaign goal pending confirmation</p>
+              <JoinNowButton itemName="Support a community need" />
             </div>
           </article>
         </div>

@@ -34,7 +34,7 @@ export default function HealthcareSupportExperience() {
         </div>
       </section>
 
-      <RequestSupportCta />
+      <RequestSupportCta category="Healthcare Support" />
 
       <section className={styles.whySection} aria-labelledby="why-healthcare-title">
         <div className={styles.whyLayout}>

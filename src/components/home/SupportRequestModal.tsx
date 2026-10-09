@@ -8,7 +8,6 @@ import {
   BookOpenCheck,
   Banknote,
   CalendarDays,
-  Check,
   Clock3,
   FileText,
   FileUp,
@@ -28,12 +27,19 @@ import {
   lockPageScroll,
   type PageScrollPosition,
 } from "@/lib/page-scroll-lock";
+import {
+  maxFiles,
+  maxTotalSize,
+  uploadSupportingDocuments,
+  type UploadReference,
+  validateSupportingFile,
+} from "@/lib/support-request-uploads";
 import styles from "./SupportRequestModal.module.css";
 
 export type SupportRequestField = {
   name: string;
   label: string;
-  type: "text" | "email" | "tel" | "number" | "select" | "textarea";
+  type: "text" | "email" | "tel" | "number" | "date" | "select" | "textarea";
   required?: boolean;
   options?: string[];
   placeholder?: string;
@@ -49,6 +55,8 @@ export type SupportRequestConfig = {
   icon: LucideIcon;
   fields: SupportRequestField[];
   documentSuggestions: string[];
+  requiredDocuments?: boolean;
+  includeHouseholdFields?: boolean;
 };
 
 type SupportRequestModalProps = {
@@ -59,152 +67,6 @@ type SupportRequestModalProps = {
 
 type FormValues = Record<string, string>;
 type FormErrors = Record<string, string>;
-type UploadTarget = {
-  key: string;
-  url: string;
-  fields: Record<string, string>;
-};
-type UploadBatch = {
-  requestId: string;
-  uploads: UploadTarget[];
-};
-type UploadReference = {
-  requestId: string;
-  keys: string[];
-};
-
-const maxFiles = 5;
-const maxFileSize = 10 * 1024 * 1024;
-const maxTotalSize = 30 * 1024 * 1024;
-const allowedFileTypes = new Map([
-  ["application/pdf", [".pdf"]],
-  ["image/jpeg", [".jpg", ".jpeg"]],
-  ["image/png", [".png"]],
-]);
-
-function isUploadBatch(value: unknown): value is UploadBatch {
-  if (!value || typeof value !== "object") return false;
-  const batch = value as Record<string, unknown>;
-  if (
-    typeof batch.requestId !== "string" ||
-    !Array.isArray(batch.uploads)
-  ) {
-    return false;
-  }
-
-  return batch.uploads.every((upload) => {
-    if (!upload || typeof upload !== "object") return false;
-    const target = upload as Record<string, unknown>;
-    if (
-      typeof target.key !== "string" ||
-      typeof target.url !== "string" ||
-      !target.fields ||
-      typeof target.fields !== "object" ||
-      Array.isArray(target.fields)
-    ) {
-      return false;
-    }
-    return Object.values(target.fields).every(
-      (field) => typeof field === "string",
-    );
-  });
-}
-
-function validateSupportingFile(file: File): string {
-  const extensions = allowedFileTypes.get(file.type);
-  const extension = `.${file.name.split(".").pop()?.toLowerCase() ?? ""}`;
-
-  if (!extensions?.includes(extension)) {
-    return `${file.name}: choose a PDF, JPG or PNG file.`;
-  }
-  if (file.size === 0) {
-    return `${file.name}: the file is empty.`;
-  }
-  if (file.size > maxFileSize) {
-    return `${file.name}: each file must be 10 MB or smaller.`;
-  }
-  return "";
-}
-
-async function uploadSupportingDocuments(
-  category: string,
-  files: File[],
-): Promise<UploadReference> {
-  const ticketResponse = await fetch("/api/support-requests/uploads", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      category,
-      files: files.map((file) => ({ name: file.name, type: file.type, size: file.size })),
-    }),
-  });
-  const ticketPayload: unknown = await ticketResponse.json().catch(() => null);
-  if (!ticketResponse.ok || !isUploadBatch(ticketPayload)) {
-    const message =
-      ticketPayload &&
-      typeof ticketPayload === "object" &&
-      "error" in ticketPayload &&
-      typeof ticketPayload.error === "string"
-        ? ticketPayload.error
-        : "Secure upload could not be prepared. Please try again or contact the foundation.";
-    throw new Error(message);
-  }
-
-  if (ticketPayload.uploads.length !== files.length) {
-    throw new Error("Secure upload could not be prepared. Please try again.");
-  }
-
-  const uploadResults = await Promise.allSettled(
-    files.map(async (file, index) => {
-      const target = ticketPayload.uploads[index];
-      const uploadForm = new FormData();
-      Object.entries(target.fields).forEach(([name, value]) => {
-        uploadForm.append(name, value);
-      });
-      uploadForm.append("file", file);
-      const response = await fetch(target.url, {
-        method: "POST",
-        body: uploadForm,
-      });
-      if (!response.ok) {
-        throw new Error("A document could not be uploaded.");
-      }
-    }),
-  );
-
-  const failedUpload = uploadResults.find(
-    (result): result is PromiseRejectedResult => result.status === "rejected",
-  );
-  if (failedUpload) {
-    let cleanupMessage = "";
-    try {
-      const cleanupResponse = await fetch("/api/support-requests/uploads", {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          requestId: ticketPayload.requestId,
-          keys: ticketPayload.uploads.map((upload) => upload.key),
-        }),
-      });
-      if (!cleanupResponse.ok) {
-        cleanupMessage =
-          " Some files may remain in private storage; please contact the foundation before retrying.";
-      }
-    } catch {
-      cleanupMessage =
-        " Some files may remain in private storage; please contact the foundation before retrying.";
-    }
-    throw new Error(
-      `Document upload did not complete. Please try again.${cleanupMessage}`,
-      { cause: failedUpload.reason },
-    );
-  }
-
-  return {
-    requestId: ticketPayload.requestId,
-    keys: ticketPayload.uploads.map((upload) => upload.key),
-  };
-}
 
 function getFieldIcon(name: string): LucideIcon {
   if (name === "email") return Mail;
@@ -212,7 +74,7 @@ function getFieldIcon(name: string): LucideIcon {
   if (name === "occupation") return BriefcaseBusiness;
   if (name === "monthlyIncome") return Banknote;
   if (name === "age" || name === "familyMembers") return CalendarDays;
-  if (name === "location" || name === "schoolLocation") return MapPin;
+  if (name === "location" || name === "schoolLocation" || name === "city") return MapPin;
   if (name === "message") return MessageSquareText;
   if (name === "supportType" || name === "essentialsType") return BookOpenCheck;
   if (name.toLowerCase().includes("name")) return UserRound;
@@ -231,15 +93,21 @@ const contactFields: SupportRequestField[] = [
     name: "email",
     label: "Email Address",
     type: "email",
-    required: true,
     placeholder: "you@example.com",
   },
   {
     name: "phone",
-    label: "Phone Number",
+    label: "Mobile Number",
     type: "tel",
     required: true,
     placeholder: "+91 98765 43210",
+  },
+  {
+    name: "city",
+    label: "City / Location",
+    type: "text",
+    required: true,
+    placeholder: "Your city or location",
   },
 ];
 
@@ -318,16 +186,19 @@ export default function SupportRequestModal({
   const [errors, setErrors] = useState<FormErrors>({});
   const [formValues, setFormValues] = useState<FormValues>({});
   const [emailHref, setEmailHref] = useState("");
-  const [emailOpened, setEmailOpened] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [documentConsent, setDocumentConsent] = useState(false);
+  const [contactConsent, setContactConsent] = useState(false);
   const [fileError, setFileError] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [uploadReference, setUploadReference] =
     useState<UploadReference | null>(null);
   const Icon = request.icon;
-  const fields = [...contactFields, ...householdFields, ...request.fields];
+  const fields = [
+    ...contactFields,
+    ...(request.includeHouseholdFields === false ? [] : householdFields),
+    ...request.fields,
+  ];
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -406,6 +277,20 @@ export default function SupportRequestModal({
         ?.focus();
       return;
     }
+    if (!contactConsent) {
+      setFileError("Please agree to be contacted about this support request.");
+      dialogRef.current
+        ?.querySelector<HTMLInputElement>("#support-contact-consent")
+        ?.focus();
+      return;
+    }
+    if (request.requiredDocuments && selectedFiles.length === 0) {
+      setFileError("At least one supporting document is required to continue.");
+      dialogRef.current
+        ?.querySelector<HTMLInputElement>("#support-document-upload")
+        ?.focus();
+      return;
+    }
     if (selectedFiles.length && !documentConsent) {
       setFileError(
         "Please confirm that you agree to share the selected documents for this support request.",
@@ -469,6 +354,12 @@ export default function SupportRequestModal({
         event.preventDefault();
         onClose();
       }}
+      onKeyDown={(event) => {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          onClose();
+        }
+      }}
       onClose={onClose}
       onClick={(event) => {
         if (event.target === event.currentTarget) onClose();
@@ -485,31 +376,7 @@ export default function SupportRequestModal({
           <X size={19} />
         </button>
 
-        {submitted ? (
-          <div className={styles.successState}>
-            <span className={styles.successIcon}>
-              <Check size={34} strokeWidth={2.3} />
-            </span>
-            <span className={styles.successAccent} aria-hidden="true" />
-            <h2 id="support-modal-title">Thank You!</h2>
-            <p id="support-modal-description">
-              Your request has been submitted successfully. Our team will get
-              back to you soon.
-            </p>
-            <button
-              className={styles.submitButton}
-              type="button"
-              onClick={onClose}
-            >
-              Close
-            </button>
-            <span className={styles.successFootnote}>
-              Together, we make a difference.
-            </span>
-          </div>
-        ) : (
-          <>
-            <div className={styles.modalHeader}>
+        <div className={styles.modalHeader}>
               <div className={styles.modalIntro}>
                 <span className={styles.categoryIcon}>
                   <Icon size={21} strokeWidth={1.8} />
@@ -528,7 +395,7 @@ export default function SupportRequestModal({
               </div>
             </div>
 
-            <div className={styles.formSection}>
+        <div className={styles.formSection}>
               {emailHref ? (
                 <div className={styles.emailStep} role="status">
                   <span className={styles.emailStepIcon}>
@@ -536,8 +403,9 @@ export default function SupportRequestModal({
                   </span>
                   <h3>Your request is ready to send</h3>
                   <p>
-                    Open your email app and send the prepared request to our
-                    team. After you send it, return here to confirm.
+                    The website does not send support requests automatically.
+                    Open your email app and send the prepared message to our
+                    team to complete your request.
                   </p>
                   {uploadReference && (
                     <p className={styles.uploadConfirmation}>
@@ -551,25 +419,14 @@ export default function SupportRequestModal({
                   <a
                     className={styles.submitButton}
                     href={emailHref}
-                    onClick={() => setEmailOpened(true)}
                   >
                     Open email app <ArrowRight size={17} />
                   </a>
-                  {emailOpened && (
-                    <button
-                      className={styles.confirmButton}
-                      type="button"
-                      onClick={() => setSubmitted(true)}
-                    >
-                      I’ve sent my request
-                    </button>
-                  )}
                   <button
                     className={styles.editButton}
                     type="button"
                     onClick={() => {
                       setEmailHref("");
-                      setEmailOpened(false);
                     }}
                   >
                     Return to form
@@ -580,6 +437,13 @@ export default function SupportRequestModal({
                   <div className={styles.formHeading}>
                     <h3>Tell us how we can help</h3>
                     <p>Fields marked * are required.</p>
+                    {request.requiredDocuments && (
+                      <p>
+                        At least one supporting document is required. The
+                        request is completed only after you send the prepared
+                        email to our team.
+                      </p>
+                    )}
                   </div>
                   <form className={styles.form} onSubmit={submit} noValidate>
                     <div className={styles.formGrid}>
@@ -679,7 +543,8 @@ export default function SupportRequestModal({
                         <span className={styles.fieldLabel}>
                           <FileText size={14} aria-hidden="true" />
                           <span id="support-documents-title">
-                            Optional supporting documents
+                            Supporting documents
+                            {request.requiredDocuments ? " *" : " (optional)"}
                           </span>
                         </span>
                         <p>
@@ -745,6 +610,22 @@ export default function SupportRequestModal({
                         before uploading. Files are kept in private storage
                         and are not attached to the email.
                       </p>
+                      <label className={styles.consentLabel}>
+                        <input
+                          id="support-contact-consent"
+                          type="checkbox"
+                          checked={contactConsent}
+                          onChange={(event) => {
+                            setContactConsent(event.currentTarget.checked);
+                            setFileError("");
+                          }}
+                          aria-invalid={Boolean(fileError && !contactConsent)}
+                        />
+                        <span>
+                          I give Trimurti Foundation permission to contact me
+                          about this support request.
+                        </span>
+                      </label>
                       {selectedFiles.length > 0 && (
                         <label className={styles.consentLabel}>
                           <input
@@ -780,7 +661,7 @@ export default function SupportRequestModal({
                     >
                       {isUploading
                         ? "Uploading documents securely…"
-                        : "Submit Request"}
+                        : "Submit Support Request"}
                       {!isUploading && <ArrowRight size={17} />}
                     </button>
                     <p className={styles.privacyNote}>
@@ -802,8 +683,6 @@ export default function SupportRequestModal({
                 <Clock3 size={14} /> We’ll be in touch
               </span>
             </div>
-          </>
-        )}
       </div>
     </dialog>
   );

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ArrowRight,
-  BadgeDollarSign,
   BookOpenCheck,
   HandCoins,
   Heart,
@@ -40,16 +39,10 @@ const supportActions = [
     tone: "teal",
   },
   {
-    title: "Sponsor a Cause",
-    description: "Fund a specific need",
-    href: "/donate",
-    icon: BadgeDollarSign,
-    tone: "orange",
-  },
-  {
     title: "Request Support",
     description: "Get help for yourself or others",
-    href: "/#support-request-title",
+    href: "/donate#support-request-form",
+    activePath: "/donate",
     icon: LifeBuoy,
     tone: "purple",
   },
@@ -108,7 +101,7 @@ export default function TransformLifeSupportPanel({
             </>
           );
 
-          if (title === "Donate to a Cause" || title === "Sponsor a Cause") {
+          if (title === "Donate to a Cause") {
             return (
               <DonationTrigger
                 className="initiative-approach-support-item donation-trigger"

@@ -41,8 +41,8 @@ import { site } from "@/config/site";
 import LuxuryDivider from "@/components/LuxuryDivider";
 
 const linkedDropdownLabels = new Set([
-  "Who we are",
-  "Our initiatives",
+  "Who We Are",
+  "Transform a Life",
   "Culture & Heritage",
   "Trimurthi Connect",
   "Be a part of Trimurthi family",
@@ -181,6 +181,14 @@ export default function Header() {
     const isActive = activeMenu === item.label;
 
     if (!hasChildren) {
+      if (!item.href) {
+        return (
+          <span key={item.label} className="nav-item" aria-disabled="true">
+            <span>{item.label}</span>
+          </span>
+        );
+      }
+
       return (
         <Link
           key={item.href}
@@ -277,6 +285,14 @@ export default function Header() {
     const isOpen = mobileAccordionOpen === item.label;
 
     if (!hasChildren) {
+      if (!item.href) {
+        return (
+          <span key={item.label} className="nav-item mobile-link" aria-disabled="true">
+            <span>{item.label}</span>
+          </span>
+        );
+      }
+
       return (
         <Link
           key={item.href}

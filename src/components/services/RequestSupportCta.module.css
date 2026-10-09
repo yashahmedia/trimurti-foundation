@@ -53,6 +53,8 @@
   position: relative;
   z-index: 1;
   display: inline-flex;
+  appearance: none;
+  font-family: inherit;
   min-height: 52px;
   flex: 0 0 auto;
   align-items: center;
@@ -66,6 +68,7 @@
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
+  cursor: pointer;
   box-shadow: 0 7px 18px rgba(5, 16, 26, 0.18);
   transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }

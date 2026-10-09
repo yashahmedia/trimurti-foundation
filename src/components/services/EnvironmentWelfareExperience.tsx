@@ -36,7 +36,7 @@ export default function EnvironmentWelfareExperience() {
         </div>
       </section>
 
-      <RequestSupportCta />
+      <RequestSupportCta category="Environment & Welfare" />
 
       <section className={styles.whySection} aria-labelledby="why-environment-title">
         <div className={styles.whyLayout}>

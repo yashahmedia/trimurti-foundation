@@ -36,7 +36,7 @@ export default function EducationEmpowermentExperience() {
         </div>
       </section>
 
-      <RequestSupportCta />
+      <RequestSupportCta category="Education & Empowerment" />
 
       <section className={styles.whySection} aria-labelledby="why-education-title">
         <div className={styles.whyLayout}>

@@ -12,6 +12,11 @@ const maxFiles = 5;
 const maxFileSize = 10 * 1024 * 1024;
 const maxTotalSize = 30 * 1024 * 1024;
 const categories: Record<string, string> = {
+  "Education & Empowerment": "education",
+  "Annadhan & Nutrition": "food",
+  "Stand with our Soldiers": "soldiers",
+  "Environment & Welfare": "environment",
+  "Culture & Heritage": "culture",
   "Education for Children & Students": "education",
   "Support for Elderly People": "elderly",
   "Healthcare Support": "healthcare",
@@ -123,7 +128,7 @@ function isUploadKeys(
   }
 
   const keyPattern = new RegExp(
-    `^support-requests/(education|elderly|healthcare|food|women|emergency)/${payload.requestId}/[0-9a-f-]{36}\\.(pdf|jpg|png)$`,
+    `^support-requests/(education|elderly|healthcare|food|women|emergency|soldiers|environment|culture)/${payload.requestId}/[0-9a-f-]{36}\\.(pdf|jpg|png)$`,
     "i",
   );
   return payload.keys.every((key) => keyPattern.test(key));

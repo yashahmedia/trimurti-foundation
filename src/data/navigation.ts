@@ -8,7 +8,7 @@ type NavigationItem = {
 export const navigation: NavigationItem[] = [
   { label: "Home", href: "/", description: "Overview" },
   {
-    label: "Who we are",
+    label: "Who We Are",
     href: "/about-us",
     description: "Our story and values",
     children: [
@@ -21,7 +21,7 @@ export const navigation: NavigationItem[] = [
     ],
   },
   {
-    label: "Our initiatives",
+    label: "Transform a Life",
     href: "/initiatives",
     description: "Impact programmes",
     children: [
@@ -31,9 +31,13 @@ export const navigation: NavigationItem[] = [
       { label: "Stand with our Soldiers", href: "/services/standing-with-soldiers", icon: "elderly", description: "Support and dignity" },
       { label: "Environment & Welfare", href: "/services/environment-welfare", icon: "environment", description: "Greener communities" },
       { label: "Culture & Heritage", href: "/services/culture-heritage", icon: "culture", description: "Keeping roots alive" },
-      ],
+    ],
   },
-  { label: "Transform a Life", href: "/donate", description: "Support a cause" },
+  {
+    label: "Request a Support",
+    href: "/donate#support-request-form",
+    description: "Explore ways to receive and offer support",
+  },
   {
     label: "Trimurthi Connect",
     href: "/trimurti-connect",
@@ -44,19 +48,7 @@ export const navigation: NavigationItem[] = [
     ],
   },
   {
-    label: "Be a part of Trimurthi family",
-    href: "/be-a-part-of-trimurthi-family",
-    description: "Get involved",
-    children: [
-      { label: "Volunteer with us", href: "/be-a-part-of-trimurthi-family#volunteer", icon: "volunteer", description: "Contribute your time" },
-      { label: "Join an Event", href: "/be-a-part-of-trimurthi-family#events", icon: "event", description: "Participate with the community" },
-      { label: "Sponsor learning", href: "/be-a-part-of-trimurthi-family#sponsor-learning", icon: "sponsor", description: "Support a learner" },
-      { label: "Request for professionals", href: "/be-a-part-of-trimurthi-family#professionals", icon: "professionals", description: "Offer specialist help" },
-      { label: "Request for Business support", href: "/be-a-part-of-trimurthi-family#business-support", icon: "business", description: "Partner with us" },
-    ],
-  },
-  {
-    label: "News & Updates",
+    label: "News and Events",
     href: "/insights",
     description: "Learning and updates",
     children: [
@@ -74,5 +66,6 @@ export const navigation: NavigationItem[] = [
       { label: "Videos", href: "/media/videos", icon: "video", description: "Video stories" },
     ],
   },
+  { label: "Wall of Honor", href: "", description: "Coming soon" },
   { label: "Contact", href: "/contact", description: "Reach us" },
 ];

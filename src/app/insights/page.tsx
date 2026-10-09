@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { seo } from "@/lib/seo";
 import SupportPromptSection from "@/components/home/SupportPromptSection";
+import JoinNowButton from "@/components/events/JoinNowButton";
 import styles from "./insights.module.css";
 
 export const metadata = seo(
@@ -185,6 +186,7 @@ export default function InsightsPage() {
                       <Clock3 size={14} /> Details coming soon
                     </span>
                   </div>
+                  <JoinNowButton itemName={event.title} className={styles.joinNow} />
                 </div>
               </article>
             ))}
@@ -228,6 +230,7 @@ export default function InsightsPage() {
                   <p className={styles.cardDescription}>
                     {campaign.description}
                   </p>
+                  <JoinNowButton itemName={campaign.title} className={styles.joinNow} />
                 </div>
               </article>
             ))}

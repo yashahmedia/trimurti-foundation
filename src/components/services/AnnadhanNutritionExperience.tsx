@@ -34,7 +34,7 @@ export default function AnnadhanNutritionExperience() {
         </div>
       </section>
 
-      <RequestSupportCta />
+      <RequestSupportCta category="Annadhan & Nutrition" />
 
       <section className={styles.whySection} aria-labelledby="why-annadhan-title">
         <div className={styles.whyLayout}>

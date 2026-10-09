@@ -47,11 +47,17 @@ export default function Footer() {
         <div>
           <h3>Explore</h3>
           <div className="footer-links">
-            {navigation.map((n) => (
-              <Link key={n.href} href={n.href}>
-                {n.label}
-              </Link>
-            ))}
+            {navigation.map((n) =>
+              n.href ? (
+                <Link key={n.label} href={n.href}>
+                  {n.label}
+                </Link>
+              ) : (
+                <span key={n.label} aria-disabled="true">
+                  {n.label}
+                </span>
+              ),
+            )}
           </div>
         </div>
         <div>

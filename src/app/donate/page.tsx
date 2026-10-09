@@ -1,6 +1,6 @@
 import DonationForm from "@/components/donate/DonationForm";
 import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
-import SupportPromptSection from "@/components/home/SupportPromptSection";
+import SupportRequestForm from "@/components/home/SupportRequestForm";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -14,9 +14,9 @@ import { seo } from "@/lib/seo";
 import styles from "./donate.module.css";
 
 export const metadata = seo(
-  "Transform a Life",
+  "Request a Support",
   "/donate",
-  "Discover meaningful ways to support Trimurthi Foundation initiatives through giving, volunteering, sharing knowledge, or requesting support.",
+  "Request practical support from Trimurthi Foundation for education, healthcare, nutrition, soldiers’ families, environment, or culture and heritage.",
 );
 
 const impactAreas = [
@@ -106,7 +106,7 @@ export default function Page() {
         </div>
       </section>
 
-      <SupportPromptSection />
+      <SupportRequestForm />
 
       <section
         className={styles.waysSection}

@@ -168,9 +168,11 @@
 }
 
 .waysPanel :global(.initiative-approach-support-list) {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 720px;
+  margin-inline: auto;
   gap: 14px;
-  overflow-x: auto;
+  overflow-x: visible;
 }
 
 .waysPanel :global(.initiative-approach-support-item) {
@@ -606,7 +608,9 @@
   }
 
   .waysPanel :global(.initiative-approach-support-list) {
-    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 400px;
+    margin-inline: auto;
   }
 
   .waysPanel :global(.initiative-approach-support-item) {

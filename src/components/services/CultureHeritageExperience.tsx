@@ -37,7 +37,7 @@ export default function CultureHeritageExperience() {
         </div>
       </section>
 
-      <RequestSupportCta />
+      <RequestSupportCta category="Culture & Heritage" />
 
       <section className={contentStyles.whySection} aria-labelledby="why-culture-title">
         <Landmark className={contentStyles.heritageWatermark} aria-hidden="true" />

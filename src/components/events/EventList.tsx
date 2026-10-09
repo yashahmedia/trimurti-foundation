@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Keyboard } from "swiper/modules";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import "swiper/css";
+import JoinNowButton from "@/components/events/JoinNowButton";
 
 function EventSlider({ event }: { event: FoundationEvent }) {
   const images = event.images?.length ? event.images : [event.image];
@@ -90,6 +91,7 @@ export default function EventList({ items }: { items: FoundationEvent[] }) {
                 <span className="event-details-button">
                   View details <ArrowUpRight size={16} />
                 </span>
+                <JoinNowButton itemName={e.title} />
               </div>
             </article>
           </SwiperSlide>
