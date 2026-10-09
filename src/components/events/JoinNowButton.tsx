@@ -7,6 +7,7 @@ import styles from "./JoinNowButton.module.css";
 type JoinNowButtonProps = {
   itemName: string;
   className?: string;
+  fullWidth?: boolean;
 };
 
 type Interest = {
@@ -19,6 +20,7 @@ type Interest = {
 export default function JoinNowButton({
   itemName,
   className,
+  fullWidth = false,
 }: JoinNowButtonProps) {
   const id = useId();
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -105,7 +107,7 @@ export default function JoinNowButton({
   return (
     <>
       <button
-        className={[styles.trigger, className].filter(Boolean).join(" ")}
+        className={[styles.trigger, fullWidth ? styles.fullWidth : "", className].filter(Boolean).join(" ")}
         type="button"
         aria-haspopup="dialog"
         onClick={() => setOpen(true)}

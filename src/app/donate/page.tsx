@@ -1,4 +1,5 @@
 import DonationForm from "@/components/donate/DonationForm";
+import HeroSlider from "@/components/home/HeroSlider";
 import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
 import SupportRequestForm from "@/components/home/SupportRequestForm";
 import Image from "next/image";
@@ -81,30 +82,7 @@ const impactAreas = [
 export default function Page() {
   return (
     <main className={styles.page}>
-      <section className={styles.hero} aria-labelledby="transform-life-title">
-        <div className={styles.heroInner}>
-          <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>Trimurthi Foundation</span>
-            <h1 id="transform-life-title">Transform a Life</h1>
-            <p className={styles.heroLead}>Your support creates real change.</p>
-            <p className={styles.heroText}>
-              Time, knowledge, resources, or financial support can help someone
-              find care, opportunity, and a way forward. Every act of support
-              begins with people showing up for one another.
-            </p>
-          </div>
-          <figure className={styles.heroImage}>
-            <Image
-              src="/education-support.png"
-              alt="A teacher sharing a learning moment with students"
-              fill
-              priority
-              sizes="(max-width: 760px) 100vw, 48vw"
-            />
-            <figcaption>Support can open a door to possibility.</figcaption>
-          </figure>
-        </div>
-      </section>
+      <HeroSlider />
 
       <SupportRequestForm />
 

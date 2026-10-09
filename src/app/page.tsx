@@ -1,4 +1,3 @@
-import HeroSlider from "@/components/home/HeroSlider";
 import WhoWeAre from "@/components/home/WhoWeAre";
 import TrimurthyPhilosophy from "@/components/home/TrimurthyPhilosophy";
 import TransformALife from "@/components/home/TransformALife";
@@ -16,9 +15,8 @@ export default function Home() {
   return (
     <>
       <WhoWeAre />
-      <HeroSlider />
-      <TrimurthyPhilosophy />
       <TransformALife />
+      <TrimurthyPhilosophy />
       {showSupportRequestSection && <SupportRequestSection />}
       <EventsCampaigns />
       <DonateNow />
