@@ -7394,9 +7394,19 @@ body.donation-modal-open { overflow: hidden; }
   font-size: 12px;
   line-height: 1.8;
 }
+.family-card button.family-card-link {
+  padding: 0;
+  background: transparent;
+  color: #e8f7d8;
+  text-align: left;
+}
 .family-card-link:hover {
   color: #fff8cf;
   border-color: rgba(255, 248, 207, 0.8);
+}
+.family-card button.family-card-link:hover {
+  background: transparent;
+  color: #fff8cf;
 }
 .homepage-section.connect-section {
   padding: 42px 0 44px;
