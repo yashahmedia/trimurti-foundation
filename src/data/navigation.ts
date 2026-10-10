@@ -66,6 +66,6 @@ export const navigation: NavigationItem[] = [
       { label: "Videos", href: "/media/videos", icon: "video", description: "Video stories" },
     ],
   },
-  { label: "Wall of Honor", href: "", description: "Coming soon" },
+  { label: "Wall of Honour", href: "/wall-of-honour", description: "Recognizing those who stand with our mission" },
   { label: "Contact", href: "/contact", description: "Reach us" },
 ];

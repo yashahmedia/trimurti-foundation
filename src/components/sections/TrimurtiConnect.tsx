@@ -8,9 +8,11 @@ import {
   Sprout,
   UsersRound,
 } from "lucide-react";
+import ConnectRequestAction from "@/components/community/ConnectRequestAction";
 
 const connections = [
   {
+    id: "professional-connect-home",
     label: "Professional Connect",
     title: "Bring your expertise.",
     description:
@@ -25,6 +27,7 @@ const connections = [
     ],
   },
   {
+    id: "business-connect-home",
     label: "Business Connect",
     title: "Partner as an organisation.",
     description:
@@ -62,6 +65,7 @@ export default function TrimurtiConnect() {
           {connections.map(
             ({
               label,
+              id,
               title,
               description,
               image,
@@ -95,6 +99,10 @@ export default function TrimurtiConnect() {
                       </li>
                     ))}
                   </ul>
+                  <ConnectRequestAction
+                    connectionId={id}
+                    connectionLabel={label}
+                  />
                 </div>
               </article>
             ),

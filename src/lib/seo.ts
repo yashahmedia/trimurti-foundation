@@ -6,6 +6,7 @@ const descriptions: Record<string, string> = {
   "/media/photos": "Browse photographs by education, healthcare, elder support, community and heritage.",
   "/media/videos": "Watch approved community stories and videos from Trimurthi Foundation.",
   "/events": "Find upcoming and past Trimurthi Foundation events, dates, locations and participation details.",
+  "/wall-of-honour": "A heartfelt tribute to the supporters, mentors, volunteers, families, organisations and well-wishers who stand with Trimurthi Foundation.",
   "/volunteer": "Apply to volunteer with Trimurthi Foundation and share your skills, interests and availability.",
   "/privacy-policy": "Read how volunteer applications, public memberships and donor information are handled.",
   "/terms-and-conditions": "Read the terms for using Trimurthi Foundation’s website, public records and membership services.",

@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { useState, type FormEvent } from "react";
-import { site } from "@/config/site";
+import { useState } from "react";
+import ConnectRequestAction from "@/components/community/ConnectRequestAction";
 import styles from "./TrimurtiConnectLanding.module.css";
 
 const connections: Array<{
@@ -40,32 +40,6 @@ const connections: Array<{
 export default function TrimurtiConnectLanding() {
   const reducedMotion = Boolean(useReducedMotion());
   const [activeFormId, setActiveFormId] = useState<string | null>(null);
-  const [requestEmail, setRequestEmail] = useState<{
-    connectionId: string;
-    href: string;
-  } | null>(null);
-
-  function submitConnectionRequest(
-    event: FormEvent<HTMLFormElement>,
-    connection: (typeof connections)[number],
-  ) {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const name = String(formData.get("name") ?? "").trim();
-    const mobile = String(formData.get("mobile") ?? "").trim();
-    const email = String(formData.get("email") ?? "").trim();
-    const details = [
-      `Connection enquiry: ${connection.label}`,
-      `Name: ${name}`,
-      `Mobile: ${mobile}`,
-      `Email: ${email || "Not provided"}`,
-    ].join("\n");
-
-    setRequestEmail({
-      connectionId: connection.id,
-      href: `mailto:${site.email}?subject=${encodeURIComponent(`${connection.label} enquiry`)}&body=${encodeURIComponent(details)}`,
-    });
-  }
 
   return (
     <div className={styles.page}>
@@ -122,87 +96,14 @@ export default function TrimurtiConnectLanding() {
               </span>
               <h2 id={`${connection.id}-title`}>{connection.title}</h2>
               <p>{connection.description}</p>
-              <button
-                className={styles.connectButton}
-                type="button"
-                aria-haspopup="dialog"
-                aria-expanded={activeFormId === connection.id}
-                aria-controls={
-                  activeFormId === connection.id
-                    ? `${connection.id}-form`
-                    : undefined
+              <ConnectRequestAction
+                connectionId={connection.id}
+                connectionLabel={connection.label}
+                isOpen={activeFormId === connection.id}
+                onOpenChange={(isOpen) =>
+                  setActiveFormId(isOpen ? connection.id : null)
                 }
-                onClick={() => {
-                  setActiveFormId((current) =>
-                    current === connection.id ? null : connection.id,
-                  );
-                  setRequestEmail(null);
-                }}
-              >
-                {activeFormId === connection.id ? "Close form" : "Get in touch"}
-              </button>
-              {activeFormId === connection.id && (
-                <div className={styles.formPanel} id={`${connection.id}-form`}>
-                  {requestEmail?.connectionId === connection.id ? (
-                    <div className={styles.formSuccess} role="status">
-                      <p>Your enquiry is ready. Open your email app to review and send it.</p>
-                      <a className={styles.submitButton} href={requestEmail.href}>
-                        Open email to send
-                      </a>
-                      <button
-                        className={styles.textButton}
-                        type="button"
-                        onClick={() => setRequestEmail(null)}
-                      >
-                        Edit details
-                      </button>
-                    </div>
-                  ) : (
-                    <form
-                      className={styles.form}
-                      onSubmit={(event) => submitConnectionRequest(event, connection)}
-                    >
-                      <label className={styles.field}>
-                        <span>Your name *</span>
-                        <input
-                          autoComplete="name"
-                          maxLength={120}
-                          name="name"
-                          required
-                        />
-                      </label>
-                      <label className={styles.field}>
-                        <span>Mobile number *</span>
-                        <input
-                          autoComplete="tel"
-                          inputMode="tel"
-                          maxLength={30}
-                          name="mobile"
-                          pattern="(?=.*[0-9])[+0-9(). -]{7,30}"
-                          required
-                          title="Enter a valid phone number."
-                          type="tel"
-                        />
-                      </label>
-                      <label className={styles.field}>
-                        <span>Email address (optional)</span>
-                        <input
-                          autoComplete="email"
-                          maxLength={150}
-                          name="email"
-                          type="email"
-                        />
-                      </label>
-                      <p className={styles.formNote}>
-                        Submitting prepares an email for you to review and send.
-                      </p>
-                      <button className={styles.submitButton} type="submit">
-                        Continue
-                      </button>
-                    </form>
-                  )}
-                </div>
-              )}
+              />
             </div>
           </motion.section>
         ))}
