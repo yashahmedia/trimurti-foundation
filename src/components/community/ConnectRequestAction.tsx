@@ -40,7 +40,6 @@ export default function ConnectRequestAction({
   const dialogRef = useRef<HTMLDialogElement>(null);
   const submissionInFlight = useRef(false);
   const titleId = useId();
-  const isProfessional = connectionLabel === "Professional Connect";
   const dialogId = `${connectionId}-form`;
 
   useEffect(() => {
@@ -97,14 +96,8 @@ export default function ConnectRequestAction({
       name: String(formData.get("name") ?? "").trim(),
       mobile: String(formData.get("mobile") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
-      ...(isProfessional
-        ? {
-            profession: String(formData.get("profession") ?? ""),
-            otherProfession: String(
-              formData.get("otherProfession") ?? "",
-            ).trim(),
-          }
-        : {}),
+      profession: String(formData.get("profession") ?? ""),
+      otherProfession: String(formData.get("otherProfession") ?? "").trim(),
     };
 
     submissionInFlight.current = true;
@@ -236,38 +229,34 @@ export default function ConnectRequestAction({
                       }
                     />
                   </label>
-                  {isProfessional && (
-                    <>
-                      <label className={styles.field}>
-                        <span>Profession *</span>
-                        <select
-                          name="profession"
-                          required
-                          value={profession}
-                          onChange={(event) =>
-                            setProfession(event.currentTarget.value)
-                          }
-                        >
-                          <option value="">Select your profession</option>
-                          {professions.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </select>
-                      </label>
-                      {profession === "Other" && (
-                        <label className={styles.field}>
-                          <span>Please specify your profession *</span>
-                          <input
-                            autoComplete="organization-title"
-                            maxLength={120}
-                            name="otherProfession"
-                            required
-                          />
-                        </label>
-                      )}
-                    </>
+                  <label className={styles.field}>
+                    <span>Profession *</span>
+                    <select
+                      name="profession"
+                      required
+                      value={profession}
+                      onChange={(event) =>
+                        setProfession(event.currentTarget.value)
+                      }
+                    >
+                      <option value="">Select your profession</option>
+                      {professions.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  {profession === "Other" && (
+                    <label className={styles.field}>
+                      <span>Please specify your profession *</span>
+                      <input
+                        autoComplete="organization-title"
+                        maxLength={120}
+                        name="otherProfession"
+                        required
+                      />
+                    </label>
                   )}
                   <label className={styles.field}>
                     <span>Email address (optional)</span>
