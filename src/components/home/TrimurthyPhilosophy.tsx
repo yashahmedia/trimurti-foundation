@@ -37,6 +37,7 @@ export default function TrimurthyPhilosophy() {
                     src={item.image}
                     alt={item.alt}
                     fill
+                    quality={item.title === "Enlighten" ? 100 : undefined}
                     sizes="(max-width: 640px) 100vw, (max-width: 1100px) 33vw, 20vw"
                     className="philosophy-card-image"
                   />

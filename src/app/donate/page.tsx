@@ -1,7 +1,6 @@
 import DonationForm from "@/components/donate/DonationForm";
 import HeroSlider from "@/components/home/HeroSlider";
 import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
-import SupportRequestForm from "@/components/home/SupportRequestForm";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -83,8 +82,6 @@ export default function Page() {
   return (
     <main className={styles.page}>
       <HeroSlider />
-
-      <SupportRequestForm />
 
       <section
         className={styles.waysSection}

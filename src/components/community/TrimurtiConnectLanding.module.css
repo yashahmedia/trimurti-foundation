@@ -183,6 +183,120 @@
   text-wrap: pretty;
 }
 
+.connectButton,
+.submitButton {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 11px 18px;
+  border: 1px solid #1d5548;
+  border-radius: 8px;
+  background: #1d5548;
+  color: #fffdf8;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.connectButton:hover,
+.submitButton:hover {
+  transform: translateY(-1px);
+  border-color: #143f35;
+  background: #143f35;
+}
+
+.connectButton:focus-visible,
+.submitButton:focus-visible,
+.textButton:focus-visible,
+.field input:focus-visible {
+  outline: 3px solid rgba(201, 162, 74, 0.42);
+  outline-offset: 3px;
+}
+
+.formPanel {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid rgba(68, 103, 84, 0.17);
+  border-radius: 14px;
+  background: #fffdf8;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  color: #28443c;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.field input {
+  width: 100%;
+  min-height: 43px;
+  padding: 10px 12px;
+  border: 1px solid #d9ded4;
+  border-radius: 7px;
+  background: #fff;
+  color: #17312e;
+  font: inherit;
+  font-size: 14px;
+}
+
+.field input[aria-invalid="true"] {
+  border-color: #b43b47;
+}
+
+.formNote {
+  margin: 0;
+  color: #65746b;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.form .submitButton {
+  justify-self: start;
+  margin-top: 0;
+}
+
+.formSuccess {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+}
+
+.formSuccess p {
+  margin: 0;
+  color: #28443c;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.formSuccess .submitButton {
+  margin-top: 6px;
+}
+
+.textButton {
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  color: #1d5548;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 @media (max-width: 760px) {
   .hero {
     padding: 56px 22px 38px;
@@ -231,6 +345,10 @@
 
   .copy {
     padding: 23px 21px 27px;
+  }
+
+  .formPanel {
+    padding: 16px;
   }
 
   .copy h2 {

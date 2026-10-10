@@ -239,9 +239,15 @@ function validMobile(value: string): boolean {
   return /^\+?[1-9]\d{6,14}$/.test(normalized);
 }
 
-export default function SupportRequestForm() {
+export default function SupportRequestForm({
+  initialCategory = "",
+  compact = false,
+}: {
+  initialCategory?: string;
+  compact?: boolean;
+}) {
   const [contact, setContact] = useState<ContactDetails>(emptyContact);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(initialCategory);
   const [categoryValues, setCategoryValues] = useState<Record<string, string>>({});
   const [files, setFiles] = useState<File[]>([]);
   const [documentConsent, setDocumentConsent] = useState(false);
@@ -431,10 +437,24 @@ export default function SupportRequestForm() {
     );
   }
 
+  const compactStyles = compact
+    ? {
+        section: { padding: 0, background: "transparent", boxShadow: "none" },
+        inner: { width: "100%", maxWidth: "100%" },
+        heading: { margin: "0 0 18px", textAlign: "left" as const },
+        form: { padding: "18px 16px", boxShadow: "none" },
+      }
+    : undefined;
+
   return (
-    <section className={styles.section} id="support-request-form" aria-labelledby="support-request-form-title">
-      <div className={styles.inner}>
-        <header className={styles.heading}>
+    <section
+      className={`${styles.section} ${compact ? "initiative-support-form" : ""}`}
+      id="support-request-form"
+      aria-labelledby="support-request-form-title"
+      style={compactStyles?.section}
+    >
+      <div className={styles.inner} style={compactStyles?.inner}>
+        <header className={styles.heading} style={compactStyles?.heading}>
           <span className={styles.eyebrow}>We are here to help</span>
           <h2 id="support-request-form-title">Request a Support</h2>
           <p>Share a few details so our team can understand your need and guide you to the right support.</p>
@@ -458,7 +478,7 @@ export default function SupportRequestForm() {
             </div>
           </div>
         ) : (
-          <form className={styles.form} onSubmit={submit} noValidate>
+          <form className={styles.form} onSubmit={submit} noValidate style={compactStyles?.form}>
             <fieldset className={styles.group}>
               <legend>Your contact details</legend>
               <div className={styles.grid}>

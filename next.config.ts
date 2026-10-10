@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
+  images: { qualities: [75, 100] },
   allowedDevOrigins: ["10.48.248.133"],
   turbopack: { root: process.cwd() },
   async headers() {

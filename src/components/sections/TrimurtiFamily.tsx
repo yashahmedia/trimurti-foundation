@@ -27,7 +27,7 @@ const ways = [
     title: "Offer mentorship",
     description:
       "Share your experience, guide future leaders, and help someone reach their potential.",
-    image: "/offer mentorship.jpg",
+    image: "/Offer mentorship.webp",
     imageAlt: "An experienced mentor guiding a younger professional",
     Icon: Handshake,
   },

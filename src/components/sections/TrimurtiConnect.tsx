@@ -15,7 +15,7 @@ const connections = [
     title: "Bring your expertise.",
     description:
       "Doctors, teachers, lawyers and designers offering pro-bono hours, workshops or one-on-one guidance to the people we serve.",
-    image: "/Bring your expertise..jpg",
+    image: "/Professional Connect.jpeg",
     imageAlt: "Two professionals discussing ideas while reviewing a tablet",
     Icon: ContactRound,
     features: [
