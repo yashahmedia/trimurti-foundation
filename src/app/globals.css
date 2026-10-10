@@ -9947,8 +9947,10 @@ button:disabled {
   position: fixed;
   z-index: 90;
   width: min(620px, calc(100vw - 24px));
-  max-height: min(86vh, 900px);
-  overflow: auto;
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 18px;
   border: 1px solid rgba(31, 58, 54, 0.12);
   border-radius: 24px;

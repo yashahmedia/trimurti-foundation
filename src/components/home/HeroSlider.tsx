@@ -131,8 +131,7 @@ export default function HeroSlider() {
     if (anchorElement) {
       const rect = anchorElement.getBoundingClientRect();
       const left = Math.min(rect.right + 26, window.innerWidth - 760);
-      const top = Math.min(Math.max(rect.top - 20, 24), window.innerHeight - 420);
-      setPopupPosition({ top, left: Math.max(left, 18) });
+      setPopupPosition({ top: 16, left: Math.max(left, 18) });
       return;
     }
 
@@ -140,12 +139,11 @@ export default function HeroSlider() {
     if (fallbackButton) {
       const rect = fallbackButton.getBoundingClientRect();
       const left = Math.min(rect.right + 26, window.innerWidth - 760);
-      const top = Math.min(Math.max(rect.top - 12, 24), window.innerHeight - 420);
-      setPopupPosition({ top, left: Math.max(left, 18) });
+      setPopupPosition({ top: 16, left: Math.max(left, 18) });
       return;
     }
 
-    setPopupPosition({ top: 124, left: 360 });
+    setPopupPosition({ top: 16, left: 360 });
   };
 
   const selectInitiative = (index: number, anchorElement?: HTMLButtonElement | null) => {
