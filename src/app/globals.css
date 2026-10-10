@@ -5297,7 +5297,7 @@ img {
   filter: saturate(1.08) contrast(1.05);
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), filter 0.65s ease;
 }
-.philosophy-card:nth-child(1) .philosophy-card-image { object-position: center; }
+.philosophy-card:nth-child(1) .philosophy-card-image { object-position: center 16%; }
 .philosophy-card:nth-child(2) .philosophy-card-image { object-position: center; }
 .philosophy-card:nth-child(3) .philosophy-card-image { object-position: center; }
 .philosophy-card:nth-child(4) .philosophy-card-image { object-position: center; }

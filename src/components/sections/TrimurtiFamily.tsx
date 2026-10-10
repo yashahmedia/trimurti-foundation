@@ -35,8 +35,8 @@ const ways = [
     href: "/trimurti-connect",
     description:
       "Share your experience, knowledge and guidance to help individuals grow, make informed choices and realise their potential.",
-    image: "/Offer mentorship.webp",
-    imageAlt: "An experienced mentor guiding a younger professional",
+    image: "/offer mentorship.jpg",
+    imageAlt: "A mentor guiding students during a community workshop",
     Icon: Handshake,
   },
 ];
