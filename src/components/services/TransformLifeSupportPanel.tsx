@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -13,6 +14,8 @@ import {
 import DonationTrigger from "@/components/donate/DonationTrigger";
 import KnowledgeModal from "@/components/forms/KnowledgeModal";
 import VolunteerModal from "@/components/forms/VolunteerModal";
+import SupportRequestModal from "@/components/home/SupportRequestModal";
+import { getSupportRequestForPath } from "./serviceSupportRequests";
 
 const supportActions = [
   {
@@ -41,8 +44,6 @@ const supportActions = [
   {
     title: "Request Support",
     description: "Get help for yourself or others",
-    href: "/donate#support-request-form",
-    activePath: "/donate",
     icon: LifeBuoy,
     tone: "purple",
   },
@@ -54,6 +55,7 @@ export default function TransformLifeSupportPanel({
   showRequestSupport?: boolean;
 }) {
   const pathname = usePathname();
+  const supportRequestButtonRef = useRef<HTMLButtonElement>(null);
   const initialCause = {
     "/services/education": "Education & Empowerment",
     "/services/healthcare": "Medical & Healthcare Support",
@@ -80,7 +82,7 @@ export default function TransformLifeSupportPanel({
         {supportActions
           .filter(({ title }) => showRequestSupport || title !== "Request Support")
           .map(({ title, description, href, activePath, icon: Icon, tone }) => {
-          const isActive = pathname === activePath;
+          const isActive = activePath ? pathname === activePath : false;
           const content = (
             <>
               <span
@@ -138,7 +140,21 @@ export default function TransformLifeSupportPanel({
             );
           }
 
-          return (
+          if (title === "Request Support") {
+            return (
+              <button
+                ref={supportRequestButtonRef}
+                className="initiative-approach-support-item initiative-approach-support-request"
+                key={title}
+                type="button"
+                aria-haspopup="dialog"
+              >
+                {content}
+              </button>
+            );
+          }
+
+          return href ? (
             <Link
               className={`initiative-approach-support-item ${isActive ? "is-active" : ""}`}
               href={href}
@@ -147,7 +163,7 @@ export default function TransformLifeSupportPanel({
             >
               {content}
             </Link>
-          );
+          ) : null;
           })}
       </nav>
 
@@ -163,6 +179,14 @@ export default function TransformLifeSupportPanel({
           <i />
         </span>
       </div>
+      {showRequestSupport && (
+        <SupportRequestModal
+          request={getSupportRequestForPath(pathname)}
+          scrollPosition={{ x: 0, y: 0 }}
+          triggerRef={supportRequestButtonRef}
+          onClose={() => {}}
+        />
+      )}
     </aside>
   );
 }

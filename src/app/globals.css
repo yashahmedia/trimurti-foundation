@@ -3016,6 +3016,14 @@ img {
     box-shadow 280ms ease;
 }
 
+.initiative-approach-support-request {
+  width: 100%;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .initiative-approach-support-item:hover,
 .initiative-approach-support-item:focus-visible {
   transform: translateY(-2px);

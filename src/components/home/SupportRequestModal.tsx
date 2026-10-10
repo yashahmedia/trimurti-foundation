@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type RefObject,
+} from "react";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -63,6 +70,7 @@ type SupportRequestModalProps = {
   request: SupportRequestConfig;
   onClose: () => void;
   scrollPosition: PageScrollPosition;
+  triggerRef?: RefObject<HTMLButtonElement | null>;
 };
 
 type FormValues = Record<string, string>;
@@ -181,8 +189,14 @@ export default function SupportRequestModal({
   request,
   onClose,
   scrollPosition,
+  triggerRef,
 }: SupportRequestModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const focusFrameRef = useRef<number | null>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+  const restorePageScrollRef = useRef<(() => void) | null>(null);
+  const openDialogRef = useRef<() => void>(() => {});
+  const modalId = `support-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const [errors, setErrors] = useState<FormErrors>({});
   const [formValues, setFormValues] = useState<FormValues>({});
   const [emailHref, setEmailHref] = useState("");
@@ -200,30 +214,76 @@ export default function SupportRequestModal({
     ...request.fields,
   ];
 
-  useEffect(() => {
+  const openDialog = useCallback(() => {
     const dialog = dialogRef.current;
-    if (!dialog) return;
+    if (!dialog || dialog.open) return;
 
-    const previouslyFocused = document.activeElement;
-    const restorePageScroll = lockPageScroll(scrollPosition);
-    dialog.showModal();
-    const focusFrame = window.requestAnimationFrame(() => {
+    const focusedElement = document.activeElement;
+    previouslyFocusedRef.current =
+      focusedElement instanceof HTMLElement ? focusedElement : null;
+    const position = triggerRef
+      ? { x: window.scrollX, y: window.scrollY }
+      : scrollPosition;
+    const restorePageScroll = lockPageScroll(position);
+    try {
+      dialog.showModal();
+    } catch (error) {
+      restorePageScroll();
+      throw error;
+    }
+    restorePageScrollRef.current = restorePageScroll;
+    focusFrameRef.current = window.requestAnimationFrame(() => {
       dialog.scrollTop = 0;
       dialog
         .querySelector<HTMLButtonElement>("[data-modal-close]")
         ?.focus({ preventScroll: true });
       dialog.scrollTop = 0;
     });
+  }, [scrollPosition, triggerRef]);
+
+  const restoreDialogState = useCallback(() => {
+    if (focusFrameRef.current !== null) {
+      window.cancelAnimationFrame(focusFrameRef.current);
+      focusFrameRef.current = null;
+    }
+    previouslyFocusedRef.current?.focus({ preventScroll: true });
+    previouslyFocusedRef.current = null;
+    restorePageScrollRef.current?.();
+    restorePageScrollRef.current = null;
+  }, []);
+
+  const closeDialog = useCallback(() => {
+    const dialog = dialogRef.current;
+    if (dialog?.open) {
+      dialog.close();
+    } else {
+      restoreDialogState();
+      onClose();
+    }
+  }, [onClose, restoreDialogState]);
+
+  useEffect(() => {
+    openDialogRef.current = openDialog;
+  }, [openDialog]);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    const trigger = triggerRef?.current;
+    const handleTriggerClick = () => openDialogRef.current();
+    if (trigger) {
+      trigger.addEventListener("click", handleTriggerClick);
+    } else {
+      handleTriggerClick();
+    }
 
     return () => {
-      window.cancelAnimationFrame(focusFrame);
+      trigger?.removeEventListener("click", handleTriggerClick);
       if (dialog.open) dialog.close();
-      if (previouslyFocused instanceof HTMLElement) {
-        previouslyFocused.focus({ preventScroll: true });
-      }
-      restorePageScroll();
+      restoreDialogState();
     };
-  }, [scrollPosition]);
+  }, [restoreDialogState, triggerRef]);
 
   function addFiles(fileList: FileList | null) {
     if (!fileList?.length) return;
@@ -280,14 +340,14 @@ export default function SupportRequestModal({
     if (!contactConsent) {
       setFileError("Please agree to be contacted about this support request.");
       dialogRef.current
-        ?.querySelector<HTMLInputElement>("#support-contact-consent")
+        ?.querySelector<HTMLInputElement>(`#${modalId}-contact-consent`)
         ?.focus();
       return;
     }
     if (request.requiredDocuments && selectedFiles.length === 0) {
       setFileError("At least one supporting document is required to continue.");
       dialogRef.current
-        ?.querySelector<HTMLInputElement>("#support-document-upload")
+        ?.querySelector<HTMLInputElement>(`#${modalId}-document-upload`)
         ?.focus();
       return;
     }
@@ -296,7 +356,7 @@ export default function SupportRequestModal({
         "Please confirm that you agree to share the selected documents for this support request.",
       );
       dialogRef.current
-        ?.querySelector<HTMLInputElement>("#support-document-consent")
+        ?.querySelector<HTMLInputElement>(`#${modalId}-document-consent`)
         ?.focus();
       return;
     }
@@ -348,21 +408,24 @@ export default function SupportRequestModal({
       ref={dialogRef}
       className={styles.dialog}
       aria-modal="true"
-      aria-labelledby="support-modal-title"
-      aria-describedby="support-modal-description"
+      aria-labelledby={`${modalId}-title`}
+      aria-describedby={`${modalId}-description`}
       onCancel={(event) => {
         event.preventDefault();
-        onClose();
+        closeDialog();
       }}
       onKeyDown={(event) => {
         if (event.key === "Escape") {
           event.preventDefault();
-          onClose();
+          closeDialog();
         }
       }}
-      onClose={onClose}
+      onClose={() => {
+        restoreDialogState();
+        onClose();
+      }}
       onClick={(event) => {
-        if (event.target === event.currentTarget) onClose();
+        if (event.target === event.currentTarget) closeDialog();
       }}
     >
       <div className={styles.modal}>
@@ -370,7 +433,7 @@ export default function SupportRequestModal({
           className={styles.closeButton}
           data-modal-close
           type="button"
-          onClick={onClose}
+          onClick={closeDialog}
           aria-label="Close support request"
         >
           <X size={19} />
@@ -382,8 +445,8 @@ export default function SupportRequestModal({
                   <Icon size={21} strokeWidth={1.8} />
                 </span>
                 <span className={styles.eyebrow}>Request support</span>
-                <h2 id="support-modal-title">{request.title}</h2>
-                <p id="support-modal-description">{request.description}</p>
+                <h2 id={`${modalId}-title`}>{request.title}</h2>
+                <p id={`${modalId}-description`}>{request.description}</p>
               </div>
               <div className={styles.bannerImage}>
                 <Image
@@ -449,7 +512,7 @@ export default function SupportRequestModal({
                     <div className={styles.formGrid}>
                       {fields.map((field) => {
                         const error = errors[field.name];
-                        const inputId = `support-${field.name}`;
+                        const inputId = `${modalId}-field-${field.name}`;
                         const FieldIcon = getFieldIcon(field.name);
                         const commonProps = {
                           id: inputId,
@@ -537,12 +600,12 @@ export default function SupportRequestModal({
                     </div>
                     <section
                       className={styles.documentsSection}
-                      aria-labelledby="support-documents-title"
+                      aria-labelledby={`${modalId}-documents-title`}
                     >
                       <div className={styles.documentsHeading}>
                         <span className={styles.fieldLabel}>
                           <FileText size={14} aria-hidden="true" />
-                          <span id="support-documents-title">
+                          <span id={`${modalId}-documents-title`}>
                             Supporting documents
                             {request.requiredDocuments ? " *" : " (optional)"}
                           </span>
@@ -555,7 +618,7 @@ export default function SupportRequestModal({
                       </div>
                       <label
                         className={styles.filePicker}
-                        htmlFor="support-document-upload"
+                        htmlFor={`${modalId}-document-upload`}
                       >
                         <FileUp size={19} aria-hidden="true" />
                         <span>
@@ -565,13 +628,13 @@ export default function SupportRequestModal({
                           </small>
                         </span>
                         <input
-                          id="support-document-upload"
+                          id={`${modalId}-document-upload`}
                           className={styles.visuallyHidden}
                           type="file"
                           accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
                           multiple
                           aria-describedby={
-                            fileError ? "support-documents-error" : undefined
+                            fileError ? `${modalId}-documents-error` : undefined
                           }
                           onChange={(event) => {
                             addFiles(event.currentTarget.files);
@@ -612,7 +675,7 @@ export default function SupportRequestModal({
                       </p>
                       <label className={styles.consentLabel}>
                         <input
-                          id="support-contact-consent"
+                          id={`${modalId}-contact-consent`}
                           type="checkbox"
                           checked={contactConsent}
                           onChange={(event) => {
@@ -629,7 +692,7 @@ export default function SupportRequestModal({
                       {selectedFiles.length > 0 && (
                         <label className={styles.consentLabel}>
                           <input
-                            id="support-document-consent"
+                            id={`${modalId}-document-consent`}
                             type="checkbox"
                             checked={documentConsent}
                             onChange={(event) => {
@@ -647,7 +710,7 @@ export default function SupportRequestModal({
                       {fileError && (
                         <p
                           className={styles.fieldError}
-                          id="support-documents-error"
+                          id={`${modalId}-documents-error`}
                           role="alert"
                         >
                           {fileError}

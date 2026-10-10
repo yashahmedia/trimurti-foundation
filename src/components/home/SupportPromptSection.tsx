@@ -1,9 +1,17 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import { useRef } from "react";
+import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
+import SupportRequestModal from "@/components/home/SupportRequestModal";
+import { getSupportRequestForPath } from "@/components/services/serviceSupportRequests";
 import styles from "./SupportPromptSection.module.css";
 
 export default function SupportPromptSection() {
+  const pathname = usePathname();
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
   return (
     <section className={styles.section} aria-labelledby="support-prompt-title">
       <div className={styles.inner}>
@@ -18,10 +26,15 @@ export default function SupportPromptSection() {
             communities in need. If you or someone you know needs assistance,
             reach out to us and our team will guide you through the next steps.
           </p>
-          <Link className={styles.button} href="/donate#support-request-form">
+          <button
+            ref={buttonRef}
+            className={styles.button}
+            type="button"
+            aria-haspopup="dialog"
+          >
             Request Support
             <ArrowRight size={18} aria-hidden="true" />
-          </Link>
+          </button>
         </div>
 
         <div className={styles.visual} aria-hidden="true">
@@ -35,6 +48,12 @@ export default function SupportPromptSection() {
           />
         </div>
       </div>
+      <SupportRequestModal
+        request={getSupportRequestForPath(pathname)}
+        scrollPosition={{ x: 0, y: 0 }}
+        triggerRef={buttonRef}
+        onClose={() => {}}
+      />
     </section>
   );
 }

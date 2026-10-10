@@ -87,7 +87,9 @@
   color: #fff;
   font-size: 14px;
   font-weight: 700;
+  font-family: inherit;
   text-decoration: none;
+  cursor: pointer;
   transition:
     transform 180ms ease,
     background-color 180ms ease,

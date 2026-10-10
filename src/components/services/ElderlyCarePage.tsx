@@ -206,7 +206,7 @@ export default function ElderlyCarePage() {
         </div>
       </section>
 
-      <RequestSupportCta />
+      <RequestSupportCta category="Elderly Care" />
 
       <section
         className="healthcare-initiative-strip"

@@ -3,6 +3,7 @@ import {
   HeartPulse,
   Leaf,
   Landmark,
+  LifeBuoy,
   ShieldCheck,
   Utensils,
 } from "lucide-react";
@@ -12,9 +13,11 @@ export type ServiceSupportCategory =
   | "Education & Empowerment"
   | "Healthcare Support"
   | "Annadhan & Nutrition"
+  | "Elderly Care"
   | "Stand with our Soldiers"
   | "Environment & Welfare"
-  | "Culture & Heritage";
+  | "Culture & Heritage"
+  | "General Support";
 
 const messageField: SupportRequestField = {
   name: "situation",
@@ -107,6 +110,30 @@ const serviceSupportRequests: Record<ServiceSupportCategory, SupportRequestConfi
       messageField,
     ],
   },
+  "Elderly Care": {
+    title: "Elderly Care",
+    description: "Tell us about the older adult who needs support and the care or assistance that would help.",
+    image: "/elderly_care.png",
+    alt: "An older adult receiving compassionate care",
+    icon: HeartPulse,
+    documentSuggestions: ["Age or identity proof, and a prescription or care note if relevant"],
+    requiredDocuments: true,
+    includeHouseholdFields: false,
+    fields: [
+      { name: "elderlyName", label: "Older Adult's Full Name", type: "text", required: true },
+      { name: "age", label: "Age", type: "number", min: 50, max: 120 },
+      { name: "relationship", label: "Your Relationship to the Older Adult", type: "text" },
+      {
+        name: "elderlySupport",
+        label: "Type of Support Required",
+        type: "select",
+        required: true,
+        options: ["Companionship", "Daily Care", "Healthcare Access", "Daily Essentials", "Community Activities", "Other"],
+      },
+      { name: "careNeeds", label: "Care Needs / Additional Information", type: "textarea", required: true, placeholder: "Describe the support needed." },
+      messageField,
+    ],
+  },
   "Stand with our Soldiers": {
     title: "Stand with our Soldiers",
     description: "Share the situation and the assistance needed for a service member or their family.",
@@ -188,6 +215,57 @@ const serviceSupportRequests: Record<ServiceSupportCategory, SupportRequestConfi
       messageField,
     ],
   },
+  "General Support": {
+    title: "General Support",
+    description: "Tell us who needs help, what kind of support is needed, and how we can reach you.",
+    image: "/life.png",
+    alt: "A community member offering a helping hand",
+    icon: LifeBuoy,
+    documentSuggestions: ["Any relevant estimate or supporting note (optional)"],
+    includeHouseholdFields: false,
+    fields: [
+      {
+        name: "supportArea",
+        label: "Area of Support",
+        type: "select",
+        required: true,
+        options: [
+          "Education",
+          "Healthcare",
+          "Food & Nutrition",
+          "Elderly Care",
+          "Soldiers and Families",
+          "Environment & Community Welfare",
+          "Culture & Heritage",
+          "Emergency Support",
+          "Other",
+        ],
+      },
+      { name: "beneficiaryName", label: "Name of Person / Organisation Needing Support", type: "text", required: true },
+      {
+        name: "urgency",
+        label: "When Is Support Needed?",
+        type: "select",
+        required: true,
+        options: ["As soon as possible", "Within a week", "Not urgent"],
+      },
+      { name: "situation", label: "How Can We Help?", type: "textarea", required: true, placeholder: "Briefly describe the situation and support needed." },
+    ],
+  },
 };
 
 export default serviceSupportRequests;
+
+export function getSupportRequestForPath(pathname: string): SupportRequestConfig {
+  const servicePaths: Array<[string, ServiceSupportCategory]> = [
+    ["/services/education", "Education & Empowerment"],
+    ["/services/healthcare", "Healthcare Support"],
+    ["/services/nutrition", "Annadhan & Nutrition"],
+    ["/services/elderly-care", "Elderly Care"],
+    ["/services/standing-with-soldiers", "Stand with our Soldiers"],
+    ["/services/environment-welfare", "Environment & Welfare"],
+    ["/services/culture-heritage", "Culture & Heritage"],
+  ];
+  const match = servicePaths.find(([path]) => pathname.startsWith(path));
+  return serviceSupportRequests[match?.[1] ?? "General Support"];
+}

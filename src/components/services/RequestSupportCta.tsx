@@ -1,26 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useRef } from "react";
 import { ArrowRight, HandHeart } from "lucide-react";
 import SupportRequestModal from "@/components/home/SupportRequestModal";
-import type { PageScrollPosition } from "@/lib/page-scroll-lock";
 import styles from "./RequestSupportCta.module.css";
 import serviceSupportRequests, {
   type ServiceSupportCategory,
 } from "./serviceSupportRequests";
 
 type RequestSupportCtaProps = {
-  category?: ServiceSupportCategory;
+  category: ServiceSupportCategory;
 };
 
 export default function RequestSupportCta({
   category,
 }: RequestSupportCtaProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState<PageScrollPosition>({
-    x: 0,
-    y: 0,
-  });
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   return (
     <>
@@ -34,31 +29,21 @@ export default function RequestSupportCta({
             and together we can create a path toward a better tomorrow.
           </p>
         </div>
-        {category ? (
-          <button
-            className={styles.button}
-            type="button"
-            aria-haspopup="dialog"
-            onClick={() => {
-              setScrollPosition({ x: window.scrollX, y: window.scrollY });
-              setIsOpen(true);
-            }}
-          >
-            Request Support <ArrowRight size={18} aria-hidden="true" />
-          </button>
-        ) : (
-          <a className={styles.button} href="/donate#support-request-form">
-            Request Support <ArrowRight size={18} aria-hidden="true" />
-          </a>
-        )}
+        <button
+          ref={buttonRef}
+          className={styles.button}
+          type="button"
+          aria-haspopup="dialog"
+        >
+          Request Support <ArrowRight size={18} aria-hidden="true" />
+        </button>
       </section>
-      {isOpen && category && (
-        <SupportRequestModal
-          request={serviceSupportRequests[category]}
-          scrollPosition={scrollPosition}
-          onClose={() => setIsOpen(false)}
-        />
-      )}
+      <SupportRequestModal
+        request={serviceSupportRequests[category]}
+        scrollPosition={{ x: 0, y: 0 }}
+        triggerRef={buttonRef}
+        onClose={() => {}}
+      />
     </>
   );
 }
