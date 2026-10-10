@@ -52,7 +52,7 @@ export const philosophyItems: PhilosophyItem[] = [
     title: "Enlighten",
     description:
       "Spread awareness, inspire positive change and guide communities with knowledge and purpose.",
-    image: "/Enlighten.jpg",
+    image: "/Enlighten.png",
     alt: "A mentor guiding a student with a computer",
     icon: BookOpen,
   },
