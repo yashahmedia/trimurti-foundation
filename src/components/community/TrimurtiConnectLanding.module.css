@@ -215,11 +215,75 @@
 }
 
 .formPanel {
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid rgba(68, 103, 84, 0.17);
-  border-radius: 14px;
+  position: relative;
+  width: 100%;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid rgba(68, 103, 84, 0.2);
+  border-radius: 18px;
   background: #fffdf8;
+  box-shadow: 0 24px 70px rgba(10, 29, 25, 0.22);
+}
+
+.formDialog {
+  width: min(100% - 32px, 560px);
+  max-width: 560px;
+  max-height: min(90dvh, 780px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 0;
+  border-radius: 18px;
+  background: transparent;
+  color: #17312e;
+}
+
+.formDialog::backdrop {
+  background: rgba(13, 27, 24, 0.64);
+  backdrop-filter: blur(3px);
+}
+
+.formHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.formHeader h2 {
+  margin: 0;
+  color: #17312e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 5vw, 34px);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.formEyebrow {
+  margin: 0 0 8px;
+  color: #58776a;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.closeButton {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #d9ded4;
+  border-radius: 50%;
+  background: #fff;
+  color: #17312e;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  border-color: #1d5548;
+  color: #1d5548;
 }
 
 .form {
@@ -235,7 +299,8 @@
   font-weight: 650;
 }
 
-.field input {
+.field input,
+.field select {
   width: 100%;
   min-height: 43px;
   padding: 10px 12px;
@@ -247,7 +312,14 @@
   font-size: 14px;
 }
 
-.field input[aria-invalid="true"] {
+.field input:focus-visible,
+.field select:focus-visible {
+  outline: 3px solid rgba(201, 162, 74, 0.28);
+  outline-offset: 1px;
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"] {
   border-color: #b43b47;
 }
 
@@ -258,15 +330,44 @@
   line-height: 1.5;
 }
 
-.form .submitButton {
-  justify-self: start;
-  margin-top: 0;
+.submitButton {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border: 1px solid #1d5548;
+  border-radius: 8px;
+  background: #1d5548;
+  color: #fffdf8;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  border-color: #143f35;
+  background: #143f35;
+}
+
+.submitButton:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.formError {
+  margin: 0;
+  color: #9f2635;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .formSuccess {
   display: grid;
-  justify-items: start;
-  gap: 8px;
+  justify-self: start;
+  gap: 14px;
 }
 
 .formSuccess p {
@@ -274,10 +375,6 @@
   color: #28443c;
   font-size: 13px;
   line-height: 1.6;
-}
-
-.formSuccess .submitButton {
-  margin-top: 6px;
 }
 
 .textButton {
@@ -344,6 +441,11 @@
 
   .formPanel {
     padding: 16px;
+  }
+
+  .formDialog {
+    width: calc(100% - 24px);
+    max-height: 92dvh;
   }
 
   .copy h2 {
