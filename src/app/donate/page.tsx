@@ -1,12 +1,14 @@
 import DonationForm from "@/components/donate/DonationForm";
 import HeroSlider from "@/components/home/HeroSlider";
-import TransformLifeSupportPanel from "@/components/services/TransformLifeSupportPanel";
 import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   BookOpen,
+  ClipboardCheck,
+  HandHeart,
   HeartPulse,
+  MessageCircle,
   Sprout,
   UsersRound,
 } from "lucide-react";
@@ -78,24 +80,71 @@ const impactAreas = [
   },
 ];
 
+const supportSteps = [
+  {
+    title: "Tell us what is happening",
+    description: "Share the situation in your own words.",
+    Icon: MessageCircle,
+  },
+  {
+    title: "Help us understand the need",
+    description: "A few relevant details can help us understand what may help.",
+    Icon: ClipboardCheck,
+  },
+  {
+    title: "Explore the next steps",
+    description: "Our team can guide you towards relevant support options.",
+    Icon: HandHeart,
+  },
+];
+
 export default function Page() {
   return (
     <main className={styles.page}>
       <HeroSlider />
 
       <section
-        className={styles.waysSection}
+        className={styles.helpSection}
         id="ways-to-transform"
         aria-labelledby="ways-title"
       >
-        <div className={styles.contentWidth}>
-          <header className={styles.sectionHeading}>
-            <span className={styles.eyebrow}>A place to begin</span>
-            <h2 id="ways-title">Ways You Can Transform a Life</h2>
-          </header>
-          <div className={styles.waysPanel}>
-              <TransformLifeSupportPanel showRequestSupport={false} />
+        <div className={styles.helpInner}>
+          <div className={styles.helpCopy}>
+            <span className={styles.eyebrow}>For people seeking help</span>
+            <h2 id="ways-title">
+              You don’t have to face a difficult time alone.
+            </h2>
+            <p>
+              Whether you need support for yourself or someone close to you,
+              your situation deserves to be heard with care. Tell us what is
+              happening, and our team can help you understand possible next
+              steps.
+            </p>
+            <div className={styles.helpPromise}>
+              <HandHeart size={20} strokeWidth={1.7} aria-hidden="true" />
+              <span>Every request begins with listening and understanding.</span>
+            </div>
           </div>
+          <aside className={styles.helpGuide} aria-label="How we can guide you">
+            <span className={styles.guideEyebrow}>A thoughtful first step</span>
+            <h3>Finding the right support starts here.</h3>
+            <ol>
+              {supportSteps.map(({ title, description, Icon }, index) => (
+                <li key={title}>
+                  <span className={styles.stepIcon} aria-hidden="true">
+                    <Icon size={19} strokeWidth={1.7} />
+                  </span>
+                  <span className={styles.stepCopy}>
+                    <span className={styles.stepNumber}>
+                      STEP 0{index + 1}
+                    </span>
+                    <strong>{title}</strong>
+                    <span>{description}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </aside>
         </div>
       </section>
 
