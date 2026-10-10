@@ -15,8 +15,11 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-import SupportRequestForm from "@/components/home/SupportRequestForm";
+import SupportRequestModal from "@/components/home/SupportRequestModal";
+import serviceSupportRequests, {
+  type ServiceSupportCategory,
+} from "@/components/services/serviceSupportRequests";
+import type { PageScrollPosition } from "@/lib/page-scroll-lock";
 
 type Initiative = {
   title: string;
@@ -25,6 +28,7 @@ type Initiative = {
   image: string;
   alt: string;
   icon: LucideIcon;
+  supportCategory: ServiceSupportCategory;
 };
 
 const initiatives: Initiative[] = [
@@ -35,6 +39,7 @@ const initiatives: Initiative[] = [
     image: "/education-support.png",
     alt: "Children learning together through Trimurthi Foundation support",
     icon: BookOpenText,
+    supportCategory: "Education & Empowerment",
   },
   {
     title: "Healthcare Support",
@@ -43,6 +48,7 @@ const initiatives: Initiative[] = [
     image: "/health support.png",
     alt: "Community healthcare support from Trimurthi Foundation",
     icon: HeartPulse,
+    supportCategory: "Healthcare Support",
   },
   {
     title: "Annadhan & Nutrition",
@@ -51,6 +57,7 @@ const initiatives: Initiative[] = [
     image: "/nourish.png",
     alt: "Food and nourishment assistance for a community family",
     icon: UtensilsCrossed,
+    supportCategory: "Annadhan & Nutrition",
   },
   {
     title: "Elderly Care",
@@ -59,6 +66,7 @@ const initiatives: Initiative[] = [
     image: "/elder support.png",
     alt: "Trimurthi Foundation elderly support initiative",
     icon: HandHeart,
+    supportCategory: "Elderly Care",
   },
   {
     title: "Environment & Welfare",
@@ -67,6 +75,7 @@ const initiatives: Initiative[] = [
     image: "/protect.png",
     alt: "Trimurthi Foundation community and environment welfare initiative",
     icon: Leaf,
+    supportCategory: "Environment & Welfare",
   },
   {
     title: "Culture & Heritage",
@@ -75,6 +84,7 @@ const initiatives: Initiative[] = [
     image: "/heritage.png",
     alt: "Cultural heritage preservation through Trimurthi Foundation",
     icon: Landmark,
+    supportCategory: "Culture & Heritage",
   },
   {
     title: "Stand With Our Soldiers",
@@ -83,6 +93,7 @@ const initiatives: Initiative[] = [
     image: "/soldiers-family.webp",
     alt: "An Indian soldier spending time with his family",
     icon: ShieldCheck,
+    supportCategory: "Stand with our Soldiers",
   },
 ];
 
@@ -91,9 +102,12 @@ const AUTOPLAY_DELAY = 5500;
 export default function HeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [popupPosition, setPopupPosition] = useState<{ top: number; left: number } | null>(null);
-  const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const [selectedCategory, setSelectedCategory] =
+    useState<ServiceSupportCategory | null>(null);
+  const [scrollPosition, setScrollPosition] = useState<PageScrollPosition>({
+    x: 0,
+    y: 0,
+  });
   const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
@@ -106,63 +120,23 @@ export default function HeroSlider() {
     return () => window.clearInterval(timer);
   }, [isPaused]);
 
-  useEffect(() => {
-    if (!selectedCategory || !popupPosition) return;
-
-    const handlePointerDown = (event: MouseEvent) => {
-      const target = event.target as HTMLElement | null;
-      if (!target) return;
-      const clickedInsidePopup = target.closest(".initiative-support-popup");
-      const clickedInitiative = target.closest(".initiative-card");
-      const clickedDot = target.closest(".initiative-slider-dots button");
-      if (clickedInsidePopup || clickedInitiative || clickedDot) return;
-      setSelectedCategory(null);
-      setPopupPosition(null);
-    };
-
-    document.addEventListener("pointerdown", handlePointerDown);
-    return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [popupPosition, selectedCategory]);
-
-  const openSupportForm = (index: number, anchorElement?: HTMLButtonElement | null) => {
+  const openSupportForm = (index: number) => {
     const initiative = initiatives[index];
-    setSelectedCategory(initiative.title);
+    setSelectedCategory(initiative.supportCategory);
     setIsPaused(true);
-
-    if (anchorElement) {
-      const rect = anchorElement.getBoundingClientRect();
-      const left =
-        window.innerWidth < 668
-          ? 12
-          : Math.min(rect.right + 26, window.innerWidth - 644);
-      setPopupPosition({ top: 16, left: Math.max(left, 12) });
-      return;
-    }
-
-    const fallbackButton = buttonRefs.current[index] ?? buttonRefs.current[activeIndex];
-    if (fallbackButton) {
-      const rect = fallbackButton.getBoundingClientRect();
-      const left =
-        window.innerWidth < 668
-          ? 12
-          : Math.min(rect.right + 26, window.innerWidth - 644);
-      setPopupPosition({ top: 16, left: Math.max(left, 12) });
-      return;
-    }
-
-    setPopupPosition({ top: 16, left: Math.max(12, (window.innerWidth - 620) / 2) });
+    setScrollPosition({ x: window.scrollX, y: window.scrollY });
   };
 
-  const selectInitiative = (index: number, anchorElement?: HTMLButtonElement | null) => {
+  const selectInitiative = (index: number) => {
     setActiveIndex(index);
-    openSupportForm(index, anchorElement);
+    openSupportForm(index);
   };
 
   const moveSlide = (direction: number) => {
     const nextIndex =
       (activeIndex + direction + initiatives.length) % initiatives.length;
     setActiveIndex(nextIndex);
-    openSupportForm(nextIndex, buttonRefs.current[nextIndex]);
+    openSupportForm(nextIndex);
   };
 
   const activeInitiative = initiatives[activeIndex];
@@ -205,10 +179,7 @@ export default function HeroSlider() {
                     aria-controls={`initiative-slide-${index}`}
                     className={`initiative-card ${isActive ? "is-active" : ""}`}
                     key={initiative.title}
-                    ref={(node) => {
-                      buttonRefs.current[index] = node;
-                    }}
-                    onClick={(event) => selectInitiative(index, event.currentTarget)}
+                    onClick={() => selectInitiative(index)}
                   >
                     <span className="initiative-card-icon"><Icon size={22} strokeWidth={1.8} /></span>
                     <span className="initiative-card-copy">
@@ -261,7 +232,7 @@ export default function HeroSlider() {
                       aria-label={`Show ${initiative.title}`}
                       aria-current={index === activeIndex ? "true" : undefined}
                       className={index === activeIndex ? "is-active" : ""}
-                      onClick={(event) => selectInitiative(index, event.currentTarget)}
+                      onClick={() => selectInitiative(index)}
                     />
                   ))}
                 </div>
@@ -277,36 +248,16 @@ export default function HeroSlider() {
         <span className="sr-only">Currently showing {activeInitiative.title}</span>
       </section>
 
-      {selectedCategory &&
-        popupPosition &&
-        typeof document !== "undefined" &&
-        createPortal(
-          <div
-            className="initiative-support-popup"
-            style={{ top: popupPosition.top, left: popupPosition.left }}
-            role="dialog"
-            aria-modal="false"
-            aria-label={`${selectedCategory} support request form`}
-          >
-            <button
-              type="button"
-              className="initiative-support-popup-close"
-              aria-label="Close support form"
-              onClick={() => {
-                setSelectedCategory(null);
-                setPopupPosition(null);
-              }}
-            >
-              ×
-            </button>
-            <SupportRequestForm
-              key={selectedCategory}
-              initialCategory={selectedCategory}
-              compact
-            />
-          </div>,
-          document.body,
-        )}
+      {selectedCategory && (
+        <SupportRequestModal
+          request={serviceSupportRequests[selectedCategory]}
+          scrollPosition={scrollPosition}
+          onClose={() => {
+            setSelectedCategory(null);
+            setIsPaused(false);
+          }}
+        />
+      )}
     </>
   );
 }

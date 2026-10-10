@@ -316,10 +316,9 @@ export default function SupportRequestModal({
     const dialog = dialogRef.current;
     if (dialog?.open) {
       dialog.close();
-    } else {
-      restoreDialogState();
-      onClose();
     }
+    restoreDialogState();
+    onClose();
   }, [onClose, restoreDialogState]);
 
   useEffect(() => {
@@ -531,10 +530,6 @@ export default function SupportRequestModal({
           event.preventDefault();
           closeDialog();
         }
-      }}
-      onClose={() => {
-        restoreDialogState();
-        onClose();
       }}
       onClick={(event) => {
         if (event.target === event.currentTarget) closeDialog();

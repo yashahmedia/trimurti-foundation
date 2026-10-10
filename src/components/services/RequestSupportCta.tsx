@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowRight, HandHeart } from "lucide-react";
 import SupportRequestModal from "@/components/home/SupportRequestModal";
 import styles from "./RequestSupportCta.module.css";
@@ -16,6 +16,20 @@ export default function RequestSupportCta({
   category,
 }: RequestSupportCtaProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (
+      new URLSearchParams(window.location.search).get("requestSupport") !==
+      "1"
+    ) {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      buttonRef.current?.click();
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
 
   return (
     <>

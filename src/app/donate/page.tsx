@@ -28,7 +28,7 @@ const impactAreas = [
       "Opening doors to learning, building confidence, and helping students develop skills for a brighter, more independent future.",
     image: "/education_empowerment.png",
     alt: "Students learning together with educational support",
-    href: "/services/education",
+    href: "/services/education?requestSupport=1#request-support-cta-title",
   },
   {
     title: "Healthcare Support",
@@ -36,7 +36,7 @@ const impactAreas = [
       "Making compassionate care and health awareness more accessible to individuals and families.",
     image: "/healthcare_support.png",
     alt: "A healthcare professional caring for an older woman",
-    href: "/services/healthcare",
+    href: "/services/healthcare?requestSupport=1#request-support-cta-title",
   },
   {
     title: "Annadhan & Nutrition",
@@ -44,7 +44,7 @@ const impactAreas = [
       "Bringing communities together through nourishing meals and food support, with dignity at the heart of care.",
     image: "/annadhan_nutrition.png",
     alt: "Community meal and nutrition support",
-    href: "/services/nutrition",
+    href: "/services/nutrition?requestSupport=1#request-support-cta-title",
   },
   {
     title: "Elderly Care",
@@ -52,7 +52,7 @@ const impactAreas = [
       "Honouring our elders with companionship, compassionate support, and care that helps them feel valued and connected.",
     image: "/elderly_care.png",
     alt: "Caregiver supporting an elderly woman",
-    href: "/services/elderly-care",
+    href: "/services/elderly-care?requestSupport=1#request-support-cta-title",
   },
   {
     title: "Stand With Our Soldiers",
@@ -60,7 +60,7 @@ const impactAreas = [
       "Standing beside serving personnel, veterans, and their families with gratitude, compassion, and support for their wellbeing.",
     image: "/soldiers-family.webp",
     alt: "An Indian soldier spending time with his family",
-    href: "/services/standing-with-soldiers",
+    href: "/services/standing-with-soldiers?requestSupport=1#request-support-cta-title",
   },
   {
     title: "Environment & Welfare",
@@ -68,7 +68,7 @@ const impactAreas = [
       "Encouraging tree planting, sustainable habits, and community participation for greener neighbourhoods.",
     image: "/environment_welfare.png",
     alt: "A volunteer planting a young tree",
-    href: "/services/environment-welfare",
+    href: "/services/environment-welfare?requestSupport=1#request-support-cta-title",
   },
   {
     title: "Culture & Heritage",
@@ -76,7 +76,7 @@ const impactAreas = [
       "Celebrating Indian traditions, arts, and shared heritage, connecting generations through culture.",
     image: "/culture_heritage.png",
     alt: "Indian heritage architecture representing culture and tradition",
-    href: "/services/culture-heritage",
+    href: "/services/culture-heritage?requestSupport=1#request-support-cta-title",
   },
 ];
 
