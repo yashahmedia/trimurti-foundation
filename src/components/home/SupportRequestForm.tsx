@@ -31,14 +31,14 @@ type CategoryField = {
 
 type SupportCategory = {
   title: string;
-  uploadLabel?: string;
+  uploadLabel: string;
   fields: CategoryField[];
 };
 
 const categories: SupportCategory[] = [
   {
     title: "Education & Empowerment",
-    uploadLabel: "Upload Supporting Documents",
+    uploadLabel: "Upload School Fee Receipt, Admission Proof or Education Estimate",
     fields: [
       { name: "studentName", label: "Student's Full Name", type: "text", required: true },
       { name: "studentAge", label: "Age", type: "number", min: 3, max: 100 },
@@ -64,7 +64,7 @@ const categories: SupportCategory[] = [
   },
   {
     title: "Healthcare Support",
-    uploadLabel: "Upload Medical Reports / Supporting Documents",
+    uploadLabel: "Upload Medical Report, Prescription or Treatment Cost Estimate",
     fields: [
       { name: "patientName", label: "Patient's Full Name", type: "text", required: true },
       { name: "patientAge", label: "Age", type: "number", min: 0, max: 120 },
@@ -92,6 +92,7 @@ const categories: SupportCategory[] = [
   },
   {
     title: "Annadhan & Nutrition",
+    uploadLabel: "Upload Beneficiary / Organisation Details or Distribution Plan",
     fields: [
       { name: "foodApplicantName", label: "Applicant / Organisation Name", type: "text", required: true },
       { name: "beneficiaryCount", label: "Number of People Requiring Food Support", type: "number", required: true, min: 1 },
@@ -129,7 +130,7 @@ const categories: SupportCategory[] = [
   },
   {
     title: "Stand with our Soldiers",
-    uploadLabel: "Supporting Documents",
+    uploadLabel: "Upload Service Proof or Document Showing Relationship to the Soldier",
     fields: [
       { name: "soldierApplicantName", label: "Applicant's Full Name", type: "text", required: true },
       { name: "soldierRelationship", label: "Relationship to the Soldier (if applicable)", type: "text" },
@@ -155,6 +156,7 @@ const categories: SupportCategory[] = [
   },
   {
     title: "Environment & Welfare",
+    uploadLabel: "Upload Project Proposal or Activity Plan",
     fields: [
       { name: "environmentApplicantName", label: "Applicant / Organisation Name", type: "text", required: true },
       {
@@ -180,6 +182,7 @@ const categories: SupportCategory[] = [
   },
   {
     title: "Culture & Heritage",
+    uploadLabel: "Upload Event Proposal or Heritage Site Details",
     fields: [
       { name: "cultureApplicantName", label: "Applicant / Organisation Name", type: "text", required: true },
       {
@@ -310,6 +313,11 @@ export default function SupportRequestForm({
     }
     if (!(await clearUploadedFiles())) return;
     setFiles(next);
+    setErrors((current) => {
+      const updated = { ...current };
+      delete updated.documents;
+      return updated;
+    });
     setFormError("");
   }
 
@@ -327,6 +335,7 @@ export default function SupportRequestForm({
     }
     if (contact.city.trim().length < 2) next.city = "Enter your city or location.";
     if (!category) next.category = "Select a support category.";
+    if (!files.length) next.documents = "Upload at least one relevant supporting document.";
     currentCategory?.fields.forEach((field) => {
       const value = categoryValues[field.name]?.trim() ?? "";
       if (field.required && !value) {
@@ -344,7 +353,10 @@ export default function SupportRequestForm({
     }
     setErrors(next);
     if (Object.keys(next).length) {
-      document.getElementById(`support-request-${Object.keys(next)[0]}`)?.focus();
+      const firstError = Object.keys(next)[0];
+      document
+        .getElementById(firstError === "documents" ? "support-request-files" : `support-request-${firstError}`)
+        ?.focus();
       return false;
     }
     return true;
@@ -520,6 +532,7 @@ export default function SupportRequestForm({
                         const next = { ...current };
                         delete next.category;
                         delete next.documentConsent;
+                        delete next.documents;
                         return next;
                       });
                       setFormError("");
@@ -540,45 +553,50 @@ export default function SupportRequestForm({
                 <legend>{currentCategory.title} details</legend>
                 <div className={styles.grid}>
                   {currentCategory.fields.map(renderField)}
-                  {currentCategory.uploadLabel && (
-                    <div className={`${styles.uploadArea} ${styles.wide}`}>
-                      <label className={styles.field} htmlFor="support-request-files">
-                        <span>{currentCategory.uploadLabel} (optional)</span>
-                        <input
-                          id="support-request-files"
-                          type="file"
-                          accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
-                          multiple
-                          onChange={handleFilesChange}
-                        />
-                        <small>PDF, JPG or PNG · up to 5 files · 10 MB each, 30 MB total</small>
+                  <div className={`${styles.uploadArea} ${styles.wide}`}>
+                    <label className={styles.field} htmlFor="support-request-files">
+                      <span>{currentCategory.uploadLabel} *</span>
+                      <input
+                        id="support-request-files"
+                        type="file"
+                        required
+                        accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+                        multiple
+                        onChange={handleFilesChange}
+                      />
+                      <small>
+                        Required: upload at least one document relevant to
+                        {` ${currentCategory.title}`}. PDF, JPG or PNG · up to
+                        5 files · 10 MB each, 30 MB total. Do not upload
+                        unrelated identity documents.
+                      </small>
+                    </label>
+                    {files.length > 0 && (
+                      <ul className={styles.fileList}>
+                        {files.map((file, index) => (
+                          <li key={`${file.name}-${file.lastModified}-${index}`}>
+                            <span><FileText size={15} aria-hidden="true" />{file.name}</span>
+                            <button type="button" aria-label={`Remove ${file.name}`} onClick={async () => {
+                              if (!(await clearUploadedFiles())) return;
+                              const remainingFiles = files.filter((item) => item !== file);
+                              setFiles(remainingFiles);
+                              if (!remainingFiles.length) setDocumentConsent(false);
+                            }}>
+                              <Trash2 size={15} aria-hidden="true" />
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {files.length > 0 && (
+                      <label className={styles.checkbox} htmlFor="support-request-documentConsent">
+                        <input id="support-request-documentConsent" type="checkbox" checked={documentConsent} onChange={(event) => setDocumentConsent(event.target.checked)} />
+                        <span>I agree to share these documents with the foundation to assess my request.</span>
                       </label>
-                      {files.length > 0 && (
-                        <ul className={styles.fileList}>
-                          {files.map((file, index) => (
-                            <li key={`${file.name}-${file.lastModified}-${index}`}>
-                              <span><FileText size={15} aria-hidden="true" />{file.name}</span>
-                              <button type="button" aria-label={`Remove ${file.name}`} onClick={async () => {
-                                if (!(await clearUploadedFiles())) return;
-                                const remainingFiles = files.filter((item) => item !== file);
-                                setFiles(remainingFiles);
-                                if (!remainingFiles.length) setDocumentConsent(false);
-                              }}>
-                                <Trash2 size={15} aria-hidden="true" />
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {files.length > 0 && (
-                        <label className={styles.checkbox} htmlFor="support-request-documentConsent">
-                          <input id="support-request-documentConsent" type="checkbox" checked={documentConsent} onChange={(event) => setDocumentConsent(event.target.checked)} />
-                          <span>I agree to share these documents with the foundation to assess my request.</span>
-                        </label>
-                      )}
-                      {errors.documentConsent && <span className={styles.fieldError}>{errors.documentConsent}</span>}
-                    </div>
-                  )}
+                    )}
+                    {errors.documentConsent && <span className={styles.fieldError}>{errors.documentConsent}</span>}
+                    {errors.documents && <span className={styles.fieldError} id="support-request-documents-error">{errors.documents}</span>}
+                  </div>
                 </div>
               </fieldset>
             )}

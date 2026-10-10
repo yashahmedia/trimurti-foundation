@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import SupportRequestForm from "@/components/home/SupportRequestForm";
 
 type Initiative = {
@@ -130,20 +131,26 @@ export default function HeroSlider() {
 
     if (anchorElement) {
       const rect = anchorElement.getBoundingClientRect();
-      const left = Math.min(rect.right + 26, window.innerWidth - 760);
-      setPopupPosition({ top: 16, left: Math.max(left, 18) });
+      const left =
+        window.innerWidth < 668
+          ? 12
+          : Math.min(rect.right + 26, window.innerWidth - 644);
+      setPopupPosition({ top: 16, left: Math.max(left, 12) });
       return;
     }
 
     const fallbackButton = buttonRefs.current[index] ?? buttonRefs.current[activeIndex];
     if (fallbackButton) {
       const rect = fallbackButton.getBoundingClientRect();
-      const left = Math.min(rect.right + 26, window.innerWidth - 760);
-      setPopupPosition({ top: 16, left: Math.max(left, 18) });
+      const left =
+        window.innerWidth < 668
+          ? 12
+          : Math.min(rect.right + 26, window.innerWidth - 644);
+      setPopupPosition({ top: 16, left: Math.max(left, 12) });
       return;
     }
 
-    setPopupPosition({ top: 16, left: 360 });
+    setPopupPosition({ top: 16, left: Math.max(12, (window.innerWidth - 620) / 2) });
   };
 
   const selectInitiative = (index: number, anchorElement?: HTMLButtonElement | null) => {
@@ -270,28 +277,36 @@ export default function HeroSlider() {
         <span className="sr-only">Currently showing {activeInitiative.title}</span>
       </section>
 
-      {selectedCategory && popupPosition && (
-        <div
-          className="initiative-support-popup"
-          style={{ top: popupPosition.top, left: popupPosition.left }}
-          role="dialog"
-          aria-modal="false"
-          aria-label={`${selectedCategory} support request form`}
-        >
-          <button
-            type="button"
-            className="initiative-support-popup-close"
-            aria-label="Close support form"
-            onClick={() => {
-              setSelectedCategory(null);
-              setPopupPosition(null);
-            }}
+      {selectedCategory &&
+        popupPosition &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            className="initiative-support-popup"
+            style={{ top: popupPosition.top, left: popupPosition.left }}
+            role="dialog"
+            aria-modal="false"
+            aria-label={`${selectedCategory} support request form`}
           >
-            ×
-          </button>
-          <SupportRequestForm key={selectedCategory} initialCategory={selectedCategory} compact />
-        </div>
-      )}
+            <button
+              type="button"
+              className="initiative-support-popup-close"
+              aria-label="Close support form"
+              onClick={() => {
+                setSelectedCategory(null);
+                setPopupPosition(null);
+              }}
+            >
+              ×
+            </button>
+            <SupportRequestForm
+              key={selectedCategory}
+              initialCategory={selectedCategory}
+              compact
+            />
+          </div>,
+          document.body,
+        )}
     </>
   );
 }

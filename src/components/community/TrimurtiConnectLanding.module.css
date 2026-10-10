@@ -183,8 +183,7 @@
   text-wrap: pretty;
 }
 
-.connectButton,
-.submitButton {
+.connectButton {
   display: inline-flex;
   min-height: 44px;
   align-items: center;
@@ -204,17 +203,13 @@
   transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
 
-.connectButton:hover,
-.submitButton:hover {
+.connectButton:hover {
   transform: translateY(-1px);
   border-color: #143f35;
   background: #143f35;
 }
 
-.connectButton:focus-visible,
-.submitButton:focus-visible,
-.textButton:focus-visible,
-.field input:focus-visible {
+.connectButton:focus-visible {
   outline: 3px solid rgba(201, 162, 74, 0.42);
   outline-offset: 3px;
 }

@@ -606,12 +606,12 @@ export default function SupportRequestModal({
                         <span className={styles.fieldLabel}>
                           <FileText size={14} aria-hidden="true" />
                           <span id={`${modalId}-documents-title`}>
-                            Supporting documents
-                            {request.requiredDocuments ? " *" : " (optional)"}
+                            Relevant supporting documents *
                           </span>
                         </span>
                         <p>
-                          Examples for this request:
+                          Required for this support category — upload at least
+                          one:
                           {" "}
                           {request.documentSuggestions.join(" · ")}
                         </p>
@@ -668,10 +668,10 @@ export default function SupportRequestModal({
                         </ul>
                       )}
                       <p className={styles.documentPrivacy}>
-                        Do not upload documents you were not asked for. If an
-                        Aadhaar copy is necessary, mask the first 8 digits
-                        before uploading. Files are kept in private storage
-                        and are not attached to the email.
+                        Upload only documents relevant to the selected support
+                        category. Do not upload unrelated identity documents.
+                        Files are kept in private storage and are not attached
+                        to the email.
                       </p>
                       <label className={styles.consentLabel}>
                         <input

@@ -6,7 +6,15 @@ import { useState, type FormEvent } from "react";
 import { site } from "@/config/site";
 import styles from "./TrimurtiConnectLanding.module.css";
 
-const connections = [
+const connections: Array<{
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  position: string;
+}> = [
   {
     id: "professional-connect",
     label: "Professional Connect",
@@ -117,6 +125,7 @@ export default function TrimurtiConnectLanding() {
               <button
                 className={styles.connectButton}
                 type="button"
+                aria-haspopup="dialog"
                 aria-expanded={activeFormId === connection.id}
                 aria-controls={
                   activeFormId === connection.id
@@ -132,7 +141,6 @@ export default function TrimurtiConnectLanding() {
               >
                 {activeFormId === connection.id ? "Close form" : "Get in touch"}
               </button>
-
               {activeFormId === connection.id && (
                 <div className={styles.formPanel} id={`${connection.id}-form`}>
                   {requestEmail?.connectionId === connection.id ? (

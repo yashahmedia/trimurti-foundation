@@ -35,26 +35,27 @@ export default function Page() {
           permission; otherwise contributions are anonymous. Phone numbers,
           email addresses and payment references are not published.
         </p>
-        <h2>Support requests and optional documents</h2>
+        <h2>Support requests and required documents</h2>
         <p>
           The support request form collects your contact details, selected
           support category and the details you choose to provide for that
           category. The website does not currently store or deliver support
           request form submissions. It prepares an email in your email
           application; the request is sent only if you choose to send that
-          email. Supporting PDFs or images are optional for selected
-          categories. If private storage is configured, selected files are
+          email. Each support request requires at least one relevant PDF or
+          image document. If private storage is configured, selected files are
           uploaded to the foundation’s private S3-compatible storage and the
           prepared email contains file references rather than attachments.
           Authorized foundation personnel may access those files to assess the
           request.
         </p>
         <p>
-          Upload only documents needed to assess your request. Do not submit
-          unmasked Aadhaar details; if an Aadhaar copy is specifically needed,
-          mask the first eight digits. Medical, identity and financial
-          documents are sensitive. Do not upload them until the foundation has
-          published an approved retention schedule and privacy contact.
+          Upload only documents relevant to the selected support category—for
+          example, a medical report for healthcare assistance or a fee receipt
+          for education assistance. Do not upload unrelated identity
+          documents. Medical, identity and financial documents are sensitive.
+          Uploads must remain disabled until the foundation has published an
+          approved retention schedule and privacy contact.
         </p>
         <h2>Security and third-party media</h2>
         <p>
@@ -68,7 +69,7 @@ export default function Page() {
           You can choose not to submit information. A verified contact for
           access, correction, withdrawal and deletion requests, and an approved
           retention schedule, must be supplied by the foundation before public
-          launch. You may submit a support request without uploading documents.
+          launch.
         </p>
       </article>
     </>

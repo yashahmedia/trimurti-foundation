@@ -33,7 +33,7 @@ const serviceSupportRequests: Record<ServiceSupportCategory, SupportRequestConfi
     image: "/education_empowerment.png",
     alt: "A student learning with classmates",
     icon: BookOpen,
-    documentSuggestions: ["School or college ID, current fee receipt, or admission proof"],
+    documentSuggestions: ["Current school/college fee receipt, admission proof, or education expense estimate"],
     requiredDocuments: true,
     includeHouseholdFields: false,
     fields: [
@@ -58,7 +58,7 @@ const serviceSupportRequests: Record<ServiceSupportCategory, SupportRequestConfi
     image: "/health support.png",
     alt: "A healthcare worker providing community care",
     icon: HeartPulse,
-    documentSuggestions: ["Recent medical report or prescription; include a treatment estimate if available"],
+    documentSuggestions: ["Recent medical report or prescription; upload a hospital treatment or cost estimate when requesting financial assistance"],
     requiredDocuments: true,
     includeHouseholdFields: false,
     fields: [
@@ -85,7 +85,7 @@ const serviceSupportRequests: Record<ServiceSupportCategory, SupportRequestConfi
     image: "/annadhan_nutrition.png",
     alt: "A volunteer serving a community meal",
     icon: Utensils,
-    documentSuggestions: ["A brief beneficiary or organisation note, or a distribution plan"],
+    documentSuggestions: ["Beneficiary/organisation note, food distribution plan, or food quantity/cost estimate"],
     requiredDocuments: true,
     includeHouseholdFields: false,
     fields: [
@@ -116,7 +116,7 @@ const serviceSupportRequests: Record<ServiceSupportCategory, SupportRequestConfi
     image: "/elderly_care.png",
     alt: "An older adult receiving compassionate care",
     icon: HeartPulse,
-    documentSuggestions: ["Age or identity proof, and a prescription or care note if relevant"],
+    documentSuggestions: ["Care plan or doctor’s prescription/medical note relevant to the requested elderly care"],
     requiredDocuments: true,
     includeHouseholdFields: false,
     fields: [
@@ -140,7 +140,7 @@ const serviceSupportRequests: Record<ServiceSupportCategory, SupportRequestConfi
     image: "/soldiers-family.webp",
     alt: "A soldier spending time with family",
     icon: ShieldCheck,
-    documentSuggestions: ["Service ID / discharge record or a document showing the applicant's relationship, as applicable"],
+    documentSuggestions: ["Service/discharge record or a document confirming the applicant’s relationship to the service member, as applicable"],
     requiredDocuments: true,
     includeHouseholdFields: false,
     fields: [
@@ -165,7 +165,7 @@ const serviceSupportRequests: Record<ServiceSupportCategory, SupportRequestConfi
     image: "/environment_welfare.png",
     alt: "A community member planting a tree",
     icon: Leaf,
-    documentSuggestions: ["A short project proposal or activity plan with the proposed location"],
+    documentSuggestions: ["Project proposal/activity plan, location details, or an estimate for the requested environmental/community work"],
     requiredDocuments: true,
     includeHouseholdFields: false,
     fields: [
@@ -190,7 +190,7 @@ const serviceSupportRequests: Record<ServiceSupportCategory, SupportRequestConfi
     image: "/culture_heritage.png",
     alt: "A cultural performer at a heritage site",
     icon: Landmark,
-    documentSuggestions: ["A short project/event proposal or site details showing the request context"],
+    documentSuggestions: ["Cultural event/project proposal, heritage-site details, or a conservation/material estimate"],
     requiredDocuments: true,
     includeHouseholdFields: false,
     fields: [
@@ -221,7 +221,8 @@ const serviceSupportRequests: Record<ServiceSupportCategory, SupportRequestConfi
     image: "/life.png",
     alt: "A community member offering a helping hand",
     icon: LifeBuoy,
-    documentSuggestions: ["Any relevant estimate or supporting note (optional)"],
+    documentSuggestions: ["A document related to the selected support need, such as a medical estimate, education fee note, or project proposal"],
+    requiredDocuments: true,
     includeHouseholdFields: false,
     fields: [
       {
