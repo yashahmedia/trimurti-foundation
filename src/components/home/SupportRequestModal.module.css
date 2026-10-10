@@ -275,6 +275,64 @@
   line-height: 1.6;
 }
 
+.documentsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.documentField {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid rgba(31, 79, 65, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.documentLabel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  color: #285a4e;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.documentLabel .fieldLabel {
+  min-width: 0;
+  align-items: flex-start;
+}
+
+.documentRequirement {
+  flex: 0 0 auto;
+  padding: 3px 7px;
+  border: 1px solid rgba(31, 79, 65, 0.12);
+  border-radius: 999px;
+  background: #f2f4ee;
+  color: #596b63;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.documentRequired {
+  border-color: rgba(161, 66, 57, 0.2);
+  background: #fff2ef;
+  color: #9b3f38;
+}
+
+.documentDescription {
+  margin: 0;
+  color: #000000;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
 .filePicker {
   display: flex;
   align-items: center;
@@ -293,6 +351,15 @@
 .filePicker:focus-within {
   border-color: #0d7562;
   background: #f4faf5;
+}
+
+.filePickerInvalid {
+  border-color: #b44840;
+  background: #fff8f6;
+}
+
+.filePickerInvalid:focus-within {
+  outline: 3px solid rgba(180, 72, 64, 0.14);
 }
 
 .filePicker > span {
@@ -379,6 +446,11 @@
 
 .fileItem button:hover {
   background: #fff0ed;
+}
+
+.fileItem button:disabled {
+  cursor: wait;
+  opacity: 0.6;
 }
 
 .consentLabel {
@@ -669,6 +741,10 @@
 
   .formSection {
     padding: 21px 25px 24px;
+  }
+
+  .documentsGrid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

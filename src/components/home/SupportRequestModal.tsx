@@ -7,6 +7,7 @@ import {
   useId,
   useRef,
   useState,
+  type ChangeEvent,
   type RefObject,
 } from "react";
 import {
@@ -37,6 +38,7 @@ import {
 import {
   maxFiles,
   maxTotalSize,
+  removeUploadedDocuments,
   uploadSupportingDocuments,
   type UploadReference,
   validateSupportingFile,
@@ -54,6 +56,14 @@ export type SupportRequestField = {
   max?: number;
 };
 
+export type SupportRequestDocument = {
+  id: string;
+  label: string;
+  description: string;
+  required?: boolean;
+  multiple?: boolean;
+};
+
 export type SupportRequestConfig = {
   title: string;
   description: string;
@@ -62,6 +72,7 @@ export type SupportRequestConfig = {
   icon: LucideIcon;
   fields: SupportRequestField[];
   documentSuggestions: string[];
+  documents?: SupportRequestDocument[];
   requiredDocuments?: boolean;
   includeHouseholdFields?: boolean;
 };
@@ -185,6 +196,12 @@ function validateField(field: SupportRequestField, value: string): string {
   return "";
 }
 
+function formatFileSize(size: number): string {
+  if (size < 1024) return `${size} B`;
+  if (size < 1024 * 1024) return `${Math.round(size / 1024)} KB`;
+  return `${(size / (1024 * 1024)).toFixed(2)} MB`;
+}
+
 export default function SupportRequestModal({
   request,
   onClose,
@@ -196,11 +213,14 @@ export default function SupportRequestModal({
   const previouslyFocusedRef = useRef<HTMLElement | null>(null);
   const restorePageScrollRef = useRef<(() => void) | null>(null);
   const openDialogRef = useRef<() => void>(() => {});
+  const previousRequestRef = useRef(request);
   const modalId = `support-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const [errors, setErrors] = useState<FormErrors>({});
   const [formValues, setFormValues] = useState<FormValues>({});
   const [emailHref, setEmailHref] = useState("");
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [selectedDocuments, setSelectedDocuments] = useState<
+    Record<string, File[]>
+  >({});
   const [documentConsent, setDocumentConsent] = useState(false);
   const [contactConsent, setContactConsent] = useState(false);
   const [fileError, setFileError] = useState("");
@@ -213,6 +233,46 @@ export default function SupportRequestModal({
     ...(request.includeHouseholdFields === false ? [] : householdFields),
     ...request.fields,
   ];
+  const documents =
+    request.documents ??
+    [
+      {
+        id: "supportingDocuments",
+        label: "Relevant Supporting Documents",
+        description: request.documentSuggestions.join(" · "),
+        required: request.requiredDocuments,
+        multiple: true,
+      },
+    ];
+  const selectedDocumentFiles = documents.flatMap((document) =>
+    (selectedDocuments[document.id] ?? []).map((file) => ({
+      document,
+      file,
+    })),
+  );
+
+  useEffect(() => {
+    if (previousRequestRef.current === request) return;
+    previousRequestRef.current = request;
+    const previousUpload = uploadReference;
+    setErrors({});
+    setFormValues({});
+    setEmailHref("");
+    setSelectedDocuments({});
+    setDocumentConsent(false);
+    setContactConsent(false);
+    setFileError("");
+    setUploadReference(null);
+    if (previousUpload) {
+      void removeUploadedDocuments(previousUpload).catch((error: unknown) => {
+        setFileError(
+          error instanceof Error
+            ? error.message
+            : "Documents from the previous support category could not be removed from private storage.",
+        );
+      });
+    }
+  }, [request, uploadReference]);
 
   const openDialog = useCallback(() => {
     const dialog = dialogRef.current;
@@ -285,35 +345,80 @@ export default function SupportRequestModal({
     };
   }, [restoreDialogState, triggerRef]);
 
-  function addFiles(fileList: FileList | null) {
+  async function clearUploadedFiles(): Promise<boolean> {
+    if (!uploadReference) return true;
+    try {
+      await removeUploadedDocuments(uploadReference);
+      setUploadReference(null);
+      return true;
+    } catch (error) {
+      setFileError(
+        error instanceof Error
+          ? error.message
+          : "Previously uploaded files could not be removed. Please contact the foundation.",
+      );
+      return false;
+    }
+  }
+
+  async function updateDocumentFiles(
+    document: SupportRequestDocument,
+    fileList: FileList | null,
+  ) {
     if (!fileList?.length) return;
     const incoming = Array.from(fileList);
-    const nextFiles = [...selectedFiles, ...incoming];
-    if (nextFiles.length > maxFiles) {
-      setFileError(`Choose no more than ${maxFiles} documents.`);
-      return;
-    }
+    const currentFiles = selectedDocuments[document.id] ?? [];
+    const nextFiles = document.multiple
+      ? [...currentFiles, ...incoming]
+      : incoming;
     const invalidFile = incoming.map(validateSupportingFile).find(Boolean);
     if (invalidFile) {
-      setFileError(invalidFile);
+      setErrors((current) => ({ ...current, [document.id]: invalidFile }));
       return;
     }
-    if (nextFiles.reduce((total, file) => total + file.size, 0) > maxTotalSize) {
-      setFileError("The total size of all documents must be 30 MB or less.");
+    const nextDocuments = {
+      ...selectedDocuments,
+      [document.id]: nextFiles,
+    };
+    const allFiles = Object.values(nextDocuments).flat();
+    if (allFiles.length > maxFiles) {
+      setErrors((current) => ({
+        ...current,
+        [document.id]: `Choose no more than ${maxFiles} documents in total.`,
+      }));
       return;
     }
-    setSelectedFiles(nextFiles);
-    setUploadReference(null);
+    if (allFiles.reduce((total, file) => total + file.size, 0) > maxTotalSize) {
+      setErrors((current) => ({
+        ...current,
+        [document.id]: "The total size of all documents must be 30 MB or less.",
+      }));
+      return;
+    }
+    if (!(await clearUploadedFiles())) return;
+    setSelectedDocuments(nextDocuments);
+    setErrors((current) => {
+      const next = { ...current };
+      delete next[document.id];
+      return next;
+    });
+    setDocumentConsent(false);
     setFileError("");
   }
 
-  function removeFile(fileToRemove: File) {
-    setSelectedFiles((current) =>
-      current.filter((file) => file !== fileToRemove),
-    );
-    setUploadReference(null);
+  async function removeDocumentFile(
+    document: SupportRequestDocument,
+    fileToRemove: File,
+  ) {
+    if (!(await clearUploadedFiles())) return;
+    setSelectedDocuments((current) => {
+      const files = (current[document.id] ?? []).filter(
+        (file) => file !== fileToRemove,
+      );
+      return { ...current, [document.id]: files };
+    });
+    setDocumentConsent(false);
     setFileError("");
-    if (selectedFiles.length <= 1) setDocumentConsent(false);
   }
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
@@ -327,6 +432,14 @@ export default function SupportRequestModal({
       values[field.name] = value;
       const error = validateField(field, value);
       if (error) nextErrors[field.name] = error;
+    });
+    documents.forEach((document) => {
+      if (
+        document.required &&
+        !(selectedDocuments[document.id]?.length)
+      ) {
+        nextErrors[document.id] = `${document.label} is required.`;
+      }
     });
 
     setFormValues(values);
@@ -344,14 +457,7 @@ export default function SupportRequestModal({
         ?.focus();
       return;
     }
-    if (request.requiredDocuments && selectedFiles.length === 0) {
-      setFileError("At least one supporting document is required to continue.");
-      dialogRef.current
-        ?.querySelector<HTMLInputElement>(`#${modalId}-document-upload`)
-        ?.focus();
-      return;
-    }
-    if (selectedFiles.length && !documentConsent) {
+    if (selectedDocumentFiles.length && !documentConsent) {
       setFileError(
         "Please confirm that you agree to share the selected documents for this support request.",
       );
@@ -364,10 +470,13 @@ export default function SupportRequestModal({
     setIsUploading(true);
     setFileError("");
     try {
-      const reference = selectedFiles.length
-        ? uploadReference?.keys.length === selectedFiles.length
+      const reference = selectedDocumentFiles.length
+        ? uploadReference?.keys.length === selectedDocumentFiles.length
           ? uploadReference
-          : await uploadSupportingDocuments(request.title, selectedFiles)
+          : await uploadSupportingDocuments(
+              request.title,
+              selectedDocumentFiles.map(({ file }) => file),
+            )
         : null;
       const subject = encodeURIComponent(`Support request — ${request.title}`);
       const body = encodeURIComponent(
@@ -383,7 +492,10 @@ export default function SupportRequestModal({
                 "",
                 "Private document upload reference:",
                 `Request ID: ${reference.requestId}`,
-                ...reference.keys.map((key, index) => `Document ${index + 1}: ${key}`),
+                ...reference.keys.map((key, index) => {
+                  const { document } = selectedDocumentFiles[index];
+                  return `${document.label}: ${key}`;
+                }),
                 "Documents are stored in the foundation’s private storage and are not attached to this email.",
                 "Applicant consented to share the uploaded documents for this request.",
               ]
@@ -500,15 +612,17 @@ export default function SupportRequestModal({
                   <div className={styles.formHeading}>
                     <h3>Tell us how we can help</h3>
                     <p>Fields marked * are required.</p>
-                    {request.requiredDocuments && (
-                      <p>
-                        At least one supporting document is required. The
-                        request is completed only after you send the prepared
-                        email to our team.
-                      </p>
-                    )}
+                    <p>
+                      Upload each document marked Required. Your request is
+                      completed after you send the prepared email to our team.
+                    </p>
                   </div>
-                  <form className={styles.form} onSubmit={submit} noValidate>
+                  <form
+                    className={styles.form}
+                    key={request.title}
+                    onSubmit={submit}
+                    noValidate
+                  >
                     <div className={styles.formGrid}>
                       {fields.map((field) => {
                         const error = errors[field.name];
@@ -522,13 +636,22 @@ export default function SupportRequestModal({
                           "aria-describedby": error
                             ? `${inputId}-error`
                             : undefined,
-                          onChange: () =>
+                          onChange: (
+                            event: ChangeEvent<
+                              HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                            >,
+                          ) => {
+                            const value = event.currentTarget.value;
+                            setFormValues((current) => ({
+                              ...current,
+                              [field.name]: value,
+                            }));
                             setErrors((current) => {
-                              if (!current[field.name]) return current;
                               const updated = { ...current };
                               delete updated[field.name];
                               return updated;
-                            }),
+                            });
+                          },
                         };
 
                         return (
@@ -606,70 +729,139 @@ export default function SupportRequestModal({
                         <span className={styles.fieldLabel}>
                           <FileText size={14} aria-hidden="true" />
                           <span id={`${modalId}-documents-title`}>
-                            Relevant supporting documents *
+                            Supporting documents
                           </span>
                         </span>
                         <p>
-                          Required for this support category — upload at least
-                          one:
-                          {" "}
-                          {request.documentSuggestions.join(" · ")}
+                          Select the relevant document for each field. PDF,
+                          JPG, JPEG and PNG files are accepted, up to 10 MB
+                          each and 30 MB total.
                         </p>
                       </div>
-                      <label
-                        className={styles.filePicker}
-                        htmlFor={`${modalId}-document-upload`}
-                      >
-                        <FileUp size={19} aria-hidden="true" />
-                        <span>
-                          <strong>Choose documents</strong>
-                          <small>
-                            PDF, JPG or PNG · up to 5 files · 10 MB each
-                          </small>
-                        </span>
-                        <input
-                          id={`${modalId}-document-upload`}
-                          className={styles.visuallyHidden}
-                          type="file"
-                          accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
-                          multiple
-                          aria-describedby={
-                            fileError ? `${modalId}-documents-error` : undefined
-                          }
-                          onChange={(event) => {
-                            addFiles(event.currentTarget.files);
-                            event.currentTarget.value = "";
-                          }}
-                        />
-                      </label>
-                      {selectedFiles.length > 0 && (
-                        <ul className={styles.fileList} aria-label="Selected documents">
-                          {selectedFiles.map((file, index) => (
-                            <li
-                              className={styles.fileItem}
-                              key={`${file.name}-${file.lastModified}-${index}`}
+                      <div className={styles.documentsGrid}>
+                        {documents.map((document) => {
+                          const inputId = `${modalId}-document-${document.id}`;
+                          const error = errors[document.id];
+                          const selectedFiles =
+                            selectedDocuments[document.id] ?? [];
+                          const required = Boolean(document.required);
+                          return (
+                            <div
+                              className={styles.documentField}
+                              key={document.id}
                             >
-                              <span>
-                                <FileText size={15} aria-hidden="true" />
-                                {file.name}
-                                <small>
-                                  {(file.size / (1024 * 1024)).toFixed(2)} MB
-                                </small>
-                              </span>
-                              <button
-                                type="button"
-                                aria-label={`Remove ${file.name}`}
-                                onClick={() => removeFile(file)}
+                              <div className={styles.documentLabel}>
+                                <label
+                                  className={styles.fieldLabel}
+                                  htmlFor={inputId}
+                                >
+                                  <FileText size={13} aria-hidden="true" />
+                                  <span>{document.label}</span>
+                                </label>
+                                <span
+                                  className={`${styles.documentRequirement} ${
+                                    required ? styles.documentRequired : ""
+                                  }`}
+                                >
+                                  {required ? "Required" : "Optional"}
+                                </span>
+                              </div>
+                              <label
+                                className={`${styles.filePicker} ${
+                                  error ? styles.filePickerInvalid : ""
+                                }`}
+                                htmlFor={inputId}
                               >
-                                <Trash2 size={15} />
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                                <FileUp size={18} aria-hidden="true" />
+                                <span>
+                                  <strong>
+                                    {selectedFiles.length
+                                      ? document.multiple
+                                        ? "Add files"
+                                        : "Replace file"
+                                      : "Choose file"}
+                                  </strong>
+                                  <small>
+                                    PDF, JPG, JPEG or PNG · 10 MB max
+                                  </small>
+                                </span>
+                                <input
+                                  id={inputId}
+                                  className={styles.visuallyHidden}
+                                  type="file"
+                                  accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+                                  multiple={document.multiple}
+                                  required={required && !selectedFiles.length}
+                                  aria-label={`Upload ${document.label}`}
+                                  aria-invalid={Boolean(error)}
+                                  aria-describedby={`${inputId}-help${
+                                    error ? ` ${inputId}-error` : ""
+                                  }`}
+                                  disabled={isUploading}
+                                  onChange={(event) => {
+                                    void updateDocumentFiles(
+                                      document,
+                                      event.currentTarget.files,
+                                    );
+                                    event.currentTarget.value = "";
+                                  }}
+                                />
+                              </label>
+                              <p
+                                className={styles.documentDescription}
+                                id={`${inputId}-help`}
+                              >
+                                {document.description}
+                              </p>
+                              {selectedFiles.length > 0 && (
+                                <ul
+                                  className={styles.fileList}
+                                  aria-label={`Selected files for ${document.label}`}
+                                >
+                                  {selectedFiles.map((file, index) => (
+                                    <li
+                                      className={styles.fileItem}
+                                      key={`${file.name}-${file.lastModified}-${index}`}
+                                    >
+                                      <span>
+                                        <FileText size={15} aria-hidden="true" />
+                                        {file.name}
+                                        <small>{formatFileSize(file.size)}</small>
+                                      </span>
+                                      <button
+                                        type="button"
+                                        aria-label={`Remove ${file.name} from ${document.label}`}
+                                        disabled={isUploading}
+                                        onClick={() => {
+                                          void removeDocumentFile(
+                                            document,
+                                            file,
+                                          );
+                                        }}
+                                      >
+                                        <Trash2 size={15} />
+                                      </button>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                              {error && (
+                                <p
+                                  className={styles.fieldError}
+                                  id={`${inputId}-error`}
+                                  role="alert"
+                                >
+                                  {error}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
                       <p className={styles.documentPrivacy}>
-                        Upload only documents relevant to the selected support
-                        category. Do not upload unrelated identity documents.
+                        Upload only documents relevant to this request and
+                        avoid unnecessary sensitive information. You may use a
+                        masked Aadhaar or another accepted identity document.
                         Files are kept in private storage and are not attached
                         to the email.
                       </p>
@@ -689,7 +881,7 @@ export default function SupportRequestModal({
                           about this support request.
                         </span>
                       </label>
-                      {selectedFiles.length > 0 && (
+                      {selectedDocumentFiles.length > 0 && (
                         <label className={styles.consentLabel}>
                           <input
                             id={`${modalId}-document-consent`}
