@@ -872,7 +872,7 @@ export default function SupportRequestModal({
                           aria-invalid={Boolean(fileError && !contactConsent)}
                         />
                         <span>
-                          I give Trimurti Foundation permission to contact me
+                          I give Trimurthi Foundation permission to contact me
                           about this support request.
                         </span>
                       </label>

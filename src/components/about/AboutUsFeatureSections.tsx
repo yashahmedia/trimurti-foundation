@@ -8,19 +8,13 @@ import {
   useTransform,
 } from "framer-motion";
 import { Eye, HandHeart, Scale, ShieldCheck } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import styles from "./AboutUsRedesign.module.css";
 
-const governanceSlides = [
-  {
-    image: "/pan card  trimuthi .png",
-    alt: "Trimurthi Foundation PAN card",
-  },
-  {
-    image: "/doc%202.png",
-    alt: "Trimurthi Foundation registration details",
-  },
-];
+const governanceImage = {
+  src: "/doc%202.png",
+  alt: "Trimurthi Foundation registration details",
+};
 
 const principles = [
   {
@@ -161,18 +155,8 @@ export function MissionVisionSection() {
 
 export function GovernanceSection() {
   const reducedMotion = useReducedMotion();
-  const [activeGovernanceSlide, setActiveGovernanceSlide] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const slideInterval = window.setInterval(() => {
-      setActiveGovernanceSlide((currentSlide) =>
-        (currentSlide + 1) % governanceSlides.length,
-      );
-    }, 5000);
-
-    return () => window.clearInterval(slideInterval);
-  }, []);
   const { scrollYProgress: sectionProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -214,9 +198,8 @@ export function GovernanceSection() {
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
             <Image
-              key={governanceSlides[activeGovernanceSlide].image}
-              src={governanceSlides[activeGovernanceSlide].image}
-              alt={governanceSlides[activeGovernanceSlide].alt}
+              src={governanceImage.src}
+              alt={governanceImage.alt}
               fill
               loading="eager"
               sizes="(max-width: 760px) 100vw, 45vw"

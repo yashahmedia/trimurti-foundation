@@ -286,6 +286,7 @@
 .whoCopy h2,
 .cultureCopy h2 { max-width: 620px; color: var(--navy); font-size: clamp(40px, 4.1vw, 54px); line-height: 1.12; }
 .whoCopy h2 { font-size: 42px; }
+.whoHeadingLine { display: block; }
 
 .whoCopy > p:not(.eyebrow),
 .cultureCopy > p:not(.eyebrow):not(.cultureSince) { margin: 20px 0 0; color: var(--body); font-size: 16px; line-height: 1.75; }
@@ -870,7 +871,7 @@
 .founderPortrait { position: relative; display: grid; min-height: 240px; place-items: center; overflow: hidden; background-color: #e2e9df; background-image: repeating-linear-gradient(135deg, transparent 0, transparent 36px, rgba(31, 92, 69, 0.06) 37px, transparent 38px); }
 .founderPortraitWarm { background-color: #e7e2d5; background-image: repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(165, 128, 63, 0.07) 41px, transparent 42px); }
 .founderPortraitCool { background-color: #e0e7e7; background-image: repeating-linear-gradient(120deg, transparent 0, transparent 38px, rgba(36, 80, 83, 0.06) 39px, transparent 40px); }
-.founderPortrait > span:first-child { color: var(--green); font-family: Georgia, "Times New Roman", serif; font-size: 72px; font-weight: 600; transition: transform 350ms ease; }
+.founderPortrait > span:first-child { padding-inline: 12px; color: var(--green); font-family: Georgia, "Times New Roman", serif; font-size: clamp(24px, 2.3vw, 32px); font-weight: 600; text-align: center; transition: transform 350ms ease; }
 .founderCard:hover .founderPortrait > span:first-child { transform: scale(1.03); }
 .portraitRule { position: absolute; width: 54px; height: 2px; margin-top: 118px; background: var(--gold); }
 .founderMeta { flex: 1; padding: 24px; }

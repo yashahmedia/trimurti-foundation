@@ -29,7 +29,7 @@ const cards: WhoWeAreCard[] = [
     icon: Users,
   },
   {
-    title: "Our journey",
+    title: "Our Journey",
     href: "/about-us#journey",
     icon: Leaf,
   },

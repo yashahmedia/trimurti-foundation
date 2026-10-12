@@ -15,7 +15,7 @@ export default function TrimurthyPhilosophy() {
               <i />
             </span>
             <h2 id="philosophy-title">
-              <span>The Trimurthy</span> Philosophy
+              <span>The Trimurthi</span> Philosophy
             </h2>
             <p className="philosophy-subtitle">
               <strong>The 5&apos;Es</strong>

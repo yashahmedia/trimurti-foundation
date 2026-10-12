@@ -119,7 +119,12 @@ export default function AboutUsRedesign() {
             </div>
             <div className={styles.whoCopy}>
               <p className={styles.eyebrow}>About Trimurthi Foundation</p>
-              <h2 id="who-title">Connecting People. Serving Humanity. Creating Opportunities. Transforming Lives.</h2>
+              <h2 id="who-title">
+                <span className={styles.whoHeadingLine}>Connecting People.</span>
+                <span className={styles.whoHeadingLine}>Serving Humanity.</span>
+                <span className={styles.whoHeadingLine}>Creating Opportunities.</span>
+                <span className={styles.whoHeadingLine}>Transforming Lives.</span>
+              </h2>
               <p>
                 Trimurthi Foundation is a public charitable initiative founded with
                 a simple belief: when people come together with compassion,
@@ -226,10 +231,10 @@ export default function AboutUsRedesign() {
             align="center"
           />
           <div className={styles.founderGrid}>
-            {founders.map(({ initials, name, role, background }, index) => (
+            {founders.map(({ portraitName, name, role, background }, index) => (
               <article className={styles.founderCard} key={name}>
                 <div className={`${styles.founderPortrait} ${index === 1 ? styles.founderPortraitWarm : index === 2 ? styles.founderPortraitCool : ""}`} aria-hidden="true">
-                  <span>{initials}</span>
+                  <span>{portraitName}</span>
                   <span className={styles.portraitRule} />
                 </div>
                 <div className={styles.founderMeta}>
@@ -246,7 +251,7 @@ export default function AboutUsRedesign() {
       <section className={`${styles.section} ${styles.journeySection} ${styles.reveal}`} aria-labelledby="journey-title">
         <div className={styles.container}>
           <div className={styles.journeyStory}>
-            <h2 id="journey-title" className={styles.journeyTitle}>Our journey</h2>
+            <h2 id="journey-title" className={styles.journeyTitle}>Our Journey</h2>
             <p className={styles.journeyQuote}>“The strength of an institution is not measured by the buildings it owns or the funds it manages, but by the values it preserves and the lives it transforms.”</p>
 
             <div className={styles.journeyShowcase} aria-hidden="true">
@@ -261,7 +266,7 @@ export default function AboutUsRedesign() {
               </figure>
             </div>
 
-            <div className={styles.journeyTimeline} aria-label="Our journey timeline">
+            <div className={styles.journeyTimeline} aria-label="Our Journey timeline">
               <article className={styles.journeyChapter}>
                 <span className={styles.journeyNode} aria-hidden="true">01</span>
                 <div className={styles.journeyImageWrap} aria-hidden="true">
@@ -372,7 +377,7 @@ export default function AboutUsRedesign() {
           <SectionHeading
             id="philosophy-title"
             eyebrow="Our Philosophy"
-            title="The Trimurthy Philosophy"
+            title="The Trimurthi Philosophy"
             description="Five principles that guide our purpose, people and impact."
             align="center"
           />

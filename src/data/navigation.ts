@@ -14,7 +14,7 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "About Trimurthi Foundation", href: "/about-us#about-foundation", icon: "foundation", description: "Our mission and purpose" },
       { label: "Our Founders", href: "/about-us#founder", icon: "founder", description: "Leadership and vision" },
-      { label: "Our journey", href: "/about-us#journey", icon: "journey", description: "The path we have taken" },
+      { label: "Our Journey", href: "/about-us#journey", icon: "journey", description: "The path we have taken" },
       { label: "Mission & vision", href: "/about-us#mission-vision", icon: "mission", description: "What drives us" },
       { label: "Governance & Transparency", href: "/about-us#governance", icon: "governance", description: "Ethics and accountability" },
       { label: "Advisory Board / Team", href: "/about-us#team", icon: "team", description: "People behind the mission" },
