@@ -7384,12 +7384,13 @@ body.donation-modal-open { overflow: hidden; }
 }
 .family-card-image {
   position: relative;
-  aspect-ratio: 1.77;
+  aspect-ratio: 1.55;
   border-radius: 11px 11px 7px 7px;
 }
 .family-card-image img {
   border-radius: inherit;
   object-fit: cover;
+  object-position: center top;
 }
 .family-card .family-card-icon {
   position: absolute;
@@ -7426,7 +7427,13 @@ body.donation-modal-open { overflow: hidden; }
 }
 .family-card-link {
   display: inline-flex;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 42px;
+  flex: 0 0 42px;
+  align-self: stretch;
   align-items: center;
+  justify-content: space-between;
   gap: 9px;
   margin-top: auto;
   padding: 8px 13px;

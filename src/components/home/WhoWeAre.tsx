@@ -24,7 +24,7 @@ const cards: WhoWeAreCard[] = [
     icon: Building2,
   },
   {
-    title: "Our Founder",
+    title: "Our Founders",
     href: "/about-us#founder",
     icon: Users,
   },
