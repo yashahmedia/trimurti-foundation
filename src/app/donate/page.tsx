@@ -1,17 +1,15 @@
-import DonationForm from "@/components/donate/DonationForm";
+import DonationTrigger from "@/components/donate/DonationTrigger";
 import HeroSlider from "@/components/home/HeroSlider";
+import GeneralSupportRequestButton from "@/components/home/GeneralSupportRequestButton";
 import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  BookOpen,
   ClipboardCheck,
   HandHeart,
-  HeartPulse,
-  Sprout,
-  UsersRound,
 } from "lucide-react";
 import { seo } from "@/lib/seo";
+import VolunteerModal from "@/components/forms/VolunteerModal";
 import styles from "./donate.module.css";
 
 export const metadata = seo(
@@ -125,6 +123,7 @@ export default function Page() {
               <HandHeart size={20} strokeWidth={1.7} aria-hidden="true" />
               <span>Every request begins with listening and understanding.</span>
             </div>
+            <GeneralSupportRequestButton />
           </div>
           <aside className={styles.helpGuide} aria-label="How we can guide you">
             <span className={styles.guideEyebrow}>
@@ -148,73 +147,6 @@ export default function Page() {
               ))}
             </ol>
           </aside>
-        </div>
-      </section>
-
-      <section className={styles.whySection} aria-labelledby="why-title">
-        <div className={styles.whyInner}>
-          <div className={styles.whyMark} aria-hidden="true">
-            <Sprout size={34} strokeWidth={1.35} />
-          </div>
-          <div className={styles.whyCopy}>
-            <span className={styles.eyebrow}>A reason to show up</span>
-            <h2 id="why-title">Why Your Support Matters</h2>
-            <p>
-              Your contribution is more than a donation. Depending on the need
-              and the initiative, it can help sustain learning opportunities,
-              healthcare support, nourishment, elderly care, community welfare,
-              cultural preservation, or support for soldiers and their
-              families. Each form of help meets a human need with care and
-              respect.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.donationImpact} aria-labelledby="donation-impact-title">
-        <div className={styles.contentWidth}>
-          <header className={styles.sectionHeading}>
-            <span className={styles.eyebrow}>Support with purpose</span>
-            <h2 id="donation-impact-title">What Your Donation Can Help Do</h2>
-            <p>
-              Your support can contribute to ongoing work across the
-              Foundation&apos;s initiatives.
-            </p>
-          </header>
-          <div className={styles.impactGrid}>
-            <article className={styles.impactItem}>
-              <BookOpen size={25} strokeWidth={1.5} aria-hidden="true" />
-              <h3>Education</h3>
-              <p>
-                Help create learning opportunities through educational
-                assistance, mentorship, and skill development.
-              </p>
-            </article>
-            <article className={styles.impactItem}>
-              <HeartPulse size={25} strokeWidth={1.5} aria-hidden="true" />
-              <h3>Healthcare</h3>
-              <p>
-                Support healthcare assistance and awareness for individuals
-                and families facing difficult situations.
-              </p>
-            </article>
-            <article className={styles.impactItem}>
-              <Sprout size={25} strokeWidth={1.5} aria-hidden="true" />
-              <h3>Nutrition</h3>
-              <p>
-                Contribute to nourishment and food assistance for people and
-                families who need support.
-              </p>
-            </article>
-            <article className={styles.impactItem}>
-              <UsersRound size={25} strokeWidth={1.5} aria-hidden="true" />
-              <h3>Community Support</h3>
-              <p>
-                Help strengthen community initiatives, from elderly care to
-                environmental and family welfare.
-              </p>
-            </article>
-          </div>
         </div>
       </section>
 
@@ -256,26 +188,6 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={styles.formSection} aria-labelledby="donation-title">
-        <div className={styles.contentWidth}>
-          <div className={styles.donationPanel} id="donation-form">
-            <header className="donation-panel-heading">
-              <span className="donation-badge">Support a Cause</span>
-              <h2 id="donation-title">Make your contribution</h2>
-              <p>
-                Share your details and choose how you would like to support
-                Trimurthi Foundation.
-              </p>
-            </header>
-            <DonationForm />
-            <p className="donation-thank-you">
-              Thank you for considering a contribution to the Foundation&apos;s
-              work.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className={styles.finalSection} aria-labelledby="together-title">
         <div className={styles.finalInner}>
           <span className={styles.eyebrow}>Many ways, one shared purpose</span>
@@ -286,12 +198,12 @@ export default function Page() {
             opportunity.
           </p>
           <div className={styles.finalActions}>
-            <Link className="button" href="#donation-form">
+            <DonationTrigger className="button">
               Donate to a Cause <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-            <Link className="button secondary" href="/volunteer">
+            </DonationTrigger>
+            <VolunteerModal className="button secondary">
               Volunteer Your Time
-            </Link>
+            </VolunteerModal>
             <Link className={styles.exploreLink} href="/initiatives">
               Explore Our Initiatives
             </Link>

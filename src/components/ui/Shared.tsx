@@ -4,6 +4,7 @@ import { ArrowUpRight, HeartHandshake } from "lucide-react";
 import { site } from "@/config/site";
 import CountUp from "./CountUp";
 import SupportPromptSection from "@/components/home/SupportPromptSection";
+import VolunteerModal from "@/components/forms/VolunteerModal";
 export function Button({
   href,
   children,
@@ -80,7 +81,9 @@ export function CTA() {
             Bring your skills, your energy, and your heart. Let’s grow together.
           </p>
         </div>
-        <Button href="/volunteer">Register as Volunteer</Button>
+        <VolunteerModal className="button">
+          Register as Volunteer <ArrowUpRight size={17} />
+        </VolunteerModal>
       </div>
     </section>
   );

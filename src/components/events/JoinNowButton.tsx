@@ -177,8 +177,8 @@ export default function JoinNowButton({
                 />
               </label>
               <label className={styles.field} htmlFor={`${id}-email`}>
-                <span>Email Address (optional)</span>
-                <input id={`${id}-email`} name="email" type="email" autoComplete="email" maxLength={150} />
+                <span>Email Address *</span>
+                <input id={`${id}-email`} name="email" type="email" autoComplete="email" maxLength={150} required />
               </label>
               <label className={styles.field} htmlFor={`${id}-address`}>
                 <span>Address *</span>

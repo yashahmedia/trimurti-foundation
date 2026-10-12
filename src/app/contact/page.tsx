@@ -10,7 +10,8 @@ import {
   UsersRound,
 } from "lucide-react";
 import ContactForm from "@/components/forms/ContactForm";
-import SupportPromptSection from "@/components/home/SupportPromptSection";
+import DonationTrigger from "@/components/donate/DonationTrigger";
+import VolunteerModal from "@/components/forms/VolunteerModal";
 import { site } from "@/config/site";
 import { seo } from "@/lib/seo";
 import styles from "./contact.module.css";
@@ -128,9 +129,6 @@ export default function ContactPage() {
               support? We’re here to help. Reach out to us — we’d be happy to
               connect.
             </p>
-            <Link className={styles.primaryButton} href="#contact-form">
-              Let&apos;s Connect <ArrowRight size={17} />
-            </Link>
             <span className={styles.heroLeaf} aria-hidden="true">
               <i />
               <i />
@@ -152,8 +150,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <SupportPromptSection />
 
       <section className={styles.contactCardsSection} aria-label="Contact details">
         <div className={`${styles.container} ${styles.contactCards}`}>
@@ -280,12 +276,12 @@ export default function ContactPage() {
               children, families and communities.
             </p>
             <div className={styles.ctaActions}>
-              <Link className={styles.primaryButton} href="/donate">
+              <DonationTrigger className={styles.primaryButton}>
                 Donate <ArrowUpRight size={16} />
-              </Link>
-              <Link className={styles.secondaryButton} href="/volunteer">
+              </DonationTrigger>
+              <VolunteerModal className={styles.secondaryButton}>
                 Get Involved <ArrowRight size={16} />
-              </Link>
+              </VolunteerModal>
             </div>
           </div>
         </div>

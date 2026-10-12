@@ -35,7 +35,7 @@ export const navigation: NavigationItem[] = [
   },
   {
     label: "Request a Support",
-    href: "/donate#support-request-form",
+    href: "/donate",
     description: "Explore ways to receive and offer support",
   },
   {

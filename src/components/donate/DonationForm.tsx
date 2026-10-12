@@ -9,6 +9,12 @@ import {
 } from "@/data/donation-payment";
 
 const amounts = ["1000", "2500", "5000", "Custom"] as const;
+type PresetAmount = (typeof amounts)[number];
+
+function isPresetAmount(amount: string | undefined): amount is PresetAmount {
+  return amounts.some((preset) => preset === amount);
+}
+
 const professions = [
   "Teacher",
   "Engineer",
@@ -22,10 +28,18 @@ const professions = [
 ];
 type PaymentMethod = "QR" | "Bank Details";
 
-export default function DonationForm() {
+export default function DonationForm({
+  initialAmount,
+}: {
+  initialAmount?: string;
+} = {}) {
   const messageId = useId();
-  const [selectedAmount, setSelectedAmount] = useState<string>("1000");
-  const [customAmount, setCustomAmount] = useState("");
+  const [selectedAmount, setSelectedAmount] = useState<string>(() =>
+    initialAmount ? (isPresetAmount(initialAmount) ? initialAmount : "Custom") : "1000",
+  );
+  const [customAmount, setCustomAmount] = useState(() =>
+    initialAmount && !isPresetAmount(initialAmount) ? initialAmount : "",
+  );
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("QR");
   const [submitted, setSubmitted] = useState(false);
   const [receiptReady, setReceiptReady] = useState(false);

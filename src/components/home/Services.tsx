@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, HeartPulse, House } from "lucide-react";
 import { services } from "@/data/services";
+import VolunteerModal from "@/components/forms/VolunteerModal";
 const featuredTitles = [
   "Healthcare & Medical Assistance",
   "Education Support",
@@ -53,12 +54,15 @@ export default function Services({
                 <span className="service-meta">{s.category}</span>
                 <h3>{s.title}</h3>
                 <p>{s.description}</p>
-                <Link href={"/volunteer?area=" + encodeURIComponent(s.title)}>
+                <VolunteerModal
+                  className="service-focus-trigger"
+                  initialCause={s.title}
+                >
                   <span>Our focus</span>
                   <span className="service-link-icon">
                     <ArrowRight size={16} />
                   </span>
-                </Link>
+                </VolunteerModal>
               </div>
             </article>
           );

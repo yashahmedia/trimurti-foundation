@@ -6,7 +6,7 @@ export type HonourWallEntry = {
 };
 
 export const honourWallEntries: HonourWallEntry[] = [
-  { name: "Rajesh Kumar", role: "Supporter", isSample: true },
+  { name: "Rajesh Kumar", role: "Donor", isSample: true },
   { name: "Priya Menon", role: "Mentor", isSample: true },
   { name: "Anil & Family", role: "Volunteer", isSample: true },
 ];

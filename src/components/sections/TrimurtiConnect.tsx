@@ -82,7 +82,7 @@ export default function TrimurtiConnect() {
                     sizes="(max-width: 620px) 100vw, (max-width: 900px) 100vw, 50vw"
                     style={
                       id === "professional-connect-home"
-                        ? { objectPosition: "center 20%" }
+                        ? { objectPosition: "center 18%", transform: "scale(1.08)" }
                         : undefined
                     }
                   />

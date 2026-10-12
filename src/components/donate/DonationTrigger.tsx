@@ -9,6 +9,7 @@ type DonationTriggerProps = {
   className?: string;
   initialCause?: string;
   modalTitle?: string;
+  initialAmount?: string;
 };
 
 export default function DonationTrigger({
@@ -16,6 +17,7 @@ export default function DonationTrigger({
   className,
   initialCause,
   modalTitle,
+  initialAmount,
 }: DonationTriggerProps) {
   const [open, setOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState<PageScrollPosition>({
@@ -41,6 +43,7 @@ export default function DonationTrigger({
         onClose={() => setOpen(false)}
         initialCause={initialCause}
         modalTitle={modalTitle}
+        initialAmount={initialAmount}
       />
     </>
   );

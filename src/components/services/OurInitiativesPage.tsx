@@ -12,6 +12,8 @@ import {
   Users,
 } from "lucide-react";
 import InitiativesBanner from "@/components/services/InitiativesBanner";
+import DonationTrigger from "@/components/donate/DonationTrigger";
+import VolunteerModal from "@/components/forms/VolunteerModal";
 
 const initiativeNavigator = [
   {
@@ -290,12 +292,12 @@ export default function OurInitiativesPage() {
               Whether you volunteer, donate or partner with us, your support helps keep these initiatives active and compassionate.
             </p>
             <div className="cta-actions">
-              <Link href="/volunteer" className="primary-cta">
+              <VolunteerModal className="primary-cta">
                 Volunteer with us
-              </Link>
-              <Link href="/donate" className="secondary-cta">
+              </VolunteerModal>
+              <DonationTrigger className="secondary-cta">
                 Donate now
-              </Link>
+              </DonationTrigger>
             </div>
           </div>
         </div>

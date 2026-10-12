@@ -50,21 +50,20 @@ export default function CultureHeritageShowcase() {
             </h3>
           </div>
           <p className={styles.description}>
-            Through 4 interconnected initiatives, Trimurthi Foundation aims to
+            Through 3 interconnected initiatives, Trimurthi Foundation aims to
             preserve India&apos;s rich cultural heritage, support traditional arts
-            and temples, make ancient knowledge accessible to new generations,
-            and help people stay connected with their traditions through pooja
-            services.
+            and temples, and make ancient knowledge accessible to new
+            generations.
           </p>
         </CultureReveal>
 
         <header className={styles.heading}>
           <p className={styles.eyebrow}>Explore our Cultural initiatives</p>
-          <h3>4 interconnected initiatives</h3>
+          <h3>3 interconnected initiatives</h3>
         </header>
 
         <nav className={styles.cards} aria-label="Culture and heritage initiatives">
-          {features.map(({ title, image, imageAlt, href, icon: Icon, imagePosition }, index) => (
+          {features.slice(0, 3).map(({ title, image, imageAlt, href, icon: Icon, imagePosition }, index) => (
             <CultureReveal className={styles.cardReveal} delay={index * 0.06} key={title}>
               <Link className={styles.card} href={href}>
                 <span

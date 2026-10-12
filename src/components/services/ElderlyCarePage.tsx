@@ -18,6 +18,7 @@ import CultureReveal from "@/components/culture/CultureReveal";
 import InitiativesBanner from "@/components/services/InitiativesBanner";
 import InitiativeApproachSection from "@/components/services/InitiativeApproachSection";
 import RequestSupportCta from "@/components/services/RequestSupportCta";
+import DonationTrigger from "@/components/donate/DonationTrigger";
 
 const initiatives = [
   {
@@ -418,12 +419,12 @@ export default function ElderlyCarePage() {
             Your support can help us create companionship, provide essential
             care and build more dignified lives for older adults.
           </p>
-          <Link
-            href="/donate?cause=elder-support"
+          <DonationTrigger
+            initialCause="Elderly Care"
             className="healthcare-cta-button"
           >
             Support Elderly Care <ArrowRight size={17} />
-          </Link>
+          </DonationTrigger>
         </CultureReveal>
       </section>
 

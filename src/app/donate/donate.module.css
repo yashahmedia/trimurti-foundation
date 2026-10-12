@@ -12,7 +12,6 @@
 
 .contentWidth,
 .heroInner,
-.whyInner,
 .contributionInner,
 .finalInner {
   width: min(1220px, calc(100% - 64px));
@@ -162,6 +161,29 @@
   font-weight: 650;
 }
 
+.requestSupportButton {
+  display: inline-flex;
+  width: auto;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 12px 18px;
+  border: 1px solid #315f4c;
+  border-radius: 8px;
+  background: #315f4c;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.requestSupportButton:hover {
+  transform: translateY(-1px);
+  background: #264d3d;
+}
+
 .helpPromise svg {
   flex: 0 0 auto;
   color: var(--page-burgundy);
@@ -283,7 +305,6 @@
   line-height: 1.55;
 }
 
-.donationImpact,
 .areasSection {
   padding: 86px 0 94px;
 }
@@ -295,7 +316,6 @@
 }
 
 .sectionHeading h2,
-.whyCopy h2,
 .contributionInner h2,
 .finalInner h2 {
   margin-top: 12px;
@@ -311,79 +331,6 @@
   color: var(--page-muted);
   font-size: 16px;
   line-height: 1.65;
-}
-
-.whySection {
-  padding: 78px 0;
-  background: #f4eee5;
-}
-
-.whyInner {
-  display: grid;
-  grid-template-columns: 100px minmax(0, 760px);
-  justify-content: center;
-  align-items: start;
-  gap: 34px;
-}
-
-.whyMark {
-  display: grid;
-  width: 78px;
-  height: 78px;
-  place-items: center;
-  border: 1px solid rgba(129, 59, 69, 0.25);
-  border-radius: 50%;
-  color: var(--page-burgundy);
-}
-
-.whyCopy h2 {
-  margin-top: 11px;
-}
-
-.whyCopy p {
-  margin-top: 18px;
-  color: #000000;
-  font-size: 17px;
-  line-height: 1.85;
-}
-
-.donationImpact {
-  background: #fffdf9;
-}
-
-.impactGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid var(--page-rule);
-  border-bottom: 1px solid var(--page-rule);
-}
-
-.impactItem {
-  min-width: 0;
-  padding: 28px 24px 30px;
-}
-
-.impactItem + .impactItem {
-  border-left: 1px solid var(--page-rule);
-}
-
-.impactItem > svg {
-  color: var(--page-burgundy);
-}
-
-.impactItem h3 {
-  margin-top: 17px;
-  color: var(--page-green);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 22px;
-  font-weight: 500;
-}
-
-.impactItem p {
-  margin-top: 10px;
-  color: var(--page-muted);
-  font-size: 14px;
-  line-height: 1.7;
 }
 
 .contributionSection {
@@ -510,52 +457,6 @@
   font-weight: 700;
 }
 
-.formSection {
-  padding: 84px 0 90px;
-  background: #fffdf9;
-  scroll-margin-top: 24px;
-}
-
-.donationPanel {
-  max-width: 850px;
-  margin-inline: auto;
-  padding: clamp(24px, 4vw, 48px);
-  border: 1px solid rgba(108, 139, 112, 0.2);
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: 0 20px 55px rgba(39, 67, 45, 0.08);
-  scroll-margin-top: 32px;
-}
-
-.donationPanel :global(.donation-panel-heading) {
-  margin-bottom: 28px;
-}
-
-.donationPanel :global(.donation-panel-heading h2) {
-  margin: 12px 0 8px;
-  color: #293c33;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 36px;
-  font-weight: 500;
-}
-
-.donationPanel :global(.donation-panel-heading p) {
-  color: var(--page-muted);
-}
-
-.donationPanel :global(.donation-form textarea) {
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 132px;
-  resize: vertical;
-}
-
-.donationPanel :global(.donation-thank-you) {
-  margin-top: 20px;
-  color: var(--page-muted);
-  font-size: 13px;
-}
-
 .finalSection {
   padding: 76px 0 84px;
   background: #f4eee5;
@@ -580,7 +481,13 @@
 }
 
 .finalActions :global(.button.secondary) {
+  width: auto;
+  flex: 0 0 auto;
   border-color: #a8b3a8;
+}
+
+.finalActions :global(.button) {
+  min-height: 54px;
 }
 
 .exploreLink {
@@ -597,7 +504,6 @@
 @media (max-width: 980px) {
   .contentWidth,
   .heroInner,
-  .whyInner,
   .contributionInner,
   .finalInner {
     width: min(100% - 48px, 760px);
@@ -622,19 +528,6 @@
     font-size: clamp(36px, 5vw, 46px);
   }
 
-  .impactGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .impactItem:nth-child(3) {
-    border-left: 0;
-    border-top: 1px solid var(--page-rule);
-  }
-
-  .impactItem:nth-child(4) {
-    border-top: 1px solid var(--page-rule);
-  }
-
   .areasGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -643,7 +536,6 @@
 @media (max-width: 640px) {
   .contentWidth,
   .heroInner,
-  .whyInner,
   .contributionInner,
   .finalInner {
     width: calc(100% - 36px);
@@ -714,7 +606,6 @@
     border-radius: 16px;
   }
 
-  .donationImpact,
   .areasSection {
     padding: 62px 0 68px;
   }
@@ -724,7 +615,6 @@
   }
 
   .sectionHeading h2,
-  .whyCopy h2,
   .contributionInner h2,
   .finalInner h2 {
     font-size: 34px;
@@ -732,43 +622,6 @@
 
   .sectionHeading > p {
     font-size: 15px;
-  }
-
-  .whySection {
-    padding: 58px 0 62px;
-  }
-
-  .whyInner {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
-  }
-
-  .whyMark {
-    width: 60px;
-    height: 60px;
-  }
-
-  .whyCopy p {
-    font-size: 15px;
-  }
-
-  .impactGrid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .impactItem {
-    padding: 22px 8px;
-  }
-
-  .impactItem + .impactItem,
-  .impactItem:nth-child(3),
-  .impactItem:nth-child(4) {
-    border-top: 1px solid var(--page-rule);
-    border-left: 0;
-  }
-
-  .impactItem h3 {
-    margin-top: 10px;
   }
 
   .contributionSection {
@@ -791,19 +644,6 @@
 
   .areaImage {
     aspect-ratio: 1.6;
-  }
-
-  .formSection {
-    padding: 60px 0 66px;
-  }
-
-  .donationPanel {
-    padding: 22px 18px;
-    border-radius: 12px;
-  }
-
-  .donationPanel :global(.donation-panel-heading h2) {
-    font-size: 30px;
   }
 
   .finalSection {

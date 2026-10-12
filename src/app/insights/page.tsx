@@ -8,7 +8,6 @@ import {
   Sprout,
 } from "lucide-react";
 import { seo } from "@/lib/seo";
-import SupportPromptSection from "@/components/home/SupportPromptSection";
 import JoinNowButton from "@/components/events/JoinNowButton";
 import styles from "./insights.module.css";
 
@@ -128,8 +127,6 @@ export default function InsightsPage() {
           </div>
         </div>
       </section>
-
-      <SupportPromptSection />
 
       <nav className={styles.tabs} aria-label="Insights sections">
         <a className={styles.tab} href="#events">

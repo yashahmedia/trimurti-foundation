@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { events, demoEvents } from "@/data/events";
-import { PageHero, Button } from "@/components/ui/Shared";
+import { PageHero } from "@/components/ui/Shared";
+import VolunteerModal from "@/components/forms/VolunteerModal";
 import EventList from "@/components/events/EventList";
 import Share from "@/components/events/Share";
 import { seo } from "@/lib/seo";
@@ -50,9 +51,12 @@ export default async function Page({
           <span className="badge">Registration {e.status.toLowerCase()}</span>
           <p>{e.description}</p>
           {e.status === "Open" && !e.demo ? (
-            <Button href={"/volunteer?event=" + e.slug}>
+            <VolunteerModal
+              className="button"
+              initialContribution={`I am interested in volunteering for ${e.title}.`}
+            >
               Express interest
-            </Button>
+            </VolunteerModal>
           ) : (
             <p>Registration is not currently available.</p>
           )}

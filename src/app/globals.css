@@ -2459,7 +2459,7 @@ img {
 
 .cta-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.7fr) minmax(0, 0.72fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.7fr) max-content;
   gap: 22px;
   align-items: center;
   padding: clamp(28px, 4vw, 40px);
@@ -2468,6 +2468,12 @@ img {
   color: #f8f6ef;
   box-shadow: 0 22px 42px rgba(9, 42, 39, 0.2);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cta-copy,
+.cta-panel > p,
+.cta-actions {
+  min-width: 0;
 }
 
 .cta-panel:hover {
@@ -2499,19 +2505,26 @@ img {
   gap: 14px;
   justify-content: flex-end;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+
+.cta-actions > .primary-cta,
+.cta-actions > .secondary-cta {
+  width: auto;
 }
 
 .primary-cta,
 .secondary-cta {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 0 24px;
+  padding: 0 18px;
   border-radius: 999px;
   font-size: 14px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .primary-cta {
@@ -6291,7 +6304,8 @@ img {
 }
 .service-body h3,
 .service-body p,
-.service-body > a {
+.service-body > a,
+.service-body > button.service-focus-trigger {
   transition: transform 0.35s ease, color 0.35s ease;
 }
 .service-card:hover .service-body h3 {
@@ -6326,7 +6340,8 @@ img {
   line-height: 1.9;
   margin-top: 12px;
 }
-.service-body a {
+.service-body a,
+.service-body button.service-focus-trigger {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6356,11 +6371,13 @@ img {
     background 0.2s,
     transform 0.2s;
 }
-.service-body a:hover {
+.service-body a:hover,
+.service-body button.service-focus-trigger:hover {
   color: var(--gold);
   transform: translateX(2px);
 }
-.service-body a:hover .service-link-icon {
+.service-body a:hover .service-link-icon,
+.service-body button.service-focus-trigger:hover .service-link-icon {
   color: white;
   background: var(--green);
   transform: translateX(3px);
@@ -7324,6 +7341,7 @@ body.donation-modal-open { overflow: hidden; }
 }
 .family-section .family-heading {
   margin-bottom: 24px;
+  padding-top: 10px;
 }
 .family-section .family-heading .eyebrow {
   margin-bottom: 7px;
@@ -7355,6 +7373,8 @@ body.donation-modal-open { overflow: hidden; }
   gap: 22px;
 }
 .family-card {
+  display: flex;
+  flex-direction: column;
   overflow: visible;
   padding: 0;
   border: 1px solid rgba(174, 205, 190, 0.18);
@@ -7409,23 +7429,26 @@ body.donation-modal-open { overflow: hidden; }
   align-items: center;
   gap: 9px;
   margin-top: auto;
-  border-bottom: 1px solid rgba(199, 220, 200, 0.6);
+  padding: 8px 13px;
+  border: 1px solid rgba(151, 208, 182, 0.38);
+  border-radius: 7px;
+  background: rgba(35, 114, 84, 0.45);
   color: #e8f7d8;
   font-size: 12px;
-  line-height: 1.8;
+  line-height: 1.4;
 }
 .family-card button.family-card-link {
-  padding: 0;
-  background: transparent;
+  background: rgba(35, 114, 84, 0.45);
   color: #e8f7d8;
   text-align: left;
 }
 .family-card-link:hover {
   color: #fff8cf;
   border-color: rgba(255, 248, 207, 0.8);
+  background: rgba(43, 132, 97, 0.68);
 }
 .family-card button.family-card-link:hover {
-  background: transparent;
+  background: rgba(43, 132, 97, 0.68);
   color: #fff8cf;
 }
 .homepage-section.connect-section {
@@ -7490,12 +7513,13 @@ body.donation-modal-open { overflow: hidden; }
 }
 .connect-card-image {
   position: relative;
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 1.45 / 1;
   overflow: hidden;
 }
 .connect-card-image img {
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center 18%;
+  transform: scale(1.08);
 }
 .connect-card-body {
   padding: 16px 19px 18px;
@@ -9510,7 +9534,8 @@ button:disabled {
   .service-body p {
     font-size: 11px;
   }
-  .service-body a {
+  .service-body a,
+  .service-body button.service-focus-trigger {
     font-size: 10px;
   }
   .service-media img {

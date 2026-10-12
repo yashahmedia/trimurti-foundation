@@ -97,6 +97,15 @@ export default function TrimurtiFamily() {
                     alt={imageAlt}
                     fill
                     sizes="(max-width: 620px) 100vw, (max-width: 900px) 50vw, 33vw"
+                    style={
+                      form === "knowledge"
+                        ? {
+                            objectPosition: "center",
+                            transform: "translateY(8px) scale(1.04)",
+                            transformOrigin: "center top",
+                          }
+                        : undefined
+                    }
                   />
                   <span className="family-card-icon" aria-hidden="true">
                     <Icon size={21} strokeWidth={1.8} />

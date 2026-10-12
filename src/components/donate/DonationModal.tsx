@@ -15,6 +15,7 @@ type DonationModalProps = {
   scrollPosition: PageScrollPosition;
   initialCause?: string;
   modalTitle?: string;
+  initialAmount?: string;
 };
 
 export default function DonationModal({
@@ -23,6 +24,7 @@ export default function DonationModal({
   scrollPosition,
   initialCause,
   modalTitle = "Donate to a Cause",
+  initialAmount,
 }: DonationModalProps) {
   const portalRoot = typeof document === "undefined" ? null : document.body;
   const [closing, setClosing] = useState(false);
@@ -127,7 +129,7 @@ export default function DonationModal({
           </button>
         </header>
         <div className="donation-modal-content">
-          <DonationForm />
+          <DonationForm initialAmount={initialAmount} />
         </div>
       </section>
     </div>,

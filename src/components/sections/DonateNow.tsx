@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   ArrowUpRight,
   Check,
@@ -10,6 +9,7 @@ import {
   Download,
   ShieldCheck,
 } from "lucide-react";
+import DonationTrigger from "@/components/donate/DonationTrigger";
 import {
   donationBankDetails as bankDetails,
   donationQrImage,
@@ -194,16 +194,16 @@ export default function DonateNow() {
             </div>
 
             <div className="donate-actions">
-              <Link
-                href={
-                  donationAmount && Number(donationAmount) > 0
-                    ? `/donate?amount=${encodeURIComponent(donationAmount)}`
-                    : "/donate"
-                }
+              <DonationTrigger
                 className="button"
+                initialAmount={
+                  donationAmount && Number(donationAmount) > 0
+                    ? donationAmount
+                    : undefined
+                }
               >
                 Donate Now <ArrowUpRight size={16} />
-              </Link>
+              </DonationTrigger>
               <span className="donate-secure-note">
                 <ShieldCheck size={15} /> Safe giving, thoughtful impact
               </span>

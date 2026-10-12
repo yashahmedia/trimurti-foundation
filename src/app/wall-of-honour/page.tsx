@@ -6,6 +6,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import DonationTrigger from "@/components/donate/DonationTrigger";
+import VolunteerModal from "@/components/forms/VolunteerModal";
 import { honourWallEntries } from "@/data/honour-wall";
 import { seo } from "@/lib/seo";
 import styles from "./wall-of-honour.module.css";
@@ -140,12 +142,12 @@ export default function WallOfHonourPage() {
               lasting positive impact in our communities.
             </p>
             <div className={styles.ctaActions}>
-              <Link className={styles.primaryButton} href="/donate">
-                Support Our Mission <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-              <Link className={styles.secondaryButton} href="/volunteer">
+              <VolunteerModal className={styles.secondaryButton}>
                 Become a Volunteer
-              </Link>
+              </VolunteerModal>
+              <DonationTrigger className={styles.primaryButton}>
+                Donate Now <ArrowRight size={16} aria-hidden="true" />
+              </DonationTrigger>
             </div>
           </div>
         </Reveal>

@@ -83,14 +83,6 @@ export default function AboutUsRedesign() {
               Building a compassionate, connected and empowered community where
               people come together to support, uplift and grow with one another.
             </p>
-            <div className={styles.heroActions}>
-              <Link className={styles.primaryButton} href="#about-foundation">
-                Discover Our Purpose <ArrowRight size={17} aria-hidden="true" />
-              </Link>
-              <Link className={styles.secondaryButton} href="/volunteer">
-                Join Trimurthi Family
-              </Link>
-            </div>
           </div>
         </div>
         <a className={styles.scrollCue} href="#trust-strip" aria-label="Scroll to learn about our values">

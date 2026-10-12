@@ -48,6 +48,7 @@ type VolunteerModalProps = {
   children: ReactNode;
   className?: string;
   initialCause?: string;
+  initialContribution?: string;
   isActive?: boolean;
 };
 
@@ -55,6 +56,7 @@ export default function VolunteerModal({
   children,
   className,
   initialCause,
+  initialContribution,
   isActive = false,
 }: VolunteerModalProps) {
   const [open, setOpen] = useState(false);
@@ -82,6 +84,7 @@ export default function VolunteerModal({
         ? createPortal(
             <VolunteerDialog
               initialCause={initialCause}
+              initialContribution={initialContribution}
               scrollPosition={scrollPosition}
               onClose={() => setOpen(false)}
             />,
@@ -94,10 +97,12 @@ export default function VolunteerModal({
 
 function VolunteerDialog({
   initialCause,
+  initialContribution,
   scrollPosition,
   onClose,
 }: {
   initialCause?: string;
+  initialContribution?: string;
   scrollPosition: PageScrollPosition;
   onClose: () => void;
 }) {
@@ -206,6 +211,7 @@ function VolunteerDialog({
           ) : (
             <VolunteerApplicationForm
               initialCause={initialCause}
+              initialContribution={initialContribution}
               onPrepare={(data) => setDraftHref(createEmailDraft(data))}
             />
           )}
@@ -236,9 +242,11 @@ function createEmailDraft(data: VolunteerApplicationInput) {
 
 function VolunteerApplicationForm({
   initialCause,
+  initialContribution,
   onPrepare,
 }: {
   initialCause?: string;
+  initialContribution?: string;
   onPrepare: (data: VolunteerApplicationInput) => void;
 }) {
   const {
@@ -255,7 +263,7 @@ function VolunteerApplicationForm({
       city: "",
       ageGroup: "",
       cause: getInitialCause(initialCause) || undefined,
-      contribution: "",
+      contribution: initialContribution ?? "",
       volunteeredBefore: "",
       previousExperience: "",
       consent: false,
