@@ -152,13 +152,13 @@ export const journeySteps = [
 
 export const founders = [
   {
-    portraitName: "Mahadevan K. S.",
+    portraitName: "KSM",
     name: "Mahadevan K. S.",
     role: "Founder & Trustee",
     background: "With over two decades of international professional experience across finance, business management and consulting, Mahadevan brings experience in financial management, business transformation, planning, performance improvement and advisory services. His professional journey across India, the UAE and Europe has provided exposure to organisations, businesses and people from diverse backgrounds.",
   },
-  { portraitName: "Vaidyanathan K. S.", name: "Vaidyanathan K Subbaraman", role: "Founder & Trustee", background: "Finance | Wealth Management" },
-  { portraitName: "Ramanathan K. S.", name: "Ramanathan K Subbaraman", role: "Founder & Trustee", background: "Banking" },
+  { portraitName: "KSV", name: "Vaidyanathan K. S.", role: "Founder & Trustee", background: "Finance | Wealth Management" },
+  { portraitName: "KSR", name: "Ramanathan K. S.", role: "Founder & Trustee", background: "Banking" },
 ];
 
 export const governancePrinciples: Array<{ title: string; Icon: LucideIcon }> = [
