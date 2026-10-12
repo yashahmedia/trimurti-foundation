@@ -41,6 +41,7 @@ export default function ConnectRequestAction({
   const submissionInFlight = useRef(false);
   const titleId = useId();
   const dialogId = `${connectionId}-form`;
+  const isBusinessConnect = connectionLabel === "Business Connect";
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -91,14 +92,23 @@ export default function ConnectRequestAction({
     }
 
     const formData = new FormData(form);
-    const payload = {
+    const contactDetails = {
       connection: connectionLabel,
       name: String(formData.get("name") ?? "").trim(),
       mobile: String(formData.get("mobile") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
-      profession: String(formData.get("profession") ?? ""),
-      otherProfession: String(formData.get("otherProfession") ?? "").trim(),
+      address: String(formData.get("address") ?? "").trim(),
     };
+    const payload = isBusinessConnect
+      ? {
+          ...contactDetails,
+          typeOfBusiness: String(formData.get("typeOfBusiness") ?? "").trim(),
+        }
+      : {
+          ...contactDetails,
+          profession: String(formData.get("profession") ?? ""),
+          otherProfession: String(formData.get("otherProfession") ?? "").trim(),
+        };
 
     submissionInFlight.current = true;
     setSubmitting(true);
@@ -230,43 +240,69 @@ export default function ConnectRequestAction({
                     />
                   </label>
                   <label className={styles.field}>
-                    <span>Profession *</span>
-                    <select
-                      name="profession"
-                      required
-                      value={profession}
-                      onChange={(event) =>
-                        setProfession(event.currentTarget.value)
-                      }
-                    >
-                      <option value="">Select your profession</option>
-                      {professions.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                  {profession === "Other" && (
-                    <label className={styles.field}>
-                      <span>Please specify your profession *</span>
-                      <input
-                        autoComplete="organization-title"
-                        maxLength={120}
-                        name="otherProfession"
-                        required
-                      />
-                    </label>
-                  )}
-                  <label className={styles.field}>
-                    <span>Email address (optional)</span>
+                    <span>Email address *</span>
                     <input
                       autoComplete="email"
                       maxLength={150}
                       name="email"
+                      required
                       type="email"
                     />
                   </label>
+                  <label className={styles.field}>
+                    <span>Address *</span>
+                    <input
+                      autoComplete="street-address"
+                      maxLength={500}
+                      name="address"
+                      placeholder="Enter your address"
+                      required
+                    />
+                  </label>
+                  {isBusinessConnect ? (
+                    <label className={styles.field}>
+                      <span>Type of business *</span>
+                      <input
+                        autoComplete="organization"
+                        maxLength={120}
+                        name="typeOfBusiness"
+                        placeholder="Enter your type of business"
+                        required
+                      />
+                    </label>
+                  ) : (
+                    <>
+                      <label className={styles.field}>
+                        <span>Profession *</span>
+                        <select
+                          name="profession"
+                          required
+                          value={profession}
+                          onChange={(event) =>
+                            setProfession(event.currentTarget.value)
+                          }
+                        >
+                          <option value="">Select your profession</option>
+                          {professions.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                      {profession === "Other" && (
+                        <label className={styles.field}>
+                          <span>Please specify your profession *</span>
+                          <input
+                            autoComplete="organization-title"
+                            maxLength={120}
+                            name="otherProfession"
+                            required
+                          />
+                        </label>
+                      )}
+                    </>
+                  )}
                   <p className={styles.formNote}>
                     Your enquiry will be sent directly to Trimurthi Foundation.
                     No email verification is required.

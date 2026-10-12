@@ -105,6 +105,7 @@ export const contactSchema = z.object({
         /^(?:\+91)?[6-9][0-9]{9}$/.test(value.replace(/[\s-]/g, "")),
       "Enter a valid 10-digit Indian mobile number.",
     ),
+  address: text(2, 500),
   subject: z.enum([
     "General Enquiry",
     "Volunteer",

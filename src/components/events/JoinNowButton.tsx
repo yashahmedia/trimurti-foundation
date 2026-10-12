@@ -14,6 +14,7 @@ type Interest = {
   fullName: string;
   mobileNumber: string;
   email: string;
+  address: string;
   message: string;
 };
 
@@ -64,6 +65,7 @@ export default function JoinNowButton({
       fullName: String(data.get("fullName") ?? "").trim(),
       mobileNumber,
       email: String(data.get("email") ?? "").trim(),
+      address: String(data.get("address") ?? "").trim(),
       message: String(data.get("message") ?? "").trim(),
     };
 
@@ -177,6 +179,17 @@ export default function JoinNowButton({
               <label className={styles.field} htmlFor={`${id}-email`}>
                 <span>Email Address (optional)</span>
                 <input id={`${id}-email`} name="email" type="email" autoComplete="email" maxLength={150} />
+              </label>
+              <label className={styles.field} htmlFor={`${id}-address`}>
+                <span>Address *</span>
+                <input
+                  id={`${id}-address`}
+                  name="address"
+                  autoComplete="street-address"
+                  placeholder="Enter your address"
+                  maxLength={500}
+                  required
+                />
               </label>
               <label className={`${styles.field} ${styles.messageField}`} htmlFor={`${id}-message`}>
                 <span>Message / Reason for Joining (optional)</span>

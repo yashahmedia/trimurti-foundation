@@ -22,8 +22,7 @@ export default function ArtistInterestForm() {
         `Full Name: ${getValue("fullName")}`,
         `Contact Number: ${getValue("contactNumber")}`,
         `Email Address: ${getValue("email")}`,
-        `City & Country: ${getValue("cityCountry")}`,
-        `Postal Address: ${getValue("postalAddress") || "Not provided"}`,
+        `Address: ${getValue("address")}`,
         `Art Form: ${getValue("artForm") || "Not specified"}`,
         "",
         "Message:",
@@ -91,37 +90,18 @@ export default function ArtistInterestForm() {
           </span>
         </label>
 
-        <label className={styles.field} htmlFor="artist-city-country">
+        <label className={styles.field} htmlFor="artist-address">
           <span className={styles.fieldLabel}>
-            City &amp; Country<span aria-hidden="true">*</span>
+            Address<span aria-hidden="true">*</span>
           </span>
           <input
-            id="artist-city-country"
-            name="cityCountry"
-            type="text"
-            autoComplete="address-level2"
-            placeholder="City, Country"
-            aria-describedby="artist-location-hint"
-            required
-          />
-          <span className={styles.fieldHint} id="artist-location-hint">
-            Current place of residence
-          </span>
-        </label>
-
-        <label className={styles.field} htmlFor="artist-postal-address">
-          <span className={styles.fieldLabel}>Postal Address</span>
-          <input
-            id="artist-postal-address"
-            name="postalAddress"
+            id="artist-address"
+            name="address"
             type="text"
             autoComplete="street-address"
-            placeholder="Street address"
-            aria-describedby="artist-address-hint"
+            placeholder="Enter your address"
+            required
           />
-          <span className={styles.fieldHint} id="artist-address-hint">
-            Optional at the initial stage
-          </span>
         </label>
 
         <label className={styles.field} htmlFor="artist-art-form">

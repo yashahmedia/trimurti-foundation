@@ -34,6 +34,7 @@ export default function ContactForm({
       fullName: "",
       email: "",
       phone: "",
+      address: "",
       subject: initialSubject,
       message: "",
     },
@@ -55,6 +56,7 @@ export default function ContactForm({
         `Name: ${data.fullName}`,
         `Email: ${data.email}`,
         `Phone: ${data.phone}`,
+        `Address: ${data.address}`,
         `Subject: ${data.subject}`,
         "",
         data.message,
@@ -115,6 +117,20 @@ export default function ContactForm({
             {...register("phone")}
           />
           {fieldError("phone")}
+        </label>
+
+        <label className={styles.field} htmlFor="contact-address">
+          <span>Address *</span>
+          <input
+            id="contact-address"
+            autoComplete="street-address"
+            placeholder="Enter your address"
+            required
+            aria-invalid={Boolean(errors.address)}
+            aria-describedby={errors.address ? "address-error" : undefined}
+            {...register("address")}
+          />
+          {fieldError("address")}
         </label>
 
         <label className={styles.field} htmlFor="contact-subject">

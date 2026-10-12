@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Award,
   HeartHandshake,
   HandHeart,
   Sparkles,
@@ -97,21 +96,12 @@ export default function WallOfHonourPage() {
             {honourWallEntries.map((entry, index) => (
               <Reveal key={entry.name} delay={index * 0.08}>
                 <article className={styles.supporterPlaque}>
-                  <span className={styles.sampleTag}>
-                    {entry.isSample ? "Sample entry" : "In gratitude"}
-                  </span>
-                  <span className={styles.plaqueIcon} aria-hidden="true">
-                    <Award size={22} strokeWidth={1.45} />
-                  </span>
-                  <span className={styles.cardRule} aria-hidden="true" />
                   <h3>{entry.name}</h3>
+                  <span className={styles.cardRule} aria-hidden="true" />
                   <p className={styles.role}>{entry.role}</p>
                   {entry.message && (
                     <p className={styles.appreciation}>{entry.message}</p>
                   )}
-                  <span className={styles.cardFlourish} aria-hidden="true">
-                    ✦
-                  </span>
                 </article>
               </Reveal>
             ))}

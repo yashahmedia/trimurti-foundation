@@ -1,7 +1,7 @@
 ﻿# Required before public launch
 
 - Public-facing foundation name: “Trimurthi Foundation”. Confirm legal registration documents use the same name before publishing legal claims; logos have been preserved exactly as supplied.
-- Actual domain and verified email, phone and address. The legacy source contains `hello@trimurtifoundation.org`, but no evidence that it is operational; it remains an unpublished configuration note.
+- Actual domain and verified email, phone and address. `3murthifoundation@gmail.com` is configured as the foundation email; confirm it is operational before publishing.
 - Organization history, leadership names and approved message; the legacy “Since 2010” was unsupported and is not republished.
 - Registration details and actual certificates, including PAN, 12A, 80G, CSR or FCRA only where genuinely held; publish only appropriately redacted public copies.
 - Approved privacy/terms, retention schedule, privacy contact and consent process.

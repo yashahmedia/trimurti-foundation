@@ -17,6 +17,8 @@ import {
 } from "./AboutUsFeatureSections";
 import styles from "./AboutUsRedesign.module.css";
 
+const showAdvisoryTeamSection = false;
+
 type SectionHeadingProps = {
   id?: string;
   eyebrow?: string;
@@ -150,10 +152,15 @@ export default function AboutUsRedesign() {
           <div className={styles.editorialInner}>
             <h2 id="what-we-do-title" className={styles.editorialHeading}>What We Do</h2>
             <p className={styles.editorialParagraph}>
-              Our work broadly encompasses Community Care &amp; Social Impact, Nature &amp; Sustainability, and Culture &amp; Heritage.
-              Through these areas, we seek to support deserving individuals and communities through initiatives relating to education, healthcare, nutrition, elderly care, environmental awareness, support for our soldiers, cultural preservation, traditional arts, temples, heritage and access to India's rich knowledge traditions.
-              But we believe that service is not only about giving.
-              It is also about creating opportunities, building connections and helping people become stronger and more self-reliant.
+              At Trimurthi Foundation, we believe that meaningful change begins
+              with compassion and collective action. Through education and
+              empowerment, healthcare support, nutrition, elderly care,
+              environmental welfare, support for our soldiers, and the
+              preservation of India&apos;s rich cultural heritage, we work to
+              create opportunities and improve lives. Our focus is on reaching
+              communities with care, strengthening individuals with dignity, and
+              building a future where everyone has the opportunity to live a
+              better, more secure, and empowered life.
             </p>
             <div className={styles.whatWeDoGallery} aria-hidden="true">
               <div className={styles.galleryCard}>
@@ -425,7 +432,7 @@ export default function AboutUsRedesign() {
 
       <MissionVisionSection />
       <GovernanceSection />
-      <AdvisoryTeamSection />
+      {showAdvisoryTeamSection && <AdvisoryTeamSection />}
 
     </div>
   );

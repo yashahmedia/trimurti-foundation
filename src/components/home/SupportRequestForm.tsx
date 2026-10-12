@@ -124,7 +124,7 @@ const categories: SupportCategory[] = [
         ].map((value) => ({ value, label: value })),
       },
       { name: "requiredDateDuration", label: "Required Date / Duration", type: "text", required: true, placeholder: "For example, 20 October or two weeks" },
-      { name: "deliveryLocation", label: "Delivery Location", type: "text", required: true },
+      { name: "deliveryLocation", label: "Delivery Address", type: "text", required: true },
       { name: "foodRequirement", label: "Briefly Describe the Requirement", type: "textarea", required: true },
     ],
   },
@@ -150,7 +150,6 @@ const categories: SupportCategory[] = [
           "Other",
         ].map((value) => ({ value, label: value })),
       },
-      { name: "soldierLocation", label: "Location", type: "text", required: true },
       { name: "soldierSituation", label: "Briefly Describe the Situation", type: "textarea", required: true },
     ],
   },
@@ -173,7 +172,7 @@ const categories: SupportCategory[] = [
           "Other",
         ].map((value) => ({ value, label: value })),
       },
-      { name: "environmentLocation", label: "Project / Initiative Location", type: "text", required: true },
+      { name: "environmentLocation", label: "Project / Initiative Address", type: "text", required: true },
       { name: "environmentBeneficiaries", label: "Number of People / Beneficiaries (if applicable)", type: "number", min: 0 },
       { name: "environmentDate", label: "Expected Project Date", type: "date" },
       { name: "environmentResources", label: "Resources or Assistance Required", type: "text", required: true },
@@ -200,7 +199,7 @@ const categories: SupportCategory[] = [
         ].map((value) => ({ value, label: value })),
       },
       { name: "heritageProjectName", label: "Heritage Site / Event / Project Name", type: "text", required: true },
-      { name: "cultureLocation", label: "Project Location", type: "text", required: true },
+      { name: "cultureLocation", label: "Project Address", type: "text", required: true },
       { name: "cultureExpectedDate", label: "Expected Date", type: "date" },
       {
         name: "cultureSupportType",
@@ -333,7 +332,7 @@ export default function SupportRequestForm({
     ) {
       next.emailAddress = "Enter a valid email address.";
     }
-    if (contact.city.trim().length < 2) next.city = "Enter your city or location.";
+    if (contact.city.trim().length < 2) next.city = "Enter your address.";
     if (!category) next.category = "Select a support category.";
     if (!files.length) next.documents = "Upload at least one relevant supporting document.";
     currentCategory?.fields.forEach((field) => {
@@ -381,7 +380,7 @@ export default function SupportRequestForm({
         `Full Name: ${contact.fullName.trim()}`,
         `Mobile Number: ${contact.mobileNumber.trim()}`,
         `Email Address: ${contact.emailAddress.trim() || "Not provided"}`,
-        `City / Location: ${contact.city.trim()}`,
+        `Address: ${contact.city.trim()}`,
         "Permission to contact: Yes",
         "",
         ...currentCategory.fields
@@ -510,7 +509,7 @@ export default function SupportRequestForm({
                   {errors.emailAddress && <span className={styles.fieldError} id="support-request-emailAddress-error">{errors.emailAddress}</span>}
                 </label>
                 <label className={styles.field} htmlFor="support-request-city">
-                  <span>City / Location *</span>
+                  <span>Address *</span>
                   <input id="support-request-city" autoComplete="address-level2" required value={contact.city} onChange={(event) => updateContact("city", event.target.value)} aria-invalid={Boolean(errors.city)} aria-describedby={errors.city ? "support-request-city-error" : undefined} />
                   {errors.city && <span className={styles.fieldError} id="support-request-city-error">{errors.city}</span>}
                 </label>

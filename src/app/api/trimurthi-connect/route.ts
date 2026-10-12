@@ -12,25 +12,28 @@ const baseFields = {
     .max(30)
     .regex(/^(?=.*[0-9])[+0-9(). -]+$/),
   email: z.union([z.literal(""), z.email().max(150)]),
-  profession: z.enum([
-    "Student",
-    "Working Professional",
-    "Teacher / Educator",
-    "Doctor / Healthcare Professional",
-    "Business Owner / Entrepreneur",
-    "Social Worker / NGO Professional",
-    "Government Employee",
-    "Freelancer / Consultant",
-    "Other",
-  ]),
-  otherProfession: z.string().trim().max(120),
+  address: z.string().trim().min(2).max(500),
 };
+
+const professions = z.enum([
+  "Student",
+  "Working Professional",
+  "Teacher / Educator",
+  "Doctor / Healthcare Professional",
+  "Business Owner / Entrepreneur",
+  "Social Worker / NGO Professional",
+  "Government Employee",
+  "Freelancer / Consultant",
+  "Other",
+]);
 
 const requestSchema = z.discriminatedUnion("connection", [
   z
     .object({
       connection: z.literal("Professional Connect"),
       ...baseFields,
+      profession: professions,
+      otherProfession: z.string().trim().max(120),
     })
     .strict()
     .refine(
@@ -42,13 +45,9 @@ const requestSchema = z.discriminatedUnion("connection", [
     .object({
       connection: z.literal("Business Connect"),
       ...baseFields,
+      typeOfBusiness: z.string().trim().min(2).max(120),
     })
-    .strict()
-    .refine(
-      (data) =>
-        data.profession !== "Other" || data.otherProfession.length >= 2,
-      { path: ["otherProfession"] },
-    ),
+    .strict(),
 ]);
 
 function hasSameOrigin(request: Request): boolean {
@@ -115,18 +114,22 @@ export async function POST(request: Request) {
   }
 
   const data = parsed.data;
-  const professionDetails = [
-    `Profession: ${data.profession}`,
-    ...(data.profession === "Other"
-      ? [`Other profession: ${data.otherProfession}`]
-      : []),
-  ];
+  const connectionDetails =
+    data.connection === "Business Connect"
+      ? [`Type of business: ${data.typeOfBusiness}`]
+      : [
+          `Profession: ${data.profession}`,
+          ...(data.profession === "Other"
+            ? [`Other profession: ${data.otherProfession}`]
+            : []),
+        ];
   const text = [
     `Connection enquiry: ${data.connection}`,
     `Name: ${data.name}`,
     `Mobile: ${data.mobile}`,
     `Email: ${data.email || "Not provided"}`,
-    ...professionDetails,
+    `Address: ${data.address}`,
+    ...connectionDetails,
   ].join("\n");
 
   let response: Response;

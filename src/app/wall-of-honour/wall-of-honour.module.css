@@ -167,7 +167,6 @@
   box-shadow:
     0 27px 65px rgba(16, 5, 8, 0.35),
     inset 0 1px rgba(255, 255, 255, 0.4);
-  transform: rotate(1.5deg);
 }
 
 .plaqueInset {
@@ -335,92 +334,113 @@
   justify-content: center;
   overflow: hidden;
   padding: 34px 25px 30px;
-  border: 1px solid rgba(201, 145, 32, 0.35);
-  border-radius: 7px;
+  border: 1px solid #4d2b12;
+  border-radius: 4px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.8), transparent 58%),
-    linear-gradient(145deg, #fffdf8, #f5f0e5);
-  box-shadow: 0 12px 30px rgba(8, 39, 65, 0.08), inset 0 0 0 5px rgba(255, 255, 255, 0.45);
+    linear-gradient(90deg, rgba(24, 10, 4, 0.32), transparent 12%, rgba(255, 197, 105, 0.12) 20%, transparent 33%, rgba(25, 11, 5, 0.24) 47%, transparent 59%, rgba(245, 187, 98, 0.11) 73%, transparent 85%, rgba(25, 11, 5, 0.25)),
+    repeating-linear-gradient(90deg, rgba(35, 16, 7, 0.25) 0 1px, transparent 2px 11px),
+    linear-gradient(100deg, #321b0e, #70421f 19%, #442511 43%, #754725 68%, #351c0f);
+  box-shadow:
+    0 14px 30px rgba(35, 20, 10, 0.24),
+    inset 0 0 0 4px rgba(22, 11, 5, 0.24),
+    inset 0 0 0 6px rgba(209, 158, 76, 0.24);
   text-align: center;
   transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
 }
 
 .supporterPlaque::before {
   position: absolute;
-  inset: 11px;
-  border: 1px solid rgba(201, 145, 32, 0.23);
+  z-index: 0;
+  inset: 24px 19px;
+  border: 2px solid #8c621e;
+  border-radius: 4px;
+  background:
+    radial-gradient(ellipse at 30% 15%, rgba(255, 247, 198, 0.58), transparent 40%),
+    linear-gradient(105deg, #b78632, #f2d77e 22%, #c99a43 53%, #f5dc8c 78%, #b4812e);
+  box-shadow:
+    0 5px 10px rgba(14, 8, 3, 0.56),
+    inset 0 1px 2px rgba(255, 255, 220, 0.84),
+    inset 0 -3px 5px rgba(103, 65, 13, 0.4);
+  content: "";
+  pointer-events: none;
+}
+
+.supporterPlaque::after {
+  position: absolute;
+  z-index: 2;
+  inset: 27px 23px;
+  background:
+    radial-gradient(circle, #593a13 0 2px, #e2bb62 2.5px 3.5px, transparent 4px) left top / 8px 8px no-repeat,
+    radial-gradient(circle, #593a13 0 2px, #e2bb62 2.5px 3.5px, transparent 4px) right top / 8px 8px no-repeat,
+    radial-gradient(circle, #593a13 0 2px, #e2bb62 2.5px 3.5px, transparent 4px) left bottom / 8px 8px no-repeat,
+    radial-gradient(circle, #593a13 0 2px, #e2bb62 2.5px 3.5px, transparent 4px) right bottom / 8px 8px no-repeat;
   content: "";
   pointer-events: none;
 }
 
 .supporterPlaque:hover {
   transform: translateY(-5px);
-  border-color: rgba(201, 145, 32, 0.65);
-  box-shadow: 0 20px 38px rgba(8, 39, 65, 0.13), inset 0 0 0 5px rgba(255, 255, 255, 0.5);
-}
-
-.sampleTag {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  padding: 5px 8px;
-  border: 1px solid rgba(22, 116, 93, 0.2);
-  border-radius: 999px;
-  color: var(--honour-accent);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.plaqueIcon {
-  display: grid;
-  width: 48px;
-  height: 48px;
-  place-items: center;
-  border: 1px solid rgba(201, 145, 32, 0.5);
-  border-radius: 50%;
-  color: #9b741d;
+  border-color: #bd9250;
+  box-shadow:
+    0 20px 38px rgba(35, 20, 10, 0.34),
+    inset 0 0 0 4px rgba(22, 11, 5, 0.3),
+    inset 0 0 0 6px rgba(209, 158, 76, 0.3);
 }
 
 .cardRule {
-  width: 54px;
+  position: relative;
+  z-index: 1;
+  width: 38px;
   height: 1px;
-  margin: 20px 0 16px;
-  background: var(--honour-gold);
+  margin: 8px 0 0;
+  background: #89611f;
+}
+
+.cardRule::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0 5px;
+  background: #dfbd67;
+  color: #76531b;
+  content: "✦";
+  font-size: 8px;
+  line-height: 1;
+  transform: translate(-50%, -50%);
 }
 
 .supporterPlaque h3 {
+  position: relative;
+  z-index: 1;
   margin: 0;
-  color: var(--honour-green);
+  color: #30200e;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(20px, 2vw, 25px);
   font-weight: 500;
   line-height: 1.15;
+  text-shadow: 0 1px rgba(255, 248, 214, 0.65);
 }
 
 .role {
+  position: relative;
+  z-index: 1;
   margin: 9px 0 0;
-  color: #806316;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
+  color: #463015;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .appreciation {
+  position: relative;
+  z-index: 1;
   max-width: 260px;
   margin: 14px 0 0;
-  color: var(--honour-text);
+  color: #463015;
   font-size: 13px;
   line-height: 1.6;
-}
-
-.cardFlourish {
-  position: absolute;
-  bottom: 19px;
-  color: #9b741d;
-  font-size: 12px;
 }
 
 .gratitude {

@@ -41,6 +41,7 @@ export default function DonationForm() {
       `Full Name: ${data.get("fullName")}`,
       `Email Address: ${data.get("email")}`,
       `Phone Number: ${data.get("phone")}`,
+      `Address: ${data.get("address")}`,
       `Profession: ${data.get("profession")}`,
       `Donation Amount: ₹${Number(donationAmount).toLocaleString("en-IN")}`,
       `Payment Method: ${paymentMethod}`,
@@ -107,6 +108,15 @@ export default function DonationForm() {
           <label>
             <span>Phone Number *</span>
             <input name="phone" type="tel" required autoComplete="tel" />
+          </label>
+          <label>
+            <span>Address *</span>
+            <input
+              name="address"
+              autoComplete="street-address"
+              placeholder="Enter your address"
+              required
+            />
           </label>
           <label>
             <span>Profession *</span>

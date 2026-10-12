@@ -246,7 +246,7 @@
 .cultureVisual,
 .impactImage { position: relative; overflow: hidden; background: #dce6df; }
 
-.storyMainImage { aspect-ratio: 1.1; border-radius: 25px; box-shadow: 0 20px 54px rgba(11, 23, 32, 0.13); }
+.storyMainImage { aspect-ratio: 16 / 9; border-radius: 25px; box-shadow: 0 20px 54px rgba(11, 23, 32, 0.13); }
 
 .storyMainImage img,
 .storyInsetImage img,
@@ -440,7 +440,7 @@
 
 .beliefVisual {
   position: relative;
-  min-height: 320px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid rgba(17, 36, 31, 0.12);
   border-radius: 26px;

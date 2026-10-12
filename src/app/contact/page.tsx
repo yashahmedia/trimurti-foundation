@@ -129,7 +129,7 @@ export default function ContactPage() {
               connect.
             </p>
             <Link className={styles.primaryButton} href="#contact-form">
-              Start a conversation <ArrowRight size={17} />
+              Let&apos;s Connect <ArrowRight size={17} />
             </Link>
             <span className={styles.heroLeaf} aria-hidden="true">
               <i />

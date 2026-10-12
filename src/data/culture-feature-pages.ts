@@ -56,29 +56,29 @@ export const cultureFeaturePages = {
     eyebrow: "Culture & Heritage",
     description:
       "Learn about the foundation's stated focus on supporting temples and sacred places as centers of faith, culture and community.",
-    image: "/heritage.png",
-    imageAlt: "Temple and heritage setting",
+    image: "/Temple&heritage.png",
+    imageAlt: "Ornate Indian temple tower at golden hour",
     sections: [
       {
         title: "Restoration & Conservation",
         description:
           "Support for restoration and conservation of temples and sacred places, as described in the existing Culture & Heritage content.",
-        image: "/heritage.png",
-        imageAlt: "Temple and heritage setting",
+        image: "/Temple&heritage.png",
+        imageAlt: "Ornate Indian temple tower at golden hour",
       },
       {
         title: "Community Engagement",
         description:
           "Community engagement around sacred places is an existing stated area of focus.",
-        image: "/culture_heritage.png",
-        imageAlt: "Indian culture and heritage",
+        image: "/Community Engagement.jpg",
+        imageAlt: "Community gathering at a temple",
       },
       {
         title: "Sustainable Maintenance",
         description:
           "The existing Culture & Heritage content identifies sustainable maintenance as a temple-support area.",
-        image: "/preserve.png",
-        imageAlt: "Cultural heritage preservation",
+        image: "/Sustainable Maintenance.jpg",
+        imageAlt: "Temple heritage site maintained for future generations",
       },
     ],
   },

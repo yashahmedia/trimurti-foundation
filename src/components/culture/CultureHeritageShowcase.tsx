@@ -25,6 +25,7 @@ const features = [
     imageAlt: "Teacher guiding students in a traditional Gurukul lesson",
     href: "/services/culture-heritage/tourism-gurukul",
     icon: BookOpenText,
+    imagePosition: "gurukul",
   },
   {
     title: "Pooja & Havan",
@@ -32,6 +33,7 @@ const features = [
     imageAlt: "Priest performing a havan before a decorated shrine",
     href: "/services/culture-heritage/pooja-religious-service",
     icon: Flower2,
+    imagePosition: "pooja",
   },
 ];
 
@@ -62,10 +64,18 @@ export default function CultureHeritageShowcase() {
         </header>
 
         <nav className={styles.cards} aria-label="Culture and heritage initiatives">
-          {features.map(({ title, image, imageAlt, href, icon: Icon }, index) => (
+          {features.map(({ title, image, imageAlt, href, icon: Icon, imagePosition }, index) => (
             <CultureReveal className={styles.cardReveal} delay={index * 0.06} key={title}>
               <Link className={styles.card} href={href}>
-                <span className={styles.cardImage}>
+                <span
+                  className={`${styles.cardImage} ${
+                    imagePosition === "gurukul"
+                      ? styles.cardImageGurukul
+                      : imagePosition === "pooja"
+                        ? styles.cardImagePooja
+                        : ""
+                  }`}
+                >
                   <Image
                     src={image}
                     alt={imageAlt}

@@ -18,7 +18,7 @@ const connections = [
     description:
       "Doctors, teachers, lawyers and designers offering pro-bono hours, workshops or one-on-one guidance to the people we serve.",
     image: "/Professional Connect.jpeg",
-    imageAlt: "Two professionals discussing ideas while reviewing a tablet",
+    imageAlt: "Three people standing together outside a building",
     Icon: ContactRound,
     features: [
       { label: "Share your skills", Icon: GraduationCap },
@@ -80,6 +80,11 @@ export default function TrimurtiConnect() {
                     alt={imageAlt}
                     fill
                     sizes="(max-width: 620px) 100vw, (max-width: 900px) 100vw, 50vw"
+                    style={
+                      id === "professional-connect-home"
+                        ? { objectPosition: "center 20%" }
+                        : undefined
+                    }
                   />
                 </div>
                 <div className="connect-card-body">

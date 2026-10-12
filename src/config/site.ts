@@ -4,12 +4,12 @@ export const site = {
   description:
     "Bringing people, care and opportunity together for stronger communities.",
   logo: "/logo.png",
-  email: "hello@trimurtifoundation.org",
+  email: "3murthifoundation@gmail.com",
   phone: "+91 98765 43210",
   address: "Thrissur, Kerala, India",
-  registration: "",
+  registration: "221/VI/2026",
   social: [],
-  // TODO: confirm the legacy email hello@trimurtifoundation.org before publishing.
+  // TODO: confirm 3murthifoundation@gmail.com is operational before publishing.
   // TODO: supply legal registration, leadership, bank details, approved policies and verified impact.
   impact: [
     { label: "Lives supported", value: 10000 },

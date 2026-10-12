@@ -8,7 +8,6 @@ import {
   ClipboardCheck,
   HandHeart,
   HeartPulse,
-  MessageCircle,
   Sprout,
   UsersRound,
 } from "lucide-react";
@@ -82,18 +81,20 @@ const impactAreas = [
 
 const supportSteps = [
   {
-    title: "Tell us what is happening",
-    description: "Share the situation in your own words.",
-    Icon: MessageCircle,
+    title: "What do you need support with?",
+    description: "Tell us the area in which you are seeking support.",
+    Icon: HandHeart,
   },
   {
-    title: "Help us understand the need",
-    description: "A few relevant details can help us understand what may help.",
+    title: "Tell us about your situation",
+    description:
+      "Explain your current circumstances and how you hope Trimurthi Foundation can help.",
     Icon: ClipboardCheck,
   },
   {
     title: "Explore the next steps",
-    description: "Our team can guide you towards relevant support options.",
+    description:
+      "Our team will review your request and explore appropriate support options with you.",
     Icon: HandHeart,
   },
 ];
@@ -126,8 +127,10 @@ export default function Page() {
             </div>
           </div>
           <aside className={styles.helpGuide} aria-label="How we can guide you">
-            <span className={styles.guideEyebrow}>A thoughtful first step</span>
-            <h3>Finding the right support starts here.</h3>
+            <span className={styles.guideEyebrow}>
+              A helping hand when you need it
+            </span>
+            <h3>Your journey towards support starts here.</h3>
             <ol>
               {supportSteps.map(({ title, description, Icon }, index) => (
                 <li key={title}>

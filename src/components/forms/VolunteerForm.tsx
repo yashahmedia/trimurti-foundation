@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { site } from "@/config/site";
 import { volunteerSchema, type VolunteerInput } from "@/lib/validation";
 
 const interests = [
@@ -114,7 +115,7 @@ export default function VolunteerForm({
         .join("\n"),
     );
     window.open(
-      `mailto:hello@trimurtifoundation.org?subject=${subject}&body=${body}`,
+      `mailto:${site.email}?subject=${subject}&body=${body}`,
       "_blank",
       "noopener,noreferrer",
     );
@@ -133,7 +134,7 @@ export default function VolunteerForm({
           {field("fullName", "Full Name *")}
           {field("email", "Email Address *", "email")}
           {field("phone", "Phone Number *", "tel")}
-          {field("city", "City / Location *")}
+          {field("city", "Address *")}
         </div>
       </fieldset>
 
@@ -293,8 +294,8 @@ export default function VolunteerForm({
             Your email application should open with your details. Please send
             the email to complete your application. If it doesn&apos;t open,
             contact us at{" "}
-            <a href="mailto:hello@trimurtifoundation.org">
-              hello@trimurtifoundation.org
+            <a href={`mailto:${site.email}`}>
+              {site.email}
             </a>
             .
           </p>

@@ -231,12 +231,12 @@ function KnowledgeDialog({
                     />
                   </label>
                   <label className={styles.field} htmlFor="knowledge-city">
-                    <span>City / Location *</span>
+                    <span>Address *</span>
                     <input
                       id="knowledge-city"
                       name="city"
                       autoComplete="address-level2"
-                      placeholder="Enter your city"
+                      placeholder="Enter your address"
                       required
                     />
                   </label>

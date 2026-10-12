@@ -44,7 +44,6 @@ type BookingDetails = {
   address: string;
   date: string;
   time: string;
-  city: string;
   participants: string;
   gotra: string;
   nakshatra: string;
@@ -208,7 +207,6 @@ const emptyDetails: BookingDetails = {
   address: "",
   date: "",
   time: "",
-  city: "",
   participants: "1",
   gotra: "",
   nakshatra: "",
@@ -633,15 +631,6 @@ export default function PoojaReligiousServicesPage() {
                     required
                     value={details.time}
                     onChange={(event) => setDetails({ ...details, time: event.target.value })}
-                  />
-                </label>
-                <label className={styles.field}>
-                  <span>City <i>*</i></span>
-                  <input
-                    autoComplete="address-level2"
-                    required
-                    value={details.city}
-                    onChange={(event) => setDetails({ ...details, city: event.target.value })}
                   />
                 </label>
                 <label className={styles.field}>

@@ -469,6 +469,9 @@ export default function Header() {
 
       <div className="brand-header">
         <div className="container brand-header-inner">
+          <span className="brand-registration">
+            Registration No. {site.registration}
+          </span>
           <Link href="/" aria-label="Trimurthi Foundation home" className="brand-logo-link">
             <Image
               src={site.logo}

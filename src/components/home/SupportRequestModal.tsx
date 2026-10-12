@@ -123,10 +123,10 @@ const contactFields: SupportRequestField[] = [
   },
   {
     name: "city",
-    label: "City / Location",
+    label: "Address",
     type: "text",
     required: true,
-    placeholder: "Your city or location",
+    placeholder: "Enter your address",
   },
 ];
 

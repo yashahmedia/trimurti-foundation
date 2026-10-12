@@ -137,6 +137,14 @@
   transition: transform 420ms ease;
 }
 
+.cardImageGurukul img {
+  object-position: right center;
+}
+
+.cardImagePooja img {
+  object-position: left center;
+}
+
 .card:hover .cardImage img,
 .card:focus-visible .cardImage img {
   transform: scale(1.045);

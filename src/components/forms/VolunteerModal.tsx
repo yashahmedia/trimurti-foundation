@@ -222,7 +222,7 @@ function createEmailDraft(data: VolunteerApplicationInput) {
       `Full name: ${data.fullName}`,
       `Mobile / WhatsApp: ${data.phone}`,
       `Email: ${data.email || "Not provided"}`,
-      `City / State: ${data.city}`,
+      `Address: ${data.city}`,
       `Age group: ${data.ageGroup || "Not provided"}`,
       `Cause: ${data.cause}`,
       `Contribution message: ${data.contribution || "Not provided"}`,
@@ -321,11 +321,11 @@ function VolunteerApplicationForm({
             {fieldError("email")}
           </label>
           <label className={styles.field} htmlFor="volunteer-city">
-            <span>City / State *</span>
+            <span>Address *</span>
             <input
               id="volunteer-city"
               autoComplete="address-level2"
-              placeholder="Enter your city and state"
+              placeholder="Enter your address"
               aria-invalid={Boolean(errors.city)}
               aria-describedby={errors.city ? "city-error" : undefined}
               {...register("city")}

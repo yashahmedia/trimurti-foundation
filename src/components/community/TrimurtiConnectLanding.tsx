@@ -22,8 +22,8 @@ const connections: Array<{
     description:
       "We bring together professionals, mentors and changemakers to share knowledge, build skills and create meaningful opportunities for a brighter future.",
     image: "/Professional Connect.jpeg",
-    alt: "A professional sharing guidance with a student",
-    position: "center",
+    alt: "Three people standing together outside a building",
+    position: "center 20%",
   },
   {
     id: "business-connect",

@@ -8,9 +8,19 @@ import {
   useTransform,
 } from "framer-motion";
 import { Eye, HandHeart, Scale, ShieldCheck } from "lucide-react";
-import { useRef } from "react";
-import governanceCard from "../../../public/pan card  trimuthi .png";
+import { useEffect, useRef, useState } from "react";
 import styles from "./AboutUsRedesign.module.css";
+
+const governanceSlides = [
+  {
+    image: "/pan card  trimuthi .png",
+    alt: "Trimurthi Foundation PAN card",
+  },
+  {
+    image: "/doc%202.png",
+    alt: "Trimurthi Foundation registration details",
+  },
+];
 
 const principles = [
   {
@@ -93,7 +103,7 @@ export function MissionVisionSection() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.65, delay: 0.12, ease: "easeOut" }}
             >
-              <p className={styles.missionKicker}>01 / Mission</p>
+              <p className={styles.missionKicker}>Mission</p>
               <h3>Every life deserves an opportunity.</h3>
               <p>
                 Our mission is to serve people with dignity and compassion,
@@ -133,7 +143,7 @@ export function MissionVisionSection() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.65, delay: 0.2, ease: "easeOut" }}
             >
-              <p className={styles.missionKicker}>02 / Vision</p>
+              <p className={styles.missionKicker}>Vision</p>
               <h3>A future where no one is left behind.</h3>
               <p>
                 We envision a society where every person has the opportunity to
@@ -151,8 +161,18 @@ export function MissionVisionSection() {
 
 export function GovernanceSection() {
   const reducedMotion = useReducedMotion();
+  const [activeGovernanceSlide, setActiveGovernanceSlide] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const slideInterval = window.setInterval(() => {
+      setActiveGovernanceSlide((currentSlide) =>
+        (currentSlide + 1) % governanceSlides.length,
+      );
+    }, 5000);
+
+    return () => window.clearInterval(slideInterval);
+  }, []);
   const { scrollYProgress: sectionProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -194,16 +214,14 @@ export function GovernanceSection() {
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
             <Image
-              src={governanceCard}
-              alt="Trimurthi Foundation PAN card"
+              key={governanceSlides[activeGovernanceSlide].image}
+              src={governanceSlides[activeGovernanceSlide].image}
+              alt={governanceSlides[activeGovernanceSlide].alt}
               fill
               loading="eager"
               sizes="(max-width: 760px) 100vw, 45vw"
               unoptimized
             />
-            <span className={styles.governanceImageCaption}>
-              Decisions made with care
-            </span>
           </motion.div>
           <motion.div
             className={styles.governanceCopy}
