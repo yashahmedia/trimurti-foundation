@@ -231,11 +231,10 @@ export default function AboutUsRedesign() {
             align="center"
           />
           <div className={styles.founderGrid}>
-            {founders.map(({ portraitName, name, role, background }, index) => (
+            {founders.map(({ image, name, role, background }, index) => (
               <article className={styles.founderCard} key={name}>
-                <div className={`${styles.founderPortrait} ${index === 1 ? styles.founderPortraitWarm : index === 2 ? styles.founderPortraitCool : ""}`} aria-hidden="true">
-                  <span>{portraitName}</span>
-                  <span className={styles.portraitRule} />
+                <div className={`${styles.founderPortrait} ${index === 1 ? styles.founderPortraitWarm : index === 2 ? styles.founderPortraitCool : ""}`} aria-label={`${name} founder portrait`}>
+                  <Image src={image} alt={`${name} portrait`} fill sizes="(max-width: 760px) 100vw, 33vw" className={styles.founderImage} />
                 </div>
                 <div className={styles.founderMeta}>
                   <p className={styles.founderRole}>{role}</p>

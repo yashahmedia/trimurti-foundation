@@ -153,12 +153,27 @@ export const journeySteps = [
 export const founders = [
   {
     portraitName: "KSM",
+    image: "/images/ksm.jpeg",
     name: "Mahadevan K. S.",
     role: "Founder & Trustee",
     background: "With over two decades of international professional experience across finance, business management and consulting, Mahadevan brings experience in financial management, business transformation, planning, performance improvement and advisory services. His professional journey across India, the UAE and Europe has provided exposure to organisations, businesses and people from diverse backgrounds.",
   },
-  { portraitName: "KSV", name: "Vaidyanathan K. S.", role: "Founder & Trustee", background: "Finance | Wealth Management" },
-  { portraitName: "KSR", name: "Ramanathan K. S.", role: "Founder & Trustee", background: "Banking" },
+  {
+    portraitName: "KSV",
+    image: "/images/ksv.jpeg",
+    name: "Vaidyanathan K. S.",
+    role: "Founder & Trustee",
+    background:
+      "Dr. Vaidyanathan is an IIM alumnus, MBA graduate, Doctorate holder in Business Management, CA Finalist, PMP®, and FMVA® professional with over two decades of experience in finance, investment analysis and business management. His doctoral research focused on Investment Analysis and Portfolio Management. Currently pursuing Certified Financial Planner (CFP®) certification, he manages private portfolios and advises family offices on long-term value creation and sustainable wealth management. An active member of IBPC Dubai, Volunteer,ae, Indian People's Forum UAE, and Nabdh Al Emirates Voluntary Association, he supports humanitarian initiatives through the Consulate General of India, Dubai, and ICWC. He regularly participates in blood donation drives and volunteer activities.",
+  },
+  {
+    portraitName: "KSR",
+    image: "/images/ksr.jpeg",
+    name: "Ramanathan K. S.",
+    role: "Founder & Trustee",
+    background:
+      "Ramanathan holds a Master's degree and has worked in the UAE banking industry for the past 17 years. From a young age, he has been passionate about charitable service, initiating and supporting activities in India and the UAE. He actively volunteers in religious and cultural initiatives and has contributed to several organisations. He believes in upholding and promoting Indian culture and traditions wherever he is in the world. Through the Trimurthi Foundation, he continues his commitment to serving the community and supporting charitable, religious, and cultural causes.",
+  },
 ];
 
 export const governancePrinciples: Array<{ title: string; Icon: LucideIcon }> = [
