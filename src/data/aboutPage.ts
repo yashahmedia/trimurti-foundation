@@ -154,7 +154,7 @@ export const founders = [
   {
     portraitName: "KSM",
     image: "/images/ksm.jpeg",
-    name: "Mahadevan K. S.",
+    name: "Mahadevan K S",
     shortName: "KSM",
     role: "Founder & Trustee",
     background: "With over two decades of international professional experience across finance, business management and consulting, Mahadevan brings experience in financial management, business transformation, planning, performance improvement and advisory services. His professional journey across India, the UAE and Europe has provided exposure to organisations, businesses and people from diverse backgrounds.",
@@ -162,7 +162,7 @@ export const founders = [
   {
     portraitName: "KSV",
     image: "/images/ksv.jpeg",
-    name: "Vaidyanathan K. S.",
+    name: "Vaidyanathan K S",
     shortName: "KSV",
     role: "Founder & Trustee",
     background:
@@ -171,7 +171,7 @@ export const founders = [
   {
     portraitName: "KSR",
     image: "/images/ksr-white.png",
-    name: "Ramanathan K. S.",
+    name: "Ramanathan K S",
     shortName: "KSR",
     role: "Founder & Trustee",
     background:
