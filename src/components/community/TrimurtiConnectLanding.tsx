@@ -21,7 +21,7 @@ const connections: Array<{
     title: "Connecting Professionals. Creating Impact.",
     description:
       "We bring together professionals, mentors and changemakers to share knowledge, build skills and create meaningful opportunities for a brighter future.",
-    image: "/Professional Connect.jpeg",
+    image: "/Professional Connect.jpg",
     alt: "Three people standing together outside a building",
     position: "center 20%",
   },

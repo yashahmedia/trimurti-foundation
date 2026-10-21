@@ -170,7 +170,7 @@ export const founders = [
   },
   {
     portraitName: "KSR",
-    image: "/images/ksr.jpeg",
+    image: "/images/ksr-white.png",
     name: "Ramanathan K. S.",
     shortName: "KSR",
     role: "Founder & Trustee",
