@@ -15,6 +15,7 @@ import {
   GovernanceSection,
   MissionVisionSection,
 } from "./AboutUsFeatureSections";
+import FounderCard from "./FounderCard";
 import styles from "./AboutUsRedesign.module.css";
 
 const showAdvisoryTeamSection = false;
@@ -231,17 +232,8 @@ export default function AboutUsRedesign() {
             align="center"
           />
           <div className={styles.founderGrid}>
-            {founders.map(({ image, name, role, background }, index) => (
-              <article className={styles.founderCard} key={name}>
-                <div className={`${styles.founderPortrait} ${index === 1 ? styles.founderPortraitWarm : index === 2 ? styles.founderPortraitCool : ""}`} aria-label={`${name} founder portrait`}>
-                  <Image src={image} alt={`${name} portrait`} fill sizes="(max-width: 760px) 100vw, 33vw" className={styles.founderImage} />
-                </div>
-                <div className={styles.founderMeta}>
-                  <p className={styles.founderRole}>{role}</p>
-                  <h3>{name}</h3>
-                  <p className={styles.founderBackground}>{background}</p>
-                </div>
-              </article>
+            {founders.map((founder, index) => (
+              <FounderCard key={founder.name} {...founder} index={index} />
             ))}
           </div>
         </div>
