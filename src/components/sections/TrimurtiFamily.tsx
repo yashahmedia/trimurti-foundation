@@ -37,7 +37,7 @@ const ways = [
     form: "knowledge",
     description:
       "Share your experience, knowledge and guidance to help individuals grow, make informed choices and realise their potential.",
-    image: "/Offer mentorship.jpg",
+    image: "/offer mentorship.jpg",
     imageAlt: "A mentor guiding students during a community workshop",
     Icon: Handshake,
   },
